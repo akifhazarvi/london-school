@@ -1,10 +1,10 @@
 /* ============================================================
-   LONDON SCHOOL — Organic Shape Decorations
-   3 shapes visible per viewport: 1 large, 1 medium, 1 small.
-   Slow single-direction rotation only. Balanced layout.
+   LONDON SCHOOL — Organic Pebble Decorations
+   Varied sizes & shapes like scattered pebbles.
+   Slow single-direction rotation. Alternating L/R edges.
    ============================================================ */
 
-/* ── ANIMATION — single slow rotation ── */
+/* ── ANIMATION ── */
 
 @keyframes shape-rotate {
   from { transform: rotate(0deg); }
@@ -28,7 +28,7 @@
 
 
 /* ══════════════════════════════════════════════════════════════
-   BASE SHAPE — all shapes share this
+   BASE SHAPE
    ══════════════════════════════════════════════════════════════ */
 
 .shape {
@@ -40,53 +40,39 @@
 
 
 /* ══════════════════════════════════════════════════════════════
-   3 SIZES — always 1 of each in view
+   6 PEBBLE SIZES — varied like real stones
    ══════════════════════════════════════════════════════════════ */
 
-.shape-lg {
-  width: 500px;
-  height: 520px;
-  animation-duration: 100s;
-}
-
-.shape-md {
-  width: 340px;
-  height: 350px;
-  animation-duration: 80s;
-  animation-direction: reverse;
-}
-
-.shape-sm {
-  width: 180px;
-  height: 180px;
-  animation-duration: 60s;
-}
+.shape-xl  { width: 520px; height: 480px; animation-duration: 120s; }
+.shape-lg  { width: 400px; height: 420px; animation-duration: 100s; }
+.shape-md  { width: 280px; height: 300px; animation-duration: 80s; animation-direction: reverse; }
+.shape-sm  { width: 180px; height: 160px; animation-duration: 65s; }
+.shape-xs  { width: 120px; height: 110px; animation-duration: 50s; animation-direction: reverse; }
+.shape-dot { width: 70px;  height: 65px;  animation-duration: 40s; }
 
 
 /* ══════════════════════════════════════════════════════════════
-   4 COLORS — each with a unique organic border-radius
+   COLORS — 4 palettes
    ══════════════════════════════════════════════════════════════ */
 
-.shape--peach {
-  background: var(--peach);
-  border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
-}
+.shape--peach { background: var(--peach); }
+.shape--sage  { background: var(--sage-100); }
+.shape--navy  { background: var(--navy-100); opacity: 0.55; }
+.shape--red   { background: var(--red-100); }
 
-.shape--sage {
-  background: var(--sage-100);
-  border-radius: 42% 58% 55% 45% / 48% 52% 48% 52%;
-}
 
-.shape--navy {
-  background: var(--navy-100);
-  opacity: 0.55;
-  border-radius: 48% 52% 60% 40% / 38% 62% 38% 62%;
-}
+/* ══════════════════════════════════════════════════════════════
+   8 ORGANIC BORDER-RADIUS VARIANTS — like unique pebbles
+   ══════════════════════════════════════════════════════════════ */
 
-.shape--red {
-  background: var(--red-100);
-  border-radius: 55% 45% 48% 52% / 50% 58% 42% 50%;
-}
+.peb-1 { border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%; }
+.peb-2 { border-radius: 42% 58% 55% 45% / 48% 52% 48% 52%; }
+.peb-3 { border-radius: 48% 52% 60% 40% / 38% 62% 38% 62%; }
+.peb-4 { border-radius: 55% 45% 48% 52% / 50% 58% 42% 50%; }
+.peb-5 { border-radius: 70% 30% 40% 60% / 35% 65% 35% 65%; }
+.peb-6 { border-radius: 35% 65% 65% 35% / 55% 45% 55% 45%; }
+.peb-7 { border-radius: 50% 50% 35% 65% / 65% 40% 60% 35%; }
+.peb-8 { border-radius: 40% 60% 50% 50% / 45% 55% 50% 50%; }
 
 
 /* ══════════════════════════════════════════════════════════════
@@ -165,9 +151,12 @@
    ══════════════════════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-  .shape-lg { width: 350px; height: 360px; }
-  .shape-md { width: 230px; height: 240px; }
-  .shape-sm { width: 130px; height: 130px; }
+  .shape-xl  { width: 360px; height: 340px; }
+  .shape-lg  { width: 280px; height: 290px; }
+  .shape-md  { width: 190px; height: 200px; }
+  .shape-sm  { width: 120px; height: 110px; }
+  .shape-xs  { width: 80px;  height: 75px; }
+  .shape-dot { width: 50px;  height: 45px; }
 }
 
 @media (max-width: 600px) {

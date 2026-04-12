@@ -94,11 +94,23 @@
 }
 
 /* ── PROOF BAR ── */
-.proof{background:var(--white);border-radius:var(--r-2xl);padding:var(--s-10) var(--s-12);box-shadow:var(--sh-md);margin-top:calc(var(--s-12)*-1);position:relative;z-index:5}
-.proof__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-8);text-align:center}
-.proof__num{font-family:var(--font-heading);font-size:var(--text-h1);font-weight:900;color:var(--navy);line-height:1}
+.proof{position:relative}
+.proof__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-5)}
+.proof__card{background:var(--white);border-radius:var(--r-2xl);padding:var(--s-8) var(--s-5);text-align:center;box-shadow:var(--sh-md);transition:all var(--dur) var(--ease)}
+.proof__card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.proof__ico{width:48px;height:48px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s-4)}
+.proof__ico svg{width:24px;height:24px}
+.proof__card:nth-child(1) .proof__ico{background:var(--sage-100);color:var(--sage-dark)}
+.proof__card:nth-child(2) .proof__ico{background:var(--red-100);color:var(--red)}
+.proof__card:nth-child(3) .proof__ico{background:var(--navy-100);color:var(--navy)}
+.proof__card:nth-child(4) .proof__ico{background:var(--peach);color:var(--red-dark)}
+.proof__num{font-family:var(--font-heading);font-size:var(--text-h1);font-weight:900;line-height:1}
+.proof__card:nth-child(1) .proof__num{color:var(--sage-dark)}
+.proof__card:nth-child(2) .proof__num{color:var(--red)}
+.proof__card:nth-child(3) .proof__num{color:var(--navy)}
+.proof__card:nth-child(4) .proof__num{color:var(--peach-dark)}
 .proof__lbl{font-size:var(--text-sm);color:var(--text-muted);margin-top:var(--s-2);font-weight:500}
-@media(max-width:768px){.proof{padding:var(--s-8) var(--s-6);border-radius:var(--r-xl)}.proof__grid{grid-template-columns:repeat(2,1fr);gap:var(--s-8)}}
+@media(max-width:768px){.proof__grid{grid-template-columns:repeat(2,1fr);gap:var(--s-4)}}
 
 /* ── PROGRAMS ── */
 .programs{padding:clamp(4.5rem,7vw,7rem) 0}

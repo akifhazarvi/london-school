@@ -29,15 +29,20 @@
 </head>
 <body>
 
-<!-- DECORATIVE SHAPES — one per side, alternating L/R, peeking from viewport edges -->
+<!-- DECORATIVE PEBBLES — scattered naturally, always 2 in view (big+medium), no overlaps -->
 <div class="shapes" aria-hidden="true">
-  <div class="shape shape-lg  shape--peach"   style="top:60px;   left:-440px"></div>
-  <div class="shape shape-md  shape--sage"    style="top:900px;  right:-280px"></div>
-  <div class="shape shape-sm  shape--red"     style="top:1800px; left:-120px"></div>
-  <div class="shape shape-lg  shape--sage"    style="top:2700px; right:-440px"></div>
-  <div class="shape shape-md  shape--peach"   style="top:3500px; left:-280px"></div>
-  <div class="shape shape-sm  shape--navy"    style="top:4300px; right:-120px"></div>
-  <div class="shape shape-lg  shape--peach"   style="top:5100px; left:-440px"></div>
+  <div class="shape shape-xl  shape--peach peb-1" style="top:30px;   left:-230px"></div>
+  <div class="shape shape-sm  shape--sage  peb-6" style="top:420px;  right:-70px"></div>
+  <div class="shape shape-lg  shape--sage  peb-2" style="top:920px;  right:-180px"></div>
+  <div class="shape shape-md  shape--red   peb-4" style="top:1380px; left:-120px"></div>
+  <div class="shape shape-xl  shape--peach peb-5" style="top:1850px; left:-280px"></div>
+  <div class="shape shape-sm  shape--navy  peb-3" style="top:2280px; right:-60px"></div>
+  <div class="shape shape-lg  shape--red   peb-7" style="top:2750px; right:-210px"></div>
+  <div class="shape shape-md  shape--sage  peb-8" style="top:3180px; left:-110px"></div>
+  <div class="shape shape-xl  shape--sage  peb-3" style="top:3620px; left:-250px"></div>
+  <div class="shape shape-sm  shape--peach peb-6" style="top:4080px; right:-80px"></div>
+  <div class="shape shape-lg  shape--peach peb-8" style="top:4530px; right:-190px"></div>
+  <div class="shape shape-md  shape--navy  peb-2" style="top:4970px; left:-130px"></div>
 </div>
 
 <!-- NAV -->
@@ -117,12 +122,28 @@
 </section>
 
 <!-- PROOF BAR -->
-<section class="section" style="padding-bottom:var(--s-8)">
-  <div class="container"><div class="proof rv"><div class="proof__grid">
-    <div><div class="proof__num" data-count="500">0+</div><div class="proof__lbl">Happy Students</div></div>
-    <div><div class="proof__num" data-count="98">0%</div><div class="proof__lbl">Parent Satisfaction</div></div>
-    <div><div class="proof__num" data-count="25">0+</div><div class="proof__lbl">Sports & Activities</div></div>
-    <div><div class="proof__num" data-count="3">0</div><div class="proof__lbl">Foreign Languages</div></div>
+<section class="section" style="padding:clamp(3rem,5vw,5rem) 0;background:var(--white)">
+  <div class="container"><div class="proof rv"><div class="proof__grid stg">
+    <div class="proof__card">
+      <div class="proof__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+      <div class="proof__num" data-count="500">0+</div>
+      <div class="proof__lbl">Happy Students</div>
+    </div>
+    <div class="proof__card">
+      <div class="proof__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+      <div class="proof__num" data-count="98">0%</div>
+      <div class="proof__lbl">Parent Satisfaction</div>
+    </div>
+    <div class="proof__card">
+      <div class="proof__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.33 0 2.57.36 3.65.98L12 8.66 8.35 5.98A6.97 6.97 0 0112 5zm-7 7c0-1.33.36-2.57.98-3.65L9.66 12l-3.68 3.65A6.97 6.97 0 015 12zm7 7a6.97 6.97 0 01-3.65-.98L12 15.34l3.65 2.68A6.97 6.97 0 0112 19zm0-5.5L8.5 12 12 8.5l3.5 3.5-3.5 3.5zm7-1.5c0 1.33-.36 2.57-.98 3.65L14.34 12l3.68-3.65A6.97 6.97 0 0119 12z"/></svg></div>
+      <div class="proof__num" data-count="25">0+</div>
+      <div class="proof__lbl">Sports & Activities</div>
+    </div>
+    <div class="proof__card">
+      <div class="proof__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg></div>
+      <div class="proof__num" data-count="3">0</div>
+      <div class="proof__lbl">Foreign Languages</div>
+    </div>
   </div></div></div>
 </section>
 
