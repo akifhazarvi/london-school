@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Tour — London School System</title>
+  <meta name="description" content="Step inside London School. A virtual tour of our campus, classrooms, labs, sports, and the people who make it all possible. Built for parents who want to know before they visit.">
+
+  <meta property="og:title" content="Virtual Tour — London School System">
+  <meta property="og:description" content="Walk through London School without leaving home. Classrooms, robotics labs, the swimming pool, and the people who shape your child's future.">
+  <meta property="og:image" content="https://akifhazarvi.github.io/london-school/img/building-day.jpg">
+  <meta property="og:type" content="website">
+
+  <meta name="theme-color" content="#C1353D">
+  <link rel="icon" href="img/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-icon.png">
+
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/yearbook.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest">
+      <div class="nav__name">London School<small>Prof. Waris Mir Campus</small></div>
+    </a>
+    <div class="nav__links">
+      <a href="index.html#programs" class="nav__link">Programs</a>
+      <a href="index.html#about" class="nav__link">Our Story</a>
+      <a href="index.html#campus" class="nav__link">Campus</a>
+      <a href="yearbook.html" class="nav__link nav__link--active">Virtual Tour</a>
+      <a href="index.html#fees" class="nav__link">Fees</a>
+      <a href="index.html#contact" class="nav__link">Contact</a>
+    </div>
+    <div class="nav__right">
+      <a href="index.html#cta" class="btn btn--red btn--sm">Book a Visit</a>
+      <button class="nav__hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html#programs" onclick="closeM()">Programs</a>
+  <a href="index.html#about" onclick="closeM()">Our Story</a>
+  <a href="index.html#campus" onclick="closeM()">Campus</a>
+  <a href="yearbook.html" onclick="closeM()">Virtual Tour</a>
+  <a href="index.html#fees" onclick="closeM()">Fees</a>
+  <a href="index.html#contact" onclick="closeM()">Contact</a>
+  <a href="index.html#cta" class="btn btn--red btn--lg" onclick="closeM()">Book a Visit</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     COVER — Full-viewport video/image opener
+════════════════════════════════════════════ -->
+<section class="vt-cover" id="top">
+  <div class="vt-cover__bg">
+    <!-- Fallback image shown instantly, hidden once YouTube video starts -->
+    <img src="img/building-day.jpg" alt="" class="vt-cover__fallback" id="coverFallback" aria-hidden="true">
+    <!-- YouTube cinematic background -->
+    <div class="vt-cover__yt" id="ytWrap">
+      <div id="ytPlayer"></div>
+    </div>
+    <div class="vt-cover__overlay"></div>
+  </div>
+  <div class="container">
+    <div class="vt-cover__body">
+      <div class="vt-cover__eyebrow">
+        <span class="vt-cover__eyebrow-dot"></span>
+        Virtual Tour · 2025-26
+      </div>
+      <h1 class="vt-cover__title">Step Inside<br><em>London School</em></h1>
+      <p class="vt-cover__sub">A guided journey through our classrooms, labs, sports, and the people who shape your child's future — before you even visit.</p>
+      <div class="vt-cover__actions">
+        <a href="#stop-1" class="vt-cover__cta">
+          Begin the Tour
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a href="index.html" class="vt-cover__back">← Back to Home</a>
+      </div>
+      <div class="vt-cover__stats">
+        <div class="vt-cover__stat"><strong>7</strong><span>Stops</span></div>
+        <div class="vt-cover__stat-div"></div>
+        <div class="vt-cover__stat"><strong>30+</strong><span>Photos</span></div>
+        <div class="vt-cover__stat-div"></div>
+        <div class="vt-cover__stat"><strong>1</strong><span>Swimming Pool</span></div>
+        <div class="vt-cover__stat-div"></div>
+        <div class="vt-cover__stat"><strong>Full</strong><span>Robotics Lab</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="vt-cover__scroll-hint" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TOUR PROGRESS — Sticky chapter nav
+════════════════════════════════════════════ -->
+<div class="vt-progress" id="vtProgress">
+  <div class="vt-progress__inner">
+    <button class="vt-tab active" data-target="stop-1">
+      <span class="vt-tab__num">01</span>
+      <span class="vt-tab__label">Arrival</span>
+    </button>
+    <span class="vt-tab__line" aria-hidden="true"></span>
+    <button class="vt-tab" data-target="stop-2">
+      <span class="vt-tab__num">02</span>
+      <span class="vt-tab__label">Hallways</span>
+    </button>
+    <span class="vt-tab__line" aria-hidden="true"></span>
+    <button class="vt-tab" data-target="stop-3">
+      <span class="vt-tab__num">03</span>
+      <span class="vt-tab__label">Classrooms</span>
+    </button>
+    <span class="vt-tab__line" aria-hidden="true"></span>
+    <button class="vt-tab" data-target="stop-4">
+      <span class="vt-tab__num">04</span>
+      <span class="vt-tab__label">The Labs</span>
+    </button>
+    <span class="vt-tab__line" aria-hidden="true"></span>
+    <button class="vt-tab" data-target="stop-5">
+      <span class="vt-tab__num">05</span>
+      <span class="vt-tab__label">Sports</span>
+    </button>
+    <span class="vt-tab__line" aria-hidden="true"></span>
+    <button class="vt-tab" data-target="stop-6">
+      <span class="vt-tab__num">06</span>
+      <span class="vt-tab__label">Our People</span>
+    </button>
+    <span class="vt-tab__line" aria-hidden="true"></span>
+    <button class="vt-tab" data-target="stop-7">
+      <span class="vt-tab__num">07</span>
+      <span class="vt-tab__label">Student Life</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     STOP 1 — ARRIVAL
+════════════════════════════════════════════ -->
+<section class="vt-stop" id="stop-1">
+  <div class="container">
+
+    <div class="vt-stop__header rv">
+      <div class="vt-stop__tag">
+        <span class="vt-stop__num">Stop 01</span>
+        <span class="vt-stop__room">The Arrival</span>
+      </div>
+      <h2 class="vt-stop__title">Your First Impression</h2>
+      <p class="vt-stop__lead">You arrive on Ali Road, Township, and the building catches your eye immediately. It's well-maintained and alive — there's an energy here that's hard to describe. You can sense it before you've even stepped through the gate.</p>
+    </div>
+
+    <!-- Full-width hero image -->
+    <div class="vt-cinema rv" data-caption="London School — the front entrance on a bright morning">
+      <img src="img/yearbook/campus-building-day.jpg" alt="London School main building during the day" loading="lazy">
+      <div class="vt-cinema__caption">The front of London School — a building that reflects the care put into everything inside it</div>
+    </div>
+
+    <!-- Narrative split: text + night image -->
+    <div class="vt-split rv">
+      <div class="vt-split__text">
+        <div class="sec-label"><i></i> What you'll notice first</div>
+        <h3>A school that cares shows it from the outside</h3>
+        <p>Most parents tell us the same thing: "We knew before we even walked in." The grounds are kept, the signage is clear, and there's always a staff member near the gate to greet you. It's the small things that tell you a school takes pride in itself.</p>
+        <p>London School sits in a residential neighbourhood — surrounded by families, not traffic. Mornings here have a rhythm. Children arriving on time, teachers ready, the day already in motion.</p>
+      </div>
+      <div class="vt-split__img rv">
+        <img src="img/yearbook/campus-building-night.jpg" alt="School building warmly lit at night" loading="lazy">
+        <div class="vt-card__caption">Even after hours, the school feels warm and active</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STOP 2 — HALLWAYS
+════════════════════════════════════════════ -->
+<section class="vt-stop vt-stop--cream" id="stop-2">
+  <div class="container">
+
+    <div class="vt-stop__header rv">
+      <div class="vt-stop__tag">
+        <span class="vt-stop__num">Stop 02</span>
+        <span class="vt-stop__room">The Corridors</span>
+      </div>
+      <h2 class="vt-stop__title">Walking Inside</h2>
+      <p class="vt-stop__lead">The moment you step through the door, the hallways tell you everything. Bright colours, student artwork on the walls, and the quiet hum of children at work behind closed doors. This is what "school culture" actually looks like.</p>
+    </div>
+
+    <!-- Wide hallway image -->
+    <div class="vt-cinema rv" data-caption="The main hallway — colourful, open, and full of life">
+      <img src="img/yearbook/campus-hallway-1.jpg" alt="Bright hallway with colourful walls" loading="lazy">
+      <div class="vt-cinema__caption">Every corridor has a story — student projects, house points, and announcements that make children feel they belong</div>
+    </div>
+
+    <!-- Pull quote -->
+    <blockquote class="vt-quote rv">
+      <p>"My daughter describes the school hallway as 'the happiest place.' She means it. Every morning she runs inside."</p>
+      <cite>— Ayesha Malik, mother of a Grade 2 student</cite>
+    </blockquote>
+
+    <!-- Side by side hallway pair -->
+    <div class="vt-duo rv stg">
+      <div class="vt-card">
+        <img src="img/yearbook/campus-hallway-2.jpg" alt="School corridor with student artwork" loading="lazy">
+        <div class="vt-card__caption">Student artwork lines the walls — the hallway is a gallery that changes every term</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/hallway-play.jpg" alt="Children in the school hallway" loading="lazy">
+        <div class="vt-card__caption">Between classes, the corridors come alive with energy and laughter</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STOP 3 — CLASSROOMS
+════════════════════════════════════════════ -->
+<section class="vt-stop" id="stop-3">
+  <div class="container">
+
+    <div class="vt-stop__header rv">
+      <div class="vt-stop__tag">
+        <span class="vt-stop__num">Stop 03</span>
+        <span class="vt-stop__room">The Classrooms</span>
+      </div>
+      <h2 class="vt-stop__title">Where Learning Happens</h2>
+      <p class="vt-stop__lead">Open, bright, and built for thinking. Each classroom has a digital whiteboard, natural light from wide windows, and enough space that children can breathe and move. Your child would sit here, every day, and grow.</p>
+    </div>
+
+    <!-- Classroom cinema image -->
+    <div class="vt-cinema rv" data-caption="A typical classroom at London School — bright, modern, ready for curious minds">
+      <img src="img/yearbook/campus-classroom.jpg" alt="Bright classroom with blue desks and orange accent wall" loading="lazy">
+      <div class="vt-cinema__caption">Classrooms designed for interaction — not just rows of chairs, but space for discussion, collaboration, and discovery</div>
+    </div>
+
+    <!-- Offset layout: text + office image -->
+    <div class="vt-offset rv">
+      <div class="vt-offset__text">
+        <div class="sec-label"><i></i> Small classes, real attention</div>
+        <h3>Every child is known here</h3>
+        <p>Class sizes are capped so teachers can give each student what they actually need — not what works for the average. Your child's teacher will know their name, their learning style, and their favourite subject before the first month is out.</p>
+        <p>The principal's office has an open-door policy. Parents can book a check-in anytime. Issues don't fester here — they're addressed with the same warmth you see everywhere else in the school.</p>
+        <div class="vt-proof-row">
+          <div class="vt-proof-item">
+            <strong>Small</strong>
+            <span>Class sizes</span>
+          </div>
+          <div class="vt-proof-item">
+            <strong>Daily</strong>
+            <span>Teacher check-ins</span>
+          </div>
+          <div class="vt-proof-item">
+            <strong>Weekly</strong>
+            <span>Parent reports</span>
+          </div>
+        </div>
+      </div>
+      <div class="vt-offset__img rv">
+        <img src="img/yearbook/campus-office.jpg" alt="The school office — warm and welcoming" loading="lazy">
+        <div class="vt-card__caption">The school office — where parents are always welcome to drop in and talk</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STOP 4 — THE LABS
+════════════════════════════════════════════ -->
+<section class="vt-stop vt-stop--navy" id="stop-4">
+  <div class="container">
+
+    <div class="vt-stop__header vt-stop__header--light rv">
+      <div class="vt-stop__tag vt-stop__tag--light">
+        <span class="vt-stop__num">Stop 04</span>
+        <span class="vt-stop__room">The Labs</span>
+      </div>
+      <h2 class="vt-stop__title" style="color:var(--white)">Where the Future Gets Built</h2>
+      <p class="vt-stop__lead" style="color:rgba(255,255,255,.75)">This is where most parents stop and say "I wish I had this when I was in school." A full robotics lab with Arduino kits and a 3D printer, a computer lab where children write real Python code, and a science lab stocked for experiments that actually excite kids.</p>
+    </div>
+
+    <!-- Robotics hero -->
+    <div class="vt-cinema rv" data-caption="The robotics lab — where young inventors get their start">
+      <img src="img/yearbook/labs-robotics.jpg" alt="Robotics lab with LEGO kits and Arduino boards" loading="lazy">
+      <div class="vt-cinema__caption">Our robotics lab — LEGO Mindstorms, Arduino boards, and a 3D printer that Grade 4 students have already named "Rumi"</div>
+    </div>
+
+    <!-- 3-col: computer, science, student -->
+    <div class="vt-trio rv stg">
+      <div class="vt-card">
+        <img src="img/yearbook/labs-computer.jpg" alt="Computer lab with modern workstations" loading="lazy">
+        <div class="vt-card__caption">The computer lab — 30 stations, each running coding and AI tools</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/labs-science.jpg" alt="Science lab with equipment and experiments" loading="lazy">
+        <div class="vt-card__caption">The science lab — real experiments, real equipment, real discoveries</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/labs-robotics-student.jpg" alt="Student building a robot in the lab" loading="lazy">
+        <div class="vt-card__caption">A Grade 5 student deep in concentration — something only great labs produce</div>
+      </div>
+    </div>
+
+    <!-- Pull quote -->
+    <blockquote class="vt-quote vt-quote--light rv">
+      <p>"The robotics lab is the reason my son wakes up on Monday mornings and says 'YES.' He used to dread Mondays."</p>
+      <cite>— Fahad Khan, father of a Grade 6 student</cite>
+    </blockquote>
+
+    <!-- Wide collaborative image -->
+    <div class="vt-cinema rv" data-caption="Two students working through a coding challenge together">
+      <img src="img/yearbook/labs-coding-collab.jpg" alt="Two students collaborating on code" loading="lazy">
+      <div class="vt-cinema__caption">Collaboration is built into every class — children learn better when they teach each other</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STOP 5 — SPORTS & PLAY
+════════════════════════════════════════════ -->
+<section class="vt-stop" id="stop-5">
+  <div class="container">
+
+    <div class="vt-stop__header rv">
+      <div class="vt-stop__tag">
+        <span class="vt-stop__num">Stop 05</span>
+        <span class="vt-stop__room">Sports & Play</span>
+      </div>
+      <h2 class="vt-stop__title">Healthy Bodies, Happy Minds</h2>
+      <p class="vt-stop__lead">The surprise that stops most parents: a full swimming pool, covered and maintained year-round. Beyond it, a playground where the best friendships in the school are made during the 20-minute break. Active children learn better. We built the space to prove it.</p>
+    </div>
+
+    <!-- Pool — full dramatic width -->
+    <div class="vt-cinema vt-cinema--tall rv" data-caption="The London School swimming pool — our most-photographed feature">
+      <img src="img/yearbook/sports-pool.jpg" alt="School swimming pool — clear blue water" loading="lazy">
+      <div class="vt-cinema__caption">Our swimming pool — open to all students, with trained coaches and lifeguards year-round</div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="vt-stats rv stg">
+      <div class="vt-stat">
+        <strong>25+</strong>
+        <span>Sports & activities</span>
+      </div>
+      <div class="vt-stat">
+        <strong>1</strong>
+        <span>Full swimming pool</span>
+      </div>
+      <div class="vt-stat">
+        <strong>Daily</strong>
+        <span>Physical education</span>
+      </div>
+      <div class="vt-stat">
+        <strong>Annual</strong>
+        <span>Sports day & championships</span>
+      </div>
+    </div>
+
+    <!-- Playground -->
+    <div class="vt-single rv">
+      <div class="vt-card">
+        <img src="img/yearbook/sports-playground.jpg" alt="Play area with slides and open space" loading="lazy">
+        <div class="vt-card__caption">The playground — where problems get solved, friendships get forged, and children remember who they are outside of class</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STOP 6 — OUR PEOPLE
+════════════════════════════════════════════ -->
+<section class="vt-stop vt-stop--cream" id="stop-6">
+  <div class="container">
+
+    <div class="vt-stop__header rv">
+      <div class="vt-stop__tag">
+        <span class="vt-stop__num">Stop 06</span>
+        <span class="vt-stop__room">Our People</span>
+      </div>
+      <h2 class="vt-stop__title">The Heart of the School</h2>
+      <p class="vt-stop__lead">A school is only as good as the people inside it. Our founder gave this institution his dream. Today, a dedicated team carries it forward — teachers who know your child by name, by nature, and by what they find difficult.</p>
+    </div>
+
+    <!-- Founder spotlight -->
+    <div class="vt-founder rv">
+      <div class="vt-founder__img">
+        <img src="img/yearbook/people-waris-mir.jpg" alt="Prof. Waris Mir — founder and visionary" loading="lazy">
+      </div>
+      <div class="vt-founder__text">
+        <span class="sec-label"><i></i> Our Founder</span>
+        <h3>Prof. Waris Mir<br><small>1938 – 1987</small></h3>
+        <p>A legendary journalist, intellectual, and champion of education. Prof. Waris Mir taught at Punjab University for over 20 years, authored works on democracy and press freedom, and never once stopped believing that knowledge — freely given — changes lives.</p>
+        <p>His philosophy was simple: <em>"Education is freedom, and every child deserves both."</em> This school carries his name and his conviction forward. Every classroom, every lab, every swimming lesson is part of that promise.</p>
+        <div class="vt-founder__awards">
+          <div class="vt-founder__award">Hilal-e-Imtiaz recipient (posthumous, 2013)</div>
+          <div class="vt-founder__award">Bangladesh Friends of Liberation War Honour</div>
+          <div class="vt-founder__award">M.Phil · City University, London</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Staff pull quote -->
+    <blockquote class="vt-quote rv">
+      <p>"In all my years of school visits, the teachers here are the most motivated I've seen. They believe in what they're doing — and children feel that."</p>
+      <cite>— Educational consultant, after a school assessment visit</cite>
+    </blockquote>
+
+    <!-- Staff grid -->
+    <div class="vt-trio rv stg">
+      <div class="vt-card vt-card--portrait">
+        <img src="img/yearbook/people-ali-umair.jpg" alt="Ali Umair — faculty" loading="lazy">
+        <div class="vt-card__caption">Ali Umair — Head of Technology & Innovation</div>
+      </div>
+      <div class="vt-card vt-card--portrait">
+        <img src="img/yearbook/people-staff-1.jpg" alt="Faculty member" loading="lazy">
+        <div class="vt-card__caption">Dedicated staff who bring warmth to every class</div>
+      </div>
+      <div class="vt-card vt-card--portrait">
+        <img src="img/yearbook/people-staff-2.jpg" alt="Faculty member" loading="lazy">
+        <div class="vt-card__caption">Teachers who measure success one child at a time</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     STOP 7 — STUDENT LIFE
+════════════════════════════════════════════ -->
+<section class="vt-stop" id="stop-7">
+  <div class="container">
+
+    <div class="vt-stop__header rv">
+      <div class="vt-stop__tag">
+        <span class="vt-stop__num">07</span>
+        <span class="vt-stop__room">Student Life</span>
+      </div>
+      <h2 class="vt-stop__title">The Real Story</h2>
+      <p class="vt-stop__lead">The building matters. The labs matter. But the real story of London School happens between the lessons — in the moments a child figures something out, makes a new friend, or stays after class because they're not quite ready to leave.</p>
+    </div>
+
+    <!-- Wide classroom-fun image -->
+    <div class="vt-cinema rv" data-caption="Students in a collaborative session — learning is always better with friends">
+      <img src="img/yearbook/life-classroom-fun.jpg" alt="Students laughing while working on laptops" loading="lazy">
+      <div class="vt-cinema__caption">This is what a good school looks like from the inside — children engaged, teachers present, energy in the room</div>
+    </div>
+
+    <!-- Masonry grid of student life moments -->
+    <div class="vt-mosaic rv stg">
+      <div class="vt-card">
+        <img src="img/yearbook/life-reading.jpg" alt="Student reading and smiling" loading="lazy">
+        <div class="vt-card__caption">Lost in a good book</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-mentoring.jpg" alt="Teacher helping a student" loading="lazy">
+        <div class="vt-card__caption">Guided at every step</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-studying.jpg" alt="Student happily writing" loading="lazy">
+        <div class="vt-card__caption">Joy in every line written</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-happy-student.jpg" alt="Student smiling at computer" loading="lazy">
+        <div class="vt-card__caption">That feeling when the code works</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-students-tablet.jpg" alt="Two students on a tablet" loading="lazy">
+        <div class="vt-card__caption">Learning together, growing together</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-collage.jpg" alt="Diverse students collage" loading="lazy">
+        <div class="vt-card__caption">Many faces, one family</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-focused-study.jpg" alt="Student reading on a bench" loading="lazy">
+        <div class="vt-card__caption">A quiet moment, earned</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-desk-creative.jpg" alt="Creative desk with design tools" loading="lazy">
+        <div class="vt-card__caption">Creativity at every desk</div>
+      </div>
+      <div class="vt-card">
+        <img src="img/yearbook/life-online-class.jpg" alt="Student in online learning" loading="lazy">
+        <div class="vt-card__caption">Learning knows no boundaries</div>
+      </div>
+    </div>
+
+    <!-- Uniform single -->
+    <div class="vt-single rv">
+      <div class="vt-card">
+        <img src="img/yearbook/life-uniform.jpg" alt="London School uniform — smart and proud" loading="lazy">
+        <div class="vt-card__caption">The London School uniform — worn with pride, a symbol of the community your child would join</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CLOSING — Tour end + CTA
+════════════════════════════════════════════ -->
+<section class="vt-closing">
+  <div class="container">
+    <div class="vt-closing__inner rv">
+
+      <div class="vt-closing__tour-end">
+        <div class="vt-closing__badge">End of the Tour</div>
+      </div>
+
+      <div class="vt-closing__quote">
+        <svg class="vt-closing__qmark" width="48" height="48" viewBox="0 0 48 48" fill="none"><text x="0" y="44" font-size="64" fill="currentColor" opacity=".15">"</text></svg>
+        <p>The best way to know if London School is right for your family is to walk through our doors. The tour you just took was photographs. The real thing has sound, smell, and the unmistakable feeling of a place where children are genuinely happy.</p>
+        <cite>Come see it for yourself.</cite>
+      </div>
+
+      <div class="vt-closing__actions">
+        <a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" class="btn btn--red btn--lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+          Book a Real Visit
+        </a>
+        <a href="tel:+923010499777" class="btn btn--outline btn--lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call 0301-0499777
+        </a>
+        <a href="index.html" class="btn btn--navy btn--lg">See the Full Website</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="container"><div class="ft__grid">
+    <div class="ft__about">
+      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
+      <p>A warm, nurturing school in Lahore where children discover AI, build robots, play sports, and fall in love with learning.</p>
+    </div>
+    <div><h4 class="ft__h">Programs</h4><div class="ft__links"><a href="index.html#programs">Discover (AI)</a><a href="index.html#programs">Create (Robotics)</a><a href="index.html#programs">Move (Sports)</a><a href="index.html#programs">Grow (Cambridge)</a></div></div>
+    <div><h4 class="ft__h">Quick Links</h4><div class="ft__links"><a href="index.html#about">Our Story</a><a href="yearbook.html">Virtual Tour</a><a href="index.html#fees">Fees</a><a href="index.html#cta">Admissions</a></div></div>
+    <div><h4 class="ft__h">For Parents</h4><div class="ft__links"><a href="index.html#ai">Ask Prof Mir</a><a href="index.html#contact">Contact</a><a href="tel:03010499777">0301-0499777</a><a href="mailto:info@londoneducation.pk">Email Us</a></div></div>
+  </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
+
+<!-- LIGHTBOX -->
+<div class="vt-lb" id="vtLb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="vt-lb__close" id="lbClose" aria-label="Close">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="vt-lb__nav vt-lb__nav--prev" id="lbPrev" aria-label="Previous">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="vt-lb__nav vt-lb__nav--next" id="lbNext" aria-label="Next">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="vt-lb__content">
+    <img src="" alt="" id="lbImg">
+    <div class="vt-lb__caption" id="lbCap"></div>
+    <div class="vt-lb__counter" id="lbCount"></div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="js/yearbook.js"></script>
+</body>
+</html>

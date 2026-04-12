@@ -29,20 +29,21 @@
 </head>
 <body>
 
-<!-- DECORATIVE PEBBLES — scattered naturally, always 2 in view (big+medium), no overlaps -->
+<!-- DECORATIVE PEBBLES — strictly alternating L/R, ~500px spacing,
+     60%+ visible on screen, always 2 on opposite sides in view -->
 <div class="shapes" aria-hidden="true">
-  <div class="shape shape-xl  shape--peach peb-1" style="top:30px;   left:-230px"></div>
-  <div class="shape shape-sm  shape--sage  peb-6" style="top:420px;  right:-70px"></div>
-  <div class="shape shape-lg  shape--sage  peb-2" style="top:920px;  right:-180px"></div>
-  <div class="shape shape-md  shape--red   peb-4" style="top:1380px; left:-120px"></div>
-  <div class="shape shape-xl  shape--peach peb-5" style="top:1850px; left:-280px"></div>
-  <div class="shape shape-sm  shape--navy  peb-3" style="top:2280px; right:-60px"></div>
-  <div class="shape shape-lg  shape--red   peb-7" style="top:2750px; right:-210px"></div>
-  <div class="shape shape-md  shape--sage  peb-8" style="top:3180px; left:-110px"></div>
-  <div class="shape shape-xl  shape--sage  peb-3" style="top:3620px; left:-250px"></div>
-  <div class="shape shape-sm  shape--peach peb-6" style="top:4080px; right:-80px"></div>
-  <div class="shape shape-lg  shape--peach peb-8" style="top:4530px; right:-190px"></div>
-  <div class="shape shape-md  shape--navy  peb-2" style="top:4970px; left:-130px"></div>
+  <div class="shape shape-xl  shape--peach peb-1" style="top:40px;   left:-245px"></div>
+  <div class="shape shape-lg  shape--sage  peb-2" style="top:530px;  right:-195px"></div>
+  <div class="shape shape-md  shape--red   peb-4" style="top:1040px; left:-138px"></div>
+  <div class="shape shape-xl  shape--sage  peb-5" style="top:1530px; right:-245px"></div>
+  <div class="shape shape-lg  shape--peach peb-3" style="top:2020px; left:-195px"></div>
+  <div class="shape shape-md  shape--navy  peb-7" style="top:2510px; right:-138px"></div>
+  <div class="shape shape-xl  shape--red   peb-6" style="top:3000px; left:-245px"></div>
+  <div class="shape shape-lg  shape--peach peb-8" style="top:3490px; right:-195px"></div>
+  <div class="shape shape-md  shape--sage  peb-2" style="top:3970px; left:-138px"></div>
+  <div class="shape shape-xl  shape--navy  peb-1" style="top:4450px; right:-245px"></div>
+  <div class="shape shape-lg  shape--red   peb-5" style="top:4940px; left:-195px"></div>
+  <div class="shape shape-md  shape--peach peb-3" style="top:5420px; right:-138px"></div>
 </div>
 
 <!-- NAV -->
@@ -58,6 +59,7 @@
       <a href="#ai" class="nav__link">Ask Prof Mir</a>
       <a href="#campus" class="nav__link">Campus</a>
       <a href="#fees" class="nav__link">Fees</a>
+      <a href="yearbook.html" class="nav__link">Virtual Tour</a>
       <a href="#contact" class="nav__link">Contact</a>
     </div>
     <div class="nav__right">
@@ -72,6 +74,7 @@
   <a href="#ai" onclick="closeM()">Ask Prof Mir</a>
   <a href="#campus" onclick="closeM()">Campus</a>
   <a href="#fees" onclick="closeM()">Fees</a>
+  <a href="yearbook.html" onclick="closeM()">Virtual Tour</a>
   <a href="#contact" onclick="closeM()">Contact</a>
   <a href="#cta" class="btn btn--red btn--lg" onclick="closeM()">Book a Visit</a>
 </div>
