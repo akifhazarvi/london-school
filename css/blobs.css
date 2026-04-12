@@ -1,0 +1,181 @@
+/* ============================================================
+   LONDON SCHOOL — Organic Shape Decorations
+   3 shapes visible per viewport: 1 large, 1 medium, 1 small.
+   Slow single-direction rotation only. Balanced layout.
+   ============================================================ */
+
+/* ── ANIMATION — single slow rotation ── */
+
+@keyframes shape-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   CONTAINER
+   ══════════════════════════════════════════════════════════════ */
+
+.shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow-x: clip;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BASE SHAPE — all shapes share this
+   ══════════════════════════════════════════════════════════════ */
+
+.shape {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  animation: shape-rotate linear infinite;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   3 SIZES — always 1 of each in view
+   ══════════════════════════════════════════════════════════════ */
+
+.shape-lg {
+  width: 500px;
+  height: 520px;
+  animation-duration: 100s;
+}
+
+.shape-md {
+  width: 340px;
+  height: 350px;
+  animation-duration: 80s;
+  animation-direction: reverse;
+}
+
+.shape-sm {
+  width: 180px;
+  height: 180px;
+  animation-duration: 60s;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   4 COLORS — each with a unique organic border-radius
+   ══════════════════════════════════════════════════════════════ */
+
+.shape--peach {
+  background: var(--peach);
+  border-radius: 62% 38% 46% 54% / 60% 44% 56% 40%;
+}
+
+.shape--sage {
+  background: var(--sage-100);
+  border-radius: 42% 58% 55% 45% / 48% 52% 48% 52%;
+}
+
+.shape--navy {
+  background: var(--navy-100);
+  opacity: 0.55;
+  border-radius: 48% 52% 60% 40% / 38% 62% 38% 62%;
+}
+
+.shape--red {
+  background: var(--red-100);
+  border-radius: 55% 45% 48% 52% / 50% 58% 42% 50%;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   CTA ORBS — white shapes on navy card
+   ══════════════════════════════════════════════════════════════ */
+
+.cta-orb {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  animation: shape-rotate linear infinite;
+}
+
+.cta-orb--1 {
+  width: 280px;
+  height: 280px;
+  top: -35%;
+  left: -8%;
+  border-radius: 55% 45% 50% 50% / 50% 55% 45% 55%;
+  background: rgba(255, 255, 255, 0.07);
+  animation-duration: 90s;
+}
+
+.cta-orb--2 {
+  width: 320px;
+  height: 320px;
+  bottom: -45%;
+  right: -10%;
+  border-radius: 48% 52% 42% 58% / 52% 48% 52% 48%;
+  background: rgba(255, 255, 255, 0.06);
+  animation-duration: 110s;
+  animation-direction: reverse;
+}
+
+.cta-orb--3 {
+  width: 140px;
+  height: 140px;
+  top: -15%;
+  right: 18%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  animation-duration: 80s;
+}
+
+.cta-orb--4 {
+  width: 100px;
+  height: 100px;
+  bottom: -10%;
+  left: 22%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  animation-duration: 100s;
+  animation-direction: reverse;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER WAVE
+   ══════════════════════════════════════════════════════════════ */
+
+.ft::before {
+  content: '';
+  position: absolute;
+  top: -39px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0,40 C240,10 480,0 720,20 C960,40 1200,10 1440,0 L1440,40 Z' fill='%23243F62'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .shape-lg { width: 350px; height: 360px; }
+  .shape-md { width: 230px; height: 240px; }
+  .shape-sm { width: 130px; height: 130px; }
+}
+
+@media (max-width: 600px) {
+  .shapes { display: none; }
+  .cta-orb { display: none !important; }
+  .ft::before { height: 24px; top: -23px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shape, .cta-orb { animation: none; }
+}

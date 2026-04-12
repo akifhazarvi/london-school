@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>London School System — Where Curious Kids Become Confident Learners</title>
+  <meta name="description" content="Cambridge-affiliated school in Lahore. AI learning, robotics lab, 25+ sports, and the nurturing environment your child deserves.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="London School System — Where Curious Kids Become Confident Learners">
+  <meta property="og:description" content="Cambridge-affiliated school in Lahore. AI learning, robotics lab, 25+ sports, and the nurturing environment your child deserves.">
+  <meta property="og:image" content="img/building-day.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="London School System">
+  <meta name="twitter:description" content="Cambridge-affiliated school in Lahore. AI learning, robotics lab, 25+ sports.">
+  <meta name="twitter:image" content="img/building-day.jpg">
+
+  <!-- Theme & Icons -->
+  <meta name="theme-color" content="#C1353D">
+  <link rel="icon" href="img/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-icon.png">
+
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/blobs.css">
+</head>
+<body>
+
+<!-- DECORATIVE SHAPES — page-level, 3 visible per viewport (lg/md/sm) -->
+<div class="shapes" aria-hidden="true">
+  <!-- Group 1: Hero -->
+  <div class="shape shape-lg  shape--peach"   style="top:100px;  left:-250px"></div>
+  <div class="shape shape-md  shape--sage"    style="top:300px;  right:-140px"></div>
+  <div class="shape shape-sm  shape--navy"    style="top:550px;  left:-80px"></div>
+  <!-- Group 2: Proof / Programs -->
+  <div class="shape shape-lg  shape--sage"    style="top:900px;  right:-220px"></div>
+  <div class="shape shape-sm  shape--peach"   style="top:1100px; left:-90px"></div>
+  <div class="shape shape-md  shape--red"     style="top:1400px; right:-160px"></div>
+  <!-- Group 3: About -->
+  <div class="shape shape-md  shape--peach"   style="top:1800px; left:-160px"></div>
+  <div class="shape shape-sm  shape--sage"    style="top:2050px; right:-80px"></div>
+  <div class="shape shape-lg  shape--navy"    style="top:2300px; left:-220px"></div>
+  <!-- Group 4: AI Demo / Campus -->
+  <div class="shape shape-sm  shape--red"     style="top:2700px; right:-80px"></div>
+  <div class="shape shape-lg  shape--peach"   style="top:2950px; left:-250px"></div>
+  <div class="shape shape-md  shape--sage"    style="top:3250px; right:-150px"></div>
+  <!-- Group 5: Testimonials -->
+  <div class="shape shape-md  shape--navy"    style="top:3650px; left:-160px"></div>
+  <div class="shape shape-sm  shape--peach"   style="top:3850px; right:-80px"></div>
+  <div class="shape shape-lg  shape--sage"    style="top:4150px; left:-220px"></div>
+  <!-- Group 6: Fees / CTA / Contact -->
+  <div class="shape shape-sm  shape--sage"    style="top:4550px; right:-80px"></div>
+  <div class="shape shape-md  shape--peach"   style="top:4800px; left:-160px"></div>
+  <div class="shape shape-lg  shape--red"     style="top:5200px; right:-200px"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#" class="nav__logo">
+      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest">
+      <div class="nav__name">London School<small>Prof. Waris Mir Campus</small></div>
+    </a>
+    <div class="nav__links">
+      <a href="#programs" class="nav__link">Programs</a>
+      <a href="#about" class="nav__link">Our Story</a>
+      <a href="#ai" class="nav__link">Ask Prof Mir</a>
+      <a href="#campus" class="nav__link">Campus</a>
+      <a href="#fees" class="nav__link">Fees</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </div>
+    <div class="nav__right">
+      <a href="#cta" class="btn btn--red btn--sm">Book a Visit</a>
+      <button class="nav__hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="#programs" onclick="closeM()">Programs</a>
+  <a href="#about" onclick="closeM()">Our Story</a>
+  <a href="#ai" onclick="closeM()">Ask Prof Mir</a>
+  <a href="#campus" onclick="closeM()">Campus</a>
+  <a href="#fees" onclick="closeM()">Fees</a>
+  <a href="#contact" onclick="closeM()">Contact</a>
+  <a href="#cta" class="btn btn--red btn--lg" onclick="closeM()">Book a Visit</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__text rv">
+        <div class="hero__badge"><span class="hero__badge-dot"></span> Admissions Open 2025-26</div>
+        <h1 class="hero__title">Where Curious Kids Become <em>Confident Learners</em></h1>
+        <p class="hero__sub">A warm, nurturing Cambridge school in Lahore where children explore AI, build robots, play sports, and discover what they love.</p>
+        <div class="hero__btns">
+          <a href="#cta" class="btn btn--red btn--lg">Book a Campus Tour</a>
+          <a href="#programs" class="btn btn--outline btn--lg">See Programs</a>
+        </div>
+        <div class="hero__trust">
+          <div class="hero__trust-avatars">
+            <span class="hero__trust-av" style="background:var(--sage-light)"></span>
+            <span class="hero__trust-av" style="background:var(--peach)"></span>
+            <span class="hero__trust-av" style="background:var(--navy-light)"></span>
+            <span class="hero__trust-av" style="background:var(--red-light)"></span>
+          </div>
+          <div class="hero__trust-label"><strong>500+ families</strong> trust us with their children</div>
+        </div>
+      </div>
+      <div class="hero__visual rv">
+        <div class="hero__photo"><img src="img/building-day.jpg" alt="London School building" loading="eager"></div>
+        <div class="hero__float hero__float--tl hero__float--sage">
+          <div class="hero__float-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm5 12.99L12 18.72 7 15.99v-3.27L12 15.5l5-2.78v3.27zM12 13.5L3.74 9 12 4.5 20.26 9 12 13.5z"/></svg></div>
+          <div class="hero__float-txt">Cambridge Pathway<small>Checkpoint to IGCSE</small></div>
+        </div>
+        <div class="hero__float hero__float--tr hero__float--peach">
+          <div class="hero__float-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 00.12-.64l-2-3.46a.5.5 0 00-.61-.22l-2.49 1a7.03 7.03 0 00-1.69-.98l-.38-2.65A.49.49 0 0014 2h-4a.49.49 0 00-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 00-.61.22l-2 3.46a.49.49 0 00.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65a.5.5 0 00-.12.64l2 3.46a.5.5 0 00.61.22l2.49-1c.52.39 1.08.73 1.69.98l.38 2.65c.05.24.26.42.49.42h4c.24 0 .44-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 00.61-.22l2-3.46a.49.49 0 00-.12-.64l-2.11-1.65zM12 15.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/></svg></div>
+          <div class="hero__float-txt">Robotics Lab<small>LEGO, Arduino, 3D Print</small></div>
+        </div>
+        <div class="hero__float hero__float--bl hero__float--navy">
+          <div class="hero__float-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.33 0 2.57.36 3.65.98L12 8.66 8.35 5.98A6.97 6.97 0 0112 5zm-7 7c0-1.33.36-2.57.98-3.65L9.66 12l-3.68 3.65A6.97 6.97 0 015 12zm7 7a6.97 6.97 0 01-3.65-.98L12 15.34l3.65 2.68A6.97 6.97 0 0112 19zm0-5.5L8.5 12 12 8.5l3.5 3.5-3.5 3.5zm7-1.5c0 1.33-.36 2.57-.98 3.65L14.34 12l3.68-3.65A6.97 6.97 0 0119 12z"/></svg></div>
+          <div class="hero__float-txt">25+ Sports<small>Swimming, Cricket & more</small></div>
+        </div>
+        <div class="hero__float hero__float--br hero__float--red">
+          <div class="hero__float-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg></div>
+          <div class="hero__float-txt">AI Study Buddy<small>For every child</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<section class="section" style="padding-bottom:var(--s-8)">
+  <div class="container"><div class="proof rv"><div class="proof__grid">
+    <div><div class="proof__num" data-count="500">0+</div><div class="proof__lbl">Happy Students</div></div>
+    <div><div class="proof__num" data-count="98">0%</div><div class="proof__lbl">Parent Satisfaction</div></div>
+    <div><div class="proof__num" data-count="25">0+</div><div class="proof__lbl">Sports & Activities</div></div>
+    <div><div class="proof__num" data-count="3">0</div><div class="proof__lbl">Foreign Languages</div></div>
+  </div></div></div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs section--cream" id="programs">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)">
+      <div class="sec-label"><i></i> What We Offer</div>
+      <h2>Four Ways Your Child Will Thrive</h2>
+      <p class="sec-desc">Every child is different. We built four programs that let kids discover their strengths while having fun.</p>
+    </div>
+    <div class="prog-grid stg">
+      <div class="prog prog--discover rv">
+        <div class="prog__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zm-2-5h2V7h1v2h2v1h-2v2h-1v-2h-2V9z"/></svg></div>
+        <h3 class="prog__title">Discover</h3>
+        <p class="prog__desc">Kids explore AI, coding, and technology through play — building chatbots and asking "what if?"</p>
+        <div class="prog__pills"><span class="prog__pill">Scratch & Python</span><span class="prog__pill">AI Study Buddy</span><span class="prog__pill">Science Fairs</span></div>
+      </div>
+      <div class="prog prog--create rv">
+        <div class="prog__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM7.5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5zM16 17H8v-2h8v2zm-1-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13z"/></svg></div>
+        <h3 class="prog__title">Create</h3>
+        <p class="prog__desc">Hands-on building with LEGO, Arduino, and 3D printers. Making mistakes is part of making things.</p>
+        <div class="prog__pills"><span class="prog__pill">Robotics Lab</span><span class="prog__pill">3D Printing</span><span class="prog__pill">Competitions</span></div>
+      </div>
+      <div class="prog prog--move rv">
+        <div class="prog__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.33 0 2.57.36 3.65.98L12 8.66 8.35 5.98A6.97 6.97 0 0112 5zm-7 7c0-1.33.36-2.57.98-3.65L9.66 12l-3.68 3.65A6.97 6.97 0 015 12zm7 7a6.97 6.97 0 01-3.65-.98L12 15.34l3.65 2.68A6.97 6.97 0 0112 19zm0-5.5L8.5 12 12 8.5l3.5 3.5-3.5 3.5zm7-1.5c0 1.33-.36 2.57-.98 3.65L14.34 12l3.68-3.65A6.97 6.97 0 0119 12z"/></svg></div>
+        <h3 class="prog__title">Move</h3>
+        <p class="prog__desc">Swimming, cricket, football and 20+ more. Active kids are happy kids.</p>
+        <div class="prog__pills"><span class="prog__pill">Swimming Pool</span><span class="prog__pill">25+ Sports</span><span class="prog__pill">Sports Day</span></div>
+      </div>
+      <div class="prog prog--grow rv">
+        <div class="prog__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg></div>
+        <h3 class="prog__title">Grow</h3>
+        <p class="prog__desc">Cambridge curriculum plus Chinese, French, and German. We prepare kids for the world.</p>
+        <div class="prog__pills"><span class="prog__pill">Cambridge IGCSE</span><span class="prog__pill">3 Languages</span><span class="prog__pill">Uni Guidance</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container"><div class="about__grid">
+    <div class="about__photos rv">
+      <div class="about__img"><img src="img/hallway-play.jpg" alt="Colourful corridor"></div>
+      <div class="about__img"><img src="img/waris-mir.jpg" alt="Prof. Waris Mir"></div>
+    </div>
+    <div class="rv">
+      <div class="sec-label"><i></i> Our Story</div>
+      <h2>Built on the Legacy of Prof. Waris Mir</h2>
+      <p class="sec-desc">We believe every child in Lahore deserves an education that is both world-class and joyful. Not just textbooks — but curiosity, kindness, and the confidence to try new things.</p>
+      <div class="about__vals">
+        <div class="about__val"><div class="about__val-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg></div><div><h4>Curiosity First</h4><p>We teach kids to ask great questions, not just memorize answers.</p></div></div>
+        <div class="about__val"><div class="about__val-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div><h4>Every Child Matters</h4><p>Small class sizes, personal attention, and a counselor who knows every name.</p></div></div>
+        <div class="about__val"><div class="about__val-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div><div><h4>Ready for the World</h4><p>Cambridge curriculum, three foreign languages, and real skills for real life.</p></div></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- PROF MIR BOT -->
+<section class="section demo" id="ai">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)">
+      <div class="sec-label"><i></i> Meet Prof Mir</div>
+      <h2>Ask Prof. Waris Mir Anything</h2>
+      <p class="sec-desc">An AI companion inspired by our founder — answering questions about science, history, and life with the wisdom Prof Mir was known for.</p>
+    </div>
+    <div class="demo__grid">
+      <div class="rv">
+        <h3 style="margin-bottom:var(--s-3)">A Teacher Who Never Stops Teaching</h3>
+        <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.8;margin-bottom:var(--s-4)">Prof. Waris Mir (1938-1987) was a champion of free thought, education, and press freedom. His legacy lives on through our school and this AI that shares his love of learning with every child.</p>
+        <div class="demo__feats">
+          <div class="demo__feat"><div class="demo__feat-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-8a2 2 0 100 4 2 2 0 000-4z"/></svg></div><div><strong>Adapts to Your Child</strong><span>Explains at their level — patient, kind, and always encouraging</span></div></div>
+          <div class="demo__feat"><div class="demo__feat-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div><div><strong>Weekly Reports for Parents</strong><span>Know exactly what your child mastered and where they need support</span></div></div>
+          <div class="demo__feat"><div class="demo__feat-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div><div><strong>Safe & Age-Appropriate</strong><span>Designed for children, monitored by teachers, no ads or distractions</span></div></div>
+        </div>
+      </div>
+      <div class="chat rv">
+        <div class="chat__head">
+          <div class="chat__avatar"><img src="img/waris-mir.jpg" alt="Prof. Waris Mir"></div>
+          <div class="chat__head-info"><strong>Prof Mir — AI Study Companion</strong><small>Inspired by Prof. Waris Mir (1938-1987)</small></div>
+        </div>
+        <div class="chat__body" id="chatBody"></div>
+        <div class="chat__foot">
+          <input type="text" id="chatIn" placeholder="Ask: Who was Waris Mir? or What is gravity?" autocomplete="off">
+          <button id="chatGo" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS -->
+<section class="campus" id="campus">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)">
+      <div class="sec-label"><i></i> Our Campus</div>
+      <h2>A Place Kids Love Coming To</h2>
+      <p class="sec-desc">Purpose-built for learning, playing, and growing.</p>
+    </div>
+    <div class="mosaic stg">
+      <div class="tile rv"><img src="img/hallway-play.jpg" alt="Corridor"><div class="tile__cap"><strong>Main Building</strong><small>Smart classrooms with digital whiteboards</small></div></div>
+      <div class="tile rv"><img src="img/pool.jpg" alt="Pool"><div class="tile__cap"><strong>Swimming Pool</strong><small>Covered pool with trained lifeguards</small></div></div>
+      <div class="tile rv"><img src="img/robotics-lab.jpg" alt="Robotics"><div class="tile__cap"><strong>Robotics Lab</strong><small>LEGO, Arduino & tool wall</small></div></div>
+      <div class="tile rv"><img src="img/computer-lab.jpg" alt="Computers"><div class="tile__cap"><strong>Computer Lab</strong><small>Coding & AI workstations</small></div></div>
+      <div class="tile rv"><img src="img/play-area.jpg" alt="Play area"><div class="tile__cap"><strong>Play Area</strong><small>Where creativity runs free</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testi">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(2rem,4vw,4rem)"><div class="sec-label"><i></i> Happy Families</div><h2>What Parents Are Saying</h2></div>
+    <div class="testi-scroll">
+      <div class="tcard"><div class="tcard__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard__txt">"My son used to dread school mornings. Now he wakes up excited because 'today is robotics day.' The change has been remarkable."</p><div class="tcard__who"><div class="tcard__av" style="background:var(--red)">SA</div><div><div class="tcard__name">Sarah Ahmed</div><div class="tcard__role">Mother of a Grade 3 student</div></div></div></div>
+      <div class="tcard"><div class="tcard__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard__txt">"The AI study buddy is incredible. My daughter was struggling with fractions and now she practises on her own. It's so patient."</p><div class="tcard__who"><div class="tcard__av" style="background:var(--navy)">FK</div><div><div class="tcard__name">Fahad Khan</div><div class="tcard__role">Father of a Grade 7 student</div></div></div></div>
+      <div class="tcard"><div class="tcard__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard__txt">"We visited 12 schools before choosing London School. What sealed it was watching a 6-year-old explain her coding project to us."</p><div class="tcard__who"><div class="tcard__av" style="background:var(--sage)">AM</div><div><div class="tcard__name">Ayesha Malik</div><div class="tcard__role">Mother of a Pre-Nursery student</div></div></div></div>
+      <div class="tcard"><div class="tcard__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard__txt">"The weekly AI progress reports are a game changer. I know exactly what my children are learning. No other school offers this."</p><div class="tcard__who"><div class="tcard__av" style="background:var(--navy-light)">UI</div><div><div class="tcard__name">Usman Iqbal</div><div class="tcard__role">Father of Grade 5 & 2 students</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="fees" id="fees">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)"><div class="sec-label"><i></i> Fee Structure</div><h2>Simple, Honest Pricing</h2><p class="sec-desc">No hidden charges. Quality education your family can plan around.</p></div>
+    <div class="fee-grid stg">
+      <div class="fee rv">
+        <div class="fee__age">Pre-Nursery to KG</div>
+        <div class="fee__price">Rs. 15,000</div>
+        <div class="fee__per">per month</div>
+        <div class="fee__div"></div>
+        <div class="fee__list">
+          <div class="fee__li"><span class="fee__dot"></span>Play-based learning & discovery</div>
+          <div class="fee__li"><span class="fee__dot"></span>Introduction to LEGO robotics</div>
+          <div class="fee__li"><span class="fee__dot"></span>Swimming & outdoor play</div>
+          <div class="fee__li"><span class="fee__dot"></span>AI learning games</div>
+        </div>
+        <a href="#cta" class="btn btn--outline" style="width:100%">Learn More</a>
+      </div>
+      <div class="fee fee--pop rv">
+        <div class="fee__badge">Most Families Choose This</div>
+        <div class="fee__age" style="margin-top:var(--s-4)">Grade 1 to Grade 8</div>
+        <div class="fee__price">Rs. 18,000</div>
+        <div class="fee__per">per month <span style="color:var(--sage);font-weight:700">· Early Bird</span></div>
+        <div class="fee__div"></div>
+        <div class="fee__list">
+          <div class="fee__li"><span class="fee__dot"></span>Full Cambridge curriculum</div>
+          <div class="fee__li"><span class="fee__dot"></span>AI Study Buddy included</div>
+          <div class="fee__li"><span class="fee__dot"></span>Robotics lab & coding classes</div>
+          <div class="fee__li"><span class="fee__dot"></span>25+ sports programs</div>
+          <div class="fee__li"><span class="fee__dot"></span>Chinese, French & German</div>
+          <div class="fee__li"><span class="fee__dot"></span>Weekly parent progress reports</div>
+        </div>
+        <a href="#cta" class="btn btn--red" style="width:100%">Book a Visit</a>
+      </div>
+      <div class="fee rv">
+        <div class="fee__age">IGCSE / O-Level</div>
+        <div class="fee__price">Rs. 22,000</div>
+        <div class="fee__per">per month</div>
+        <div class="fee__div"></div>
+        <div class="fee__list">
+          <div class="fee__li"><span class="fee__dot"></span>IGCSE subject specialisations</div>
+          <div class="fee__li"><span class="fee__dot"></span>Advanced AI & coding projects</div>
+          <div class="fee__li"><span class="fee__dot"></span>University prep counselling</div>
+          <div class="fee__li"><span class="fee__dot"></span>Career aptitude matching</div>
+        </div>
+        <a href="#cta" class="btn btn--outline" style="width:100%">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="container">
+    <div class="cta-card rv">
+      <div class="cta-orb cta-orb--1"></div><div class="cta-orb cta-orb--2"></div><div class="cta-orb cta-orb--3"></div><div class="cta-orb cta-orb--4"></div>
+      <h2>Come See It for Yourself</h2>
+      <p>The best way to know if London School is right for your family is to walk through our doors.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" class="btn btn--white btn--lg" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg> WhatsApp Us</a>
+        <a href="tel:+923010499777" class="btn btn--sage btn--lg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call 0301-0499777</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)"><div class="sec-label"><i></i> Find Us</div><h2>Visit Our Campus</h2></div>
+    <div class="contact-grid rv">
+      <div style="display:flex;flex-direction:column;gap:var(--s-4)">
+        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg></div><div><h4>Address</h4><p>Plot #8, Sector B-2, Block 1, Ali Road,<br>Opposite Ideal Park Township, Lahore</p></div></div>
+        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><h4>Phone</h4><p>0301-0499777<br>042-35216426 / 042-35216425</p></div></div>
+        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><h4>Email</h4><p>info@londoneducation.pk</p></div></div>
+        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div><div><h4>Office Hours</h4><p>Monday - Saturday: 8 AM - 4 PM<br>Sunday: Closed</p></div></div>
+      </div>
+      <div class="ct-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.5!2d74.35!3d31.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLahore!5e0!3m2!1sen!2spk!4v1234567890" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="container"><div class="ft__grid">
+    <div class="ft__about">
+      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
+      <p>A warm, nurturing school in Lahore where children discover AI, build robots, play sports, and fall in love with learning.</p>
+      <div class="ft__socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.5-.9-2.1c-.8-.9-1.7-.9-2.1-.9C17.1 3.6 12 3.6 12 3.6s-5 0-8 .4c-.4 0-1.3 0-2.1.9C1.2 5.5 1 7 1 7S.8 8.7.8 10.5v1.6c0 1.7.2 3.4.2 3.4s.2 1.5.9 2.1c.8.9 1.9.8 2.4.9 1.7.2 7.7.2 7.7.2s5 0 8-.4c.4 0 1.3 0 2.1-.9.7-.7.9-2.1.9-2.1s.2-1.7.2-3.4v-1.6C23.2 8.7 23 7 23 7zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg></a>
+      </div>
+    </div>
+    <div><h4 class="ft__h">Programs</h4><div class="ft__links"><a href="#programs">Discover (AI)</a><a href="#programs">Create (Robotics)</a><a href="#programs">Move (Sports)</a><a href="#programs">Grow (Cambridge)</a></div></div>
+    <div><h4 class="ft__h">Quick Links</h4><div class="ft__links"><a href="#about">Our Story</a><a href="#campus">Campus</a><a href="#fees">Fees</a><a href="#cta">Admissions</a></div></div>
+    <div><h4 class="ft__h">For Parents</h4><div class="ft__links"><a href="#">Parent Portal</a><a href="#">AI Progress Reports</a><a href="#">Events</a><a href="#">Privacy Policy</a></div></div>
+  </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
+</footer>
+
+<a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
+
+<script src="js/main.js"></script>
+<script src="js/content-loader.js"></script>
+</body>
+</html>

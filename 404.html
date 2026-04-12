@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — London School System</title>
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="icon" href="img/logo-icon.png" type="image/png">
+  <style>
+    .e404 {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--s-8);
+      background: var(--cream);
+    }
+    .e404__code {
+      font-family: var(--font-heading);
+      font-size: clamp(5rem, 15vw, 10rem);
+      font-weight: 900;
+      color: var(--red-100);
+      line-height: 1;
+    }
+    .e404__title {
+      font-size: var(--text-h2);
+      margin: var(--s-4) 0 var(--s-3);
+    }
+    .e404__desc {
+      font-size: var(--text-lg);
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: var(--s-8);
+    }
+  </style>
+</head>
+<body>
+  <div class="e404">
+    <div class="e404__code">404</div>
+    <h1 class="e404__title">Oops! Page not found</h1>
+    <p class="e404__desc">Looks like this page wandered off. Let's get you back to where the learning happens.</p>
+    <a href="/" class="btn btn--red btn--lg">Back to Home</a>
+  </div>
+</body>
+</html>
