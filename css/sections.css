@@ -6,9 +6,6 @@
    No blobs. No pseudo-elements. No randomness.
    ============================================================ */
 
-/* ── ALL SECTIONS ABOVE SHAPES ── */
-.hero,.programs,.about,.demo,.campus,.testi,.fees,.cta,.contact,.ft,.proof{position:relative;z-index:1}
-
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:var(--s-4) 0;transition:all var(--dur) var(--ease)}
 .nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 1px 12px rgba(0,0,0,.04);padding:var(--s-3) 0}
