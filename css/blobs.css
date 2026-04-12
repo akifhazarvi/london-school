@@ -23,7 +23,7 @@
   right: 0;
   pointer-events: none;
   z-index: 1;
-  overflow: visible;
+  overflow-x: clip;
 }
 
 
