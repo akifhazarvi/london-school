@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — London School System</title>
+  <meta name="description" content="The story of London School. Built on the legacy of Prof. Waris Mir, a visionary educator who believed every child deserves world-class education. Our founding, values, and mission for the future.">
+  <meta property="og:title" content="Our Story — London School System">
+  <meta property="og:image" content="https://akifhazarvi.github.io/london-school/img/waris-mir.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#C1353D">
+  <link rel="icon" href="img/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-icon.png">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    .about-hero-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .about-photo { border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-lg); }
+    .about-photo img { width: 100%; display: block; }
+    .about-text h3 { color: var(--navy); margin-bottom: var(--s-3); font-size: clamp(1.3rem, 3vw, 1.6rem); line-height: 1.3; }
+    .about-text p { color: var(--gray-600); font-size: 1rem; line-height: 1.8; margin-bottom: var(--s-4); }
+    .about-text p strong { color: var(--navy); font-weight: 700; }
+    .timeline { display: flex; flex-direction: column; gap: var(--s-8); margin-top: clamp(2rem, 4vw, 3rem); }
+    .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: var(--s-5); align-items: flex-start; }
+    .timeline-year { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--red); }
+    .timeline-content h4 { color: var(--navy); margin-bottom: var(--s-2); font-size: 1.05rem; }
+    .timeline-content p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.7; }
+    .values-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); margin-top: clamp(2rem, 4vw, 3rem); }
+    .value { background: var(--cream); border-radius: var(--r-xl); padding: var(--s-6) var(--s-5); text-align: center; }
+    .value-ico { width: 64px; height: 64px; border-radius: 50%; background: var(--red); color: white; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--s-3); }
+    .value-ico svg { width: 30px; height: 30px; }
+    .value h4 { color: var(--navy); margin-bottom: var(--s-2); }
+    .value p { color: var(--gray-600); font-size: 0.9rem; line-height: 1.6; }
+    @media (max-width: 900px) {
+      .about-hero-2col { grid-template-columns: 1fr; }
+      .values-3col { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+    }
+    .founder-quote { background: linear-gradient(135deg, var(--navy), rgba(193, 53, 61, 0.9)); border-radius: var(--r-xl); padding: clamp(2.5rem, 5vw, 4rem); text-align: center; color: white; margin: clamp(2rem, 4vw, 3rem) 0; position: relative; overflow: hidden; }
+    .founder-quote::before { content: '"'; position: absolute; top: -0.3em; left: 0.15em; font-size: 12rem; color: rgba(255,255,255,0.08); font-family: var(--font-head); line-height: 1; pointer-events: none; }
+    .founder-quote blockquote { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-family: var(--font-head); font-weight: 700; line-height: 1.5; margin: 0; position: relative; z-index: 2; }
+    .founder-quote cite { display: block; margin-top: var(--s-4); font-size: 0.95rem; color: rgba(255,255,255,0.8); font-style: normal; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest">
+      <div class="nav__name">London School<small>Prof. Waris Mir Campus</small></div>
+    </a>
+    <div class="nav__links">
+      <a href="index.html#programs" class="nav__link">Programs</a>
+      <a href="about.html" class="nav__link nav__link--active">Our Story</a>
+      <a href="index.html#ai" class="nav__link">Ask Prof Mir</a>
+      <a href="campus.html" class="nav__link">Campus</a>
+      <div class="nav__dropdown-wrap">
+        <button class="nav__link nav__dropdown-btn">Explore ▼</button>
+        <div class="nav__dropdown">
+          <a href="gallery.html" class="nav__dropdown-item">School Life</a>
+          <a href="faculty.html" class="nav__dropdown-item">Our Team</a>
+          <a href="news.html" class="nav__dropdown-item">Events</a>
+          <a href="yearbook.html" class="nav__dropdown-item">Virtual Tour</a>
+        </div>
+      </div>
+      <a href="index.html#fees" class="nav__link">Fees</a>
+      <a href="admissions.html" class="nav__link">Admissions</a>
+      <a href="index.html#contact" class="nav__link">Contact</a>
+    </div>
+    <div class="nav__right">
+      <a href="admissions.html" class="btn btn--red btn--sm">Book a Visit</a>
+      <button class="nav__hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html#programs" onclick="closeM()">Programs</a>
+  <a href="about.html" onclick="closeM()">Our Story</a>
+  <a href="index.html#ai" onclick="closeM()">Ask Prof Mir</a>
+  <a href="campus.html" onclick="closeM()">Campus</a>
+  <div style="text-align:center">
+    <p style="font-family:var(--font-heading);font-size:var(--text-h3);font-weight:800;color:var(--text-dark);margin-bottom:var(--s-3)">Explore</p>
+    <a href="gallery.html" onclick="closeM()" style="display:block;margin-bottom:var(--s-2);color:var(--gray-600)">School Life</a>
+    <a href="faculty.html" onclick="closeM()" style="display:block;margin-bottom:var(--s-2);color:var(--gray-600)">Our Team</a>
+    <a href="news.html" onclick="closeM()" style="display:block;margin-bottom:var(--s-2);color:var(--gray-600)">Events</a>
+    <a href="yearbook.html" onclick="closeM()" style="display:block;color:var(--gray-600)">Virtual Tour</a>
+  </div>
+  <a href="index.html#fees" onclick="closeM()">Fees</a>
+  <a href="admissions.html" onclick="closeM()">Admissions</a>
+  <a href="index.html#contact" onclick="closeM()">Contact</a>
+  <a href="admissions.html" class="btn btn--red btn--lg" onclick="closeM()">Book a Visit</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="container">
+    <div class="pg-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Our Story</span>
+    </div>
+    <div class="sec-label"><i></i> Our Heritage</div>
+    <h1>Built on a Legacy of Vision</h1>
+    <p>London School is rooted in the life and philosophy of Prof. Waris Mir — an educator who believed that every child, regardless of background, deserves access to world-class education and the chance to discover their potential.</p>
+  </div>
+</section>
+
+<!-- FOUNDER SECTION -->
+<section class="pg-section">
+  <div class="container">
+    <div class="about-hero-2col rv">
+      <div class="about-photo">
+        <img src="img/waris-mir.jpg" alt="Prof. Waris Mir — Founder and Visionary">
+      </div>
+      <div class="about-text">
+        <div class="sec-label" style="margin-bottom:var(--s-3)"><i></i> The Founder</div>
+        <h3>Prof. Waris Mir (1938–1987)</h3>
+        <p>
+          <strong>A visionary ahead of his time.</strong> Prof. Waris Mir dedicated his life to reimagining education in South Asia. In an era when quality schooling was the privilege of the few, he built institutions rooted in the belief that curiosity, creativity, and compassion were every child's birthright.
+        </p>
+        <p>
+          His philosophy was simple but radical: <strong>Learning should feel like discovery, not memorisation.</strong> Classrooms should be warm spaces where every child felt known. Education should prepare children for a world that hadn't been invented yet — not just the world as it was.
+        </p>
+        <p>
+          Though Prof. Mir passed away in 1987, his legacy lives on in every classroom, every student, and every decision we make at London School. His vision guides us still.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER QUOTE -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="founder-quote rv">
+      <blockquote>Education is not about filling empty vessels. It's about lighting fires that burn for a lifetime. Every child carries within them the spark of genius. Our job is to fan that flame.</blockquote>
+      <cite>— Prof. Waris Mir</cite>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="pg-section">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(2.5rem,4vw,3.5rem)">
+      <div class="sec-label"><i></i> Our Journey</div>
+      <h2>A Timeline of Growth</h2>
+    </div>
+
+    <div class="timeline stg">
+      <div class="timeline-item rv">
+        <div class="timeline-year">1987</div>
+        <div class="timeline-content">
+          <h4>Prof. Waris Mir's Legacy Begins</h4>
+          <p>Though Prof. Mir passed away this year, his educational philosophy and ideals became the foundation upon which London School would be built by those inspired by his vision.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-content">
+          <h4>London School is Established</h4>
+          <p>Inspired by Prof. Waris Mir's vision, educators and community leaders founded London School in Lahore. The first cohort of students arrived, ready to learn in a warm, nurturing environment.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2012</div>
+        <div class="timeline-content">
+          <h4>Robotics Lab Opens</h4>
+          <p>We launched our pioneering Robotics Lab — one of the first in Lahore. Students began building with LEGO, Arduino, and later 3D printers. The future was being made in real time.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2015</div>
+        <div class="timeline-content">
+          <h4>AI Study Buddy (Prof Mir Bot) Launches</h4>
+          <p>We introduced our signature AI tool — named after the school's namesake — to personalise learning for every child. Weekly reports to parents began, bringing transparency and partnership.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-content">
+          <h4>Cambridge Pathway Certified</h4>
+          <p>London School achieved Cambridge Checkpoint certification, formalising our commitment to world-class curriculum standards. Students could now pursue IGCSE and beyond.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <h4>500+ Students & Expanding Faculty</h4>
+          <p>We reached a milestone: 500+ happy families trusting us with their children. Our faculty grew to include specialists in AI, robotics, languages, and childhood development.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h4>Swimming Pool & Multi-Sport Expansion</h4>
+          <p>We expanded our sports programme to 25+ activities and built a covered swimming pool. Every child now has access to world-class facilities and coaching.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item rv">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content">
+          <h4>The Prof. Waris Mir Campus Today</h4>
+          <p>Today, London School stands as a living monument to Prof. Waris Mir's vision. We continue to innovate, grow, and stay true to the principle that every child matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR VALUES -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(2rem,4vw,3rem)">
+      <div class="sec-label"><i></i> What Drives Us</div>
+      <h2>Our Core Values</h2>
+      <p class="sec-desc">These principles, rooted in Prof. Waris Mir's philosophy, guide every decision we make.</p>
+    </div>
+
+    <div class="values-3col stg">
+      <div class="value rv">
+        <div class="value-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+        </div>
+        <h4>Curiosity First</h4>
+        <p>We teach children to ask great questions — to wonder, experiment, and discover. In a world of answers, we celebrate the courage to ask.</p>
+      </div>
+
+      <div class="value rv">
+        <div class="value-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <h4>Every Child Matters</h4>
+        <p>Small class sizes. Teachers who know every child's name, strengths, and struggles. We see each student as a whole person, not just a test score.</p>
+      </div>
+
+      <div class="value rv">
+        <div class="value-ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <h4>Ready for the World</h4>
+        <p>Cambridge curriculum, three foreign languages, AI and robotics, 25+ sports. We prepare children for a future we can't yet predict.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="pg-section">
+  <div class="container">
+    <div class="about-hero-2col rv">
+      <div class="about-text">
+        <h3 style="color:var(--red);margin-bottom:var(--s-4)">Our Mission</h3>
+        <p>
+          To nurture curious, confident, compassionate learners who understand that education is a lifelong journey — not a destination. We create warm, intellectually rigorous spaces where every child discovers their unique genius and learns to use it in service of their community and the world.
+        </p>
+      </div>
+      <div class="about-text">
+        <h3 style="color:var(--sage);margin-bottom:var(--s-4)">Our Vision</h3>
+        <p>
+          A world where every child — regardless of background — has access to education that makes them feel seen, safe, and capable of shaping their own future. Where schools are places of joy, not stress. Where learning is a privilege, not a burden.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENT LEADERSHIP -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(2.5rem,4vw,3.5rem)">
+      <div class="sec-label"><i></i> Carrying Forward</div>
+      <h2>Our Leadership Today</h2>
+      <p class="sec-desc">A dedicated team committed to Prof. Waris Mir's vision.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s-6)" class="stg">
+      <div style="background:var(--white);border-radius:var(--r-lg);padding:var(--s-5);text-align:center;box-shadow:var(--sh-sm)">
+        <div style="width:100%;height:200px;overflow:hidden;border-radius:var(--r-md);margin-bottom:var(--s-4)">
+          <img src="img/ali-umair.jpg" alt="Ali Umair — Campus Director" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top">
+        </div>
+        <h3 style="color:var(--navy);margin-bottom:var(--s-1)">Ali Umair</h3>
+        <p style="font-size:0.85rem;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--s-2)">Campus Director</p>
+        <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6">Leading London School with a passion for technology-driven, child-centred learning. Carrying forward Prof. Mir's legacy with innovation and heart.</p>
+      </div>
+
+      <div style="background:var(--white);border-radius:var(--r-lg);padding:var(--s-5);text-align:center;box-shadow:var(--sh-sm)">
+        <div style="width:100%;height:200px;overflow:hidden;border-radius:var(--r-md);margin-bottom:var(--s-4);background:var(--cream);display:flex;align-items:center;justify-content:center;color:var(--gray-400)">
+          <svg style="width:80px;height:80px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3 style="color:var(--navy);margin-bottom:var(--s-1)">Academic Leadership</h3>
+        <p style="font-size:0.85rem;color:var(--sage);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--s-2)">Head of Academics</p>
+        <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6">Our academic team brings decades of Cambridge curriculum expertise and a deep commitment to child-centred learning.</p>
+      </div>
+
+      <div style="background:var(--white);border-radius:var(--r-lg);padding:var(--s-5);text-align:center;box-shadow:var(--sh-sm)">
+        <div style="width:100%;height:200px;overflow:hidden;border-radius:var(--r-md);margin-bottom:var(--s-4);background:var(--cream);display:flex;align-items:center;justify-content:center;color:var(--gray-400)">
+          <svg style="width:80px;height:80px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="color:var(--navy);margin-bottom:var(--s-1)">Faculty & Development</h3>
+        <p style="font-size:0.85rem;color:var(--navy);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:var(--s-2)">Professional Growth</p>
+        <p style="color:var(--gray-600);font-size:0.9rem;line-height:1.6">Our teachers undergo continuous professional development. We invest in their growth because it directly impacts your child's experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pg-section">
+  <div class="container" style="text-align:center">
+    <div class="sec-label" style="justify-content:center;margin-bottom:var(--s-3)"><i></i> Be Part of the Story</div>
+    <h2 style="color:var(--navy);margin-bottom:var(--s-3)">Experience the London School Difference</h2>
+    <p style="color:var(--gray-600);max-width:580px;margin:0 auto var(--s-6)">When you choose London School, you're not just enrolling in a school. You're joining a community rooted in 40 years of educational excellence and a vision that every child matters.</p>
+    <div style="display:flex;gap:var(--s-3);justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" class="btn btn--red btn--lg" target="_blank" rel="noopener">Book a Visit</a>
+      <a href="admissions.html" class="btn btn--outline btn--lg">Learn About Admissions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="container"><div class="ft__grid">
+    <div class="ft__about">
+      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
+      <p>A warm, nurturing school in Lahore where children discover AI, build robots, play sports, and fall in love with learning.</p>
+      <div class="ft__socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.5-.9-2.1c-.8-.9-1.7-.9-2.1-.9C17.1 3.6 12 3.6 12 3.6s-5 0-8 .4c-.4 0-1.3 0-2.1.9C1.2 5.5 1 7 1 7S.8 8.7.8 10.5v1.6c0 1.7.2 3.4.2 3.4s.2 1.5.9 2.1c.8.9 1.9.8 2.4.9 1.7.2 7.7.2 7.7.2s5 0 8-.4c.4 0 1.3 0 2.1-.9.7-.7.9-2.1.9-2.1s.2-1.7.2-3.4v-1.6C23.2 8.7 23 7 23 7zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg></a>
+      </div>
+    </div>
+    <div><h4 class="ft__h">Explore</h4><div class="ft__links"><a href="gallery.html">School Life</a><a href="campus.html">Campus</a><a href="faculty.html">Our Team</a><a href="yearbook.html">Virtual Tour</a></div></div>
+    <div><h4 class="ft__h">Quick Links</h4><div class="ft__links"><a href="index.html#programs">Programs</a><a href="about.html">Our Story</a><a href="news.html">Events</a><a href="admissions.html">Admissions</a></div></div>
+    <div><h4 class="ft__h">Contact</h4><div class="ft__links"><a href="tel:+923010499777">0301-0499777</a><a href="mailto:info@londoneducation.pk">info@londoneducation.pk</a><a href="index.html#contact">Find Us</a></div></div>
+  </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
+</footer>
+
+<a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
