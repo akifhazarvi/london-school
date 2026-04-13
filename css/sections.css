@@ -18,12 +18,6 @@
 .nav__link{font-family:var(--font-heading);font-size:var(--text-sm);font-weight:700;color:var(--sand-500);transition:color var(--dur-fast)}
 .nav__link:hover,.nav__link.active{color:var(--red)}
 .nav__right{display:flex;align-items:center;gap:var(--s-3)}
-.nav__dropdown-wrap{position:relative;display:inline-block}
-.nav__dropdown-btn{background:none;border:none;cursor:pointer;font-family:inherit;padding:0;color:inherit;font-size:inherit;font-weight:inherit}
-.nav__dropdown{position:absolute;top:calc(100% + var(--s-2));left:0;background:var(--white);border-radius:var(--r-md);box-shadow:var(--sh-md);min-width:200px;padding:var(--s-3) 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.25s ease;pointer-events:none}
-.nav__dropdown-wrap:hover .nav__dropdown{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-.nav__dropdown-item{display:block;padding:var(--s-3) var(--s-5);color:var(--navy);font-size:var(--text-sm);font-weight:600;text-decoration:none;transition:background 0.2s;font-family:var(--font-heading)}
-.nav__dropdown-item:hover{background:var(--cream);color:var(--red)}
 .nav__hamburger{display:none;flex-direction:column;gap:5px;padding:8px}
 .nav__hamburger span{width:22px;height:2px;background:var(--text-dark);border-radius:2px;transition:all .3s}
 .nav__hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
