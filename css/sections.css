@@ -18,6 +18,10 @@
 .nav__link{font-family:var(--font-heading);font-size:var(--text-sm);font-weight:700;color:var(--sand-500);transition:color var(--dur-fast)}
 .nav__link:hover,.nav__link.active{color:var(--red)}
 .nav__right{display:flex;align-items:center;gap:var(--s-3)}
+.nav__dropdown{position:absolute;top:100%;left:0;background:var(--white);border-radius:var(--r-md);box-shadow:var(--sh-md);min-width:180px;padding:var(--s-3) 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all 0.3s;z-index:50}
+.nav__links>div:hover .nav__dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.nav__dropdown a{display:block;padding:var(--s-3) var(--s-5);color:var(--navy);font-size:var(--text-sm);font-weight:600;transition:background 0.2s}
+.nav__dropdown a:hover{background:var(--cream)}
 .nav__hamburger{display:none;flex-direction:column;gap:5px;padding:8px}
 .nav__hamburger span{width:22px;height:2px;background:var(--text-dark);border-radius:2px;transition:all .3s}
 .nav__hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -116,19 +120,49 @@
 .programs{padding:clamp(4.5rem,7vw,7rem) 0}
 .prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-6)}
 
-.prog{border-radius:var(--r-2xl);padding:var(--s-8);transition:all var(--dur) var(--ease)}
+.prog{border-radius:var(--r-2xl);padding:var(--s-8);transition:all var(--dur) var(--ease);display:flex;flex-direction:column}
 .prog:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
 .prog--discover{background:var(--red-50)}
 .prog--create{background:var(--navy-50)}
 .prog--move{background:var(--sage-50)}
 .prog--grow{background:var(--peach-50)}
 
-.prog__ico{width:48px;height:48px;border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;margin-bottom:var(--s-5)}
+/* Program image section with organic shapes */
+.prog__img{width:100%;height:180px;border-radius:12px;overflow:hidden;margin:-var(--s-8) -var(--s-8) var(--s-6) -var(--s-8);position:relative}
+.prog__shape{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
+
+/* Discover — wavy organic shape */
+.prog__img--discover .prog__shape{
+  clip-path:polygon(
+    0% 20%, 5% 10%, 10% 5%, 15% 8%, 20% 3%, 25% 12%, 30% 8%, 35% 15%, 40% 10%, 45% 18%, 50% 12%,
+    55% 20%, 60% 15%, 65% 22%, 70% 18%, 75% 25%, 80% 20%, 85% 28%, 90% 22%, 95% 30%, 100% 25%,
+    100% 100%, 0% 100%
+  );
+}
+
+/* Create — bubble/blob shape */
+.prog__img--create .prog__shape{
+  clip-path:polygon(
+    50% 0%, 80% 10%, 100% 35%, 95% 65%, 75% 90%, 50% 100%, 25% 90%, 5% 65%, 0% 35%, 20% 10%
+  );
+}
+
+/* Move — playful rounded shape with curves */
+.prog__img--move .prog__shape{
+  clip-path:polygon(
+    0% 25%, 15% 5%, 35% 0%, 65% 0%, 85% 5%, 100% 25%, 100% 75%, 85% 95%, 65% 100%, 35% 100%, 15% 95%, 0% 75%
+  );
+}
+
+/* Grow — star/burst shape */
+.prog__img--grow .prog__shape{
+  clip-path:polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+}
+
+.prog__ico{display:none}
 .prog__ico svg{width:24px;height:24px}
-.prog--discover .prog__ico{background:var(--red-100);color:var(--red)}
-.prog--create .prog__ico{background:var(--navy-100);color:var(--navy)}
-.prog--move .prog__ico{background:var(--sage-100);color:var(--sage-dark)}
-.prog--grow .prog__ico{background:var(--peach);color:var(--red-dark)}
 
 .prog__title{font-size:var(--text-h3);margin-bottom:var(--s-2)}
 .prog__desc{font-size:var(--text-sm);color:var(--text-muted);line-height:1.7;margin-bottom:var(--s-5)}

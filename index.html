@@ -58,15 +58,21 @@
       <a href="#about" class="nav__link">Our Story</a>
       <a href="#ai" class="nav__link">Ask Prof Mir</a>
       <a href="campus.html" class="nav__link">Campus</a>
-      <a href="gallery.html" class="nav__link">School Life</a>
-      <a href="faculty.html" class="nav__link">Our Team</a>
-      <a href="news.html" class="nav__link">Events</a>
+      <div style="position:relative;display:inline-block">
+        <button class="nav__link" style="background:none;border:none;cursor:pointer;font-family:inherit;padding:0;color:inherit">Explore ▼</button>
+        <div style="position:absolute;top:100%;left:0;background:var(--white);border-radius:var(--r-md);box-shadow:var(--sh-md);min-width:180px;padding:var(--s-3) 0;opacity:0;visibility:hidden;transform:translateY(-4px);transition:all 0.3s;z-index:50" class="nav__dropdown">
+          <a href="gallery.html" class="nav__link" style="display:block;padding:var(--s-3) var(--s-5);color:var(--navy)">School Life</a>
+          <a href="faculty.html" class="nav__link" style="display:block;padding:var(--s-3) var(--s-5);color:var(--navy)">Our Team</a>
+          <a href="news.html" class="nav__link" style="display:block;padding:var(--s-3) var(--s-5);color:var(--navy)">Events</a>
+          <a href="yearbook.html" class="nav__link" style="display:block;padding:var(--s-3) var(--s-5);color:var(--navy)">Virtual Tour</a>
+        </div>
+      </div>
       <a href="#fees" class="nav__link">Fees</a>
       <a href="admissions.html" class="nav__link">Admissions</a>
       <a href="#contact" class="nav__link">Contact</a>
     </div>
     <div class="nav__right">
-      <a href="#cta" class="btn btn--red btn--sm">Book a Visit</a>
+      <a href="admissions.html" class="btn btn--red btn--sm">Book a Visit</a>
       <button class="nav__hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -76,9 +82,13 @@
   <a href="#about" onclick="closeM()">Our Story</a>
   <a href="#ai" onclick="closeM()">Ask Prof Mir</a>
   <a href="campus.html" onclick="closeM()">Campus</a>
-  <a href="gallery.html" onclick="closeM()">School Life</a>
-  <a href="faculty.html" onclick="closeM()">Our Team</a>
-  <a href="news.html" onclick="closeM()">Events</a>
+  <div style="text-align:center">
+    <p style="font-family:var(--font-heading);font-size:var(--text-h3);font-weight:800;color:var(--text-dark);margin-bottom:var(--s-3)">Explore</p>
+    <a href="gallery.html" onclick="closeM()" style="display:block;margin-bottom:var(--s-2);color:var(--gray-600)">School Life</a>
+    <a href="faculty.html" onclick="closeM()" style="display:block;margin-bottom:var(--s-2);color:var(--gray-600)">Our Team</a>
+    <a href="news.html" onclick="closeM()" style="display:block;margin-bottom:var(--s-2);color:var(--gray-600)">Events</a>
+    <a href="yearbook.html" onclick="closeM()" style="display:block;color:var(--gray-600)">Virtual Tour</a>
+  </div>
   <a href="#fees" onclick="closeM()">Fees</a>
   <a href="admissions.html" onclick="closeM()">Admissions</a>
   <a href="#contact" onclick="closeM()">Contact</a>
