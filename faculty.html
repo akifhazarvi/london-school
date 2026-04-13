@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team — London School System</title>
+  <meta name="description" content="Meet the dedicated teachers and staff of London School. A passionate, professionally trained team committed to every child's growth and happiness.">
+  <meta property="og:title" content="Our Team — London School System">
+  <meta property="og:image" content="https://akifhazarvi.github.io/london-school/img/school/faculty-staff-team.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#C1353D">
+  <link rel="icon" href="img/logo-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-icon.png">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest">
+      <div class="nav__name">London School<small>Prof. Waris Mir Campus</small></div>
+    </a>
+    <div class="nav__links">
+      <a href="index.html#programs" class="nav__link">Programs</a>
+      <a href="index.html#about" class="nav__link">Our Story</a>
+      <a href="campus.html" class="nav__link">Campus</a>
+      <a href="gallery.html" class="nav__link">School Life</a>
+      <a href="faculty.html" class="nav__link nav__link--active">Our Team</a>
+      <a href="admissions.html" class="nav__link">Admissions</a>
+      <a href="index.html#contact" class="nav__link">Contact</a>
+    </div>
+    <div class="nav__right">
+      <a href="admissions.html" class="btn btn--red btn--sm">Book a Visit</a>
+      <button class="nav__hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html#programs" onclick="closeM()">Programs</a>
+  <a href="index.html#about" onclick="closeM()">Our Story</a>
+  <a href="campus.html" onclick="closeM()">Campus</a>
+  <a href="gallery.html" onclick="closeM()">School Life</a>
+  <a href="faculty.html" onclick="closeM()">Our Team</a>
+  <a href="admissions.html" onclick="closeM()">Admissions</a>
+  <a href="index.html#contact" onclick="closeM()">Contact</a>
+  <a href="admissions.html" class="btn btn--red btn--lg" onclick="closeM()">Book a Visit</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="container">
+    <div class="pg-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <span>Our Team</span>
+    </div>
+    <div class="sec-label"><i></i> The People Behind the Magic</div>
+    <h1>Our Team</h1>
+    <p>Passionate, professionally trained, and deeply committed to every child. Meet the teachers and staff who make London School what it is.</p>
+  </div>
+</section>
+
+<!-- STAFF HERO PHOTO -->
+<section class="pg-section">
+  <div class="container">
+    <div class="faculty-hero-photo rv">
+      <img src="img/school/faculty-staff-team.jpg" alt="London School full staff team gathered on the staircase">
+    </div>
+
+    <!-- Values row -->
+    <div class="sec-center rv" style="margin-bottom:clamp(2rem,4vw,3rem)">
+      <div class="sec-label"><i></i> What Guides Us</div>
+      <h2>Our Teaching Philosophy</h2>
+    </div>
+    <div class="values-row stg">
+      <div class="value-card rv">
+        <div class="value-card__ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+        </div>
+        <h4>Curiosity First</h4>
+        <p>We teach children to ask great questions — not just memorise answers. Every lesson is a chance to wonder.</p>
+      </div>
+      <div class="value-card rv">
+        <div class="value-card__ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <h4>Every Child Matters</h4>
+        <p>Small class sizes, personal attention, and teachers who know every child by name — their strengths and their struggles.</p>
+      </div>
+      <div class="value-card rv">
+        <div class="value-card__ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <h4>Ready for the World</h4>
+        <p>Cambridge curriculum, three languages, and real-world skills — we prepare children for the future, not just the next exam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:clamp(2.5rem,4vw,3.5rem)">
+      <div class="sec-label"><i></i> Leadership</div>
+      <h2>Our Founders & Leadership</h2>
+    </div>
+
+    <div class="team-grid stg">
+
+      <div class="team-card rv">
+        <img class="team-card__photo" src="img/waris-mir.jpg" alt="Prof. Waris Mir" loading="lazy">
+        <div class="team-card__body">
+          <p class="role">Founder & Visionary</p>
+          <h3>Prof. Waris Mir</h3>
+          <p>1938–1987. The man whose vision built this institution. A legendary educator who believed every child deserves a world-class education regardless of background.</p>
+        </div>
+      </div>
+
+      <div class="team-card rv">
+        <img class="team-card__photo" src="img/ali-umair.jpg" alt="Ali Umair — Campus Director" loading="lazy">
+        <div class="team-card__body">
+          <p class="role">Campus Director</p>
+          <h3>Ali Umair</h3>
+          <p>Carrying forward the legacy of Prof. Waris Mir with a focus on technology-driven, child-centred learning for the 21st century.</p>
+        </div>
+      </div>
+
+      <div class="team-card rv">
+        <img class="team-card__photo" src="img/staff-2.jpg" alt="Senior faculty member" loading="lazy">
+        <div class="team-card__body">
+          <p class="role">Head of Academics</p>
+          <h3>Senior Faculty</h3>
+          <p>Our academic leadership team brings decades of experience in Cambridge curriculum delivery, ensuring every child reaches their full potential.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CPD / PROFESSIONAL DEVELOPMENT -->
+<section class="pg-section">
+  <div class="container">
+    <div class="about__grid rv" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center">
+      <div>
+        <div class="sec-label" style="margin-bottom:var(--s-3)"><i></i> Continuous Growth</div>
+        <h2 style="color:var(--navy);margin-bottom:var(--s-4)">We Never Stop Learning Either</h2>
+        <p style="color:var(--gray-600);line-height:1.7;margin-bottom:var(--s-4)">Every term, our teachers go through structured professional development — the same rigour we expect from our students. London School's Academic Plan sessions bring the whole team together to align, upskill, and grow.</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--s-3)">
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">Regular CPD workshops on modern teaching methods</span>
+          </li>
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">Cambridge-aligned curriculum training sessions</span>
+          </li>
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">AI tools integration for personalised learning</span>
+          </li>
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">Child psychology and wellbeing awareness</span>
+          </li>
+        </ul>
+      </div>
+      <div class="cpd-grid">
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-2.jpg" alt="London School Academic Plan training session" loading="lazy">
+        </div>
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-1.jpg" alt="Teacher being trained by presenter" loading="lazy">
+        </div>
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-3.jpg" alt="Full teacher training audience" loading="lazy">
+        </div>
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-4.jpg" alt="Presenter at whiteboard in training session" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN THE TEAM CTA -->
+<section class="pg-section pg-section--cream">
+  <div class="container" style="text-align:center">
+    <div class="sec-label" style="justify-content:center;margin-bottom:var(--s-3)"><i></i> Join Us</div>
+    <h2 style="color:var(--navy);margin-bottom:var(--s-3)">Passionate about teaching?</h2>
+    <p style="color:var(--gray-600);max-width:520px;margin:0 auto var(--s-6)">We're always looking for dedicated educators who believe in child-centred learning. Get in touch to explore opportunities at London School.</p>
+    <div style="display:flex;gap:var(--s-3);justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/923010499777?text=Hi%20I%20am%20interested%20in%20teaching%20at%20London%20School" class="btn btn--red btn--lg" target="_blank" rel="noopener">Get in Touch</a>
+      <a href="admissions.html" class="btn btn--outline btn--lg">Enrol Your Child</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="container"><div class="ft__grid">
+    <div class="ft__about">
+      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
+      <p>A warm, nurturing school in Lahore where children discover AI, build robots, play sports, and fall in love with learning.</p>
+      <div class="ft__socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.5-.9-2.1c-.8-.9-1.7-.9-2.1-.9C17.1 3.6 12 3.6 12 3.6s-5 0-8 .4c-.4 0-1.3 0-2.1.9C1.2 5.5 1 7 1 7S.8 8.7.8 10.5v1.6c0 1.7.2 3.4.2 3.4s.2 1.5.9 2.1c.8.9 1.9.8 2.4.9 1.7.2 7.7.2 7.7.2s5 0 8-.4c.4 0 1.3 0 2.1-.9.7-.7.9-2.1.9-2.1s.2-1.7.2-3.4v-1.6C23.2 8.7 23 7 23 7zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg></a>
+      </div>
+    </div>
+    <div><h4 class="ft__h">Explore</h4><div class="ft__links"><a href="gallery.html">School Life</a><a href="campus.html">Campus</a><a href="faculty.html">Our Team</a><a href="yearbook.html">Virtual Tour</a></div></div>
+    <div><h4 class="ft__h">Quick Links</h4><div class="ft__links"><a href="index.html#programs">Programs</a><a href="index.html#about">Our Story</a><a href="index.html#fees">Fees</a><a href="admissions.html">Admissions</a></div></div>
+    <div><h4 class="ft__h">Contact</h4><div class="ft__links"><a href="tel:+923010499777">0301-0499777</a><a href="mailto:info@londoneducation.pk">info@londoneducation.pk</a><a href="index.html#contact">Find Us</a></div></div>
+  </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
+</footer>
+
+<a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

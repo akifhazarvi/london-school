@@ -1,0 +1,406 @@
+/* ============================================================
+   LONDON SCHOOL — Inner Pages Shared Styles
+   Used by: gallery.html, campus.html, faculty.html, admissions.html
+   ============================================================ */
+
+/* ── PAGE HERO ── */
+.pg-hero {
+  background: var(--cream);
+  padding: clamp(6rem, 10vw, 9rem) 0 clamp(3rem, 5vw, 4rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pg-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 60px;
+  background: var(--white);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.pg-hero .sec-label { justify-content: center; margin-bottom: var(--s-3); }
+.pg-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--navy);
+  margin-bottom: var(--s-3);
+  line-height: 1.15;
+}
+.pg-hero p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.pg-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  margin-bottom: var(--s-4);
+}
+.pg-breadcrumb a { color: var(--navy); text-decoration: none; }
+.pg-breadcrumb a:hover { color: var(--red); }
+.pg-breadcrumb span { color: var(--gray-400); }
+
+/* ── SECTION ALTERNATING BG ── */
+.pg-section { padding: clamp(4rem, 7vw, 6rem) 0; background: var(--white); }
+.pg-section--cream { background: var(--cream); }
+
+/* ── GALLERY GRID ── */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  justify-content: center;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.gallery-filter {
+  padding: var(--s-2) var(--s-5);
+  border-radius: var(--r-pill);
+  border: 2px solid var(--navy-100);
+  background: transparent;
+  color: var(--navy);
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.gallery-filter:hover,
+.gallery-filter.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.gallery-filter.active { background: var(--red); border-color: var(--red); }
+
+.gallery-grid {
+  columns: 3;
+  column-gap: var(--s-4);
+}
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: var(--s-4);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-sm);
+  cursor: pointer;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item__cap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: var(--s-4) var(--s-4) var(--s-3);
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-item__cap { opacity: 1; }
+
+@media (max-width: 900px) { .gallery-grid { columns: 2; } }
+@media (max-width: 600px) { .gallery-grid { columns: 1; } }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s-6);
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-lg);
+}
+.lightbox__close {
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-5);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.lightbox__close:hover { background: rgba(255,255,255,0.15); }
+
+/* ── CAMPUS PAGE ── */
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--s-6);
+}
+.facility-card {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-md);
+  background: var(--white);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.facility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
+}
+.facility-card__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.facility-card__body {
+  padding: var(--s-5);
+}
+.facility-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red);
+  margin-bottom: var(--s-2);
+}
+.facility-card__body h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: var(--s-2); }
+.facility-card__body p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.6; }
+
+/* Video section */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--s-6);
+}
+.video-wrap {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-md);
+  background: var(--navy-dark);
+  position: relative;
+}
+.video-wrap video {
+  width: 100%;
+  display: block;
+  max-height: 280px;
+  object-fit: cover;
+}
+.video-wrap__label {
+  padding: var(--s-4) var(--s-5);
+  color: var(--white);
+}
+.video-wrap__label h4 { font-size: 1rem; margin-bottom: var(--s-1); }
+.video-wrap__label p { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+
+@media (max-width: 600px) {
+  .facility-grid, .video-grid { grid-template-columns: 1fr; }
+}
+
+/* Mural quote */
+.mural-quote {
+  background: var(--navy);
+  border-radius: var(--r-xl);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: clamp(3rem, 5vw, 4rem) 0;
+}
+.mural-quote::before {
+  content: '"';
+  position: absolute;
+  top: -0.3em;
+  left: 0.15em;
+  font-size: 12rem;
+  color: rgba(255,255,255,0.05);
+  font-family: var(--font-head);
+  line-height: 1;
+  pointer-events: none;
+}
+.mural-quote blockquote {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+.mural-quote cite {
+  display: block;
+  margin-top: var(--s-4);
+  font-size: 0.9rem;
+  color: var(--sage);
+  font-style: normal;
+}
+
+/* ── FACULTY PAGE ── */
+.faculty-hero-photo {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+.faculty-hero-photo img { width: 100%; display: block; max-height: 480px; object-fit: cover; object-position: top; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--s-6);
+}
+.team-card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-sm);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+.team-card__photo {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.team-card__body { padding: var(--s-5); }
+.team-card__body h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: var(--s-1); }
+.team-card__body .role {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--red);
+  margin-bottom: var(--s-2);
+}
+.team-card__body p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.55; }
+
+.cpd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--s-5);
+}
+.cpd-photo {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-sm);
+}
+.cpd-photo img { width: 100%; display: block; }
+
+.values-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+.value-card {
+  background: var(--cream);
+  border-radius: var(--r-xl);
+  padding: var(--s-6) var(--s-5);
+  text-align: center;
+}
+.value-card__ico {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--s-4);
+}
+.value-card__ico svg { width: 26px; height: 26px; }
+.value-card h4 { color: var(--navy); margin-bottom: var(--s-2); }
+.value-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+@media (max-width: 768px) { .values-row { grid-template-columns: 1fr; } }
+
+/* ── ADMISSIONS PAGE ── */
+.adm-hero-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+}
+.adm-stat {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: var(--s-6) var(--s-5);
+  text-align: center;
+  box-shadow: var(--sh-sm);
+}
+.adm-stat__num {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-family: var(--font-head);
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: var(--s-1);
+}
+.adm-stat__lbl { font-size: 0.9rem; color: var(--gray-600); }
+@media (max-width: 600px) { .adm-hero-strip { grid-template-columns: 1fr; } }
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.step {
+  display: flex;
+  gap: var(--s-5);
+  align-items: flex-start;
+}
+.step__num {
+  flex-shrink: 0;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--sh-sm);
+}
+.step__body h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: var(--s-1); }
+.step__body p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.6; }
+
+.adm-cta-strip {
+  background: var(--navy);
+  border-radius: var(--r-xl);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-top: clamp(3rem, 5vw, 4rem);
+  position: relative;
+  overflow: hidden;
+}
+.adm-cta-strip h2 { color: var(--white); margin-bottom: var(--s-3); }
+.adm-cta-strip p { color: rgba(255,255,255,0.75); margin-bottom: var(--s-6); max-width: 500px; margin-left: auto; margin-right: auto; }
+.adm-cta-strip .cta-btns { display: flex; gap: var(--s-3); justify-content: center; flex-wrap: wrap; }
+
+/* Fee cards reuse from index, minor tweak for standalone page */
+.fees-standalone .fee-grid { margin-top: 0; }
