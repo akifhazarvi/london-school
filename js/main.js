@@ -37,6 +37,9 @@
       sugBox=document.getElementById('chatSuggestions'),
       started=false;
 
+  /* Only run chatbot code if chat elements exist on this page */
+  if(!body||!inp||!go) return;
+
   /* ── QUOTES BANK ── */
   var quotes=[
     '"The purpose of education is not to fill minds but to open them."',
