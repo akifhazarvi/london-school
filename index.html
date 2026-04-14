@@ -60,7 +60,7 @@
       <a href="campus.html" class="nav__link">Campus</a>
       <a href="faculty.html" class="nav__link">Our Team</a>
       <a href="news.html" class="nav__link">News</a>
-      <a href="index.html#ai" class="nav__link">Ask Prof Mir</a>
+      <a href="ask-prof-mir.html" class="nav__link">Ask Prof Mir</a>
       <a href="enroll.html" class="nav__link">Admissions</a>
       <a href="yearbook.html" class="nav__link">Virtual Tour</a>
       <a href="index.html#contact" class="nav__link">Contact Us</a>
@@ -78,7 +78,7 @@
   <a href="campus.html" onclick="closeM()">Campus</a>
   <a href="faculty.html" onclick="closeM()">Our Team</a>
   <a href="news.html" onclick="closeM()">News</a>
-  <a href="index.html#ai" onclick="closeM()">Ask Prof Mir</a>
+  <a href="ask-prof-mir.html" onclick="closeM()">Ask Prof Mir</a>
   <a href="enroll.html" onclick="closeM()">Admissions</a>
   <a href="yearbook.html" onclick="closeM()">Virtual Tour</a>
   <a href="index.html#contact" onclick="closeM()">Contact Us</a>
@@ -221,61 +221,6 @@
   </div>
 </section>
 
-<!-- PROF MIR BOT -->
-<section class="section demo" id="ai">
-  <div class="container">
-    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)">
-      <div class="sec-label"><i></i> Meet Prof Mir</div>
-      <h2>Your AI Study Companion</h2>
-      <p class="sec-desc">An AI companion inspired by Prof. Waris Mir (1938–1987) — journalist, professor, and champion of free thought. Ask him about science, history, literature, coding, life lessons, or about the great man himself.</p>
-    </div>
-    <div class="demo__grid">
-      <div class="rv">
-        <h3 style="margin-bottom:var(--s-3)">A Teacher Who Never Stops Teaching</h3>
-        <p style="font-size:var(--text-sm);color:var(--text-muted);line-height:1.8;margin-bottom:var(--s-4)">Prof. Waris Mir taught at Punjab University for over 20 years and wrote fearless columns in Daily Jang. Even under martial law, he never stopped speaking truth. His legacy lives on through this school and this AI that shares his love of learning with every child.</p>
-        <div class="demo__feats">
-          <div class="demo__feat"><div class="demo__feat-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-8a2 2 0 100 4 2 2 0 000-4z"/></svg></div><div><strong>40+ Topics to Explore</strong><span>Science, maths, history, Urdu, geography, coding, robotics, life advice, and more</span></div></div>
-          <div class="demo__feat"><div class="demo__feat-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div><div><strong>Speaks with Prof Mir's Wisdom</strong><span>Every answer carries his philosophy: curiosity, courage, and kindness</span></div></div>
-          <div class="demo__feat"><div class="demo__feat-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div><div><strong>Safe & Age-Appropriate</strong><span>Designed for children, monitored by teachers, no ads or distractions</span></div></div>
-        </div>
-        <div class="demo__cats" style="margin-top:var(--s-6)">
-          <p style="font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);margin-bottom:var(--s-3);color:var(--text-dark)">Try asking about:</p>
-          <div class="demo__chips">
-            <button class="demo__chip" data-q="Who was Prof. Waris Mir?">Prof Waris Mir</button>
-            <button class="demo__chip" data-q="Tell me a quote from Prof Mir">His Quotes</button>
-            <button class="demo__chip" data-q="What is photosynthesis?">Science</button>
-            <button class="demo__chip" data-q="Help me with fractions">Maths</button>
-            <button class="demo__chip" data-q="Teach me Python">Coding</button>
-            <button class="demo__chip" data-q="How do I build a robot?">Robotics</button>
-            <button class="demo__chip" data-q="Tell me about Pakistan">Pakistan</button>
-            <button class="demo__chip" data-q="What is democracy?">Democracy</button>
-            <button class="demo__chip" data-q="Tell me about the solar system">Space</button>
-            <button class="demo__chip" data-q="How can I be a good student?">Study Tips</button>
-          </div>
-        </div>
-      </div>
-      <div class="chat rv">
-        <div class="chat__head">
-          <div class="chat__avatar"><img src="img/waris-mir.jpg" alt="Prof. Waris Mir"></div>
-          <div class="chat__head-info"><strong>Prof Mir — AI Study Companion</strong><small>Inspired by Prof. Waris Mir (1938–1987)</small></div>
-          <div class="chat__status"><span class="chat__status-dot"></span>Online</div>
-        </div>
-        <div class="chat__body" id="chatBody"></div>
-        <div class="chat__suggestions" id="chatSuggestions">
-          <button class="chat__sug" data-q="Who was Waris Mir?">Who was Waris Mir?</button>
-          <button class="chat__sug" data-q="What is gravity?">What is gravity?</button>
-          <button class="chat__sug" data-q="Tell me a quote">Share a quote</button>
-          <button class="chat__sug" data-q="Tell me about Lahore">About Lahore</button>
-        </div>
-        <div class="chat__foot">
-          <input type="text" id="chatIn" placeholder="Ask me anything — science, history, coding..." autocomplete="off">
-          <button id="chatGo" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CAMPUS -->
 <section class="campus" id="campus">
   <div class="container">
@@ -321,22 +266,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="sec-center rv" style="margin-bottom:clamp(3rem,5vw,5rem)"><div class="sec-label"><i></i> Find Us</div><h2>Visit Our Campus</h2></div>
-    <div class="contact-grid rv">
-      <div style="display:flex;flex-direction:column;gap:var(--s-4)">
-        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg></div><div><h4>Address</h4><p>Plot #8, Sector B-2, Block 1, Ali Road,<br>Opposite Ideal Park Township, Lahore</p></div></div>
-        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><h4>Phone</h4><p>0301-0499777<br>042-35216426 / 042-35216425</p></div></div>
-        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><h4>Email</h4><p>info@londoneducation.pk</p></div></div>
-        <div class="ct-card"><div class="ct-card__ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div><div><h4>Office Hours</h4><p>Monday - Saturday: 8 AM - 4 PM<br>Sunday: Closed</p></div></div>
-      </div>
-      <div class="ct-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.5!2d74.35!3d31.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLahore!5e0!3m2!1sen!2spk!4v1234567890" allowfullscreen loading="lazy"></iframe></div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer class="ft">
   <div class="container"><div class="ft__grid">
@@ -351,7 +280,12 @@
     </div>
     <div><h4 class="ft__h">Programs</h4><div class="ft__links"><a href="#programs">Discover (AI)</a><a href="#programs">Create (Robotics)</a><a href="#programs">Move (Sports)</a><a href="#programs">Grow (Cambridge)</a></div></div>
     <div><h4 class="ft__h">Quick Links</h4><div class="ft__links"><a href="#about">Our Story</a><a href="#campus">Campus</a><a href="#contact">Contact</a><a href="#cta">Admissions</a></div></div>
-    <div><h4 class="ft__h">For Parents</h4><div class="ft__links"><a href="#">Parent Portal</a><a href="#">AI Progress Reports</a><a href="#">Events</a><a href="#">Privacy Policy</a></div></div>
+    <div><h4 class="ft__h">Contact Us</h4><div class="ft__links" style="gap:var(--s-3)">
+      <p style="margin:0;color:var(--sand-300);font-size:var(--text-xs);line-height:1.6">Plot #8, Sector B-2, Block 1, Ali Road,<br>Opposite Ideal Park Township, Lahore</p>
+      <p style="margin:0;color:var(--sand-300);font-size:var(--text-xs);line-height:1.6">0301-0499777<br>042-35216426 / 042-35216425</p>
+      <p style="margin:0;color:var(--sand-300);font-size:var(--text-xs);line-height:1.6">info@londoneducation.pk</p>
+      <p style="margin:0;color:var(--sand-300);font-size:var(--text-xs);line-height:1.6">Mon - Sat: 8 AM - 4 PM<br>Sunday: Closed</p>
+    </div></div>
   </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
 </footer>
 
