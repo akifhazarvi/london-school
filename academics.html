@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academics — London School System</title>
-  <meta name="description" content="Our AI-first curriculum and Pakistan's most advanced early robotics program. From LEGO to Arduino to AI — every child becomes a builder.">
+  <meta name="description" content="AI-first education with Pakistan's most advanced early robotics program. From LEGO to Arduino to AI — every child becomes a builder, not just a learner.">
   <meta property="og:title" content="Academics — London School System">
   <meta property="og:image" content="https://akifhazarvi.github.io/london-school/img/robotics-lab.jpg">
   <meta property="og:type" content="website">
@@ -15,19 +15,282 @@
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/pages.css">
   <style>
-    .program-level-card { background: white; border-radius: var(--r-lg); padding: var(--s-5); box-shadow: var(--sh-sm); }
-    .program-level-card h4 { color: var(--navy); margin-bottom: var(--s-2); font-size: 1.1rem; }
-    .program-level-card p { color: var(--gray-600); font-size: 0.9rem; line-height: 1.7; }
-    .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s-4); }
-    .features-list li { display: flex; gap: var(--s-2); }
-    .features-list svg { width: 24px; height: 24px; flex-shrink: 0; color: var(--sage); }
-    .features-list span { color: var(--gray-700); }
-    .mural-quote { background: linear-gradient(135deg, var(--navy), rgba(193, 53, 61, 0.9)); border-radius: var(--r-xl); padding: clamp(2.5rem, 5vw, 4rem); text-align: center; color: white; margin: clamp(2rem, 4vw, 3rem) 0; position: relative; overflow: hidden; }
-    .mural-quote::before { content: '"'; position: absolute; top: -0.3em; left: 0.15em; font-size: 12rem; color: rgba(255,255,255,0.08); font-family: var(--font-head); line-height: 1; pointer-events: none; }
-    .mural-quote blockquote { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-family: var(--font-head); font-weight: 700; line-height: 1.5; margin: 0; position: relative; z-index: 2; }
-    .mural-quote cite { display: block; margin-top: var(--s-4); font-size: 0.95rem; color: rgba(255,255,255,0.8); font-style: normal; }
+    /* ── ACADEMICS PAGE STYLES ── */
+
+    /* AI-First Hero Section */
+    .acad-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .acad-intro__text p {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: var(--s-4);
+    }
+    .acad-intro__text p strong { color: var(--navy); }
+    .acad-intro__highlights {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-3);
+      margin-top: var(--s-5);
+    }
+    .acad-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s-3);
+      padding: var(--s-4);
+      background: var(--white);
+      border-radius: var(--r-lg);
+      box-shadow: var(--sh-sm);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .acad-highlight:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--sh-md);
+    }
+    .acad-highlight__ico {
+      width: 44px; height: 44px;
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .acad-highlight__ico svg { width: 22px; height: 22px; color: white; }
+    .acad-highlight__ico--red { background: var(--red); }
+    .acad-highlight__ico--sage { background: var(--sage); }
+    .acad-highlight__ico--navy { background: var(--navy); }
+    .acad-highlight h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 2px; }
+    .acad-highlight p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+    .acad-intro__photo {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--sh-lg);
+      position: relative;
+    }
+    .acad-intro__photo img { width: 100%; display: block; }
+    .acad-intro__photo-badge {
+      position: absolute;
+      bottom: var(--s-4);
+      left: var(--s-4);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      padding: var(--s-3) var(--s-4);
+      border-radius: var(--r-lg);
+      box-shadow: var(--sh-md);
+      display: flex;
+      align-items: center;
+      gap: var(--s-2);
+    }
+    .acad-intro__photo-badge span {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: var(--navy);
+    }
+    .acad-intro__photo-badge svg { width: 20px; height: 20px; color: var(--sage); }
+
+    /* Robotics Program Cards */
+    .robo-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-6);
+      margin-top: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    .robo-card {
+      background: var(--white);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--sh-sm);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .robo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sh-lg);
+    }
+    .robo-card__header {
+      padding: clamp(1.5rem, 3vw, 2rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .robo-card__header--green { background: linear-gradient(135deg, var(--sage-50) 0%, rgba(122,195,158,0.15) 100%); }
+    .robo-card__header--amber { background: linear-gradient(135deg, var(--peach-50) 0%, rgba(242,213,197,0.3) 100%); }
+    .robo-card__header--blue { background: linear-gradient(135deg, var(--navy-50) 0%, rgba(47,85,129,0.08) 100%); }
+    .robo-card__grade {
+      font-family: var(--font-heading);
+      font-size: var(--text-xs);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--s-2);
+    }
+    .robo-card__header--green .robo-card__grade { color: var(--sage-dark); }
+    .robo-card__header--amber .robo-card__grade { color: var(--peach-dark); }
+    .robo-card__header--blue .robo-card__grade { color: var(--navy); }
+    .robo-card__header h3 {
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      color: var(--text-dark);
+      margin-bottom: var(--s-2);
+    }
+    .robo-card__header p {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .robo-card__ico {
+      width: 56px; height: 56px;
+      border-radius: var(--r-lg);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--s-3);
+    }
+    .robo-card__ico svg { width: 28px; height: 28px; color: white; }
+    .robo-card__header--green .robo-card__ico { background: var(--sage); }
+    .robo-card__header--amber .robo-card__ico { background: var(--peach-dark); }
+    .robo-card__header--blue .robo-card__ico { background: var(--navy); }
+    .robo-card__body {
+      padding: var(--s-5);
+    }
+    .robo-card__body h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: var(--s-3);
+    }
+    .robo-card__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-2);
+    }
+    .robo-card__list li {
+      display: flex;
+      align-items: center;
+      gap: var(--s-2);
+      font-size: 0.9rem;
+      color: var(--text-body);
+    }
+    .robo-card__list li svg {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      color: var(--sage);
+    }
+
+    /* Hands-On Section */
+    .hands-on-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-5);
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+    .hands-on-item {
+      background: var(--white);
+      border-radius: var(--r-xl);
+      padding: var(--s-6) var(--s-5);
+      text-align: center;
+      box-shadow: var(--sh-sm);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .hands-on-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-md);
+    }
+    .hands-on-item__ico {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto var(--s-4);
+    }
+    .hands-on-item__ico svg { width: 28px; height: 28px; color: white; }
+    .hands-on-item__ico--red { background: var(--red); }
+    .hands-on-item__ico--sage { background: var(--sage); }
+    .hands-on-item__ico--navy { background: var(--navy); }
+    .hands-on-item__ico--peach { background: var(--peach-dark); }
+    .hands-on-item h4 { color: var(--navy); margin-bottom: var(--s-2); font-size: 1.05rem; }
+    .hands-on-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Philosophy Section */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      align-items: center;
+    }
+    .philosophy-photo {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--sh-lg);
+    }
+    .philosophy-photo img { width: 100%; display: block; }
+    .philosophy-text h2 { color: var(--navy); margin-bottom: var(--s-4); }
+    .philosophy-text p {
+      font-size: 1rem;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: var(--s-4);
+    }
+    .philosophy-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-3);
+      margin-top: var(--s-4);
+    }
+    .philosophy-pillar {
+      display: flex;
+      gap: var(--s-3);
+      align-items: flex-start;
+    }
+    .philosophy-pillar__num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--red);
+      color: white;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .philosophy-pillar h4 { font-size: 1rem; color: var(--navy); margin-bottom: 2px; }
+    .philosophy-pillar p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Teacher Growth Section */
+    .growth-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s-5);
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+    .growth-card {
+      background: var(--white);
+      border-radius: var(--r-xl);
+      padding: var(--s-5);
+      box-shadow: var(--sh-sm);
+      transition: transform 0.3s var(--ease);
+    }
+    .growth-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+    .growth-card__ico {
+      width: 48px; height: 48px;
+      border-radius: var(--r-md);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: var(--s-3);
+    }
+    .growth-card__ico svg { width: 24px; height: 24px; color: white; }
+    .growth-card h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: var(--s-2); }
+    .growth-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Responsive */
     @media (max-width: 900px) {
-      .features-list { grid-template-columns: 1fr; }
+      .acad-intro { grid-template-columns: 1fr; }
+      .acad-intro__photo { order: -1; }
+      .robo-cards { grid-template-columns: 1fr; }
+      .hands-on-grid { grid-template-columns: 1fr; }
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .philosophy-photo { order: -1; }
+      .growth-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .growth-strip { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -44,7 +307,11 @@
       <a href="index.html" class="nav__link">Home</a>
       <a href="about.html" class="nav__link">About Us</a>
       <a href="academics.html" class="nav__link nav__link--active">Academics</a>
+      <a href="campus.html" class="nav__link">Campus</a>
+      <a href="faculty.html" class="nav__link">Our Team</a>
       <a href="news.html" class="nav__link">News</a>
+      <a href="ask-prof-mir.html" class="nav__link">Ask Prof Mir</a>
+      <a href="enroll.html" class="nav__link">Admissions</a>
       <a href="yearbook.html" class="nav__link">Virtual Tour</a>
       <a href="index.html#contact" class="nav__link">Contact Us</a>
     </div>
@@ -58,7 +325,11 @@
   <a href="index.html" onclick="closeM()">Home</a>
   <a href="about.html" onclick="closeM()">About Us</a>
   <a href="academics.html" onclick="closeM()">Academics</a>
+  <a href="campus.html" onclick="closeM()">Campus</a>
+  <a href="faculty.html" onclick="closeM()">Our Team</a>
   <a href="news.html" onclick="closeM()">News</a>
+  <a href="ask-prof-mir.html" onclick="closeM()">Ask Prof Mir</a>
+  <a href="enroll.html" onclick="closeM()">Admissions</a>
   <a href="yearbook.html" onclick="closeM()">Virtual Tour</a>
   <a href="index.html#contact" onclick="closeM()">Contact Us</a>
   <a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" class="btn btn--red btn--lg" onclick="closeM()" target="_blank" rel="noopener">Book a Visit</a>
@@ -73,59 +344,308 @@
       <span>Academics</span>
     </div>
     <div class="sec-label"><i></i> Our Curriculum</div>
-    <h1>AI-First Education</h1>
-    <p>Cambridge curriculum meets cutting-edge technology. Every subject is infused with hands-on AI and robotics, preparing children to become builders and innovators.</p>
+    <h1>Where Technology Meets Imagination</h1>
+    <p>Cambridge curriculum infused with AI and robotics. Every subject, every grade — hands-on learning that turns curious children into confident builders.</p>
   </div>
 </section>
 
-<!-- ROBOTICS PROGRAM DEEP DIVE -->
-<section class="pg-section" style="background: linear-gradient(135deg, rgba(122,195,158,0.08) 0%, rgba(193,53,61,0.04) 100%);">
+
+<!-- ═══════════════════════════════════════
+     SECTION 1: AI-FIRST EDUCATION
+     ═══════════════════════════════════════ -->
+<section class="pg-section">
   <div class="container">
-    <div class="sec-center rv" style="margin-bottom:clamp(2.5rem,4vw,3.5rem)">
+    <div class="acad-intro rv">
+      <div class="acad-intro__text">
+        <div class="sec-label"><i></i> What Sets Us Apart</div>
+        <h2 style="color:var(--navy);margin-bottom:var(--s-4)">AI-First Education</h2>
+        <p>At London School, AI isn't an afterthought or an elective — it's <strong>woven into the fabric of every subject</strong>. When students study science, they use AI tools to model experiments. When they write essays, they learn how language models work. When they solve math problems, they understand the algorithms behind the answers.</p>
+        <p>This isn't about screen time. It's about <strong>preparing children for a world that will be shaped by AI</strong> — and making sure they're the ones shaping it.</p>
+
+        <div class="acad-intro__highlights">
+          <div class="acad-highlight">
+            <div class="acad-highlight__ico acad-highlight__ico--red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <h4>AI Across Every Subject</h4>
+              <p>Not a standalone class — integrated into science, math, language, and art</p>
+            </div>
+          </div>
+          <div class="acad-highlight">
+            <div class="acad-highlight__ico acad-highlight__ico--sage">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Cambridge Pathway</h4>
+              <p>Checkpoint assessments through IGCSE — globally recognized credentials</p>
+            </div>
+          </div>
+          <div class="acad-highlight">
+            <div class="acad-highlight__ico acad-highlight__ico--navy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>
+            </div>
+            <div>
+              <h4>Scratch, Python & Beyond</h4>
+              <p>Age-appropriate coding from Nursery through O-Levels</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="acad-intro__photo">
+        <img src="img/computer-lab.jpg" alt="Students working in the computer lab with AI tools">
+        <div class="acad-intro__photo-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span>AI-Integrated Curriculum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 2: ROBOTICS PROGRAM
+     ═══════════════════════════════════════ -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:var(--s-2)">
       <div class="sec-label"><i></i> Flagship Program</div>
       <h2>Pakistan's Most Advanced Early Robotics Program</h2>
-      <p class="sec-desc">From LEGO to Arduino to AI — every child becomes a builder, not just a learner.</p>
+      <p class="sec-desc">From LEGO to Arduino to AI — every child becomes a builder, not just a learner. Three carefully designed levels ensure the right challenge at every age.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--s-6);margin-bottom:clamp(2.5rem,4vw,3.5rem)" class="stg">
-      <div class="program-level-card rv">
-        <div style="width:100%;height:100px;background:linear-gradient(135deg,#B5F4C8 0%,#7ECDA8 100%);border-radius:var(--r-md);margin-bottom:var(--s-4);display:flex;align-items:center;justify-content:center">
-          <svg style="width:50px;height:50px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <div class="robo-cards stg">
+
+      <!-- Grade 1-3 -->
+      <div class="robo-card rv">
+        <div class="robo-card__header robo-card__header--green">
+          <div class="robo-card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+          </div>
+          <div class="robo-card__grade">Grades 1 – 3</div>
+          <h3>LEGO Foundations</h3>
+          <p>Young builders start with LEGO Mindstorms and WeDo kits. Engineering concepts through play — no jargon, just discovery.</p>
         </div>
-        <h4>Grades 1-3: LEGO Foundations</h4>
-        <p>Young builders start with LEGO Mindstorms and WeDo kits. Problem-solving through play. Engineering concepts without the jargon.</p>
+        <div class="robo-card__body">
+          <h4>What they learn</h4>
+          <ul class="robo-card__list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Simple machines & gear mechanisms</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Block-based programming (Scratch Jr)</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Teamwork & problem solving</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Mini science fair projects</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="program-level-card rv">
-        <div style="width:100%;height:100px;background:linear-gradient(135deg,#FFD97D 0%,#FFB6D9 100%);border-radius:var(--r-md);margin-bottom:var(--s-4);display:flex;align-items:center;justify-content:center">
-          <svg style="width:50px;height:50px;color:white" viewBox="0 0 24 24" fill="currentColor"><path d="M19.07 4.93L17.65 3.5C16.5 2.35 14.76 2.35 13.64 3.5L3.5 13.64c-.78.78-1.07 1.92-.77 3L2.5 21l4.36-.23c1.08.3 2.22 0 3-.78l10.14-10.14c1.15-1.12 1.15-2.86 0-4.02zM6.5 18.08l-1.06.06.07-1.07 10-10 1-1 1.07 1.07-1 1-10 10z"/></svg>
+      <!-- Grade 4-6 -->
+      <div class="robo-card rv">
+        <div class="robo-card__header robo-card__header--amber">
+          <div class="robo-card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="robo-card__grade">Grades 4 – 6</div>
+          <h3>Arduino & Sensors</h3>
+          <p>Students code Arduino microcontrollers and build robots that sense light, temperature, and movement. Real electronics, real impact.</p>
         </div>
-        <h4>Grades 4-6: Arduino & Sensors</h4>
-        <p>Students code Arduino microcontrollers. Build robots that sense light, temperature, and movement. Real electronics, real impact.</p>
+        <div class="robo-card__body">
+          <h4>What they learn</h4>
+          <ul class="robo-card__list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Arduino programming & circuits</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Sensor integration & data reading</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Scratch to Python transition</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Regional robotics competitions</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="program-level-card rv">
-        <div style="width:100%;height:100px;background:linear-gradient(135deg,#A8D8FF 0%,#7FB3FF 100%);border-radius:var(--r-md);margin-bottom:var(--s-4);display:flex;align-items:center;justify-content:center">
-          <svg style="width:50px;height:50px;color:white" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.08-2.54-1.37 1.73 3.45 4.31 4.12-5.31z"/></svg>
+      <!-- Grade 7-8 -->
+      <div class="robo-card rv">
+        <div class="robo-card__header robo-card__header--blue">
+          <div class="robo-card__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="robo-card__grade">Grades 7 – 8</div>
+          <h3>3D Design & AI</h3>
+          <p>CAD design, 3D printing, and introduction to machine learning. Students design, iterate, and create. Competition-ready.</p>
         </div>
-        <h4>Grades 7-8: 3D Design & AI</h4>
-        <p>CAD design, 3D printing, and introduction to machine learning. Students design, iterate, and create. Competition-ready.</p>
+        <div class="robo-card__body">
+          <h4>What they learn</h4>
+          <ul class="robo-card__list">
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> CAD modeling & 3D printing</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Intro to machine learning</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Python for data & automation</li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> National competition preparation</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div style="background:white;border-radius:var(--r-lg);padding:clamp(2rem,4vw,3rem);margin-bottom:clamp(2.5rem,4vw,3.5rem)">
-      <h4 style="color:var(--red);margin-bottom:var(--s-4)">Every Child Gets Hands-On Time</h4>
-      <ul style="list-style:none;padding:0;margin:0" class="features-list">
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Weekly robotics sessions</strong> for all grades</span></li>
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Competition teams</strong> for all interest levels</span></li>
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>LEGO, Arduino, 3D printers</strong> — always available</span></li>
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Expert robotics faculty</strong> trained in STEM pedagogy</span></li>
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>Annual robotics showcases</strong> where kids demo their creations</span></li>
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span><strong>STEM scholarship opportunities</strong> for excellence</span></li>
-      </ul>
     </div>
   </div>
 </section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 3: EVERY CHILD GETS HANDS-ON TIME
+     ═══════════════════════════════════════ -->
+<section class="pg-section">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:var(--s-2)">
+      <div class="sec-label"><i></i> No Child Left Watching</div>
+      <h2>Every Child Gets Hands-On Time</h2>
+      <p class="sec-desc">This isn't a demo lab where one student drives and twenty watch. Every child builds. Every child codes. Every child creates.</p>
+    </div>
+
+    <div class="hands-on-grid stg">
+      <div class="hands-on-item rv">
+        <div class="hands-on-item__ico hands-on-item__ico--red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <h4>Weekly Robotics Sessions</h4>
+        <p>Dedicated lab time every week for every grade. Not extra-curricular — built into the timetable.</p>
+      </div>
+
+      <div class="hands-on-item rv">
+        <div class="hands-on-item__ico hands-on-item__ico--sage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Small Group Ratios</h4>
+        <p>Maximum 8 students per workstation. Every child touches the equipment, writes the code, tests the build.</p>
+      </div>
+
+      <div class="hands-on-item rv">
+        <div class="hands-on-item__ico hands-on-item__ico--navy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h4>Competition Teams</h4>
+        <p>Inter-school and national robotics competitions. Every interested student gets a spot — not just the "gifted" ones.</p>
+      </div>
+
+      <div class="hands-on-item rv">
+        <div class="hands-on-item__ico hands-on-item__ico--red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h4>Open Lab Hours</h4>
+        <p>LEGO, Arduino kits, and 3D printers available after school. Kids come back because they want to, not because they have to.</p>
+      </div>
+
+      <div class="hands-on-item rv">
+        <div class="hands-on-item__ico hands-on-item__ico--sage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <h4>Expert STEM Faculty</h4>
+        <p>Teachers trained in STEM pedagogy who know how to make robotics accessible to every learning style.</p>
+      </div>
+
+      <div class="hands-on-item rv">
+        <div class="hands-on-item__ico hands-on-item__ico--navy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h4>Annual Showcases</h4>
+        <p>End-of-year robotics exhibitions where every child demos their creations to proud parents and the community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 4: OUR TEACHING PHILOSOPHY
+     ═══════════════════════════════════════ -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="philosophy-grid rv">
+      <div class="philosophy-photo">
+        <img src="img/hallway-london.jpg" alt="London School hallway with students">
+      </div>
+      <div class="philosophy-text">
+        <div class="sec-label"><i></i> How We Teach</div>
+        <h2>Our Teaching Philosophy</h2>
+        <p>We believe children learn best when they're curious, safe, and trusted. Our classrooms are designed for exploration — not rote memorization. Teachers guide, they don't lecture. Questions are celebrated, not silenced.</p>
+
+        <div class="philosophy-pillars">
+          <div class="philosophy-pillar">
+            <div class="philosophy-pillar__num">1</div>
+            <div>
+              <h4>Curiosity Before Curriculum</h4>
+              <p>We start with the question, not the textbook. Every lesson begins with a problem worth solving.</p>
+            </div>
+          </div>
+          <div class="philosophy-pillar">
+            <div class="philosophy-pillar__num">2</div>
+            <div>
+              <h4>Learn by Doing</h4>
+              <p>Build it, break it, fix it, explain it. Children retain what they create, not what they copy.</p>
+            </div>
+          </div>
+          <div class="philosophy-pillar">
+            <div class="philosophy-pillar__num">3</div>
+            <div>
+              <h4>Every Child at Their Own Pace</h4>
+              <p>Differentiated learning paths so no child is bored and no child is left behind.</p>
+            </div>
+          </div>
+          <div class="philosophy-pillar">
+            <div class="philosophy-pillar__num">4</div>
+            <div>
+              <h4>Character Alongside Academics</h4>
+              <p>Kindness, integrity, and resilience are taught as deliberately as math and science.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 5: WE NEVER STOP LEARNING EITHER
+     ═══════════════════════════════════════ -->
+<section class="pg-section">
+  <div class="container">
+    <div class="sec-center rv" style="margin-bottom:var(--s-2)">
+      <div class="sec-label"><i></i> Teacher Development</div>
+      <h2>We Never Stop Learning Either</h2>
+      <p class="sec-desc">Our teachers are learners first. Continuous professional development means your child's teacher is always growing, always improving, always bringing something new to the classroom.</p>
+    </div>
+
+    <div class="growth-strip stg">
+      <div class="growth-card rv">
+        <div class="growth-card__ico" style="background:var(--red)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <h4>Weekly CPD Sessions</h4>
+        <p>Every week, teachers attend professional development workshops on pedagogy, technology, and child psychology.</p>
+      </div>
+
+      <div class="growth-card rv">
+        <div class="growth-card__ico" style="background:var(--sage)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h4>Cambridge Certified</h4>
+        <p>Our faculty undergo Cambridge Professional Development training to deliver the international curriculum with confidence.</p>
+      </div>
+
+      <div class="growth-card rv">
+        <div class="growth-card__ico" style="background:var(--navy)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>AI & STEM Training</h4>
+        <p>Teachers learn the same AI tools they teach — so they can guide students from genuine experience, not a manual.</p>
+      </div>
+
+      <div class="growth-card rv">
+        <div class="growth-card__ico" style="background:var(--peach-dark)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Peer Observations</h4>
+        <p>Teachers watch each other teach, share feedback, and learn from one another. A culture of openness, not evaluation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- MURAL QUOTE -->
 <section class="pg-section pg-section--cream">
@@ -137,18 +657,20 @@
   </div>
 </section>
 
+
 <!-- CTA -->
 <section class="pg-section">
   <div class="container" style="text-align:center">
     <div class="sec-label" style="justify-content:center;margin-bottom:var(--s-3)"><i></i> Experience It</div>
     <h2 style="color:var(--navy);margin-bottom:var(--s-3)">See Our Robotics Lab in Action</h2>
-    <p style="color:var(--gray-600);max-width:580px;margin:0 auto var(--s-6)">Visit our campus and watch students build, code, and innovate. Our Virtual Tour is also available if you'd like to explore first.</p>
+    <p style="color:var(--text-muted);max-width:580px;margin:0 auto var(--s-6)">Visit our campus and watch students build, code, and innovate. Our Virtual Tour is also available if you'd like to explore first.</p>
     <div style="display:flex;gap:var(--s-3);justify-content:center;flex-wrap:wrap">
       <a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" class="btn btn--red btn--lg" target="_blank" rel="noopener">Book a Campus Tour</a>
       <a href="yearbook.html" class="btn btn--outline btn--lg">Virtual Tour</a>
     </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer class="ft">
@@ -162,9 +684,9 @@
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.5-.9-2.1c-.8-.9-1.7-.9-2.1-.9C17.1 3.6 12 3.6 12 3.6s-5 0-8 .4c-.4 0-1.3 0-2.1.9C1.2 5.5 1 7 1 7S.8 8.7.8 10.5v1.6c0 1.7.2 3.4.2 3.4s.2 1.5.9 2.1c.8.9 1.9.8 2.4.9 1.7.2 7.7.2 7.7.2s5 0 8-.4c.4 0 1.3 0 2.1-.9.7-.7.9-2.1.9-2.1s.2-1.7.2-3.4v-1.6C23.2 8.7 23 7 23 7zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg></a>
       </div>
     </div>
-    <div><h4 class="ft__h">Academics</h4><div class="ft__links"><a href="academics.html#">Robotics Program</a><a href="index.html#programs">Programs</a><a href="#">Cambridge Curriculum</a></div></div>
+    <div><h4 class="ft__h">Academics</h4><div class="ft__links"><a href="academics.html">Robotics Program</a><a href="index.html#programs">Programs</a><a href="academics.html">Cambridge Curriculum</a></div></div>
     <div><h4 class="ft__h">Quick Links</h4><div class="ft__links"><a href="about.html">About Us</a><a href="news.html">News</a><a href="yearbook.html">Virtual Tour</a><a href="index.html#contact">Contact</a></div></div>
-    <div><h4 class="ft__h">Admissions</h4><div class="ft__links"><a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" target="_blank" rel="noopener">Book a Tour</a><a href="https://wa.me/923010499777?text=Hi%20I%20want%20to%20enquire%20about%20admissions" target="_blank" rel="noopener">Enquire</a><a href="#">Early Bird Offer</a></div></div>
+    <div><h4 class="ft__h">Admissions</h4><div class="ft__links"><a href="https://wa.me/923010499777?text=Hi%20I%20would%20like%20to%20book%20a%20campus%20tour" target="_blank" rel="noopener">Book a Tour</a><a href="https://wa.me/923010499777?text=Hi%20I%20want%20to%20enquire%20about%20admissions" target="_blank" rel="noopener">Enquire</a><a href="enroll.html">Admissions</a></div></div>
   </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
 </footer>
 
