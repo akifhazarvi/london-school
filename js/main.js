@@ -1,4 +1,4 @@
-/* London School v7 — Prof Mir AI Companion + Animations */
+/* London School v7 — Ask Prof Mir + Animations */
 (function(){
   'use strict';
 
@@ -26,7 +26,7 @@
   function count(el,s,e,d,suf){var t0=performance.now();function t(n){var p=Math.min((n-t0)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.round(s+(e-s)*v)+suf;if(p<1)requestAnimationFrame(t)}requestAnimationFrame(t)}
 
   /* ═══════════════════════════════════════════════════════════════
-     PROF MIR AI COMPANION — Extensive Knowledge Base
+     ASK PROF MIR — Wisdom & Guidance for Teachers & Parents
      Inspired by Prof. Waris Mir (1938–1987)
      Journalist · Professor · Champion of Free Thought
      ═══════════════════════════════════════════════════════════════ */
@@ -111,7 +111,7 @@
 
     robot:'Building a robot is like building with super-LEGO.\n\nYou need 4 things:\n1. A brain (Arduino or micro:bit board)\n2. Power (batteries)\n3. Movement (motors + wheels)\n4. Senses (sensors — light, distance, touch)\n\nIn our robotics lab, students learn:\n• Grade 3–4: LEGO Mindstorms, basic circuits\n• Grade 5–6: Arduino, simple sensors\n• Grade 7–8: 3D printing parts, competitions\n\nOur students have built line-following robots, obstacle avoiders, and even a robot that sorts recycling!\n\nFun fact: The word "robot" comes from the Czech word "robota" meaning forced labour.\n\n— The most powerful tool a child has is their imagination. A robot is just imagination made real.',
 
-    ai:'Artificial Intelligence (AI) is when computers learn to do things that normally need human thinking.\n\nExamples you use every day:\n• Auto-correct on your phone\n• Netflix suggesting movies\n• Google answering questions\n• Siri and Alexa\n• This very chatbot!\n\nHow does AI learn?\nLike you! By seeing examples. Show a computer 10,000 pictures of cats and dogs, and it learns to tell them apart.\n\nAt London School, we teach students:\n• How AI works (not just how to use it)\n• AI ethics — using technology responsibly\n• Python programming that powers AI\n\n— Technology is a tool. What matters is the wisdom to use it well.',
+    ai:'Artificial Intelligence (AI) is when computers learn to do things that normally need human thinking.\n\nExamples in everyday life:\n• Auto-correct on phones\n• Streaming services suggesting content\n• Search engines answering questions\n• Voice assistants like Siri and Alexa\n\nHow does AI learn?\nBy seeing examples. Show a computer 10,000 pictures of cats and dogs, and it learns to tell them apart.\n\nAt London School, students learn:\n• How AI works (not just how to use it)\n• AI ethics — using technology responsibly\n• Python programming that powers AI\n\nFor teachers: AI is a powerful tool in education. We integrate it into our curriculum so students understand the technology shaping their future.\n\n— Technology is a tool. What matters is the wisdom to use it well.',
 
     /* ─── HISTORY & PAKISTAN ─── */
     pakistan:'Pakistan — the land of the pure — has an incredible story!\n\nKey facts:\n• Founded on August 14, 1947, by Muhammad Ali Jinnah (Quaid-e-Azam)\n• Home to some of the world\'s oldest civilisations — the Indus Valley (Mohenjo-daro) dates back 4,500 years!\n• Has the 2nd highest mountain in the world: K2 (8,611m)\n• Languages: Urdu (national), English, Punjabi, Sindhi, Pashto, Balochi, and more\n• Rich cultural heritage: Sufi music, truck art, Mughal architecture\n\nFamous Pakistanis:\n• Allama Iqbal — the national poet\n• Abdus Salam — Nobel Prize in Physics (1979)\n• Malala Yousafzai — Nobel Peace Prize (2014)\n• And of course, Prof. Waris Mir — who fought for our freedom of thought\n\n— Know your history. It teaches you who you are and who you can become.',
@@ -154,15 +154,22 @@
 
     cambridge:'The Cambridge Pathway is one of the world\'s most respected education systems.\n\nAt London School, we follow:\n• Cambridge Primary (Grades 1–5)\n• Cambridge Lower Secondary (Grades 6–8)\n• Cambridge IGCSE / O-Levels (Grades 9–10)\n\nWhy Cambridge?\n• Recognised by universities worldwide\n• Focuses on deep understanding, not rote learning\n• Develops critical thinking and problem-solving\n• Internationally benchmarked standards\n\nCambridge teaches students HOW to think, not WHAT to think — perfectly aligned with Prof. Mir\'s philosophy.\n\nOur students consistently achieve top grades in Cambridge examinations.\n\n— Education is not about filling a bucket, but lighting a fire.',
 
+    /* ─── TEACHING & PARENTING ─── */
+    teaching_tips:'Prof. Mir believed great teaching comes from the heart. Here is his guidance:\n\n1. Ask, don\'t tell — pose questions that make students think rather than handing them answers\n2. Know every child — each student has a unique way of learning; find it\n3. Teach character alongside content — kindness, courage, and honesty matter as much as grades\n4. Make it real — connect lessons to the world outside the classroom\n5. Model curiosity — let students see you wonder, struggle, and discover\n6. Welcome mistakes — they are proof that learning is happening\n7. Read widely — a teacher who stops learning has stopped teaching\n8. Be patient — growth is slow and uneven; trust the process\n9. Speak truth — students respect honesty above all else\n10. Love what you do — passion is contagious\n\nProf Mir spent 20+ years at Punjab University living these principles. His students went on to lead newsrooms, universities, and movements.\n\n— "A teacher who does not teach students to question has taught them nothing."',
+
+    parenting:'Prof. Mir\'s wisdom extends to the home as well. Here is what he believed parents should know:\n\n1. Encourage questions — never dismiss a child\'s curiosity, even when it is inconvenient\n2. Read together — books open worlds that screens cannot\n3. Let them fail — protecting children from every setback robs them of resilience\n4. Listen more than you lecture — children who feel heard grow into adults who communicate\n5. Model the values you want to see — integrity is caught, not taught\n6. Celebrate effort, not just results — the habit of trying hard matters more than any single grade\n7. Give them responsibility — age-appropriate duties build confidence and character\n8. Stay involved with their school — partnership between home and school is everything\n\nAt London School, we see parents as partners. Our Cambridge pathway, small class sizes, and regular progress updates are designed to keep you informed and involved.\n\n— "The real wealth of a nation is not its gold or its armies, but the minds of its children."',
+
+    classroom:'Prof. Mir\'s approach to the classroom was both warm and disciplined:\n\n• Start every class with a question, not a lecture\n• Create a safe space where wrong answers are welcomed\n• Use stories and real-world examples to bring subjects alive\n• Give students voice — let them present, debate, and lead\n• Differentiate — not every student learns the same way\n• End with reflection — what did we learn? What are we still wondering?\n\nAt London School, our teachers are trained in these principles. Small class sizes mean every child is seen, known, and supported.\n\nProf Mir often said that a classroom should feel like a conversation, not a monologue. The best teachers listen more than they speak.\n\n— "The courage to think differently is the most important thing a school can teach."',
+
     /* ─── GREETINGS & CONVERSATION ─── */
-    hello:'Assalamu Alaikum! Welcome!\n\nI am Prof Mir — an AI companion inspired by Prof. Waris Mir, the visionary behind London School.\n\nI can help you with:\n• Science — photosynthesis, gravity, the solar system, atoms\n• Maths — fractions, times tables, problem solving\n• Coding — Python, Scratch, AI concepts\n• Robotics — how to build your first robot\n• History — Pakistan, Lahore, the Indus Valley\n• Languages — Urdu, English, and more\n• Life skills — study tips, confidence, reading\n• About Prof Mir — his life, quotes, books, legacy\n\nJust type your question and I\'ll do my best to help!\n\n— Remember: there is no such thing as a silly question.',
+    hello:'Assalamu Alaikum! Welcome.\n\nI carry the wisdom and teaching philosophy of Prof. Waris Mir (1938–1987) — the visionary behind London School.\n\nI can help you with:\n• Teaching guidance — Prof Mir\'s approach to nurturing curiosity\n• Life lessons & quotes — wisdom on education, courage, and character\n• School information — programs, curriculum, campus, fees\n• His legacy — biography, journalism, books, and impact\n• Parenting insights — supporting your child\'s learning journey\n• Subject knowledge — science, maths, history, languages, and more\n\nWhether you are a teacher looking for inspiration or a parent exploring our school — ask away.\n\n— "The purpose of education is not to fill minds but to open them."',
 
-    thanks:'You\'re very welcome! It makes me happy when students are curious and eager to learn.\n\nIs there anything else you\'d like to know? I\'m always here to help.\n\n— As Prof Mir would say: "Knowledge grows the more you share it."',
+    thanks:'You\'re very welcome. It is a privilege to share this wisdom.\n\nIs there anything else you\'d like to know? I\'m always here.\n\n— As Prof Mir would say: "Knowledge grows the more you share it."',
 
-    bye:'Khuda Hafiz! It was wonderful talking with you.\n\nRemember:\n• Stay curious — always ask "why?"\n• Be kind — the world needs more kindness\n• Read every day — even 10 pages makes a difference\n• Believe in yourself — you are capable of amazing things\n\nCome back anytime you have a question. I\'ll be right here.\n\n— "Every child carries within them the seeds of greatness." Go make the world better!',
+    bye:'Khuda Hafiz! It was a pleasure.\n\nRemember:\n• Nurture curiosity — in yourself and in your students or children\n• Lead by example — character is taught through action\n• Never stop learning — the best teachers are lifelong students\n• Trust the process — growth takes patience and belief\n\nCome back anytime. I am always here.\n\n— "Every child carries within them the seeds of greatness. Our duty is to nurture them."',
 
     /* ─── DEFAULT ─── */
-    def:'That\'s an interesting question! Let me share what I know.\n\nI\'m Prof Mir, an AI study companion who can help with many topics:\n\n📚 Academics — Science, Maths, Coding, Robotics\n🌍 Knowledge — Pakistan, History, Geography, Languages\n💡 Life Skills — Study tips, Confidence, Reading, Kindness\n🏫 Our School — Programs, Campus, Cambridge Curriculum\n🎓 Prof Waris Mir — His life, quotes, legacy, books\n\nTry asking:\n• "What is photosynthesis?"\n• "Tell me about the solar system"\n• "Who was Waris Mir?"\n• "Share a quote from Prof Mir"\n• "How can I study better?"\n• "Tell me about Pakistan"\n\n— Remember: the only silly question is the one you don\'t ask!'
+    def:'That\'s an interesting question. Let me share what I can help with:\n\n🎓 Teaching Guidance — Prof Mir\'s philosophy and approach to education\n💡 Life Lessons & Quotes — Wisdom on courage, truth, and character\n🏫 Our School — Programs, Cambridge curriculum, campus, fees\n📖 Prof Waris Mir — His life, journalism, books, and legacy\n👨‍👩‍👧 For Parents — Understanding our approach and supporting learning at home\n📚 Subject Knowledge — Science, maths, history, languages, and more\n\nTry asking:\n• "What was Prof Mir\'s teaching philosophy?"\n• "How can I be a better teacher?"\n• "Share a quote from Prof Mir"\n• "Tell me about the school"\n• "How should I support my child\'s learning?"\n\n— "The purpose of education is not to fill minds but to open them."'
   };
 
   /* ── KEYWORD MATCHING ENGINE ── */
@@ -173,6 +180,11 @@
     if(/^(hi|hello|hey|salam|assalam|aoa)\b/.test(l)) return 'hello';
     if(/\b(thank|thanks|shukriya|jazak)\b/.test(l)) return 'thanks';
     if(/\b(bye|goodbye|khuda hafiz|allah hafiz|see you)\b/.test(l)) return 'bye';
+
+    /* Teaching & Parenting */
+    if(/\b(better teacher|teaching tip|teach better|teaching advice|teaching guidance|improve.*teaching|how.*teach)\b/.test(l)) return 'teaching_tips';
+    if(/\b(parent|child.*learn|support.*child|my son|my daughter|home.*learn|nurture)\b/.test(l)&&/\b(how|tip|help|support|advice|guide|should)\b/.test(l)) return 'parenting';
+    if(/\b(classroom|class.*manage|lesson plan|engage.*student|student.*engage)\b/.test(l)) return 'classroom';
 
     /* Prof Waris Mir — specific topics */
     if(/\b(book|wrote|author|writing|fauj)\b/.test(l)&&/\b(waris|mir|prof)\b/.test(l)) return 'waris_books';
@@ -275,7 +287,7 @@
   dobs.observe(document.querySelector('.demo'));
 
   async function demo(){
-    await addMsg('ai','Assalamu Alaikum! I am <strong>Prof Mir</strong> — an AI study companion inspired by Prof. Waris Mir (1938–1987), journalist, professor, and champion of free thought.\n\nI know about science, maths, coding, robotics, history, languages, and much more. I also carry the wisdom and philosophy of the great Prof. Waris Mir himself.\n\nAsk me anything — or tap a suggestion below to get started!',500);
+    await addMsg('ai','Assalamu Alaikum! I carry the wisdom of <strong>Prof. Waris Mir</strong> (1938–1987) — journalist, professor at Punjab University, and champion of free thought.\n\nWhether you are a teacher seeking guidance or a parent exploring our school, I am here to help. Ask about his teaching philosophy, life lessons, our programs, or anything about London School.\n\nTap a suggestion below or type your question to get started.',500);
     if(sugBox)sugBox.style.display='flex';
   }
 

@@ -17,6 +17,202 @@
   <style>
     /* ── ACADEMICS PAGE STYLES ── */
 
+    /* Hide nav initially, show on scroll */
+    .nav {
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease, padding var(--dur) var(--ease);
+    }
+    .nav.scrolled {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Video Hero — matches Virtual Tour cover exactly */
+    .pg-hero--video {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--navy-dark);
+    }
+    .pg-hero--video::after {
+      background: var(--white);
+      z-index: 4;
+    }
+    .pg-hero--video .container { position: relative; z-index: 2; }
+    .pg-hero.pg-hero--video { text-align: left; }
+    .pg-hero--video .pg-hero--video__sub { margin-left: 0; margin-right: auto; }
+    .pg-hero--video__body {
+      max-width: 680px;
+      padding: var(--s-20) 0;
+    }
+
+    /* Eyebrow badge */
+    .pg-hero--video__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-2);
+      padding: 7px 16px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--r-pill);
+      font-family: var(--font-heading);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: var(--s-6);
+    }
+    .pg-hero--video__eyebrow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--sage-light);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.3)}}
+
+    /* Title */
+    .pg-hero--video__title {
+      font-size: var(--text-display);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: var(--s-5);
+    }
+    .pg-hero--video__title em {
+      font-style: normal;
+      color: var(--peach);
+    }
+
+    /* Subtitle */
+    .pg-hero--video__sub {
+      font-size: var(--text-lg);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      margin-bottom: var(--s-8);
+      max-width: 520px;
+    }
+
+    /* Actions */
+    .pg-hero--video__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--s-5);
+      flex-wrap: wrap;
+      margin-bottom: var(--s-12);
+    }
+    .pg-hero--video__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-2);
+      padding: 14px 30px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: var(--r-pill);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: var(--text-base);
+      box-shadow: 0 4px 20px rgba(193,53,61,0.4);
+      transition: all var(--dur) var(--ease);
+    }
+    .pg-hero--video__cta:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .pg-hero--video__cta svg { transition: transform var(--dur) var(--ease); }
+    .pg-hero--video__cta:hover svg { transform: translateY(3px); }
+    .pg-hero--video__back {
+      font-family: var(--font-heading);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--dur-fast);
+    }
+    .pg-hero--video__back:hover { color: rgba(255,255,255,0.9); }
+
+    /* Stats strip */
+    .pg-hero--video__stats {
+      display: flex;
+      align-items: center;
+      gap: var(--s-5);
+    }
+    .pg-hero--video__stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .pg-hero--video__stat strong {
+      font-family: var(--font-heading);
+      font-size: var(--text-h3);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pg-hero--video__stat span {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pg-hero--video__stat-div {
+      width: 1px; height: 32px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* Video background grid */
+    .pg-hero__videos {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .pg-hero__videos video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pg-hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(20,40,65,0.88) 0%,
+        rgba(15,15,15,0.90) 55%,
+        rgba(15,15,15,0.92) 100%
+      );
+    }
+
+    /* Scroll hint */
+    .pg-hero--video__scroll {
+      position: absolute;
+      bottom: var(--s-8);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(255,255,255,0.4);
+      animation: bobV 2s ease-in-out infinite;
+    }
+    @keyframes bobV{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .pg-hero__videos {
+        grid-template-columns: 1fr;
+      }
+      .pg-hero__videos video:nth-child(2),
+      .pg-hero__videos video:nth-child(3) {
+        display: none;
+      }
+      .pg-hero--video__stats { flex-wrap: wrap; gap: var(--s-4); }
+    }
+
     /* AI-First Hero Section */
     .acad-intro {
       display: grid;
@@ -307,7 +503,7 @@
       <a href="index.html" class="nav__link">Home</a>
       <a href="about.html" class="nav__link">About Us</a>
       <a href="academics.html" class="nav__link nav__link--active">Academics</a>
-      <a href="campus.html" class="nav__link">Campus</a>
+      <a href="yearbook.html" class="nav__link">Campus</a>
       <a href="faculty.html" class="nav__link">Our Team</a>
       <a href="news.html" class="nav__link">News</a>
       <a href="ask-prof-mir.html" class="nav__link">Ask Prof Mir</a>
@@ -325,7 +521,7 @@
   <a href="index.html" onclick="closeM()">Home</a>
   <a href="about.html" onclick="closeM()">About Us</a>
   <a href="academics.html" onclick="closeM()">Academics</a>
-  <a href="campus.html" onclick="closeM()">Campus</a>
+  <a href="yearbook.html" onclick="closeM()">Campus</a>
   <a href="faculty.html" onclick="closeM()">Our Team</a>
   <a href="news.html" onclick="closeM()">News</a>
   <a href="ask-prof-mir.html" onclick="closeM()">Ask Prof Mir</a>
@@ -336,16 +532,48 @@
 </div>
 
 <!-- PAGE HERO -->
-<section class="pg-hero">
+<section class="pg-hero pg-hero--video">
+  <!-- 3 robotics videos running side by side -->
+  <div class="pg-hero__videos">
+    <video autoplay muted loop playsinline>
+      <source src="img/robotics.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="img/robotics2.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="img/robotics3.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="pg-hero__overlay"></div>
   <div class="container">
-    <div class="pg-breadcrumb">
-      <a href="index.html">Home</a>
-      <span>›</span>
-      <span>Academics</span>
+    <div class="pg-hero--video__body">
+      <div class="pg-hero--video__eyebrow">
+        <span class="pg-hero--video__eyebrow-dot"></span>
+        AI-First Curriculum · 2025-26
+      </div>
+      <h1 class="pg-hero--video__title">Where Technology<br>Meets <em>Imagination</em></h1>
+      <p class="pg-hero--video__sub">Cambridge curriculum infused with AI and robotics. Every subject, every grade — hands-on learning that turns curious children into confident builders.</p>
+      <div class="pg-hero--video__actions">
+        <a href="enroll.html" class="pg-hero--video__cta">
+          Book a Campus Tour
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="index.html" class="pg-hero--video__back">← Back to Home</a>
+      </div>
+      <div class="pg-hero--video__stats">
+        <div class="pg-hero--video__stat"><strong>AI</strong><span>Study Buddy</span></div>
+        <div class="pg-hero--video__stat-div"></div>
+        <div class="pg-hero--video__stat"><strong>3D</strong><span>Printing Lab</span></div>
+        <div class="pg-hero--video__stat-div"></div>
+        <div class="pg-hero--video__stat"><strong>IGCSE</strong><span>Cambridge</span></div>
+        <div class="pg-hero--video__stat-div"></div>
+        <div class="pg-hero--video__stat"><strong>3</strong><span>Languages</span></div>
+      </div>
     </div>
-    <div class="sec-label"><i></i> Our Curriculum</div>
-    <h1>Where Technology Meets Imagination</h1>
-    <p>Cambridge curriculum infused with AI and robotics. Every subject, every grade — hands-on learning that turns curious children into confident builders.</p>
+  </div>
+  <div class="pg-hero--video__scroll" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </div>
 </section>
 
