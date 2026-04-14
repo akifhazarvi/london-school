@@ -4,7 +4,7 @@
 
   /* Nav */
   var nav=document.getElementById('nav');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)});
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
 
   /* Mobile */
   var ham=document.getElementById('ham'),mob=document.getElementById('mob');

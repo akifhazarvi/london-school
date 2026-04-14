@@ -53,6 +53,7 @@
   right: 0;
   pointer-events: none;
   z-index: 1;
+  overflow-x: hidden;
   overflow-x: clip;
 }
 
@@ -108,6 +109,11 @@
 /* ══════════════════════════════════════════════════════════════
    CTA ORBS — white shapes on navy card
    ══════════════════════════════════════════════════════════════ */
+
+@keyframes shape-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 .cta-orb {
   display: block;
