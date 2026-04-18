@@ -1,8 +1,9 @@
 /* ============================================================
    LONDON SCHOOL — Design System FINAL
    Brand: #C1353D  #7AC39E  #F2D5C5  #2F5581
+   Fonts are loaded in each HTML <head> via preconnect + <link>,
+   not @import — keeps them off the CSS render-blocking waterfall.
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
 
 :root {
   --red:#C1353D; --red-dark:#A42D34; --red-light:#D4626A;

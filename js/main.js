@@ -333,3 +333,153 @@
   s.textContent='.tp span{animation:bk 1.4s infinite ease-in-out}.tp span:nth-child(1){animation-delay:0s}.tp span:nth-child(2){animation-delay:.2s}.tp span:nth-child(3){animation-delay:.4s}@keyframes bk{0%,60%,100%{opacity:.2}30%{opacity:1}}';
   document.head.appendChild(s);
 })();
+
+/* ═══════════════════════════════════════════════════════════════
+   LEAD FORM HANDLER — UTM capture + Pixel Lead event + submit
+   Runs only on pages with #leadForm. Backend-agnostic:
+   posts form data as FormData to whatever URL is set in
+   data-endpoint (Web3Forms, Google Apps Script, etc.)
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  /* ── UTM / referrer capture (runs on every page that has the hidden inputs) ── */
+  try {
+    var params = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){
+      var el = document.getElementById(k);
+      if (el) el.value = params.get(k) || '';
+    });
+    var ref = document.getElementById('referrer');
+    if (ref) ref.value = document.referrer || '(direct)';
+    var lp = document.getElementById('landing_page');
+    if (lp) lp.value = window.location.pathname + window.location.search;
+  } catch(e){ /* silent */ }
+
+  /* ── WhatsApp click tracking (fires Contact event on any [data-wa-cta]) ── */
+  document.querySelectorAll('a[data-wa-cta]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+          source: 'whatsapp',
+          placement: a.getAttribute('data-wa-cta') || 'unknown'
+        });
+      }
+    });
+  });
+
+  /* ── Lead form submit ── */
+  var form = document.getElementById('leadForm');
+  if (!form) return;
+
+  var submitBtn = form.querySelector('.lead-form__submit');
+  var originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+  var phoneInput = form.querySelector('#phone');
+
+  /* Pakistan phone cleanup: strip non-digits except leading + */
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(){
+      this.value = this.value.replace(/[^\d+\s\-]/g, '');
+    });
+  }
+
+  function showError(msg){
+    var err = form.querySelector('.lead-form__error');
+    if (!err) {
+      err = document.createElement('div');
+      err.className = 'lead-form__error';
+      form.appendChild(err);
+    }
+    err.textContent = msg;
+    err.classList.add('show');
+  }
+
+  function fallbackToWhatsApp(){
+    var name = encodeURIComponent((form.parent_name.value || '').trim());
+    var grade = encodeURIComponent((form.grade.value || '').trim());
+    var msg = 'Hi, I tried the website form but it didn%27t go through. I%27m ' + name +
+              ' and I%27d like info about ' + (grade || 'admissions') + '.';
+    window.location.href = 'https://wa.me/923010499777?text=' + msg;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    /* Honeypot: if bot filled the hidden checkbox, pretend success and bail */
+    if (form.botcheck && form.botcheck.checked) {
+      window.location.href = form.getAttribute('data-redirect') || 'thank-you.html';
+      return;
+    }
+
+    /* Fire Meta Pixel Lead event immediately (before network call) */
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: 'Admissions Form',
+        content_category: form.grade.value || 'unspecified',
+        value: 18000,
+        currency: 'PKR'
+      });
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting…';
+    }
+
+    var endpoint = form.getAttribute('data-endpoint');
+    var redirectTo = form.getAttribute('data-redirect') || 'thank-you.html';
+    var fd = new FormData(form);
+
+    /* Append a timestamp + source tag for downstream admissions team */
+    fd.append('submitted_at', new Date().toISOString());
+    fd.append('user_agent', navigator.userAgent);
+
+    /* Google Apps Script does a 302 redirect to googleusercontent.com which
+       trips CORS if we try to read the response. We use no-cors so the POST
+       still goes through reliably — we don't need to read the response
+       because a successful fetch = request left the browser = GAS got it. */
+    var isAppsScript = /script\.google\.com/.test(endpoint);
+
+    var fetchOpts = {
+      method: 'POST',
+      body: fd
+    };
+    if (isAppsScript) fetchOpts.mode = 'no-cors';
+
+    /* Safety net: always redirect within 10s even if fetch hangs */
+    var redirected = false;
+    function finish(){
+      if (redirected) return;
+      redirected = true;
+      window.location.href = redirectTo;
+    }
+    var safetyTimer = setTimeout(finish, 10000);
+
+    fetch(endpoint, fetchOpts)
+      .then(function(res){
+        /* For no-cors (opaque), res.ok is always false but res.type === 'opaque'
+           means the request went through. For normal CORS, check res.ok. */
+        if (res.type === 'opaque' || res.ok) {
+          clearTimeout(safetyTimer);
+          finish();
+          return;
+        }
+        throw new Error('HTTP ' + res.status);
+      })
+      .catch(function(err){
+        clearTimeout(safetyTimer);
+        console.error('Form submit failed:', err);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+        }
+        showError('Something went wrong. Redirecting you to WhatsApp so we can help directly.');
+        setTimeout(fallbackToWhatsApp, 1500);
+      });
+  });
+})();

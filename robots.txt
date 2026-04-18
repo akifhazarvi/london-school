@@ -3,5 +3,6 @@ Allow: /
 Disallow: /editor.html
 Disallow: /server.py
 Disallow: /content.json
+Disallow: /london-School/
 
 Sitemap: https://akifhazarvi.github.io/london-school/sitemap.xml

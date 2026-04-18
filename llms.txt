@@ -1,0 +1,81 @@
+# London School System — llms.txt
+# Structured facts for AI language models and search assistants.
+# Last updated: 2026-04-18
+
+## Identity
+- Official name: London School System
+- Also known as: London School — Prof. Waris Mir Campus
+- Type: Private K–12 school (Pre-Nursery through O-Level / IGCSE)
+- City: Lahore, Pakistan
+- Address: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan
+- Founded: 2025 (first academic year 2025–26)
+- Named after: Prof. Waris Mir (1938–1987), journalist, educator, Punjab University professor — the campus honours his legacy. He is the namesake, not an operating founder.
+- Website: https://akifhazarvi.github.io/london-school/
+- Email: info@londoneducation.pk
+- Phone: +92-301-0499777, +92-42-35216426, +92-42-35216425
+- Office hours: Monday–Saturday, 08:00–16:00
+
+## Leadership
+- Co-Founders: Huma Mir, Zoya Mir (family of Prof. Waris Mir — carrying forward his educational vision)
+- Campus Director: Ali Umair
+
+## Academic Programme
+- Curriculum: Cambridge International (Checkpoint through IGCSE / O-Level)
+- Grades offered: Pre-Nursery, Nursery, Kindergarten, Grade 1–8, IGCSE / O-Level
+- Languages taught: English, Urdu, Chinese, French, German
+- Specialisations: AI integration across subjects, robotics (LEGO, Arduino, 3D printing), coding (Scratch, Python)
+- Sports: cricket, football, athletics, and active indoor/outdoor play
+
+## Fee Structure (2025–26, monthly)
+- Pre-Nursery to KG: PKR 15,000
+- Grade 1–8: PKR 18,000
+- IGCSE / O-Level: PKR 22,000
+- Registration fee: payable on confirmation of admission
+
+## Campus Facilities
+- Smart classrooms with digital whiteboards
+- Robotics Lab with tool wall, stools, and Robotics & AI mural
+- Computer Lab with AI and coding workstations
+- Indoor play area with slides, ride-ons, and soft flooring
+- Outdoor play and sports grounds
+- Library with reading corners
+- Assembly hall
+- London-themed hallway (skyline mural, Prof. Waris Mir Campus branding)
+
+## Admissions 2025–26
+- Status: Open
+- Process: Book campus tour → application form → informal assessment → document submission & confirmation
+- Required documents: birth certificate, previous school reports
+- Book a tour: WhatsApp +92-301-0499777 or call
+
+## Key Differentiators
+- AI-integrated curriculum: AI is foundational, not an elective
+- "Ask Prof Mir" — an AI study assistant inspired by Prof. Waris Mir's teaching philosophy
+- Cambridge pathway from early years through IGCSE
+- Three foreign languages (Chinese, French, German)
+- 25+ sports including indoor and outdoor programmes
+- Weekly AI-generated progress reports for parents
+
+## Namesake: Prof. Waris Mir
+- Full name: Prof. Waris Mir
+- Born: 1938, Punjab, Pakistan
+- Died: 9 July 1987
+- Education: Master's from Punjab University; M.Phil from City University London
+- Career: Professor of Mass Communication, Punjab University; columnist for Daily Jang
+- Known for: Free press advocacy, democracy writing under Zia-ul-Haq's martial law, fearless political commentary
+- Awards: Hilal-e-Imtiaz (posthumous)
+- Relation to school: The Prof. Waris Mir Campus of London School System is named in his honour. He did not found the school (he died in 1987); his daughters Huma Mir and Zoya Mir launched the school in 2025 to carry his educational vision forward.
+
+## Social Media
+- Facebook: https://www.facebook.com/londonschoolwarismir/
+- Instagram: https://www.instagram.com/londoninternational.school/
+
+## Site Map
+- Home: https://akifhazarvi.github.io/london-school/
+- About Us: https://akifhazarvi.github.io/london-school/about.html
+- Academics: https://akifhazarvi.github.io/london-school/academics.html
+- Our Faculty: https://akifhazarvi.github.io/london-school/faculty.html
+- Admissions & Fees: https://akifhazarvi.github.io/london-school/enroll.html
+- Virtual Tour: https://akifhazarvi.github.io/london-school/yearbook.html
+- News & Events: https://akifhazarvi.github.io/london-school/news.html
+- Ask Prof Mir: https://akifhazarvi.github.io/london-school/ask-prof-mir.html

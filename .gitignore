@@ -20,3 +20,10 @@ __pycache__/
 
 # Node (if ever added)
 node_modules/
+
+# Marketing source assets (not for the website repo)
+Ads/
+ads/
+
+# Claude Code local state
+.claude/
