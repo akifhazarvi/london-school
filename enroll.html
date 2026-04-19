@@ -31,19 +31,22 @@
                                 so urgency stays honest.
   ========================================================= -->
 
-  <!-- Meta Pixel -->
+  <!-- Meta Pixel — guarded so no events fire until a real ID is set. Replace PIXEL_ID below with the real ID from Meta Business Manager to activate. -->
   <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','YOUR_META_PIXEL_ID');
-  fbq('track','PageView');
-  fbq('track','ViewContent',{content_name:'Admissions Landing Page',content_category:'Enrollment'});
+  (function(){
+    var PIXEL_ID = 'YOUR_META_PIXEL_ID';
+    if (!PIXEL_ID || PIXEL_ID.indexOf('YOUR_') === 0) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track','PageView');
+    fbq('track','ViewContent',{content_name:'Admissions Landing Page',content_category:'Enrollment'});
+    window.__LS_PIXEL_READY = true;
+  })();
   </script>
-  <noscript><img height="1" width="1" style="display:none" alt=""
-  src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
   <!-- /Meta Pixel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,7 +186,7 @@
         -->
         <div class="lead-form__scarcity">
           <span class="lead-form__scarcity-dot" aria-hidden="true"></span>
-          <span><strong>47 of 100</strong> Early Bird spots left — Rs 18,000/mo locked</span>
+          <span><strong>Early Bird</strong> — first 100 admissions lock Rs 18,000/mo · limited spots</span>
         </div>
 
         <h2 class="lead-form__title">Book Your Free Campus Visit</h2>
@@ -307,7 +310,7 @@
           <span style="background:var(--red);color:white;font-size:0.75rem;font-weight:700;padding:var(--s-1) var(--s-2);border-radius:var(--r-sm);margin-left:var(--s-2);text-transform:uppercase">Limited</span>
         </div>
         <p style="color:var(--gray-600);margin-bottom:var(--s-4)">
-          <strong>First 100 admissions</strong> for 2025–26 get a special rate. <strong style="color:var(--red)">47 spots left.</strong>
+          <strong>First 100 admissions</strong> for 2025–26 lock a flat rate across all grades. <strong style="color:var(--red)">Spots filling fast.</strong>
         </p>
         <div style="background:var(--red-50);border-radius:var(--r-md);padding:var(--s-3) var(--s-4);margin-bottom:var(--s-4)">
           <div style="font-size:0.85rem;color:var(--gray-600);margin-bottom:var(--s-1)">Monthly Fee</div>
