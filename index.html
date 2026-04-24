@@ -9,21 +9,24 @@
   <!-- Open Graph -->
   <meta property="og:title" content="London School — Pakistan's Most Advanced AI & Robotics School">
   <meta property="og:description" content="One of a kind in Pakistan. Kids start coding, building robots, and thinking in AI from age 3 — inside a full Cambridge curriculum. Prof. Waris Mir Campus, Lahore.">
-  <meta property="og:image" content="https://akifhazarvi.github.io/london-school/img/building-day.jpg">
+  <meta property="og:image" content="https://londoneducation.pk/img/building-day.jpg">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://akifhazarvi.github.io/london-school/">
-  <meta property="og:url" content="https://akifhazarvi.github.io/london-school/">
+  <link rel="canonical" href="https://londoneducation.pk/">
+  <link rel="alternate" hreflang="en" href="https://londoneducation.pk/">
+  <link rel="alternate" hreflang="x-default" href="https://londoneducation.pk/">
+  <meta property="og:url" content="https://londoneducation.pk/">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="London School — Pakistan's Most Advanced AI & Robotics School">
   <meta name="twitter:description" content="Pakistan's most advanced AI & robotics school. Kids code, build robots, and think in AI from age 3 — inside a full Cambridge curriculum.">
-  <meta name="twitter:image" content="https://akifhazarvi.github.io/london-school/img/building-day.jpg">
+  <meta name="twitter:image" content="https://londoneducation.pk/img/building-day.jpg">
 
-  <!-- Preconnect + Fonts (removed @import from CSS to keep fonts off render-blocking path) -->
+  <!-- Preconnect + Fonts (non-blocking: preload + async-apply) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
   <link rel="preload" as="image" href="img/videos/hero-intro-poster.jpg" fetchpriority="high">
 
   <!-- Theme & Icons -->
@@ -33,19 +36,23 @@
 
   <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/blobs.css">
+  <!-- Decorative shapes only — load non-blocking -->
+  <link rel="preload" as="style" href="css/blobs.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blobs.css"></noscript>
 <script type="application/ld+json">
 [
   {
     "@context": "https://schema.org",
-    "@type": ["EducationalOrganization", "LocalBusiness"],
-    "@id": "https://akifhazarvi.github.io/london-school/#organization",
-    "name": "London School System",
-    "alternateName": "London School — Prof. Waris Mir Campus",
-    "url": "https://akifhazarvi.github.io/london-school/",
-    "logo": "https://akifhazarvi.github.io/london-school/img/logo-icon.png",
-    "image": "https://akifhazarvi.github.io/london-school/img/building-day.jpg",
-    "description": "Pakistan's premier AI & robotics school in Lahore offering Cambridge curriculum from Pre-Nursery through IGCSE with robotics lab, 25+ sports, and AI-powered learning.",
+    "@type": ["School", "EducationalOrganization", "LocalBusiness"],
+    "@id": "https://londoneducation.pk/#organization",
+    "name": "London International Education System — Prof. Waris Mir Campus",
+    "alternateName": ["London School", "London School — Prof. Waris Mir Campus"],
+    "legalName": "London International Education System",
+    "url": "https://londoneducation.pk/",
+    "logo": "https://londoneducation.pk/img/logo-icon.png",
+    "image": "https://londoneducation.pk/img/building-day.jpg",
+    "description": "Cambridge-pathway private school in Lahore, Pakistan, offering education from Pre-Nursery through IGCSE / O-Level with a robotics lab, AI-integrated learning, three foreign languages, and 25+ sports. Founded 2025 by Huma Mir and Zoya Mir in honour of their father Prof. Waris Mir.",
+    "slogan": "Mir's Vision, Global Minds",
     "telephone": ["+92-301-0499777", "+92-42-35216426", "+92-42-35216425"],
     "email": "info@londoneducation.pk",
     "address": {
@@ -56,49 +63,77 @@
       "postalCode": "54600",
       "addressCountry": "PK"
     },
+    "hasMap": "https://maps.google.com/?cid=7737999795082975354",
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "31.4697",
-      "longitude": "74.2728"
+      "latitude": "31.455484",
+      "longitude": "74.3015425"
     },
-    "openingHoursSpecification": {
+    "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
       "opens": "08:00",
       "closes": "16:00"
-    },
+    }],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+92-301-0499777",
+      "contactType": "admissions",
+      "areaServed": "PK",
+      "availableLanguage": ["English", "Urdu"]
+    }],
     "priceRange": "PKR 15,000–22,000/month",
     "areaServed": { "@type": "City", "name": "Lahore" },
     "foundingDate": "2025",
     "founder": [
       {
         "@type": "Person",
+        "@id": "https://londoneducation.pk/about.html#huma-mir",
         "name": "Huma Mir",
-        "jobTitle": "Co-Founder"
+        "jobTitle": "Co-Founder",
+        "parent": { "@id": "https://londoneducation.pk/about.html#waris-mir" }
       },
       {
         "@type": "Person",
+        "@id": "https://londoneducation.pk/about.html#zoya-mir",
         "name": "Zoya Mir",
-        "jobTitle": "Co-Founder"
+        "jobTitle": "Co-Founder",
+        "parent": { "@id": "https://londoneducation.pk/about.html#waris-mir" }
       }
     ],
-    "accreditedBy": {
-      "@type": "Organization",
-      "name": "Cambridge Assessment International Education",
-      "url": "https://www.cambridgeinternational.org/"
-    },
+    "accreditedBy": [
+      {
+        "@type": "Organization",
+        "name": "Cambridge Assessment International Education",
+        "url": "https://www.cambridgeinternational.org/"
+      },
+      {
+        "@type": "Organization",
+        "name": "LAPS — London Academic Partnership System"
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/londonschoolwarismir/",
-      "https://www.instagram.com/londoninternational.school/"
+      "https://www.instagram.com/londoninternational.school/",
+      "https://maps.google.com/?cid=7737999795082975354"
     ]
   },
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://akifhazarvi.github.io/london-school/#website",
-    "url": "https://akifhazarvi.github.io/london-school/",
-    "name": "London School System",
-    "publisher": { "@id": "https://akifhazarvi.github.io/london-school/#organization" }
+    "@id": "https://londoneducation.pk/#website",
+    "url": "https://londoneducation.pk/",
+    "name": "London School — Prof. Waris Mir Campus",
+    "publisher": { "@id": "https://londoneducation.pk/#organization" },
+    "inLanguage": "en-PK",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://londoneducation.pk/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   }
 ]
 </script>
@@ -133,6 +168,7 @@
     <div class="nav__links">
       <a href="index.html" class="nav__link nav__link--active">Home</a>
       <a href="about.html" class="nav__link">About Us</a>
+      <a href="faculty.html" class="nav__link">Faculty</a>
       <a href="academics.html" class="nav__link">Academics</a>
       <a href="yearbook.html" class="nav__link">Virtual Tour</a>
       <a href="news.html" class="nav__link">News</a>
@@ -149,6 +185,7 @@
 <div class="mob-menu" id="mob">
   <a href="index.html" onclick="closeM()">Home</a>
   <a href="about.html" onclick="closeM()">About Us</a>
+  <a href="faculty.html" onclick="closeM()">Faculty</a>
   <a href="academics.html" onclick="closeM()">Academics</a>
   <a href="yearbook.html" onclick="closeM()">Virtual Tour</a>
   <a href="news.html" onclick="closeM()">News</a>
@@ -159,7 +196,8 @@
 </div>
 
 <!-- HERO -->
-<section class="hero" id="main">
+<main id="main">
+<section class="hero">
   <div class="container">
     <div class="hero__grid">
       <div class="hero__text rv">
@@ -187,6 +225,7 @@
             poster="img/videos/hero-intro-poster.jpg"
             autoplay muted loop playsinline preload="metadata"
             aria-label="London School students coding, building robots, and learning in class">
+            <track kind="captions" src="img/videos/hero-intro.vtt" srclang="en" label="English" default>
           </video>
         </div>
         <div class="hero__float hero__float--tl hero__float--sage">
@@ -290,7 +329,7 @@
   <div class="container">
     <div class="ai-prev__head rv">
       <div class="sec-label" style="justify-content:center"><i></i> Pakistan's Most Advanced Early Robotics Program</div>
-      <h2 class="ai-prev__title">Cambridge learning. AI from age three.</h2>
+      <h2 class="ai-prev__title">Cambridge learning. AI from age three</h2>
       <p class="ai-prev__lead">
         Every child earns <strong>two US coding certifications by Kindergarten</strong> — a ten-year journey that grows with them.
       </p>
@@ -300,8 +339,8 @@
       <div class="ai-prev__step ai-prev__step--peach rv">
         <div class="ai-prev__num">3<span>–4</span></div>
         <div class="ai-prev__label">Pre-Years</div>
-        <h3>First AI friend</h3>
-        <p>Safe answers to every little "why?"</p>
+        <h3>Curious about computers</h3>
+        <p>Play-based coding &amp; how tech works.</p>
       </div>
       <div class="ai-prev__step ai-prev__step--featured rv">
         <div class="ai-prev__num">5</div>
@@ -349,7 +388,7 @@
           <div class="sec-label"><i></i> Our Legacy</div>
           <h2>Founded on Prof. Waris Mir's Vision</h2>
           <p>Prof. Waris Mir (1938-1987) — father of renowned journalist Hamid Mir — was a legendary academic, writer, and journalist who believed that true learning happens when curiosity is nurtured, not suppressed. He championed the right to education for every child and advocated for teaching methods that sparked joy and wonder.</p>
-          <p>Though Prof. Mir passed away in 1987, his spirit lives on in everything we do. In 2025, his daughters Huma and Zoya Mir opened London School System in Lahore to carry his legacy forward — creating a generation of confident, kind, and curious learners.</p>
+          <p>Though Prof. Mir passed away in 1987, his spirit lives on in everything we do. In 2025, his daughters Huma and Zoya Mir opened London School — Prof. Waris Mir Campus in Lahore to carry his legacy forward — creating a generation of confident, kind, and curious learners.</p>
         </div>
       </div>
     </div>
@@ -418,14 +457,14 @@
             <div style="width:40px;height:40px;border-radius:50%;background:var(--red-50);color:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <h4 style="margin:0;color:var(--navy)">Address</h4>
+            <h3 style="margin:0;color:var(--navy);font-size:1.125rem">Address</h3>
           </div>
           <address style="font-style:normal;color:var(--gray-700);line-height:1.7">
             Plot #8, Sector B-2, Block 1,<br>
             Ali Road, Opposite Ideal Park Township,<br>
             Lahore 54600, Punjab, Pakistan
           </address>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=Plot+%238%2C+Sector+B-2%2C+Block+1%2C+Ali+Road%2C+Opposite+Ideal+Park+Township%2C+Lahore" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:var(--s-2);margin-top:var(--s-3);color:var(--red);font-weight:600;font-size:0.9rem;text-decoration:none">
+          <a href="https://maps.google.com/?cid=7737999795082975354" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:var(--s-2);margin-top:var(--s-3);color:var(--red);font-weight:600;font-size:0.9rem;text-decoration:none">
             Get Directions
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -436,12 +475,12 @@
             <div style="width:40px;height:40px;border-radius:50%;background:var(--sage-50);color:var(--sage-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             </div>
-            <h4 style="margin:0;color:var(--navy)">Phone</h4>
+            <h3 style="margin:0;color:var(--navy);font-size:1.125rem">Phone</h3>
           </div>
           <div style="display:flex;flex-direction:column;gap:var(--s-1)">
-            <a href="tel:+923010499777" style="color:var(--gray-700);text-decoration:none">+92 301 0499777</a>
-            <a href="tel:+924235216426" style="color:var(--gray-700);text-decoration:none">+92 42 35216426</a>
-            <a href="tel:+924235216425" style="color:var(--gray-700);text-decoration:none">+92 42 35216425</a>
+            <a href="tel:+923010499777" style="color:var(--gray-700);text-decoration:none">+92-301-0499777</a>
+            <a href="tel:+924235216426" style="color:var(--gray-700);text-decoration:none">+92-42-35216426</a>
+            <a href="tel:+924235216425" style="color:var(--gray-700);text-decoration:none">+92-42-35216425</a>
           </div>
         </div>
 
@@ -450,7 +489,7 @@
             <div style="width:40px;height:40px;border-radius:50%;background:var(--peach-100);color:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
-            <h4 style="margin:0;color:var(--navy)">Email</h4>
+            <h3 style="margin:0;color:var(--navy);font-size:1.125rem">Email</h3>
           </div>
           <a href="mailto:info@londoneducation.pk" style="color:var(--gray-700);text-decoration:none">info@londoneducation.pk</a>
         </div>
@@ -460,7 +499,7 @@
             <div style="width:40px;height:40px;border-radius:50%;background:var(--navy-50, #E8EEF5);color:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
             </div>
-            <h4 style="margin:0;color:var(--navy)">Office Hours</h4>
+            <h3 style="margin:0;color:var(--navy);font-size:1.125rem">Office Hours</h3>
           </div>
           <p style="margin:0;color:var(--gray-700)">Monday – Saturday, 08:00 AM – 04:00 PM<br><small style="color:var(--gray-500)">Closed Sundays and public holidays</small></p>
         </div>
@@ -468,7 +507,7 @@
 
       <div class="contact-map rv" style="border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-md);min-height:400px">
         <iframe
-          src="https://maps.google.com/maps?q=Plot%20%238%2C%20Sector%20B-2%2C%20Block%201%2C%20Ali%20Road%2C%20Opposite%20Ideal%20Park%20Township%2C%20Lahore&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=London+School+Prof.+Waris+Mir+Campus&cid=7737999795082975354&ll=31.455484,74.3015425&z=17&output=embed"
           width="100%"
           height="100%"
           style="border:0;min-height:400px;display:block"
@@ -480,12 +519,14 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer class="ft">
   <div class="container"><div class="ft__grid">
     <div class="ft__about">
       <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
-      <p>Pakistan's premier AI & robotics school. A warm, nurturing environment where children become confident builders of tomorrow's technology while developing character and kindness.</p>
+      <p>A Cambridge Pathway Registered school in Lahore, affiliated with LAPS. We pair the Cambridge curriculum with an early-years AI &amp; robotics programme in a warm, nurturing environment named in honour of the late Prof. Waris Mir.</p>
       <div class="ft__socials">
         <a href="https://www.facebook.com/londonschoolwarismir/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
         <a href="https://www.instagram.com/londoninternational.school/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
@@ -499,7 +540,7 @@
       <p style="margin:0;color:var(--sand-300);font-size:var(--text-xs);line-height:1.6">info@londoneducation.pk</p>
       <p style="margin:0;color:var(--sand-300);font-size:var(--text-xs);line-height:1.6">Mon - Sat: 8 AM - 4 PM<br>Sunday: Closed</p>
     </div></div>
-  </div><div class="ft__bot"><p>&copy; 2025 London School System.</p><p>Made with care in Lahore</p></div></div>
+  </div><div class="ft__bot"><p>&copy; 2025 London School — Prof. Waris Mir Campus.</p><p>Made with care in Lahore</p></div></div>
 </footer>
 
 <a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>

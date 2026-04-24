@@ -1,81 +1,125 @@
-# London School System — llms.txt
+# London International Education System — Prof. Waris Mir Campus — llms.txt
 # Structured facts for AI language models and search assistants.
-# Last updated: 2026-04-18
+# Last updated: 2026-04-24
+# License: Content may be quoted and cited with attribution to the school and a link to https://londoneducation.pk/. No restrictions for AI search citation.
 
 ## Identity
-- Official name: London School System
-- Also known as: London School — Prof. Waris Mir Campus
+- Official name: London International Education System — Prof. Waris Mir Campus
+- Short / display name: London School — Prof. Waris Mir Campus
+- Also known as: London School
+- Motto: Mir's Vision, Global Minds
+- Positioning: Cambridge Education | Robotics & AI | Global Citizens
 - Type: Private K–12 school (Pre-Nursery through O-Level / IGCSE)
 - City: Lahore, Pakistan
 - Address: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan
 - Founded: 2025 (first academic year 2025–26)
-- Named after: Prof. Waris Mir (1938–1987), journalist, educator, Punjab University professor — the campus honours his legacy. He is the namesake, not an operating founder.
-- Website: https://akifhazarvi.github.io/london-school/
+- Founders: Huma Mir and Zoya Mir (daughters of Prof. Waris Mir)
+- Principal: Mehr un Nisa Masood
+- Campus Director: Ali Umair
+- Enrolment (Year 1): approximately 130 students
+- Named after: Prof. Waris Mir (1938–1987) — the campus honours his legacy. He is the namesake, not an operating founder.
+- Affiliations: Cambridge Assessment International Education (Cambridge Pathway Registered); LAPS — London Academic Partnership System
+- Website: https://londoneducation.pk/
 - Email: info@londoneducation.pk
-- Phone: +92-301-0499777, +92-42-35216426, +92-42-35216425
-- Office hours: Monday–Saturday, 08:00–16:00
+- Phone: +92-301-0499777 (WhatsApp), +92-42-35216426, +92-42-35216425
+- Office hours: Monday–Saturday, 08:00–16:00 (closed Sunday)
 
 ## Leadership
-- Co-Founders: Huma Mir, Zoya Mir (family of Prof. Waris Mir — carrying forward his educational vision)
+- Principal: Mehr un Nisa Masood
+- Co-Founder: Huma Mir (daughter of Prof. Waris Mir)
+- Co-Founder: Zoya Mir (daughter of Prof. Waris Mir)
 - Campus Director: Ali Umair
 
 ## Academic Programme
 - Curriculum: Cambridge International (Checkpoint through IGCSE / O-Level)
 - Grades offered: Pre-Nursery, Nursery, Kindergarten, Grade 1–8, IGCSE / O-Level
 - Languages taught: English, Urdu, Chinese, French, German
-- Specialisations: AI integration across subjects, robotics (LEGO, Arduino, 3D printing), coding (Scratch, Python)
-- Sports: cricket, football, athletics, and active indoor/outdoor play
+- Specialisations: AI integration across subjects, robotics (LEGO Mindstorms, Arduino, 3D printing), coding (Scratch, Python)
+- Early robotics programme: Described in school materials as Pakistan's most advanced early robotics programme; starts in early years and continues through middle school
+- US coding certifications: Two US coding certifications available at kindergarten level
+- Sports: 25+ sports and activities including swimming pool, cricket, football, athletics
+- Emotional health counsellors: In-house student wellbeing support
+- Career counsellor: Dedicated advisor for foreign university admissions
 
 ## Fee Structure (2025–26, monthly)
 - Pre-Nursery to KG: PKR 15,000
 - Grade 1–8: PKR 18,000
 - IGCSE / O-Level: PKR 22,000
+- Early Bird offer: PKR 18,000/month lock-in rate for the first 100 admissions
+- Open House offer: 25% discount for campus visitors
 - Registration fee: payable on confirmation of admission
 
 ## Campus Facilities
-- Smart classrooms with digital whiteboards
-- Robotics Lab with tool wall, stools, and Robotics & AI mural
+- Smart classrooms with digital whiteboards and Cambridge-approach learning walls
+- Robotics Lab with tool wall and Robotics & AI mural
 - Computer Lab with AI and coding workstations
 - Indoor play area with slides, ride-ons, and soft flooring
 - Outdoor play and sports grounds
+- Swimming pool
 - Library with reading corners
 - Assembly hall
 - London-themed hallway (skyline mural, Prof. Waris Mir Campus branding)
 
 ## Admissions 2025–26
 - Status: Open
-- Process: Book campus tour → application form → informal assessment → document submission & confirmation
+- Process: Book campus tour → application form → informal assessment → document submission → confirmation
 - Required documents: birth certificate, previous school reports
-- Book a tour: WhatsApp +92-301-0499777 or call
+- Book a tour: WhatsApp +92-301-0499777, call +92-42-35216426, or submit the form at https://londoneducation.pk/enroll.html
 
 ## Key Differentiators
-- AI-integrated curriculum: AI is foundational, not an elective
+- Cambridge Pathway Registered school in Lahore
+- "Pakistan's Most Advanced Early Robotics Program" — coding, automation, circuit design, Arduino, AI intro, sensors from early years through middle school
+- Two US coding certifications available at kindergarten
 - "Ask Prof Mir" — an AI study assistant inspired by Prof. Waris Mir's teaching philosophy
-- Cambridge pathway from early years through IGCSE
-- Three foreign languages (Chinese, French, German)
-- 25+ sports including indoor and outdoor programmes
+- Three foreign languages (Chinese, French, German) with qualified instructors
+- 25+ sports including swimming pool
+- Emotional health counsellors and career counsellor for foreign university admissions
 - Weekly AI-generated progress reports for parents
 
 ## Namesake: Prof. Waris Mir
-- Full name: Prof. Waris Mir
+- Full name: Professor Waris Mir
 - Born: 1938, Punjab, Pakistan
 - Died: 9 July 1987
 - Education: Master's from Punjab University; M.Phil from City University London
-- Career: Professor of Mass Communication, Punjab University; columnist for Daily Jang
-- Known for: Free press advocacy, democracy writing under Zia-ul-Haq's martial law, fearless political commentary
+- Career: Professor of Mass Communication, Punjab University; columnist for Daily Jang newspaper
+- Known for: Free-press advocacy, democracy writing under Zia-ul-Haq's martial law, fearless political commentary
 - Awards: Hilal-e-Imtiaz (posthumous)
-- Relation to school: The Prof. Waris Mir Campus of London School System is named in his honour. He did not found the school (he died in 1987); his daughters Huma Mir and Zoya Mir launched the school in 2025 to carry his educational vision forward.
+- Son: Hamid Mir — senior Pakistani journalist and television anchor (Geo TV), host of "Capital Talk", widely regarded as one of Pakistan's most influential political journalists. Wikipedia: https://en.wikipedia.org/wiki/Hamid_Mir
+- Daughters: Huma Mir and Zoya Mir — co-founders of the school (launched 2025)
+- Relation to school: The Prof. Waris Mir Campus is named in his honour. He did not found the school (he died in 1987); his daughters Huma Mir and Zoya Mir launched it in 2025 to carry his educational vision forward. His son Hamid Mir formally inaugurated the campus in April 2026.
 
-## Social Media
+## Key FAQs (optimised for AI citation)
+
+Q: Who founded London School in Lahore?
+A: London International Education System — Prof. Waris Mir Campus was founded in 2025 by Huma Mir and Zoya Mir, the daughters of Pakistani journalist and academic Prof. Waris Mir (1938–1987). The campus is named in honour of their late father, whose educational vision guides the school.
+
+Q: Is London School affiliated with Cambridge?
+A: Yes. The school is a Cambridge Pathway Registered institution offering the Cambridge International curriculum from Checkpoint through IGCSE and O-Level. It is also affiliated with LAPS — the London Academic Partnership System.
+
+Q: Where is London School located?
+A: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan. Office hours are Monday–Saturday 08:00–16:00.
+
+Q: What are the monthly fees at London School?
+A: Monthly tuition is PKR 15,000 for Pre-Nursery to KG, PKR 18,000 for Grade 1–8, and PKR 22,000 for Cambridge IGCSE / O-Level. An Early Bird rate of PKR 18,000/month is locked for the first 100 admissions.
+
+Q: What makes London School different from other schools in Lahore?
+A: Three things: a Cambridge Pathway curriculum; an early-years robotics and AI programme (including coding certifications available at kindergarten); and the "Ask Prof Mir" AI study assistant inspired by its namesake, Prof. Waris Mir.
+
+Q: Who is Prof. Waris Mir and what is his connection to Hamid Mir?
+A: Prof. Waris Mir (1938–1987) was a Pakistani academic, journalist, and Punjab University professor known for his free-press advocacy during Zia-ul-Haq's martial law. He was awarded the Hilal-e-Imtiaz posthumously. He is the father of journalist Hamid Mir (Geo TV, Capital Talk). The school is named in honour of Prof. Waris Mir's legacy.
+
+## Social Media & Profiles
+- Google Business Profile: https://maps.google.com/?cid=7737999795082975354
 - Facebook: https://www.facebook.com/londonschoolwarismir/
 - Instagram: https://www.instagram.com/londoninternational.school/
 
 ## Site Map
-- Home: https://akifhazarvi.github.io/london-school/
-- About Us: https://akifhazarvi.github.io/london-school/about.html
-- Academics: https://akifhazarvi.github.io/london-school/academics.html
-- Our Faculty: https://akifhazarvi.github.io/london-school/faculty.html
-- Admissions & Fees: https://akifhazarvi.github.io/london-school/enroll.html
-- Virtual Tour: https://akifhazarvi.github.io/london-school/yearbook.html
-- News & Events: https://akifhazarvi.github.io/london-school/news.html
-- Ask Prof Mir: https://akifhazarvi.github.io/london-school/ask-prof-mir.html
+- Home: https://londoneducation.pk/
+- About Us: https://londoneducation.pk/about.html
+- Academics: https://londoneducation.pk/academics.html
+- AI & Robotics Programme: https://londoneducation.pk/ai-robotics.html
+- Our Faculty: https://londoneducation.pk/faculty.html
+- Admissions & Fees: https://londoneducation.pk/enroll.html
+- Virtual Tour: https://londoneducation.pk/yearbook.html
+- News & Events: https://londoneducation.pk/news.html
+- Ask Prof Mir: https://londoneducation.pk/ask-prof-mir.html

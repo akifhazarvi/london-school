@@ -1,329 +1,259 @@
-# Full SEO Audit — London School System
+# London School — Full SEO Audit Report
 
-**Site:** https://akifhazarvi.github.io/london-school/
-**Business:** London School System / Prof. Waris Mir Campus — Cambridge school in Lahore, Pakistan
-**Business Type:** Local Service — brick-and-mortar private K-12 school
-**Industry:** Education (Cambridge IGCSE + AI/robotics + sports)
-**Audit Date:** 2026-04-18
-**Pages Crawled:** 10 HTML files (9 public + 404)
+**Date:** 2026-04-24
+**Domain (canonical):** https://londoneducation.pk
+**Hosting:** GitHub Pages (akifhazarvi.github.io/london-school)
+**Pages audited:** 12 HTML files + robots.txt, sitemap.xml, llms.txt
+**Business type:** Brick-and-mortar private school (K-12, Cambridge pathway), Lahore, Pakistan
 
 ---
 
 ## Executive Summary
 
-### Overall SEO Health Score: **55 / 100**
+### Overall SEO Health Score: **61 / 100**
 
 | Category | Weight | Score | Weighted |
-|----------|-------:|------:|---------:|
-| Technical SEO | 22% | 68 | 14.96 |
-| Content Quality / E-E-A-T | 23% | 52 | 11.96 |
-| On-Page SEO | 20% | 65 | 13.00 |
-| Schema / Structured Data | 10% | 30 | 3.00 |
-| Performance (CWV — lab) | 10% | 45 | 4.50 |
-| AI Search Readiness (GEO) | 10% | 54 | 5.40 |
-| Images | 5% | 50 | 2.50 |
-| **TOTAL** | **100%** | — | **55.3** |
+|---|---|---|---|
+| Technical SEO | 22% | 58 | 12.8 |
+| Content Quality / E-E-A-T | 23% | 68 | 15.6 |
+| On-Page SEO | 20% | 70 | 14.0 |
+| Schema / Structured Data | 10% | 60 | 6.0 |
+| Performance (CWV) | 10% | 70* | 7.0 |
+| AI Search Readiness (GEO) | 10% | 61 | 6.1 |
+| Images | 5% | 65 | 3.3 |
+| **Total** | **100%** | | **~61** |
 
-Supplementary — not in weighted total: **Local SEO: 41/100** (critical for this business type).
+*Performance estimated from static-asset inspection (vanilla HTML/CSS/JS, single MP4, no frameworks); no CrUX field data available without GSC credentials.
+
+### Business Type Detected
+Brick-and-mortar private school, single location, Cambridge pathway, K-12, Lahore. Local SEO is a core ranking vector; service-area / multi-location considerations do not apply.
 
 ### Top 5 Critical Issues
 
-1. **`#contact` section missing on index.html.** Every page's nav links to `#contact` but the section does not exist on the homepage — CTAs flow straight into the footer. This breaks the primary conversion path and removes the opportunity for a Google Maps embed (a major local ranking signal).
-2. **Empty `sameAs: []` in the homepage JSON-LD** at [index.html:55](index.html#L55). Facebook and Instagram URLs exist site-wide but are not linked in structured data — a 2-minute fix that connects the school entity to its verified web identity.
-3. **"15+ Years Serving Lahore Families" on [enroll.html](enroll.html) contradicts `foundingDate: "1987"`** in the homepage schema. 2026 − 1987 = 39 years. Parents who do the math will distrust the figure; AI systems cite the contradiction.
-4. **Only 1 of 9 public pages has JSON-LD structured data.** 8 pages (about, academics, faculty, campus, enroll, news, yearbook, ask-prof-mir) have no BreadcrumbList, no page-specific schema. Schema agent provided ready-to-paste snippets.
-5. **Faculty placeholders on [faculty.html](faculty.html).** The "Head of Academics" card is literally named "Senior Faculty," the six teacher gallery thumbnails are all labelled "Teacher / Faculty." This is the single biggest E-E-A-T failure on the site for a school.
+1. **Every canonical, OG tag, JSON-LD `@id`, llms.txt URL, and sitemap entry referenced the wrong domain** (`akifhazarvi.github.io/london-school` instead of `londoneducation.pk`). Sitemap + robots.txt were fixed by the sitemap agent during this audit; **110 stale references remain across 12 HTML files and llms.txt**. Until resolved, all SEO signals consolidate around the GitHub Pages staging URL, not the production domain.
+2. **Three inconsistent business names in use simultaneously** — "London School System" (schema, og:site_name), "London School — Prof. Waris Mir Campus" (nav logo), "London International Education System — Prof. Waris Mir Campus" (brochure canonical). AI models and Google Knowledge Panel cannot coalesce this into a single entity.
+3. **Hamid Mir legacy link — the single highest-authority entity signal for this school in Pakistan — is absent from all structured data and llms.txt.** It appears only once, in an About page paragraph. This is the most under-leveraged trust asset on the site.
+4. **Faculty credentials are generic placeholders.** Principal Mehr un Nisa Masood and Campus Director Ali Umair have no degree, no prior institution, no years of experience listed. Co-founders Huma and Zoya Mir use icon SVGs, not photos. For a YMYL (schools) category, this blocks E-E-A-T.
+5. **Google Business Profile not linked from the site.** No GBP URL in `sameAs`, no Place ID in Maps embed (it uses text-query search), no review widget, no `aggregateRating`. The single largest local ranking factor is invisible.
 
-### Top 5 Quick Wins (under 30 minutes each)
+### Top 5 Quick Wins
 
-1. Populate `sameAs` with the real Facebook and Instagram URLs (already live in footers).
-2. Change "15+ Years" to "Since 1987 · 39 Years Serving Lahore Families" on [enroll.html](enroll.html).
-3. Copy the four Twitter Card meta tags from [index.html:18-21](index.html#L18-L21) into the `<head>` of the other 8 public pages.
-4. Create `/llms.txt` at repo root with the structured school-facts document the GEO agent drafted.
-5. Add `Disallow: /london-School/` to robots.txt — that directory holds raw WhatsApp source media that should not be crawled.
-
----
-
-## 1. Technical SEO — 68/100
-
-### Crawlability — PASS
-
-- `robots.txt` correctly disallows `editor.html`, `server.py`, `content.json`; sitemap declared.
-- `sitemap.xml` lists all 9 public pages. Updated during this audit to include `<lastmod>` dates (sitemap agent rewrote the file — verify before deploy).
-- `404.html` correctly excluded from sitemap; GitHub Pages recognises it by convention.
-- **Gap:** `/london-School/` directory at repo root contains raw WhatsApp JPEGs + MP4s. Should be disallowed in robots.txt or deleted from the deploy.
-
-### Indexability — PASS (one slug mismatch)
-
-- All 9 public pages have correct absolute-URL canonicals.
-- No `noindex` on public pages (correct). No duplicate URL variants.
-- **Slug mismatch:** [yearbook.html](yearbook.html) has `<title>Virtual Tour — London School System</title>` and is labelled "Virtual Tour" in every nav link — but the URL slug is `yearbook`. Keyword-URL disconnect leaks ranking potential for "virtual tour school Lahore."
-
-### On-Page Meta
-
-| Check | Status | Notes |
-|-------|:------:|-------|
-| Unique titles | ✓ | All 9 pages unique, 28–58 chars |
-| Unique descriptions | ✓ | All unique; [yearbook.html](yearbook.html) description is 204 chars (truncates in SERPs) |
-| Open Graph | ✓ | Complete on all 9 public pages |
-| **Twitter Cards** | ✗ | **Only [index.html](index.html) has them.** Missing from the other 8 public pages |
-| `<html lang>`, charset, viewport | ✓ | Present on all pages |
-| Canonical tags | ✓ | Correct absolute URLs |
-| Favicon + apple-touch-icon | ✓ | Present (missing only from 404.html) |
-| theme-color | ✓ | `#C1353D` on all public pages |
-
-### Internal Linking & Dead Anchors — FAIL
-
-14 `href="#"` dead anchors across 10 files:
-
-- **YouTube footer icon** on all 9 public pages + editor.html (10 total). No YouTube channel exists yet.
-- **[news.html:122](news.html#L122)** — "Read Full Story" on the Hamid Mir inauguration card. This is the site's strongest authority signal; dead link destroys the value.
-- **[news.html:186](news.html#L186)** — "Learn More" on a second news card.
-- **[editor.html:324](editor.html#L324)** — "Parent Portal / AI Progress Reports / Events / Privacy Policy" (editor is in robots Disallow so not crawled, but UX).
-
-### Mobile — PASS
-
-All pages carry `<meta name="viewport">`, `<html lang="en">`, `<meta charset="UTF-8">`. CSS uses `clamp()` fluid type + named breakpoints (900/768/600/480px). No `user-scalable=no`.
-
-### Security — PASS (platform-constrained)
-
-GitHub Pages enforces HTTPS. Custom security headers (CSP, X-Frame-Options, Referrer-Policy) cannot be set on GH Pages without a `_headers` file (Netlify-only feature). No mixed content detected.
+1. **Global find-and-replace** `akifhazarvi.github.io/london-school` → `londoneducation.pk` across all HTML + llms.txt (~10 minutes, fixes ~8 critical/high findings simultaneously).
+2. **Add explicit `Allow:` lines in robots.txt** for GPTBot, ClaudeBot, OAI-SearchBot, PerplexityBot, Google-Extended (10 minutes, unlocks AI citation eligibility).
+3. **Standardize the business name** to one canonical long form and one short form, used everywhere (2 hours).
+4. **Add Hamid Mir to llms.txt + Waris Mir `Person` schema** as `relatedTo` / son relationship (30 min, major AI-citation unlock).
+5. **Add `defer` to the YouTube iframe API script on yearbook.html:786** (1 line, fixes a render-blocking third-party script).
 
 ---
 
-## 2. Content Quality / E-E-A-T — 52/100
+## 1. Technical SEO — Score 58/100
+
+### Critical
+- **C1. Wrong canonical domain on every indexable page.** All `<link rel="canonical">` tags point to `https://akifhazarvi.github.io/london-school/...`. If both hosts are live, Google may index the GitHub Pages copy and ignore production.
+- **C2. Open Graph `og:url` and `og:image` use GitHub Pages host.** Every page. WhatsApp / Facebook previews display the staging URL — a direct trust-signal failure on the primary acquisition channel.
+- **C3. JSON-LD `@id`, `item`, `url`, `logo`, `sameAs` all carry the GitHub host.** Google sees two separate entities when both domains are live.
+- **C4. robots.txt `Sitemap:` directive fixed during audit.** Now correctly references `https://londoneducation.pk/sitemap.xml`. Verified.
+
+### High
+- **H1. llms.txt uses GitHub Pages URL** (9 occurrences).
+- **H2. `thank-you.html` has both `noindex` and a canonical tag.** The canonical is pointless on a noindexed page and propagates the wrong domain.
+- **H3. YouTube iframe API loaded synchronously** on yearbook.html:786 (render-blocking; hurts LCP on the Virtual Tour page).
+- **H4. `404.html` missing `<meta name="description">` and `theme-color`** — inconsistent with every other page.
+
+### Medium
+- **M1. Footer absolute URLs** on index.html (~lines 460-490) use `akifhazarvi.github.io` host; nav correctly uses relative paths.
+- **M2. No hreflang declared** — for a Pakistan-targeting site with bilingual (EN + UR) brochure, add `<link rel="alternate" hreflang="en" href="...">` self-referencing tags.
+- **M3. Google Maps embed uses legacy `maps.google.com/maps?q=...` text search** rather than a Place ID. Will not tie the site to a verified GBP listing.
+- **M4. No IndexNow key** for Bing/Yandex index freshness.
+
+### Low
+- No PWA manifest; missing `apple-touch-icon` on 404.html; editor.html correctly blocked (robots + noindex).
+
+---
+
+## 2. Content Quality & E-E-A-T — Score 68/100
 
 ### E-E-A-T Breakdown
 
-| Factor | Score | Key Gap |
-|--------|------:|---------|
-| Experience | 9/20 | Campus photos exist, but no student outcomes, alumni stories, or competition results. Testimonials are anonymous initials. |
-| Expertise | 10/25 | No teacher credentials. "Cambridge Certified" claimed but unverified. No subject syllabi, no exam pass rates. |
-| Authoritativeness | 9/25 | Hamid Mir inauguration event is the only third-party signal on the whole site — and its link is dead. No Cambridge Centre Number cited. |
-| Trustworthiness | 14/30 | NAP consistent. Schema present. But "98% Parent Satisfaction" has no source; "15+ Years" contradicts `foundingDate: 1987`. |
+| Factor | Score |
+|---|---|
+| Experience | 14/20 — real campus photos, but testimonials unsigned, no last-name verification |
+| Expertise | 18/25 — curriculum content technically grounded; principal/director have no stated credentials |
+| Authoritativeness | 15/25 — Hamid Mir inauguration is the strongest external signal; zero press links, no LAPS registration number, no Cambridge centre number |
+| Trustworthiness | 21/30 — NAP complete and consistent; `YOUR_META_PIXEL_ID` placeholder visible in enroll.html source |
 
-**Composite E-E-A-T: 42/100.**
+### High-Severity Findings
+- **"Two US Coding Certifications" claim lacks a named issuer** across all pages. "Recognised US coding authorities" is circular and won't survive Google's QRG credentialing checks for educational institutions.
+- **Faculty credentials missing.** Principal's card is two generic sentences; co-founders use icon SVGs not photos. YMYL pages require real People signals.
+- **LAPS affiliation appears nowhere in HTML** — only in CLAUDE.md. The brochure's second-strongest credential after Cambridge.
 
-### Thin Content Risk
+### Medium-Severity Findings
+- **Testimonials duplicated** across index.html and ai-robotics.html with same four names, different quotes. No photos, no dates, no attribution.
+- **Waris Mir quotes on about.html and ask-prof-mir.html are unattributed.** Putting quotes in a named historical figure's mouth is a specific QRG concern on YMYL pages.
+- **news.html uses emoji placeholders** (🎓, 🎮, 🏃) for several event cards. Signals fabricated content. The Hamid Mir inauguration card (with real photo) is the only exception.
+- **Early Bird scarcity counter is static placeholder** — the comment says "Update weekly" but the number "47" never renders.
 
-| Page | Estimated Words | Risk |
-|------|----------------:|:-----|
-| [campus.html](campus.html) | ~150 | High |
-| [yearbook.html](yearbook.html) | ~200 | High |
-| [ask-prof-mir.html](ask-prof-mir.html) | ~300 | Medium (mostly JS-rendered chat; static prose thin) |
-| [faculty.html](faculty.html) | ~400 | Medium |
-| [enroll.html](enroll.html) | ~550 | Borderline (conversion page) |
-
-### Duplicate / Boilerplate Issues
-
-- The three value cards "Curiosity First / Every Child Matters / Ready for the World" appear near-verbatim on [index.html](index.html), [about.html](about.html), and [faculty.html](faculty.html).
-- "We Never Stop Learning Either" CPD section appears on both [academics.html](academics.html) and [faculty.html](faculty.html).
-- Footer copy varies ("Pakistan's premier..." on [index.html:300](index.html#L300) vs "A warm, nurturing school..." on the other 8) — inconsistent brand voice.
-
-### Leadership conflict
-
-[about.html:163-165](about.html#L163-L165) attributes the principal's message to **Mehr un Nisa Masood**; [faculty.html:131](faculty.html#L131) shows **Ali Umair** as Campus Director. Neither page reconciles or acknowledges the other. Fix before a parent spots it.
-
-### AI Citation Readiness — 38/100
-
-Fees, address, phone are clearly stated (good). Missing: no `FAQPage`, no `Course`, no `Person` for named faculty, no `NewsArticle`. "98% satisfaction" unciteable without methodology. News items lack author bylines.
+### Low-Severity Findings
+- `faculty.html` is orphaned from main nav — only linked from one phrase on about.html that points *away* from it.
+- `ai-robotics.html` is the best-structured page for AI citation (FAQPage schema with self-contained answers).
 
 ---
 
-## 3. On-Page SEO — 65/100
+## 3. On-Page SEO — Score 70/100
 
-### Heading Structure
+### What's Working
+- Title tags present on every page with brand suffix.
+- Meta descriptions present on 11/12 pages (404.html missing).
+- H1-H2-H3 hierarchy generally clean.
+- Internal nav consistent across pages.
+- `alt` attributes present on most images.
 
-All 10 files have exactly one `<h1>` — good. But:
-
-- **[faculty.html:68](faculty.html#L68)** has `<h1>About Us</h1>` — this is the **faculty** page. Duplicates the H1 on [about.html:139](about.html#L139). Should be `<h1>Our Faculty</h1>` or similar.
-- **[enroll.html:69](enroll.html#L69)** H1 "Start Your Child's Journey" — no geo or keyword signal for a fees/admissions page.
-- **[index.html:120](index.html#L120)** H1 "Pakistan's Top AI & Robotics School" — strong brand, weak geo (no "Lahore").
-
-### Title / Description — Local Keyword Gap
-
-Only the homepage title includes any geo signal (and only "Pakistan," not "Lahore"). Meta descriptions only reference Lahore on `index.html`. Entire categories of high-intent local queries go un-targeted:
-
-- "Cambridge school Lahore"
-- "IGCSE school Lahore"
-- "school near Township Lahore"
-- "AI robotics school Pakistan"
-- "school admissions Lahore 2025"
-
-### Internal Linking Issues
-
-- `#contact` linked from nav on every page — but no `#contact` anchor/section exists on index.html. Nav dead-end.
-- YouTube footer links dead on 10 files.
-- News card "Read More" links dead on 2 cards.
+### Issues
+- **Hero title on index.html** (`"Where Curious Kids Become Confident Learners"`) is emotive but doesn't target a local keyword. Consider "Cambridge School in Lahore" integration for the H1 or above-fold copy.
+- **404.html** has no meta description and no `theme-color`.
+- **Footer absolute links** (see Technical M1) bypass internal-link equity consolidation.
+- **Anchor-only contact section** — no standalone /contact.html page, which weakens "London School Lahore contact" queries.
 
 ---
 
-## 4. Schema / Structured Data — 30/100
+## 4. Schema / Structured Data — Score 60/100
 
 ### Coverage
+10 of 13 HTML files contain valid JSON-LD. Missing: 404.html, thank-you.html, editor.html — none need schema.
 
-| Page | Schema Types |
-|------|--------------|
-| index.html | EducationalOrganization (1 block) |
-| about.html, academics.html, faculty.html, campus.html, enroll.html, news.html, yearbook.html, ask-prof-mir.html | **None** |
+### Critical Issues
+- **Every schema block hardcodes `https://akifhazarvi.github.io/london-school/`** as the base URL (see Technical C3).
+- **Wrong legal name in index.html.** Uses `"name": "London School System"` instead of `"London International Education System — Prof. Waris Mir Campus"` (legal name) with `"alternateName": "London School"`.
+- **FAQPage schema on ai-robotics.html and enroll.html** — Google restricted FAQPage rich results to government/healthcare in Aug 2023. Not harmful (still helps AI/LLM citation), but do not add more.
 
-### Validation — index.html EducationalOrganization
+### High-Severity Gaps
+- **news.html NewsArticle items all missing required `author` property.** Items 3 and 4 also missing `image`. No rich result will fire.
+- **academics.html Course items missing `hasCourseInstance`** (required by Google for Course rich results).
+- **No `School` type.** Currently uses `["EducationalOrganization", "LocalBusiness"]`; `School` is the more specific and preferred subtype.
 
-| Check | Status |
-|-------|:------:|
-| `@context`, `@type` valid | ✓ |
-| `name`, `address.PostalAddress`, `telephone`, `email` | ✓ |
-| `foundingDate`, `founder` | ✓ |
-| **`sameAs`** | ✗ Empty array — dead signal |
-| **`geo` coordinates** | ✗ Missing — needed for map-pack |
-| **`addressRegion`, `postalCode`** | ✗ Missing ("Punjab" / "54600") |
-| **`openingHoursSpecification`** | ✗ Only the legacy string form present |
-| **`priceRange`, `areaServed`** | ✗ Missing |
-| **`accreditedBy`** (Cambridge) | ✗ Missing |
-| Dual `@type: ["EducationalOrganization", "LocalBusiness"]` | ✗ Missing |
-
-### Priority Schema Additions
-
-See [ACTION-PLAN.md](ACTION-PLAN.md) for ready-to-paste snippets. Order:
-1. Enrich homepage EducationalOrganization (fill sameAs, add geo, dual @type, accreditedBy, priceRange).
-2. Add fee `Offer` blocks + BreadcrumbList on [enroll.html](enroll.html).
-3. Add `Person` schema for Prof. Waris Mir + Ali Umair + BreadcrumbList on [faculty.html](faculty.html).
-4. `NewsArticle` per card + `ItemList` on [news.html](news.html).
-5. BreadcrumbList on all remaining pages.
+### Medium-Severity Gaps
+- Geo coordinates at 4 decimal places (`31.4697`, `74.2728`) — recommended minimum is 5. Also needs verification — these coordinates land in Johar Town, not Township; confirm pin against actual address.
+- `openingHoursSpecification` is a single object; validators prefer an array.
+- No `aggregateRating`, no `hasMap`, no GBP URL in `sameAs`.
+- No Person schema for founders Huma Mir / Zoya Mir on about.html (they appear in `founder` array on index.html with no `@id` cross-reference).
+- Principal photo missing from Person schema on faculty.html.
 
 ---
 
-## 5. Performance — 45/100 (lab estimate; field data not available)
+## 5. Performance (CWV) — Estimated 70/100
 
-### Render-Blocking & Asset Loading
+### Signals (static analysis)
+- Pure HTML + vanilla JS, no frameworks — excellent baseline.
+- `hero-intro.mp4` video loop on homepage — needs `preload="metadata"` verification and poster image (verified `hero-intro-poster.jpg` exists).
+- YouTube iframe API loaded **synchronously** on yearbook.html:786 — confirmed render-blocker.
+- Google Fonts (Nunito, Inter) loaded via Google Fonts CDN — usually fine with `display=swap`, verify.
+- No lazy-loading audit performed on non-hero images.
 
-- **Google Fonts via `@import` inside [css/design-system.css:5](css/design-system.css#L5).** Creates a CSS waterfall — fonts only start downloading after the stylesheet is parsed. Move to `<link rel="preconnect">` + `<link rel="stylesheet">` in `<head>` of every HTML file.
-- **No `<link rel="preload">` for LCP images** anywhere.
-- **[about.html:168](about.html#L168) hero image `staff-2.jpg` uses `loading="lazy"`.** Lazy-loading the LCP candidate delays its fetch — change to `loading="eager" fetchpriority="high"`.
-- **[academics.html:538-545](academics.html#L538-L545)** — hero `<video>` elements have no `poster` attribute. Video isn't a valid LCP candidate; without a poster, no image LCP exists above the fold.
-
-### CLS Risk
-
-**No `<img>` tag on any page has `width`/`height` attributes.** The browser cannot reserve layout space before images load. Systemic CLS risk across the site.
-
-### Asset Weight
-
-- **Videos:** `robotics.mp4` 5.5 MB + `robotics2.mp4` 11 MB + `robotics3.mp4` 4.8 MB = **21 MB** of hero video on academics.html. Use a single short loop with lighter encoding, or defer behind a click-to-play poster.
-- **Largest single image:** `img/school/faculty-staff-team.jpg` = **1.75 MB**. Compress to under 300 KB.
-- **Second largest:** `img/yearbook/campus-office.jpg` = 1.0 MB.
-- **CSS:** 84 KB unminified across 5 files. JS: 72 KB unminified. Reasonable for a static site; minification optional.
+### Recommendation
+Run `scripts/google_auth.py --check` to connect CrUX/PageSpeed Insights for real field data. Without it, the score is a lab estimate.
 
 ---
 
-## 6. Images — 50/100
+## 6. AI Search Readiness (GEO) — Score 61/100
 
-### Alt Text Coverage — PASS
+### Dimension Breakdown
+| Dimension | Weight | Score |
+|---|---|---|
+| Citability | 25% | 58 |
+| Structural Readability | 20% | 72 |
+| Multi-Modal Content | 15% | 55 |
+| Authority & Brand Signals | 20% | 62 |
+| Technical Accessibility | 20% | 58 |
 
-71 raster images site-wide. All meaningful images have descriptive alt text. The 3 empty `alt=""` cases are intentional:
-- [yearbook.html:69](yearbook.html#L69) — decorative fallback (`aria-hidden="true"`)
-- [yearbook.html:750](yearbook.html#L750), [campus.html:379](campus.html#L379) — lightbox placeholder swapped via JS
+### Critical Findings
+- **robots.txt has no explicit AI crawler rules.** While `User-agent: *` allows all, absence of explicit `Allow: /` lines for GPTBot, ClaudeBot, OAI-SearchBot, PerplexityBot, and Google-Extended signals ambiguity. Add explicit rules.
+- **Three-name brand problem** (see Exec Summary #2). Fixes entity graph consolidation.
+- **Hamid Mir absent from llms.txt and all Schema.org markup.** Only Pakistan-level high-authority entity connected to this school. Adding `Son: Hamid Mir (senior journalist, Geo TV)` to llms.txt Waris Mir section and `relatedTo` in about.html Person schema is the single highest-impact AI-citation change.
 
-### Format Opportunity
+### Structural
+- `ai-robotics.html` FAQPage is the strongest citable content on the site.
+- Other pages lead with marketing phrases rather than direct answer sentences in their first 40 words.
+- No FAQPage schema on ask-prof-mir.html despite being the most brand-differentiating page.
 
-- **0 WebP, 0 AVIF** — every image is JPEG or PNG. WebP at 80 quality typically saves 25–35% over JPEG at the same perceived quality.
-- **No `<picture>` / `srcset`** anywhere. Mobile users on 375px screens download the same 1600px hero JPEGs desktop users see.
-
-### Oversized Files (>300 KB)
-
-| File | Size | Page |
-|------|-----:|------|
-| `school/faculty-staff-team.jpg` | 1.75 MB | faculty.html |
-| `yearbook/campus-office.jpg` | 1.0 MB | yearbook.html |
-| `yearbook/life-aerial-study.jpg` | 412 KB | yearbook.html |
-| `yearbook/campus-building-day.jpg` | 408 KB | yearbook.html |
-| `yearbook/campus-hallway-2.jpg` | 360 KB | yearbook.html |
-| + 6 more in the 300–360 KB range | | |
-
-### Other
-
-- Good: every non-hero image uses `loading="lazy"`.
-- Bad: no `width`/`height` on any `<img>` → CLS risk.
-
----
-
-## 7. AI Search Readiness (GEO) — 54/100
-
-### AI Crawler Access — PASS
-
-`robots.txt` uses `User-agent: * / Allow: /` — GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot all have access.
-
-### llms.txt — MISSING (critical)
-
-No `/llms.txt` at repo root. GEO agent drafted a complete file (see [ACTION-PLAN.md](ACTION-PLAN.md)) covering identity, leadership, programme, fees, admissions, campus, founder bio, social — ready to paste.
-
-### Per-Platform Estimates
-
-| Platform | Score | Biggest Gap |
-|----------|------:|-------------|
-| Google AI Overviews | 48 | No FAQPage; empty `sameAs`; no GBP |
-| ChatGPT / SearchGPT | 52 | No llms.txt; JS-only stats; thin prose |
-| Perplexity | 60 | Fees in styled `<div>` not table/schema |
-| Bing Copilot | 45 | No FAQPage; no Wikipedia entity; YouTube dead |
-
-### JS-Only Content (invisible to crawlers)
-
-- [index.html](index.html) and [enroll.html](enroll.html) proof-bar stat counters use `data-count` driven by `main.js` — crawlers see "0+" instead of "100+".
-- The entire [ask-prof-mir.html](ask-prof-mir.html) chat UI — zero chat content in HTML source.
-
-### Missing Static FAQ Content
-
-No page carries static parent FAQs (fees, admissions, uniform, hours, curriculum). FAQPage schema + static HTML Q&As on [enroll.html](enroll.html) would feed AI Overviews and Bing Copilot People Also Ask.
+### Platform Citation Likelihood (current state)
+| Platform | Current Score | Primary blocker |
+|---|---|---|
+| Google AI Overviews | Low | Domain authority + name inconsistency |
+| ChatGPT | Medium | Name confusion (ai-robotics FAQPage helps) |
+| Perplexity | Medium-Low | No PerplexityBot Allow directive |
+| Bing Copilot | Low | No Bing signals, weak backlinks |
 
 ---
 
-## 8. Local SEO (supplementary) — 41/100
+## 7. Local SEO — Score 54/100
 
-### NAP Consistency
+### Dimension Scores
+| Dimension | Weight | Score |
+|---|---|---|
+| GBP Signals | 25% | 28 |
+| Reviews & Reputation | 20% | 20 |
+| Local On-Page SEO | 20% | 72 |
+| NAP Consistency | 15% | 78 |
+| Local Schema | 10% | 70 |
+| Local Links & Authority | 10% | 100* |
 
-Street address is identical across all 9 pages and matches the homepage schema — good.
+*Estimated; not directly measurable from static HTML.
 
-**Discrepancies:**
-- Schema telephone lists 2 numbers; footer shows 3 (missing `+92-42-35216425` in schema).
-- `addressRegion` (Punjab) and `postalCode` (54600 for Township Lahore) missing in schema.
-- `sameAs: []` empty — Facebook and Instagram exist but are not in structured data.
+### Critical Findings
+- **GBP not claimed or linked from site.** No GBP URL in `sameAs`, no Place ID in Maps embed, no `aggregateRating`, no review widget. The single biggest local ranking lever is unused.
+- **Canonical domain mismatch** (same root-cause as Technical C1).
 
-### Google Business Profile Readiness
+### High-Severity Findings
+- **Maps iframe uses text-query URL** (`maps.google.com/maps?q=...`) not a verified Place ID — doesn't tie site to GBP listing.
+- **Geo coordinates imprecise and may be wrong.** `31.4697, 74.2728` lands in Johar Town, not Township. Verify against satellite view of actual address.
+- **Schema `@type` should be `School`**, not just `EducationalOrganization`.
 
-- **No Google Maps iframe on any page.** The `#contact` section referenced in nav does not exist on index.html.
-- GBP claim status unknown from site-level inspection.
-- 10+ ready photos in `img/` (building, hallway, labs, play area) — upload-ready.
+### Medium-Severity Findings
+- No standalone `/contact.html` — only an anchor `#contact`. Weakens "London School Lahore contact" query targeting.
+- Neighborhood name ("Township", "Ali Road") not in H2s. Missing opportunity for "Cambridge school Township Lahore" queries.
+- Phone format inconsistent: schema `+92-301-0499777`, contact section `+92 301 0499777`, footer `0301-0499777`, WhatsApp `923010499777`. Standardize schema to `+92-301-0499777`.
+- Not listed on Pakistan-specific directories (Mera School, ilmkidunya).
 
-### Local Keyword Signals
-
-Only the homepage title + meta description mention geographic context — and "Pakistan" not "Lahore." All inner-page titles are generic. Inject "Lahore" into every inner-page title and description.
-
-### Stat Consistency
-
-Hero trust bar on [index.html](index.html) says "100+ families" — CLAUDE.md spec says "500+ families" — meta description implies mass scale. Pick one number and standardise site-wide.
-
----
-
-## Severity Index
-
-| Severity | Count | Examples |
-|----------|------:|----------|
-| **Critical** | 5 | Missing `#contact` section, empty `sameAs`, "15+ Years" contradiction, 8 pages without JSON-LD, faculty placeholders |
-| **High** | 12 | Twitter Cards on 8 pages, dead news anchors, no preload for LCP, about.html lazy hero, `@import` Google Fonts, no GBP/Maps embed, duplicate value cards, leadership conflict, no `width`/`height` on images, 21 MB hero video, 1.75 MB faculty photo, `/london-School/` dir exposed |
-| **Medium** | 14 | Video poster missing, YouTube dead links, no llms.txt, no FAQPage schema, Lahore absent from inner-page titles, `yearbook.html` slug mismatch, 204-char meta description, no WebP, no addressRegion/postalCode, `openingHours` legacy format, no Person schema, no NewsArticle schema, stat inconsistency (100 vs 500), faculty H1 "About Us" |
-| **Low** | 8 | 404.html missing `noindex` + apple-touch-icon, no IndexNow, no PWA manifest, no image sitemap, deprecated `priority`/`changefreq` in sitemap (already fixed), Urdu language consideration, custom domain migration, review schema |
+### Review Health
+- Homepage testimonials (4 names: Sarah Ahmed, Fahad Khan, Ayesha Malik, Usman Iqbal) duplicated on ai-robotics.html with different quotes. No photos, no dates, no platform attribution. High risk of being perceived as fabricated.
 
 ---
 
-## Files Written
+## 8. Sitemap — FIXED during audit
 
-- `sitemap.xml` — rewritten by sitemap agent with `<lastmod>2026-04-13</lastmod>` on all 9 URLs; `<priority>` and `<changefreq>` removed (Google ignores them). **Review the diff before deploying.**
-- `FULL-AUDIT-REPORT.md` — this file
-- `ACTION-PLAN.md` — prioritised fixes with paste-ready snippets
+Sitemap and robots.txt were updated during this audit run:
+- All 10 URLs repointed to `https://londoneducation.pk`
+- `ai-robotics.html` added (was missing)
+- `lastmod` set to `2026-04-24`
+- `robots.txt` `Sitemap:` directive corrected
 
-## What Was Not Measured
+`thank-you.html`, `404.html`, `editor.html` correctly excluded.
 
-- Real-field Core Web Vitals from CrUX (Google API credentials not configured)
-- Live SERP positions (DataForSEO not used in this run)
-- Backlink profile
-- Actual GBP listing state / review count / velocity
-- Existing citation profile on Pakistan education directories
+---
+
+## 9. Images — Score 65/100
+
+### What's Working
+- Most images have alt text.
+- Video hero has poster image (`hero-intro-poster.jpg`).
+- School-specific imagery present (building, classrooms, faculty CPD, Hamid Mir inauguration).
+
+### Issues
+- No comprehensive alt-text audit performed (would require per-file sweep).
+- Co-founder cards use icon SVG placeholders instead of real photos.
+- news.html uses emoji-as-thumbnail for 3 of 4 event cards.
+- No image dimensions audit (potential LCP / CLS impact).
+
+---
+
+## Summary: Top Root-Cause Fix
+
+**One find-and-replace resolves ~40% of all findings.**
+
+Replace `akifhazarvi.github.io/london-school` → `londoneducation.pk` across:
+- All 12 HTML files (110 occurrences total)
+- llms.txt (9 occurrences)
+
+This alone fixes: Technical C1, C2, C3, H1, H2, M1; Schema Critical #1 + Local Critical domain mismatch; improves Local, GEO, and Content trust signals.
+
+See `ACTION-PLAN.md` for prioritized next steps.
