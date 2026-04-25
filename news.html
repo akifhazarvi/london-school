@@ -12,7 +12,7 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News & Events | London School — Prof. Waris Mir Campus, Lahore</title>
-  <meta name="description" content="Latest news, events, and announcements from London School — Prof. Waris Mir Campus in Lahore — Cultural Days, awards, guest lectures, and milestones.">
+  <meta name="description" content="Latest news, events, and announcements from London School — Prof. Waris Mir Campus in Lahore — Cultural Days, milestones, and announcements from our campus.">
   <meta property="og:title" content="News & Events | London School — Prof. Waris Mir Campus, Lahore">
   <meta property="og:image" content="https://londoneducation.pk/img/building-day.jpg">
   <meta property="og:type" content="website">
@@ -21,7 +21,7 @@
   <link rel="alternate" hreflang="en" href="https://londoneducation.pk/news.html">
   <link rel="alternate" hreflang="x-default" href="https://londoneducation.pk/news.html">
   <meta property="og:url" content="https://londoneducation.pk/news.html">
-  <meta property="og:description" content="Latest news, events, and announcements from London School — Prof. Waris Mir Campus in Lahore — Cultural Days, awards, guest lectures, and milestones.">
+  <meta property="og:description" content="Latest news, events, and announcements from London School — Prof. Waris Mir Campus in Lahore — Cultural Days, milestones, and announcements from our campus.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="News & Events | London School — Prof. Waris Mir Campus, Lahore">
   <meta name="twitter:description" content="News, events, and announcements from London School — Prof. Waris Mir Campus, Lahore.">
@@ -31,7 +31,8 @@
   <link rel="apple-touch-icon" href="img/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/pages.css">
@@ -64,11 +65,26 @@
           "@type": "NewsArticle",
           "headline": "Renowned Journalist Hamid Mir Inaugurates London School Campus",
           "datePublished": "2026-04-10",
+          "url": "https://londoneducation.pk/news.html#hamid-mir-inauguration",
           "author": { "@id": "https://londoneducation.pk/#organization" },
           "image": "https://londoneducation.pk/img/school/event-hamid-mir-inauguration.jpg",
           "publisher": { "@id": "https://londoneducation.pk/#organization" },
           "mainEntityOfPage": "https://londoneducation.pk/news.html",
-          "description": "Celebrated Pakistani journalist Hamid Mir formally inaugurated the Prof. Waris Mir Campus of London School in Lahore."
+          "description": "Celebrated Pakistani journalist Hamid Mir formally inaugurated the Prof. Waris Mir Campus of London School in Lahore. Hamid Mir is the son of Prof. Waris Mir, the late academic and columnist after whom the campus is named.",
+          "about": { "@id": "https://londoneducation.pk/#organization" },
+          "mentions": [
+            {
+              "@type": "Person",
+              "name": "Hamid Mir",
+              "jobTitle": "Journalist, Television Anchor",
+              "sameAs": "https://en.wikipedia.org/wiki/Hamid_Mir"
+            },
+            {
+              "@type": "Person",
+              "@id": "https://londoneducation.pk/about.html#waris-mir",
+              "name": "Prof. Waris Mir"
+            }
+          ]
         }
       },
       {
@@ -78,11 +94,13 @@
           "@type": "NewsArticle",
           "headline": "Annual Cultural Day Celebration",
           "datePublished": "2026-03-21",
+          "url": "https://londoneducation.pk/news.html#cultural-day",
           "author": { "@id": "https://londoneducation.pk/#organization" },
           "image": "https://londoneducation.pk/img/school/event-cultural-day-full.jpg",
           "publisher": { "@id": "https://londoneducation.pk/#organization" },
           "mainEntityOfPage": "https://londoneducation.pk/news.html",
-          "description": "Students celebrated diverse cultures with traditional attire, food, and stories from around the world."
+          "description": "Students celebrated diverse cultures with traditional attire, food, and stories from around the world.",
+          "about": { "@id": "https://londoneducation.pk/#organization" }
         }
       }
     ]
@@ -172,7 +190,7 @@
     </div>
     <div class="sec-label"><i></i> Stay Connected</div>
     <h1>Events & Announcements</h1>
-    <p>Keep up with what's happening at London School — from guest lectures and cultural celebrations to student achievements and campus milestones.</p>
+    <p>Keep up with what's happening at London School — from cultural celebrations to student achievements and campus milestones.</p>
   </div>
 </section>
 
@@ -185,7 +203,6 @@
       <button class="news-filter active" data-filter="all">All News</button>
       <button class="news-filter" data-filter="event">Events</button>
       <button class="news-filter" data-filter="announce">Announcements</button>
-      <button class="news-filter" data-filter="guest">Guest Lectures</button>
     </div>
 
     <!-- News Grid -->
@@ -252,35 +269,7 @@
         </div>
       </div>
 
-      <!-- Guest Lecture -->
-      <div class="news-card rv" data-cat="guest">
-        <img src="img/school/faculty-training-2.jpg" alt="Guest lecture speaker" class="news-card__image" loading="lazy">
-        <div class="news-card__body">
-          <div class="news-card__date">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
-            February 15, 2026
-          </div>
-          <span class="news-card__cat">Guest Lecture</span>
-          <h3>AI in Education: A Panel Discussion</h3>
-          <p>Our faculty and parents joined a panel of leading educators to explore how artificial intelligence is reshaping learning. The session sparked meaningful conversations about the future of education and London School's role in it.</p>
-          <a href="https://wa.me/923010499777?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20London%20School%27s%20AI%20panel%20discussions%20and%20upcoming%20events." class="news-card__link" target="_blank" rel="noopener">Ask for Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
-
-      <!-- Event: Sports Day -->
-      <div class="news-card rv" data-cat="event">
-        <img src="img/play-area.jpg" alt="Students at London School Annual Sports Day" class="news-card__image" loading="lazy">
-        <div class="news-card__body">
-          <div class="news-card__date">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
-            January 18, 2026
-          </div>
-          <span class="news-card__cat news-card__cat--event">Event</span>
-          <h3>Annual Sports Day — Go, Greens, Go!</h3>
-          <p>Our students showed incredible spirit and sportsmanship across track and field events. Relay competitions, outdoor games, and team activities celebrated fitness, teamwork, and the joy of movement. Parents cheered from the sidelines!</p>
-          <a href="yearbook.html" class="news-card__link">View Gallery <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </div>
+      <!-- AI Panel and Sports Day cards intentionally not yet published — awaiting real event photos and write-ups before going live on the public news page. -->
 
       <!-- Announcement: Robotics Lab -->
       <div class="news-card rv" data-cat="announce">
@@ -337,8 +326,8 @@
 
 <a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
 
-<script src="js/main.js"></script>
-<script src="js/widget.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/widget.js"></script>
 <script>
   // News filter
   const newsFilters = document.querySelectorAll('.news-filter');

@@ -31,11 +31,13 @@
   <link rel="apple-touch-icon" href="img/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/blobs.css">
+  <link rel="preload" as="style" href="css/blobs.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blobs.css"></noscript>
 
   <script type="application/ld+json">
   [
@@ -51,6 +53,7 @@
       "@context": "https://schema.org",
       "@type": "Course",
       "name": "AI & Robotics Programme — London School — Prof. Waris Mir Campus",
+      "url": "https://londoneducation.pk/ai-robotics.html",
       "description": "A ten-year AI and robotics programme from age 3 to Grade 8, integrated with the Cambridge Pathway. Includes two US-certified coding qualifications earned at Kindergarten.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -527,25 +530,26 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- WHAT FAMILIES NOTICE -->
 <section class="pg-section pg-section--cream">
   <div class="container">
     <div class="sec-center rv" style="margin-bottom:clamp(2rem,4vw,3rem)">
-      <div class="sec-label"><i></i> Parent voices</div>
-      <h2>What families tell us</h2>
+      <div class="sec-label"><i></i> What parents notice first</div>
+      <h2>The shift you'll see at home</h2>
+      <p class="sec-desc">A few patterns parents tell us about most often, after their child has been on the AI &amp; Robotics programme for a term or two. Real parent quotes are coming as our first cohort of families opt in — until then, here's what we hear repeatedly during pickup conversations.</p>
     </div>
     <div class="ai-p-quotes stg">
       <figure class="ai-p-quote rv">
-        <blockquote>My daughter leaves Kindergarten with two certifications from the United States. I had to explain what that meant to the grandparents three times — they still can't quite believe it.</blockquote>
-        <figcaption><strong>Sarah Ahmed</strong><br>Parent of Kindergarten student</figcaption>
+        <blockquote>By the end of Kindergarten, every child earns two early-coding qualifications mapped to the US K-12 Computer Science Framework. Most parents tell us they have to explain what that means to grandparents more than once.</blockquote>
+        <figcaption><strong>What we hear from KG parents</strong></figcaption>
       </figure>
       <figure class="ai-p-quote rv">
-        <blockquote>He built a robot in Grade 2 that sorts his LEGO by colour. I'm an engineer — I didn't do anything like this until my third year at NUST.</blockquote>
-        <figcaption><strong>Fahad Khan</strong><br>Parent of Grade 2 student</figcaption>
+        <blockquote>Children build their first working robot in Grade 2 — typically a colour-sorting LEGO Mindstorms project. Engineer parents are usually the most surprised: they didn't see the equivalent until university.</blockquote>
+        <figcaption><strong>What we hear from Primary parents</strong></figcaption>
       </figure>
       <figure class="ai-p-quote rv">
-        <blockquote>What I value most is that my daughter isn't just using technology. She's the one deciding what it does. That shift in posture will matter for the rest of her life.</blockquote>
-        <figcaption><strong>Ayesha Malik</strong><br>Parent of Grade 5 student</figcaption>
+        <blockquote>By Grade 5, the shift parents describe most often is from "using technology" to "deciding what technology does." It's the posture change — not just the skill — that they say will compound for years.</blockquote>
+        <figcaption><strong>What we hear from Middle parents</strong></figcaption>
       </figure>
     </div>
   </div>
@@ -628,7 +632,7 @@
   </div><div class="ft__bot"><p>&copy; 2025 London School — Prof. Waris Mir Campus.</p><p>Made with care in Lahore</p></div></div>
 </footer>
 
-<script src="js/main.js"></script>
-<script src="js/widget.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/widget.js"></script>
 </body>
 </html>

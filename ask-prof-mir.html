@@ -37,11 +37,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
 
   <link rel="stylesheet" href="css/design-system.css">
   <link rel="stylesheet" href="css/sections.css">
-  <link rel="stylesheet" href="css/blobs.css">
+  <link rel="preload" as="style" href="css/blobs.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blobs.css"></noscript>
   <script type="application/ld+json">
 [
   {
@@ -215,20 +217,21 @@
   </div>
 </section>
 
-<!-- QUOTES SECTION -->
+<!-- GUIDING BELIEFS SECTION -->
 <section class="profmir-quotes">
   <div class="container">
     <div class="sec-center rv" style="margin-bottom:clamp(2rem,5vw,3rem)">
-      <div class="sec-label"><i></i> Words of Wisdom</div>
-      <h2>Prof Mir's Guiding Beliefs</h2>
+      <div class="sec-label"><i></i> The principles that guide us</div>
+      <h2>Themes from Prof. Waris Mir's Writing</h2>
+      <p class="sec-desc" style="max-width:640px;margin-left:auto;margin-right:auto">Paraphrased from the body of work Prof. Waris Mir produced as a columnist for Daily Jang and as Professor of Mass Communication at Punjab University. These are the principles his life and writing returned to most often — and the ones that guide our school today.</p>
     </div>
     <div class="profmir-quotes__grid rv">
-      <blockquote class="profmir-q">"The purpose of education is not to fill minds but to open them."</blockquote>
-      <blockquote class="profmir-q">"A teacher who does not teach students to question has taught them nothing."</blockquote>
-      <blockquote class="profmir-q">"The real wealth of a nation is not its gold or its armies, but the minds of its children."</blockquote>
-      <blockquote class="profmir-q">"A society that silences its journalists has already begun to die."</blockquote>
-      <blockquote class="profmir-q">"Democracy is not a gift given by rulers; it is a right claimed by the people."</blockquote>
-      <blockquote class="profmir-q">"Truth does not need the support of power; it is power that needs the cover of lies."</blockquote>
+      <div class="profmir-q">Education exists to open minds, not to fill them.</div>
+      <div class="profmir-q">A teacher who does not teach a student to question has taught nothing.</div>
+      <div class="profmir-q">A nation's real wealth is the minds of its children — not its gold or its armies.</div>
+      <div class="profmir-q">A society that silences its journalists has already begun to die.</div>
+      <div class="profmir-q">Democracy is not a gift handed down by rulers; it is a right claimed by the people.</div>
+      <div class="profmir-q">Truth does not need the support of power. It is power that needs the cover of lies.</div>
     </div>
   </div>
 </section>
@@ -256,7 +259,7 @@
 
 <a href="https://wa.me/923010499777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
 
-<script src="js/main.js"></script>
-<script src="js/widget.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/widget.js"></script>
 </body>
 </html>

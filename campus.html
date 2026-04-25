@@ -31,7 +31,8 @@
   <link rel="apple-touch-icon" href="img/logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
   <link rel="stylesheet" href="css/design-system.css">
   <script type="application/ld+json">
 [
@@ -46,7 +47,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Place",
+    "@id": "https://londoneducation.pk/campus.html#place",
     "name": "London School \u2014 Prof. Waris Mir Campus",
+    "url": "https://londoneducation.pk/campus.html",
     "image": "https://londoneducation.pk/img/building-day.jpg",
     "address": {
       "@type": "PostalAddress",
@@ -56,8 +59,32 @@
       "postalCode": "54600",
       "addressCountry": "PK"
     },
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": "Township",
+      "containedInPlace": { "@type": "City", "name": "Lahore" }
+    },
     "geo": { "@type": "GeoCoordinates", "latitude": "31.455484", "longitude": "74.3015425" },
-    "hasMap": "https://maps.google.com/?cid=7737999795082975354"
+    "hasMap": "https://maps.google.com/?cid=7737999795082975354",
+    "isAccessibleForFree": false,
+    "publicAccess": false,
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Robotics Lab", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Computer Lab", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Swimming Pool", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Indoor Play Area", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Library", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Assembly Hall", "value": true }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://londoneducation.pk/campus.html",
+    "name": "Campus & School Life \u2014 London School",
+    "isPartOf": { "@id": "https://londoneducation.pk/#website" },
+    "about": { "@id": "https://londoneducation.pk/#organization" },
+    "mainEntity": { "@id": "https://londoneducation.pk/campus.html#place" }
   }
 ]
   </script>
@@ -424,8 +451,8 @@
   <img id="lbImg" src="" alt="">
 </div>
 
-<script src="js/main.js"></script>
-<script src="js/widget.js"></script>
+<script defer src="js/main.js"></script>
+<script defer src="js/widget.js"></script>
 <script>
   // Gallery filter
   const filters = document.querySelectorAll('.gallery-filter');
