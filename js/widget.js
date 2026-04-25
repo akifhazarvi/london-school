@@ -29,7 +29,7 @@
      independently — the bubble + click-to-open panel + form still work. */
   var WIDGET_ENABLED    = true;
   var AUTO_TEASER       = true;
-  var AUTO_EXIT_INTENT  = true;
+  var AUTO_EXIT_INTENT  = false;
   if (!WIDGET_ENABLED) return;
 
   /* ── PAGE DETECTION ── */

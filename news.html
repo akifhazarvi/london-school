@@ -106,6 +106,19 @@
     .news-card__link:hover { gap: var(--s-3); }
     .news-card__link svg { width: 18px; height: 18px; }
 
+    /* Featured card — spans full grid, 2-column layout */
+    .news-card--featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; box-shadow: var(--sh-md); border: 2px solid var(--peach); }
+    .news-card--featured .news-card__image { height: 100%; min-height: 360px; }
+    .news-card--featured .news-card__body { padding: clamp(1.5rem, 3vw, 2.5rem); display: flex; flex-direction: column; justify-content: center; }
+    .news-card--featured h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.25; }
+    .news-card--featured p { font-size: 1rem; }
+    .news-card__featured-flag { display: inline-flex; align-items: center; gap: var(--s-2); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: var(--s-3); }
+    .news-card__featured-flag::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--red); border-radius: 50%; box-shadow: 0 0 0 4px rgba(193,53,61,0.18); }
+    @media (max-width: 768px) {
+      .news-card--featured { grid-template-columns: 1fr; }
+      .news-card--featured .news-card__image { min-height: 220px; height: 220px; }
+    }
+
     .news-filters { display: flex; flex-wrap: wrap; gap: var(--s-2); justify-content: center; margin-bottom: clamp(2rem, 4vw, 3rem); }
     .news-filter { padding: var(--s-2) var(--s-4); border-radius: var(--r-pill); border: 2px solid var(--navy-100); background: transparent; color: var(--navy); font-family: var(--font-head); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
     .news-filter:hover, .news-filter.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
@@ -179,9 +192,10 @@
     <div class="news-grid" id="newsGrid">
 
       <!-- FEATURED: Hamid Mir Inauguration -->
-      <div class="news-card rv" data-cat="event" style="grid-column: span 1">
+      <div class="news-card news-card--featured rv" data-cat="event">
         <img src="img/school/event-hamid-mir-inauguration.jpg" alt="Hamid Mir speaking at the London School — Prof. Waris Mir Campus inauguration" class="news-card__image" loading="lazy">
         <div class="news-card__body">
+          <div class="news-card__featured-flag">Featured Story</div>
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
             April 10, 2026
@@ -195,9 +209,7 @@
 
       <!-- Announcement: Admissions -->
       <div class="news-card rv" data-cat="announce">
-        <div style="width:100%;height:200px;background:var(--peach);display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:700;font-size:1.2rem;text-align:center;padding:var(--s-4)">
-          🎓 Admissions Open
-        </div>
+        <img src="img/prospectus-banner.jpg" alt="London School admissions prospectus" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
@@ -227,9 +239,7 @@
 
       <!-- Announcement: Virtual Tour -->
       <div class="news-card rv" data-cat="announce">
-        <div style="width:100%;height:200px;background:var(--sage);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.2rem;text-align:center;padding:var(--s-4)">
-          🎮 Virtual Tour Available
-        </div>
+        <img src="img/hallway-london.jpg" alt="London School hallway — virtual tour" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
@@ -259,9 +269,7 @@
 
       <!-- Event: Sports Day -->
       <div class="news-card rv" data-cat="event">
-        <div style="width:100%;height:200px;background:linear-gradient(135deg,#FF6B6B,#FFD93D);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:1.2rem;text-align:center;padding:var(--s-4)">
-          🏃 Annual Sports Day
-        </div>
+        <img src="img/play-area.jpg" alt="Students at London School Annual Sports Day" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
