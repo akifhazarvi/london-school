@@ -92,6 +92,16 @@
     "jobTitle": "Co-Founder",
     "image": "https://londoneducation.pk/img/zoya-mir.jpg",
     "worksFor": { "@id": "https://londoneducation.pk/#organization" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://londoneducation.pk/about.html#principal",
+    "name": "Mehr un Nisa Masood",
+    "jobTitle": "Principal",
+    "description": "Principal at London International Education System — Prof. Waris Mir Campus, Lahore. Leads academic vision and student development from Pre-Years through IGCSE / O-Level.",
+    "image": "https://londoneducation.pk/img/principal.jpg",
+    "worksFor": { "@id": "https://londoneducation.pk/#organization" }
   }
 ]
   </script>
@@ -183,7 +193,6 @@
     <div class="nav__links">
       <a href="index.html" class="nav__link">Home</a>
       <a href="about.html" class="nav__link nav__link--active">About Us</a>
-      <a href="faculty.html" class="nav__link">Faculty</a>
       <a href="academics.html" class="nav__link">Academics</a>
       <a href="yearbook.html" class="nav__link">Virtual Tour</a>
       <a href="news.html" class="nav__link">News</a>
@@ -200,7 +209,6 @@
 <div class="mob-menu" id="mob">
   <a href="index.html" onclick="closeM()">Home</a>
   <a href="about.html" onclick="closeM()">About Us</a>
-  <a href="faculty.html" onclick="closeM()">Faculty</a>
   <a href="academics.html" onclick="closeM()">Academics</a>
   <a href="yearbook.html" onclick="closeM()">Virtual Tour</a>
   <a href="news.html" onclick="closeM()">News</a>
@@ -360,6 +368,129 @@
       </div>
     </div>
 
+    <!-- Principal card -->
+    <div style="margin-bottom:clamp(3rem,5vw,4rem)" id="faculty">
+      <h3 style="color:var(--navy);text-align:center;margin-bottom:clamp(1.5rem,3vw,2rem);font-size:clamp(1.1rem,2.5vw,1.3rem)">Our Faculty</h3>
+      <div class="leadership-grid stg" style="grid-template-columns:repeat(2,1fr);max-width:780px;margin:0 auto">
+        <div class="leader-card rv" itemscope itemtype="https://schema.org/Person" itemid="https://londoneducation.pk/about.html#waris-mir">
+          <div class="leader-card__photo">
+            <img src="img/waris-mir.jpg" alt="Prof. Waris Mir" loading="lazy" itemprop="image">
+          </div>
+          <div class="leader-card__body">
+            <h3 itemprop="name">Prof. Waris Mir</h3>
+            <div class="role" itemprop="jobTitle">Namesake & Inspiration</div>
+            <p itemprop="description">1938–1987. The educator whose vision inspired this institution — a fearless journalist, professor at Punjab University, and champion of free thought and progressive learning.</p>
+          </div>
+        </div>
+
+        <div class="leader-card rv" itemscope itemtype="https://schema.org/Person" itemid="https://londoneducation.pk/about.html#principal">
+          <div class="leader-card__photo">
+            <img src="img/principal.jpg" alt="Mehr un Nisa Masood — Principal" loading="lazy" itemprop="image">
+          </div>
+          <div class="leader-card__body">
+            <h3 itemprop="name">Mehr un Nisa Masood</h3>
+            <div class="role" itemprop="jobTitle">Principal</div>
+            <p itemprop="description">Leads the academic vision for Pre-Years through IGCSE / O-Level, with a focus on holistic education, critical thinking, and future-ready skills that prepare every child for a rapidly changing world.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEACHING PHILOSOPHY + WHOLE TEAM PHOTO -->
+<section class="pg-section pg-section--cream">
+  <div class="container">
+    <div class="faculty-hero-photo rv">
+      <img src="img/school/faculty-staff-team.jpg" alt="London School full staff team gathered on the staircase">
+    </div>
+
+    <div class="sec-center rv" style="margin-bottom:clamp(2rem,4vw,3rem)">
+      <div class="sec-label"><i></i> What Guides Us</div>
+      <h2>Our Teaching Philosophy</h2>
+    </div>
+    <div class="values-row stg">
+      <div class="value-card rv">
+        <div class="value-card__ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+        </div>
+        <h4>Curiosity First</h4>
+        <p>We teach children to ask great questions — not just memorise answers. Every lesson is a chance to wonder.</p>
+      </div>
+      <div class="value-card rv">
+        <div class="value-card__ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </div>
+        <h4>Every Child Matters</h4>
+        <p>Small class sizes, personal attention, and teachers who know every child by name — their strengths and their struggles.</p>
+      </div>
+      <div class="value-card rv">
+        <div class="value-card__ico">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <h4>Ready for the World</h4>
+        <p>Cambridge curriculum, three languages, and real-world skills — we prepare children for the future, not just the next exam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CPD / PROFESSIONAL DEVELOPMENT -->
+<section class="pg-section">
+  <div class="container">
+    <div class="about__grid rv" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center">
+      <div>
+        <div class="sec-label" style="margin-bottom:var(--s-3)"><i></i> Continuous Growth</div>
+        <h2 style="color:var(--navy);margin-bottom:var(--s-4)">We Never Stop Learning Either</h2>
+        <p style="color:var(--gray-600);line-height:1.7;margin-bottom:var(--s-4)">Every term, our teachers go through structured professional development — the same rigour we expect from our students. London School's Academic Plan sessions bring the whole team together to align, upskill, and grow.</p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--s-3)">
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">Regular CPD workshops on modern teaching methods</span>
+          </li>
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">Cambridge-aligned curriculum training sessions</span>
+          </li>
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">AI tools integration for personalised learning</span>
+          </li>
+          <li style="display:flex;gap:var(--s-3);align-items:flex-start">
+            <span style="color:var(--sage);font-size:1.3rem;line-height:1">✓</span>
+            <span style="color:var(--gray-700)">Child psychology and wellbeing awareness</span>
+          </li>
+        </ul>
+      </div>
+      <div class="cpd-grid">
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-2.jpg" alt="London School Academic Plan training session" loading="lazy">
+        </div>
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-1.jpg" alt="Teacher being trained by presenter" loading="lazy">
+        </div>
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-3.jpg" alt="Full teacher training audience" loading="lazy">
+        </div>
+        <div class="cpd-photo rv">
+          <img src="img/school/faculty-training-4.jpg" alt="Presenter at whiteboard in training session" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN THE TEAM CTA -->
+<section class="pg-section pg-section--cream">
+  <div class="container" style="text-align:center">
+    <div class="sec-label" style="justify-content:center;margin-bottom:var(--s-3)"><i></i> Join Us</div>
+    <h2 style="color:var(--navy);margin-bottom:var(--s-3)">Passionate about teaching?</h2>
+    <p style="color:var(--gray-600);max-width:520px;margin:0 auto var(--s-6)">We're always looking for dedicated educators who believe in child-centred learning. Get in touch to explore opportunities at London School.</p>
+    <div style="display:flex;gap:var(--s-3);justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/923010499777?text=Hi%20I%20am%20interested%20in%20teaching%20at%20London%20School" class="btn btn--red btn--lg" target="_blank" rel="noopener">Get in Touch</a>
+      <a href="enroll.html" class="btn btn--outline btn--lg">Enroll Your Child</a>
+    </div>
   </div>
 </section>
 
