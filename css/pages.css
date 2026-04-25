@@ -302,15 +302,20 @@
 
 .cpd-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--s-5);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-4);
 }
 .cpd-photo {
   border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: var(--sh-sm);
+  aspect-ratio: 4 / 3;
 }
-.cpd-photo img { width: 100%; display: block; }
+.cpd-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+@media (max-width: 600px) {
+  .cpd-grid { grid-template-columns: 1fr; gap: var(--s-3); }
+  .cpd-photo { aspect-ratio: 16 / 10; }
+}
 
 .values-row {
   display: grid;
