@@ -6,8 +6,7 @@ Serves static files AND provides two endpoints:
   POST /api/content  — saves content edits (JSON body) to content.json
 
 Run:  python3 server.py
-Then:  http://localhost:8080/editor.html  (edit)
-       http://localhost:8080/              (view with saved edits)
+Then:  http://localhost:8080/  (view)
 """
 
 import http.server
@@ -73,7 +72,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     print(f'London School dev server at http://localhost:{PORT}')
-    print(f'  Editor:  http://localhost:{PORT}/editor.html')
     print(f'  Site:    http://localhost:{PORT}/')
     print(f'  Content: saved to {DATA_FILE}')
     http.server.HTTPServer(('', PORT), Handler).serve_forever()

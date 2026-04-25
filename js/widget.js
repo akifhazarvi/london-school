@@ -9,7 +9,7 @@
    3. Exit-intent modal (desktop mouseleave + mobile rapid scroll-up)
    4. Pixel events: InitiateCheckout, Contact, Lead — with source tags
 
-   Suppressed on:  enroll.html (own form), editor.html, 404.html
+   Suppressed on:  enroll.html (own form), 404.html
    Minimal on:     thank-you.html (post-submit)
    ═══════════════════════════════════════════════════════════════ */
 (function(){

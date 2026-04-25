@@ -1,7 +1,7 @@
 # Site Structure & Information Architecture
 
 **Domain:** https://londoneducation.pk
-**Type:** Single-campus school. Local-service vertical with editorial layer.
+**Type:** Single-campus school in Lahore (one city, one location). Local-service vertical with editorial layer.
 
 ## URL Hierarchy
 

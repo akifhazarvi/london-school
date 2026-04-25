@@ -4,6 +4,7 @@
 **Vertical:** Local service / K–12 private school (Cambridge pathway)
 **Location:** Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore
 **Stage:** Year 1 of operations (~130 students). Founded 2025.
+**Footprint:** Single campus in Lahore. No other cities, no other branches — and no plans for any in scope of this strategy.
 **Today:** 2026-04-25
 
 ---

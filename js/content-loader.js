@@ -1,7 +1,7 @@
 /* London School — Shared content loader
    Loads saved edits and applies them to the page.
    Works on both static hosting (GitHub Pages) and local dev server.
-   Used by index.html (view) and editor.html (edit). */
+   Used by index.html (view). */
 (function () {
   'use strict';
 
