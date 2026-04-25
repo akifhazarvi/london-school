@@ -41,9 +41,7 @@
 .hero__sub{font-size:var(--text-lg);color:var(--text-muted);line-height:1.8;margin-bottom:var(--s-10);max-width:480px}
 .hero__btns{display:flex;gap:var(--s-4);flex-wrap:wrap}
 .hero__trust{display:flex;align-items:center;gap:var(--s-3);margin-top:var(--s-10)}
-.hero__trust-avatars{display:flex;margin-right:var(--s-2)}
-.hero__trust-av{width:22px;height:22px;border-radius:50%;border:2px solid var(--white);margin-right:-5px;flex-shrink:0;opacity:.7}
-.hero__trust-av:last-child{margin-right:0}
+.hero__trust-ico{width:22px;height:22px;color:var(--sage);flex-shrink:0}
 .hero__trust-label{font-size:var(--text-sm);color:var(--text-muted)}
 .hero__trust-label strong{color:var(--text-dark)}
 .hero__visual{position:relative;z-index:1}
