@@ -10,6 +10,16 @@
     gtag('js', new Date());
     gtag('config', 'G-S3PMR30G31');
     gtag('config', 'AW-18119617331');
+    function gtag_report_conversion(url) {
+      var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18119617331/vHvUCO2vwqIcELPWjcBD',
+        'value': 1.0,
+        'currency': 'USD',
+        'event_callback': callback
+      });
+      return false;
+    }
     gtag('event', 'conversion', {'send_to': 'AW-18119617331/Cg6ZCOqvwqIcELPWjcBD'});
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +74,7 @@
       <a href="index.html#contact" class="nav__link">Contact Us</a>
     </div>
     <div class="nav__right">
-      <a href="https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20form." class="btn btn--red btn--sm" target="_blank" rel="noopener" data-wa-cta="ty-nav">WhatsApp Us</a>
+      <a href="https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20form." onclick="return gtag_report_conversion('https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20form.');" class="btn btn--red btn--sm" target="_blank" rel="noopener" data-wa-cta="ty-nav">WhatsApp Us</a>
       <button class="nav__hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -100,7 +110,7 @@
       <!-- Accelerator: let them skip the wait via WhatsApp -->
       <div class="ty-accelerator">
         <p class="ty-accelerator__label">Don't want to wait? Message us now:</p>
-        <a href="https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20admissions%20form%20and%20wanted%20to%20connect%20faster."
+        <a href="https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20admissions%20form%20and%20wanted%20to%20connect%20faster." onclick="return gtag_report_conversion('https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20admissions%20form%20and%20wanted%20to%20connect%20faster.');"
            class="btn btn--red btn--lg ty-wa-btn"
            target="_blank" rel="noopener"
            data-wa-cta="ty-primary">
@@ -108,7 +118,7 @@
           Message us on WhatsApp now
         </a>
         <p class="ty-accelerator__phone">
-          Or call <a href="tel:+923010499777">0301-0499777</a> · Mon–Sat 8 AM–4 PM
+          Or call <a href="tel:+923010499777" onclick="return gtag_report_conversion('tel:+923010499777');">0301-0499777</a> · Mon–Sat 8 AM–4 PM
         </p>
       </div>
     </div>
@@ -210,7 +220,7 @@
   </div><div class="ft__bot"><p>&copy; 2025 London School — Prof. Waris Mir Campus.</p><p>Made with care in Lahore</p></div></div>
 </footer>
 
-<a href="https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20admissions%20form." class="wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-wa-cta="ty-floating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
+<a href="https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20admissions%20form." onclick="return gtag_report_conversion('https://wa.me/923010499777?text=Hi%2C%20I%20just%20submitted%20the%20admissions%20form.');" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-wa-cta="ty-floating"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
 
 <script defer src="js/main.js"></script>
 <script defer src="js/widget.js"></script>
