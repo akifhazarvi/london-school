@@ -665,3 +665,67 @@
   .ai-prev__track { grid-template-columns: 1fr; }
   .ai-prev__step:last-child { grid-column: auto; }
 }
+
+/* ─────────────────────────────────────────
+   LEADERSHIP — CEO centered, Directors flanking
+───────────────────────────────────────── */
+.leadership { margin-top: clamp(3rem, 7vw, 5rem); }
+.leadership__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: end;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.leader-card {
+  margin: 0;
+  text-align: center;
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: var(--s-5) var(--s-4) var(--s-5);
+  box-shadow: var(--sh-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.leader-card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+.leader-card__img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--s-4);
+  max-width: 200px;
+  background: var(--cream);
+}
+.leader-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.leader-card figcaption strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.leader-card figcaption span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  letter-spacing: 0.02em;
+}
+.leader-card--featured {
+  background: var(--peach);
+  box-shadow: var(--sh-md);
+  padding-top: var(--s-6);
+  padding-bottom: var(--s-6);
+}
+.leader-card--featured .leader-card__img { max-width: 240px; }
+.leader-card--featured figcaption strong { font-size: clamp(1.15rem, 1.7vw, 1.4rem); }
+.leader-card--featured figcaption span { color: var(--red); font-weight: 700; }
+
+@media (max-width: 720px) {
+  .leadership__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+  }
+  .leader-card--featured { order: -1; }
+  .leader-card__img { max-width: 180px; }
+}
