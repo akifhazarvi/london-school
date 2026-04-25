@@ -123,6 +123,7 @@
   flex-direction:column;
   position:relative;
   isolation:isolate;
+  overflow:hidden;
   transition:transform .55s cubic-bezier(.2,.8,.2,1), box-shadow .55s ease;
 }
 .prog:hover{
