@@ -2,6 +2,22 @@
 (function(){
   'use strict';
 
+  /* WhatsApp click tracking — fires GA4 event with source attribution.
+     Captures every wa.me click on the site and labels it by its data-wa-source
+     attribute (set per CTA, e.g. "home-hero", "enroll-final", "ai-floating").
+     Uses event delegation so it works for floating buttons rendered later too. */
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest && ev.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    var source = a.getAttribute('data-wa-source') || 'unspecified';
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'whatsapp_click', {
+        wa_source: source,
+        page_path: window.location.pathname
+      });
+    }
+  }, true);
+
   /* Nav */
   var nav=document.getElementById('nav');
   window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
