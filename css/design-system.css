@@ -49,11 +49,12 @@
   /* Layout — banner + nav heights for sticky stacking */
   --banner-h:40px;
   --nav-h:76px;
+  --nav-h-mobile:64px;
 
   /* WhatsApp brand green (used only for the official WhatsApp icon) */
   --wa-green:#25D366;
 }
-@media (max-width:600px){:root{--banner-h:44px;--nav-h:64px}}
+@media (max-width:600px){:root{--banner-h:60px;--nav-h:64px}}
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
