@@ -7,18 +7,22 @@
    ============================================================ */
 
 /* ── ADMISSIONS BANNER (sticky, top of every page) ───────────────
-   Solid red bar with full message centered. Wraps to two lines on
-   narrow phones (< 600px) so nothing is truncated; one line on
-   tablet/desktop. "Admissions Open" stays underlined and tappable. */
-.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;min-height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1.3;padding:var(--s-2) var(--s-4);box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center}
-.adm-banner__inner{max-width:var(--container);width:100%;display:flex;align-items:center;justify-content:center;min-width:0;text-align:center}
-.adm-banner__msg-text{min-width:0}
-.adm-banner__link{display:inline-block;color:var(--red);background:var(--white);padding:3px 10px;border-radius:var(--r-pill);text-decoration:none;font-weight:800;white-space:nowrap;transition:transform var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease);margin-left:var(--s-1)}
+   Two copy variants for one-line fit:
+   - Desktop (>=600px): full message, "Cambridge Pathway · International
+     School in Lahore · [Admissions Open]"
+   - Mobile (<600px): shortened, "Lahore Cambridge School · [Admissions Open]"
+   "Admissions Open" is a white pill that reads clearly as tappable. */
+.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1;padding:0 var(--s-4);box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.adm-banner__inner{max-width:var(--container);width:100%;display:flex;align-items:center;justify-content:center;gap:var(--s-2);min-width:0;text-align:center}
+.adm-banner__msg-full{display:inline}
+.adm-banner__msg-short{display:none}
+.adm-banner__link{display:inline-block;color:var(--red);background:var(--white);padding:4px 12px;border-radius:var(--r-pill);text-decoration:none;font-weight:800;font-size:var(--text-xs);white-space:nowrap;transition:transform var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
 .adm-banner__link:hover,.adm-banner__link:focus{color:var(--red);background:var(--white);transform:translateY(-1px);box-shadow:var(--sh-sm)}
 @media (max-width:600px){
-  .adm-banner{font-size:var(--text-xs);padding:var(--s-2) var(--s-3)}
-  .adm-banner__inner{gap:var(--s-2)}
-  .adm-banner__link{padding:2px 8px;font-size:var(--text-xs)}
+  .adm-banner{font-size:var(--text-xs);padding:0 var(--s-3)}
+  .adm-banner__msg-full{display:none}
+  .adm-banner__msg-short{display:inline}
+  .adm-banner__link{padding:3px 10px}
 }
 
 /* ── NAV ── */
