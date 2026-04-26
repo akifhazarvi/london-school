@@ -426,6 +426,17 @@
       });
     }
 
+    /* GA4 generate_lead — recommended event for lead-gen attribution */
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        form_id: form.id || 'leadForm',
+        grade: form.grade ? form.grade.value : 'unspecified',
+        value: 18000,
+        currency: 'PKR',
+        page_path: location.pathname
+      });
+    }
+
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Submitting…';
@@ -482,4 +493,26 @@
         setTimeout(fallbackToWhatsApp, 1500);
       });
   });
+
+  /* GA4 events — delegated. Fires whatsapp_click and phone_click on link activation. */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    if (typeof gtag !== 'function') return;
+    if (/^https?:\/\/(api\.)?wa\.me\//i.test(href) || /^https?:\/\/(www\.)?whatsapp\.com\//i.test(href)) {
+      gtag('event', 'whatsapp_click', {
+        link_url: href,
+        link_text: (a.textContent || '').trim().slice(0, 80) || a.getAttribute('aria-label') || '',
+        cta_id: a.getAttribute('data-wa-cta') || a.id || '',
+        page_path: location.pathname
+      });
+    } else if (/^tel:/i.test(href)) {
+      gtag('event', 'phone_click', {
+        link_url: href,
+        link_text: (a.textContent || '').trim().slice(0, 80),
+        page_path: location.pathname
+      });
+    }
+  }, true);
 })();

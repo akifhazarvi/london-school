@@ -137,7 +137,7 @@
   wrapper.setAttribute('data-page', pageKey);
   wrapper.innerHTML = [
     /* Rotating teaser bubble */
-    '<button class="ls-w__teaser" id="ls-w-teaser" aria-label="Open chat">',
+    '<button class="ls-w__teaser" id="ls-w-teaser" title="Open chat with Prof Mir">',
       '<span class="ls-w__teaser-text" id="ls-w-teaser-text">', esc(teasers[0]), '</span>',
       '<span class="ls-w__teaser-close" id="ls-w-teaser-close" aria-label="Dismiss">&times;</span>',
     '</button>',
