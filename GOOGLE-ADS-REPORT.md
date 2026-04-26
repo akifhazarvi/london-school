@@ -1,279 +1,189 @@
-# Google Ads Audit & Launch Plan — London International Education System
+# Google Ads Setup Review — London International Education System
 
-**Account:** 643-450-3242 (`6434503242`)
-**Auth user:** a.hazarvi1020@gmail.com
-**Audited:** 2026-04-26
-**Path chosen:** B — keep existing account, optimize Campaign #1 for Lahore
+**Account:** `6434503242` · **Currency:** USD · **Time zone:** America/Phoenix
+**Audit date:** 2026-04-26 · **Account age:** ~1 day · **Data window:** Last 7 days (5 impressions total)
+
+> **Mode: SETUP REVIEW, not performance audit.** Account is <24h old with effectively zero traffic, so performance thresholds (CTR, CVR, QS distribution, wasted-spend %) cannot be evaluated. This review focuses on **structural correctness** — the things that will silently burn budget the moment volume picks up.
 
 ---
 
-## Account state at time of audit
+## Health Score (Setup-Only)
 
-| Setting | Value | Status |
+```
+Setup Health: 52/100 (Grade: D — fix blockers before scaling spend)
+
+Conversion Tracking: 60/100  ██████░░░░  (25%)
+Wasted-Spend Guards: 35/100  ███░░░░░░░  (20%)  ← LOCATION TARGETING MISSING
+Account Structure:   55/100  █████░░░░░  (15%)
+Keywords:            55/100  █████░░░░░  (15%)
+Ads:                 80/100  ████████░░  (15%)
+Settings:            40/100  ████░░░░░░  (10%)  ← MANUAL CPC + WRONG TZ
+```
+
+---
+
+## 🚨 Blockers — Fix Before Spending Another Rupee
+
+### 1. NO LOCATION TARGETING — CRITICAL
+- **Finding:** Zero `LOCATION` criteria on the campaign. Default = "All countries and territories."
+- **Impact:** Your ads can serve in India, the UAE, the US, the UK — anywhere. With Phrase/Broad match on terms like "british school" or "international school," global accidental impressions are guaranteed. At Manual CPC \$0.18, this is slow but real waste.
+- **Fix:** Set positive geo targets to **Lahore + a 25–40 km radius**, not all of Pakistan. Confirm targeting setting is `Presence` (✅ already correct), not "Presence or interest."
+
+### 2. TIME ZONE IS `America/Phoenix` — CRITICAL
+- **Finding:** Account TZ = America/Phoenix (UTC-7, no DST). School operates in Asia/Karachi (UTC+5).
+- **Impact:** "Daily budget reset," ad scheduling, and report dates are all ~12 hours off. If you set "Mon–Sat 8am–4pm" thinking PKT, ads actually run 8pm–4am Pakistan time.
+- **Fix:** Time zone is **set once at account creation and CANNOT be changed** without a new account. **Decision needed:** rebuild the account with Asia/Karachi TZ, or accept the offset and configure ad schedules in Phoenix-equivalent hours (Lahore 8am = Phoenix 8pm previous day). Recommendation: rebuild — you're 1 day in, sunk cost is zero.
+
+### 3. CURRENCY IS USD, NOT PKR — HIGH
+- **Finding:** Account currency = USD. Tied to TZ at account creation.
+- **Impact:** Ad copy mentions "PKR 18,000/mo" but your bids, budget, and reporting are USD-denominated. \$10/day budget ≈ Rs 2,800/day — way under your Meta benchmark of Rs 12K/day. Mental math overhead and harder to compare with the Meta funnel (Rs 180 CPL at Rs 12K/day = ~67 leads/day).
+- **Fix:** Same answer as #2 — rebuild the account in PKR + Asia/Karachi if you're going to scale. Otherwise track conversion values in USD and accept the conversion friction.
+
+### 4. CAMPAIGN-LEVEL NEGATIVES ARE BROAD MATCH — HIGH
+- **Finding:** All 31 campaign-level negatives use **BROAD** match (e.g., `[BROAD] free`, `[BROAD] college`, `[BROAD] result`).
+- **Impact:** Per the audit rules in the skill — broad-match negatives over-block. `[BROAD] college` blocks "Cambridge college pathway." `[BROAD] result` blocks "best results." `[BROAD] free` blocks "free WhatsApp consultation" — kills your funnel CTA.
+- **Fix:** Convert all 31 to **EXACT** or **PHRASE** match. Your 69-keyword shared negative list (`Master Negatives — School`) already does this correctly (54 EXACT, 15 PHRASE) — match that pattern.
+
+---
+
+## Conversion Tracking (25%)
+
+| Check | Status | Note |
 |---|---|---|
-| Currency | USD | ⚠️ Locked. Convert to PKR mentally (1 USD ≈ 280 PKR). Reports forever in $ |
-| Time zone | America/Phoenix | ⚠️ Locked. ~12hr off Lahore. Dayparting and report timestamps will be skewed |
-| Auto-tagging | ON | ✅ |
-| Manager account | No | OK |
-| Test account | No | OK — this is real spend |
+| Auto-tagging enabled | ✅ PASS | Required for Google Ads → GA4/Analytics |
+| Conversion tracking ID present | ✅ PASS | `18119617331` |
+| Primary conversion defined | ✅ PASS | "Enrollment Form Submission" (WEBPAGE_CODELESS) |
+| Conversion action coverage | ⚠️ WARNING | Only 1 primary action. No phone-call goal flagged primary, no WhatsApp click event. |
+| Click-to-call as conversion | ⚠️ WARNING | "Click to call" exists but `includeInConversionsMetric=false`. Not counted. |
+| Lead form submit | ⚠️ WARNING | "Lead form - Submit" exists but `primaryForGoal=false`, last-click attribution, 1-day click window (too short for a school decision cycle). |
+| Attribution model | ✅ PASS | Primary action = Data-Driven (correct) |
+| Enhanced Conversions | ❓ UNKNOWN | Cannot verify via API; check in UI: Tools → Conversions → Enhanced Conversions for Leads. **Strongly recommended** — first-party hashed email/phone lifts measurement when iOS/cookies block pixels. |
+| Consent Mode v2 | ❓ UNKNOWN | EEA-required but you're targeting Lahore — low priority unless expanding. |
+| Server-side / offline conv import | ❌ FAIL | None configured. **Important for your funnel:** Meta-style WhatsApp leads → human follow-up → enrollment is exactly the offline conversion case. Without it, Google can only optimize on form-fills, not actual enrollments. |
 
-## Campaign #1 — pre-audit state
-
-| Item | Value |
-|---|---|
-| Status | ENABLED |
-| Type | Search-only (Display OFF, Partners ON) |
-| Bidding | Maximize Conversions (no tCPA) |
-| Budget | $5/day (~PKR 1,400/day, ~PKR 42K/month) |
-| Geo | 10km radius around campus, PRESENCE_OR_INTEREST |
-| Ad group | "Ad group 1" — 28 keywords mixed Broad/Phrase/Exact |
-| Ads | 1 RSA, 15 headlines, 4 descriptions, lands on `/enroll.html` |
-| Negative keywords | **NONE** |
-| Conversion action | "Enrollment Form Submission" — primary, lead form, data-driven, 90-day window — wired to gtag `AW-18119617331/Cg6ZCOqvwqIcELPWjcBD` ✅ |
-| Last 30 days | **0 imps / 0 clicks / $0 spend / 0 conversions** — campaign has never served |
-
-## Conversion tracking — verified
-
-The site's gtag conversion (`AW-18119617331/Cg6ZCOqvwqIcELPWjcBD`) matches the API's enrollment conversion action. ✅
-- Category: `SUBMIT_LEAD_FORM` ✅
-- Counting: ONE_PER_CLICK ✅
-- Attribution: data-driven ✅
-- Click-through window: 90 days ✅
-- Primary for goal: yes ✅
+**Recommendation:** Activate Enhanced Conversions for Leads, set the "Lead form - Submit" action to a 30-day click window + Primary status, and plan for offline conversion import (admissions team marks lead → tour → enrollment in a sheet, uploaded to Google Ads via a Zap or n8n).
 
 ---
 
-## ✅ All launch-readiness changes applied (verified live via GAQL — 2026-04-26)
+## Wasted-Spend Guards (20%)
 
-| # | Change | State | Verified |
+| Check | Status | Note |
+|---|---|---|
+| Location targeting | ❌ FAIL | See blocker #1. |
+| Negative keyword shared list | ✅ PASS | "Master Negatives — School" — 69 well-themed EXACT/PHRASE negatives (jobs, careers, competitors, other cities, "free", "salary", govt schools, hifz/madrasa). Solid foundation. |
+| Campaign-level negatives | ⚠️ WARNING | 31 present, all BROAD — over-blocking risk. See blocker #4. |
+| Negative coverage themes | ✅ PASS | Job-seeker ✓, Other-cities ✓, Free-intent ✓, Competitor schools ✓, Religious-only ✓ |
+| Search Partners | ⚠️ WARNING | `targetSearchNetwork=true` (Search Partners ON). For a Year-1 brand-build campaign, **turn OFF**. Search Partners typically have 30%+ lower CVR and you can't see which partner. |
+| Display Network on Search campaign | ✅ PASS | `targetContentNetwork=false` (correct). |
+| Broad Match without Smart Bidding | ⚠️ WARNING | 1 enabled BROAD keyword (`international kindergarten lahore`) on Manual CPC. Per Google's own guidance, BROAD without tCPA/Max-Conversions is dangerous. Either pause or migrate bidding (see Settings). |
+| Brand vs non-brand separation | ❌ FAIL | Single campaign mixing branded ("london international edu sys"-adjacent), competitor ("british school"), generic ("school near me"), and locale ("kindergarten lahore"). Brand should be its own campaign with its own budget — pure-brand searchers convert 3–5× and shouldn't compete with cold queries for budget. |
+
+---
+
+## Account Structure (15%)
+
+- **1 campaign, 1 ad group, 1 RSA, 28 keywords (17 enabled)** — single-bucket structure.
+- For a school with distinct intents, this should split. Recommended structure:
+  - `LIES_Brand` — `[london international education]`, `[lies lahore]`, `[mir's vision]`, `[hamid mir school]` (the legacy hook). EXACT only. Tiny budget.
+  - `LIES_Cambridge_Search` — `[cambridge school lahore]`, `[igcse school lahore]`, `[o level school lahore]`. EXACT + PHRASE.
+  - `LIES_LocalIntent` — `[school near ideal park]`, `[english medium school lahore]`, `[private school admission lahore]`. PHRASE.
+  - `LIES_Differentiator` — `[robotics school lahore]`, `[ai school lahore]`, US-coding terms. PHRASE.
+  - `LIES_Competitor_Conquest` (only if you want to bid on Beaconhouse/LGS — currently you're (correctly) negativing them. Keep it that way until you have a >Rs 50K/day budget.)
+
+Five themed ad groups means 5 RSAs, each with copy that matches the keyword theme — far better Quality Score than one ad shown to everyone.
+
+---
+
+## Keywords (15%)
+
+- **28 total · 17 enabled · 11 paused** (10 BROAD, 16 PHRASE, 2 EXACT enabled+paused mix).
+- **Quality Score available for 1 keyword only:** `[cambridge school lahore]` QS=7 — Above-Avg expected CTR ✅, Above-Avg ad relevance ✅, **Below-Avg landing page experience ⚠️**.
+  - Landing page = `https://londoneducation.pk/enroll.html`. The site uses lazy-loaded hero video and aggressive optimization (per recent commits) — Google's LP score is real-user CrUX-based and can lag by 28 days. Worth running PageSpeed Insights on the enroll page.
+- The 7 paused BROAD generics (`international school`, `quality education`, `school near me`, `american schools`, etc.) — leave paused. They're broader than your intent.
+- **Cannibalization risk:** `[cambridge school lahore]` (EXACT) and `cambridge school in lahore` (PHRASE) and `cambridge pathway school lahore` (PHRASE) all match the same intent. Google's match logic prefers the closer match, but bid against yourself = wasted auction overhead. Pick EXACT-only for the head term.
+
+---
+
+## Ads (15%)
+
+**RSA Strength: EXCELLENT ✅** — best you can get.
+
+- **15 headlines (max 15)** ✅ — well above the ≥8 audit threshold.
+- **4 descriptions** — at the minimum. Google allows 4. Acceptable, but no room for performance-based winnowing. Consider this fine for now.
+- **No pinned headlines/descriptions** ✅ — full RSA flexibility (correct for a new campaign).
+- **No display path (Path1/Path2 unset)** ⚠️ — quick win. Add `Path1=Admissions`, `Path2=Lahore` (or `/Cambridge-School/Lahore`). Display URL becomes `londoneducation.pk/Admissions/Lahore` — improves CTR ~5–8%.
+- **Final URL:** `enroll.html` ✅ — message-match aligned (admissions intent).
+
+### ⚠️ Brochure-claim copy audit
+Per CLAUDE.md, the brochure overstates the offering. Cross-checking ad copy:
+
+| Headline / desc | Claim | Reality | Verdict |
 |---|---|---|---|
-| 1 | Geo targeting → **PRESENCE only** (positive + negative) | live | API |
-| 2 | Daily budget → **$10/day** (was $5) | live | API |
-| 3 | Bidding strategy → **Manual CPC**, Enhanced CPC OFF | live | API |
-| 4 | Ad-group default max CPC → **$0.18** (~PKR 50) | live | API |
-| 5 | 4 bad keywords → PAUSED (DHA, kindergarten-Broad, Montessori, school-with-AI) | live | API |
-| 6 | "Master Negatives — School" shared list (69 negatives) → attached to Campaign #1 | live | API |
+| "Robotics & AI from Age 4" | Robotics from Pre-Nursery | ✅ Real | OK |
+| "US Coding Certs at KG Level" | US-certified coding cert | ✅ Real (per brochure) | OK |
+| "AI Study Buddy" | Prof Mir bot | ✅ Real | OK |
+| "25+ sports & activities" | 25+ sports | ⚠️ Brochure incl. swimming pool which doesn't exist | Reword: drop "25+" or itemize what IS real |
+| "Cambridge Pathway Registered" | Cambridge affiliation | ✅ Real (LAPS) | OK |
+| "Pakistan's most advanced" (desc) | Brochure claim | ✅ Allowed per brochure language | OK |
 
-## Original UI checklist (now complete — kept for reference)
+No copy currently mentions "swimming" or "Three Foreign Languages" — ✅ aligned with the canonical correction in your memory.
 
-Composio's Google Ads MCP doesn't expose mutate APIs for: ad-group keyword criterion (pause), shared sets (negative lists), campaign budget, or ad-group CPC bid. The bidding-strategy update accepted but didn't take effect (struct-field validation gap). Do these in the UI:
+---
 
-### 1. Switch bidding to **Manual CPC** (5 min)
+## Settings (10%)
 
-Path: **Campaign #1 → Settings → Bidding → Change bid strategy**
-
-- Choose **"Manual CPC"** (not Enhanced CPC — leave the "Help increase conversions" box **unchecked**)
-- Why: Maximize Conversions needs ~30 conversions in trailing 30 days to learn. With zero history, it'll spend ineffectively. Manual CPC for 2–4 weeks → gather click + conversion baseline → then promote to Maximize Conversions or tCPA.
-
-### 2. Increase daily budget to **$10/day** (1 min)
-
-Path: **Campaign #1 → Settings → Budget**
-
-- Change from $5 → **$10/day** (~PKR 2,800/day, ~PKR 84K/month)
-- Why: Pakistani CPCs for these keywords are ~PKR 30–80. $10/day ≈ ~25–60 clicks/day, enough to feed bidding learning + show meaningful daily data.
-- Note: this is half your Meta spend (PKR 12K/day). Reasonable as a Google "test" budget alongside your primary Meta channel.
-
-### 3. Set ad-group default Max CPC to **$0.18** (≈ PKR 50) (1 min)
-
-Path: **Campaign #1 → Ad group 1 → Default max. CPC**
-
-- Set to **$0.18**
-- Why: caps any single click at PKR 50; with $10/day, max ~55 clicks/day if every click hit cap.
-
-### 4. Pause 4 bad keywords (2 min)
-
-Path: **Campaign #1 → Ad group 1 → Keywords → Status: ENABLED**
-
-Pause these (set status = PAUSED):
-
-| Keyword | Match type | Reason |
+| Check | Status | Note |
 |---|---|---|
-| `kindergarten dha lahore` | Broad | DHA is ~15km from campus, wrong neighborhood |
-| `kindergarten in lahore` | Broad | Too broad, will eat budget on tire-kickers |
-| `montessori school lahore` | Phrase | School is Cambridge, not Montessori — claim mismatch + wrong intent |
-| `school with ai lahore` | Phrase | Zero search volume per Pakistan market |
-
-### 5. Add account-level negative keyword list (15 min) — **highest priority**
-
-Path: **Tools → Shared library → Negative keyword lists → "+" → Create new list**
-
-- Name: **"Master Negatives — School"**
-- Apply to: Campaign #1 (and all future campaigns)
-
-Paste this list as-is. Format: `[exact match]` and `"phrase match"`. Do **NOT** add as Broad.
-
-```
-Job-seeker:
-[teacher jobs]
-[teaching jobs]
-[jobs in school]
-[salary]
-[employment]
-"vacancy"
-"recruitment"
-"career opportunities"
-"hiring"
-
-Free-intent:
-[free school]
-[scholarship]
-[financial aid]
-[free admission]
-"free education"
-"need-based aid"
-
-Wrong-product:
-[university]
-[college admission]
-[mba]
-[medical school]
-[law school]
-[masters degree]
-[bachelors degree]
-[matric]
-[fbise]
-[bise]
-[federal board]
-[intermediate]
-[fsc]
-
-Wrong-format:
-[online school]
-[homeschool]
-[home schooling]
-[distance learning]
-[correspondence school]
-"online classes"
-
-Competitor brands (so we don't trigger on competitor brand searches):
-[lgs]
-[lahore grammar]
-[lahore grammar school]
-[beaconhouse]
-[aitchison]
-[aitchison college]
-[the city school]
-[city school]
-[roots millennium]
-[headstart school]
-[generations school]
-"educators school"
-
-Wrong-meaning ("public" = government in PK):
-"public school"
-"govt school"
-"government school"
-
-Wrong city:
-[karachi]
-[islamabad]
-[rawalpindi]
-[multan]
-[faisalabad]
-[peshawar]
-[quetta]
-[gujranwala]
-[sialkot]
-[hyderabad pakistan]
-[india]
-[delhi]
-[mumbai]
-[uk schools]
-[london uk]
-
-Informational:
-"how to"
-"what is"
-"definition of"
-"meaning of"
-```
-
-After adding, **also add `[london]` as exact-match negative** to prevent searches for "London the city" matching "London School" via Broad keywords.
+| Bidding strategy | ⚠️ WARNING | `MANUAL_CPC` at \$0.18. Acceptable for the first 2–3 weeks (cap learning waste), but you should migrate to **Maximize Conversions** (no tCPA) once you have ≥15 conversions in 30 days, then **tCPA** once you have ≥30. Manual CPC + Broad/Phrase = the worst combination per Google's own guidance. |
+| Budget | ℹ️ INFO | \$10/day (≈ Rs 2,800/day). Healthy for testing 1 ad group; well below your Meta benchmark. Don't scale until blockers 1–4 are fixed. |
+| Network: Google Search | ✅ PASS | ON |
+| Network: Search Partners | ⚠️ WARNING | ON — turn OFF for new accounts. |
+| Network: Display | ✅ PASS | OFF (correct) |
+| Languages | ✅ PASS | English (1000) + Urdu (1041) — correct for Lahore. |
+| Devices | ℹ️ INFO | All 3 device types enabled (no negative bids). Default. Revisit after 30d of data. |
+| Locations | ❌ FAIL | NONE — see blocker #1 |
+| Auto-tagging | ✅ PASS | Enabled |
+| Lead Form extension | ✅ PASS | Lead form asset attached at campaign level — direct in-Google lead capture (no website click required). Good. |
+| Sitelinks | ✅ PASS | 7 sitelinks attached (≥4 threshold met). One ("Academics Information") has no description — fill in. |
+| Callouts | ⚠️ WARNING | Only 4 callouts (minimum). Add 4–6 more for a Year-1 trust push: "Cambridge Pathway", "AI Study Buddy", "Founded 2025", "Near Ideal Park", "Book a Campus Tour", "WhatsApp Us". |
+| Structured snippet | ⚠️ WARNING | Only 1 — add a second (e.g., header "Courses" or "Programs"). |
+| Call extension | ✅ PASS | 1 attached. Verify number = `0301-0499777` and that call conversions are set as Primary. |
+| Image extensions | ✅ PASS | 6 image assets uploaded (logo + building-day + 4 more). |
+| Business name + logo | ✅ PASS | Both attached (Year-1 brand-build essential). |
 
 ---
 
-## Recommended structure for next 2 weeks (after launch)
+## Quick Wins (Do These Today, In Order)
 
-Once Manual CPC is on and the campaign has served for ~7 days, split "Ad group 1" into 2 themed ad groups for better Quality Score and ad relevance:
-
-**Ad group A — Cambridge / IGCSE intent** (move keywords):
-- `[cambridge school lahore]`
-- `[best cambridge school lahore]`
-- `"cambridge school in lahore"`
-- `"cambridge pathway school lahore"`
-- `"british school lahore"`
-- `"igcse school lahore"`
-- `"o level school lahore"`
-- `"o levels school lahore"`
-- `"english medium school lahore"`
-- `"private school admission lahore"`
-
-**Ad group B — Early years / location intent** (move keywords):
-- `"international school lahore"`
-- `"pre nursery school lahore"`
-- `"kindergarten lahore"`
-- `[international kindergarten lahore]`
-- `"school near ideal park"`
-- `"school near ideal park township"`
-- `"robotics school lahore"`
-
-Each ad group should have its own RSA tailored to the theme (Cambridge/IGCSE for A; early-years/local for B).
+1. **🔴 ADD LOCATION TARGETING** — Lahore + 30km radius. Single biggest cost-protection in this list.
+2. **🔴 DECIDE: rebuild account in Asia/Karachi + PKR**, or commit to USD/Phoenix for the long haul. The earlier you decide, the cheaper. (Recommend rebuild.)
+3. **🔴 Convert 31 campaign-level negatives from BROAD → EXACT/PHRASE.** Mirror the shared list's pattern.
+4. **🟡 Turn OFF Search Partners.**
+5. **🟡 Add Path1/Path2** to the RSA: `/Admissions/Cambridge-Lahore`.
+6. **🟡 Add 4–6 more callouts.** Easy CTR lift.
+7. **🟡 Set "Lead form - Submit" conversion** to 30-day click window + Primary, OR mark "Click to call" as Include-in-Conversions=true (don't double-count — pick one as the lead-form proxy and one as the call proxy).
+8. **🟢 Activate Enhanced Conversions for Leads** in the UI (Tools → Conversions). Hashed email + phone lift.
+9. **🟢 Plan offline conversion import** so Google sees actual enrollments, not just form submits.
+10. **🟢 Run PageSpeed Insights on `/enroll.html`** — your one keyword with QS data shows Below-Avg landing-page score. Recent commits aggressively optimized hero video, so this may already be improving in CrUX.
 
 ---
 
-## Monitoring plan — first 14 days
+## What I Could NOT Evaluate (insufficient data — revisit at Day 30)
 
-Check daily for the first 7 days, then every 2–3 days:
+- CTR / CVR / CPC vs benchmarks (5 impressions, 0 clicks total)
+- QS distribution (only 1 keyword has QS yet)
+- Search Terms Report quality (3 search terms, all relevant — too small to draw negatives from)
+- Impression-share trends, budget-lost vs rank-lost split (insufficient samples)
+- Ad-strength evolution (RSA needs 2+ weeks to label headlines/descriptions Best/Good/Low)
+- Device performance and bid adjustments
+- Conversion volume vs target
 
-| Metric | Target | Action if missed |
-|---|---|---|
-| Search Terms Report — irrelevant queries | <10% of clicks | Add new negatives weekly |
-| CTR | ≥3% by day 7 | Refresh weakest headlines |
-| Avg. CPC | <$0.18 (PKR 50) | If higher, raise max-CPC carefully or pause expensive keywords |
-| Daily impression share | >40% | If low, raise budget or improve Quality Score |
-| Conversions | ≥1 by day 7, ≥5 by day 14 | If 0 by day 14, debug landing page or audience quality |
-| Quality Score (when avail) | ≥6 | Tighten ad-group themes, improve ad-headline relevance |
-
-**At day 14**, if you have ≥15 conversions cumulative, switch from Manual CPC → **Maximize Conversions** (no target). At day 30, if ≥30 conversions, set a **Target CPA** at ~120% of your achieved CPA.
+**Re-run this audit in 14 days** (≥Rs 28K spend, ≥150 clicks) for a true performance audit with the full 80-check scoring.
 
 ---
 
-## Open questions / followups
+## Data Pulled From Google Ads API (v23, via Composio)
 
-1. **Early Bird PKR 18,000/mo promo** — confirmed still active by you, ad headline preserved. **Set a calendar reminder for when the first 100 admissions fill**: at that point, the "Early Bird: From PKR 18,000/mo" headline must be removed or it becomes a false claim and Google can disapprove the ad.
-2. **Account email** — `a.hazarvi1020@gmail.com` (personal Gmail). Long-term move ownership to `info@londoneducation.pk` via Google Workspace, add yourself as manager. Not blocking launch.
-3. **Campaign name** — "Campaign #1" is fine for now; rename to something like `LHR-Search-CambridgeAdmissions` once you have a 2nd campaign for clarity.
-
----
-
-## Health Score (with caveat)
-
-The 80-check audit framework requires ≥30 days of search-term data. Campaign #1 has zero historical data, so most checks are non-evaluable. Provisional score on **launch readiness** rather than performance:
-
-```
-Launch Readiness Score: 52/100
-
-Conversion Tracking:    95/100  ██████████  (gtag wired, schema correct)
-Wasted Spend Setup:     30/100  ███░░░░░░░  (no negatives — fix above)
-Account Structure:      55/100  █████░░░░░  (1 ad group, needs split — see plan)
-Keywords:               60/100  ██████░░░░  (decent list, 4 to pause)
-Ads:                    75/100  ████████░░  (1 RSA, 15 headlines, good copy)
-Settings:               20/100  ██░░░░░░░░  (USD/Phoenix, $5 budget, Max Conv on cold acct)
-```
-
-**After UI fixes above:** ~78/100 launch-ready. After 14 days of optimization data: re-audit.
-
-**Re-scored after all fixes applied (2026-04-26):**
-
-```
-Launch Readiness Score: 80/100
-
-Conversion Tracking:    95/100  ██████████  (gtag wired, schema correct)
-Wasted Spend Setup:     85/100  █████████░  (69 negatives + 4 bad kw paused)
-Account Structure:      60/100  ██████░░░░  (1 ad group — split into 2 themed groups at day 14)
-Keywords:               80/100  ████████░░  (cleaned set, $0.18 cap, all Phrase/Exact intent-tight)
-Ads:                    75/100  ████████░░  (1 RSA, 15 headlines)
-Settings:               75/100  ████████░░  (USD/Phoenix locked, $10 budget, Manual CPC, presence-only)
-```
-
-The campaign is now safe to serve. Watch the Search Terms Report daily for the first week and add new negatives as garbage queries appear.
+- Customer settings, campaign config, ad group, RSA, 28 keywords, 3 conversion actions, 48 campaign criteria (incl. 31 negatives), 1 shared negative set (69 members), 54 assets, 16 campaign asset attachments
+- 7-day metrics: 5 impressions, 0 clicks, \$0 cost, 50% impression share (50% rank-lost — manual CPC under-bidding)
+- 7-day search-term report: 3 unique terms, all relevant
