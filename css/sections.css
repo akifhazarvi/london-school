@@ -11,9 +11,7 @@
    narrow phones (< 600px) so nothing is truncated; one line on
    tablet/desktop. "Admissions Open" stays underlined and tappable. */
 .adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;min-height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1.3;padding:var(--s-2) var(--s-4);box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center}
-.adm-banner__inner{max-width:var(--container);width:100%;display:flex;align-items:center;justify-content:center;gap:var(--s-3);min-width:0;text-align:center}
-.adm-banner__dot{width:8px;height:8px;border-radius:var(--r-pill);background:var(--white);flex-shrink:0;animation:admPulse 3s ease-in-out infinite}
-@keyframes admPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
+.adm-banner__inner{max-width:var(--container);width:100%;display:flex;align-items:center;justify-content:center;min-width:0;text-align:center}
 .adm-banner__msg-text{min-width:0}
 .adm-banner__link{color:var(--white);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;font-weight:800;transition:opacity var(--dur-fast) var(--ease);white-space:nowrap}
 .adm-banner__link:hover,.adm-banner__link:focus{color:var(--white);opacity:.82}
