@@ -11,10 +11,13 @@
    own delayed animation. No track translate — every slide has a
    16s loop, staggered by 4s, opacity 0 except during its own window.
    Result: smooth in/out with no blank gap. Pause-on-hover. */
-.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1.1;box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 var(--s-4)}
-.adm-banner__rotator{position:relative;height:var(--banner-h);flex:1;max-width:var(--container);min-width:0}
+.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1.1;box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 var(--s-4);gap:var(--s-3)}
+/* The rotator becomes a fixed-width window that is wide enough for the
+   widest slide on desktop. Pill sits immediately to its right and the
+   whole pair is centered by the parent flex. */
+.adm-banner__rotator{position:relative;height:var(--banner-h);width:min(540px, calc(100vw - 200px));max-width:100%;flex-shrink:1;overflow:hidden}
 .adm-banner__track{position:relative;height:100%;width:100%}
-.adm-banner__slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:var(--s-3);text-align:center;opacity:0;transform:translateY(100%);animation:admSlide 16s infinite}
+.adm-banner__slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;gap:var(--s-3);opacity:0;transform:translateY(100%);animation:admSlide 16s infinite;white-space:nowrap;text-align:right;padding-right:var(--s-2)}
 .adm-banner__slide span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .adm-banner__slide:nth-child(1){animation-delay:0s}
 .adm-banner__slide:nth-child(2){animation-delay:4s}
@@ -34,7 +37,9 @@
 .adm-banner__msg-short{display:none}
 @media (max-width:600px){
   .adm-banner{font-size:var(--text-xs);padding:0 var(--s-2)}
-  .adm-banner__slide{gap:var(--s-2)}
+  /* On mobile the rotator stretches to fill the row; pill sits at the right edge. */
+  .adm-banner__rotator{flex:1;width:auto}
+  .adm-banner__slide{gap:var(--s-2);justify-content:center;text-align:center;padding-right:0}
   .adm-banner__link{padding:3px 10px;font-size:.7rem;margin-left:var(--s-2)}
   .adm-banner__msg-long{display:none}
   .adm-banner__msg-short{display:inline}
