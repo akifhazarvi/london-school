@@ -27,3 +27,6 @@ ads/
 
 # Claude Code local state
 .claude/
+
+# Local-only backups (originals before video compression)
+img/.originals/
