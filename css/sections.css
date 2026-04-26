@@ -20,9 +20,14 @@
 .adm-banner__link:hover,.adm-banner__link:focus{color:var(--red);background:var(--white);transform:translateY(-1px);box-shadow:var(--sh-sm)}
 @media (max-width:600px){
   .adm-banner{font-size:var(--text-xs);padding:0 var(--s-3)}
+  .adm-banner__inner{gap:var(--s-1)}
   .adm-banner__msg-full{display:none}
   .adm-banner__msg-short{display:inline}
-  .adm-banner__link{padding:3px 10px}
+  .adm-banner__link{padding:3px 10px;font-size:.7rem}
+}
+@media (max-width:380px){
+  .adm-banner{font-size:.7rem;padding:0 var(--s-2)}
+  .adm-banner__link{padding:2px 8px}
 }
 
 /* ── NAV ── */
