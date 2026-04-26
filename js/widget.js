@@ -57,14 +57,14 @@
   /* Soft, parent-trusted tone. No emojis in copy — the bubble itself is
      the visual hook. Messages rotate: differentiator, proof, soft CTA. */
   var TEASERS = {
-    home:      ['AI and Robotics from age three', 'Two US coding certs at Kindergarten', 'Early Bird — Rs 18,000/mo for the first 100'],
+    home:      ['AI and Robotics from age three', 'Two US coding certs at Kindergarten', 'Cambridge Pathway · Robotics & AI'],
     about:     ['Built on the Prof. Waris Mir legacy', 'Small classes. Cambridge curriculum.', 'Ask about our admissions process'],
     academics: ['Cambridge Pathway, AI-integrated', 'Two US coding certs at Kindergarten', 'Three foreign languages from Grade 1'],
     ask:       ['Rather talk to a real person?', 'Ask about our AI programme', 'We reply within a few minutes'],
     tour:      ['Like what you see?', 'Book a 45-minute campus visit', 'We\'ll answer every question'],
     campus:    ['See our Robotics Lab in person', 'Purpose-built for AI learning', 'Come visit — free 45-min tour'],
     faculty:   ['Cambridge-trained teachers', 'Every teacher knows every child', 'Small classes, bigger futures'],
-    news:      ['Admissions Open for 2025–26', 'Early Bird — first 100 lock Rs 18,000', 'Book a free campus visit'],
+    news:      ['Admissions Open for 2025–26', 'Cambridge Pathway · Robotics & AI', 'Book a free campus visit'],
     thankyou:  ['Thanks for reaching out', 'Take a virtual tour while you wait', 'Or WhatsApp us directly']
   };
   var teasers = TEASERS[pageKey] || TEASERS.home;
