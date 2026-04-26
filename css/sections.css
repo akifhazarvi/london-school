@@ -6,28 +6,38 @@
    No blobs. No pseudo-elements. No randomness.
    ============================================================ */
 
-/* ── ADMISSIONS BANNER (sticky, top of every page) ───────────────
-   Two copy variants for one-line fit:
-   - Desktop (>=600px): full message, "Cambridge Pathway · International
-     School in Lahore · [Admissions Open]"
-   - Mobile (<600px): shortened, "Lahore Cambridge School · [Admissions Open]"
-   "Admissions Open" is a white pill that reads clearly as tappable. */
-.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1;padding:0 var(--s-4);box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
-.adm-banner__inner{max-width:var(--container);width:100%;display:flex;align-items:center;justify-content:center;gap:var(--s-2);min-width:0;text-align:center}
-.adm-banner__msg-full{display:inline}
-.adm-banner__msg-short{display:none}
-.adm-banner__link{display:inline-block;color:var(--red);background:var(--white);padding:4px 12px;border-radius:var(--r-pill);text-decoration:none;font-weight:800;font-size:var(--text-xs);white-space:nowrap;transition:transform var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
+/* ── ADMISSIONS BANNER (vertical flip rotator) ───────────────────
+   Solid red bar. Multiple messages stacked vertically inside a
+   fixed-height window. The track translates by -100% every cycle to
+   reveal the next message — a slow, calm flip-up. "Admissions Open"
+   pill is fixed on the right of every message so it's always tappable.
+   Total cycle: 4 messages × 4s each = 16s loop. */
+.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:var(--text-sm);line-height:1.1;box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 var(--s-4)}
+.adm-banner__rotator{position:relative;height:var(--banner-h);overflow:hidden;display:flex;align-items:center;flex:1;max-width:var(--container);justify-content:center}
+.adm-banner__track{display:flex;flex-direction:column;animation:admFlip 16s infinite}
+.adm-banner__slide{height:var(--banner-h);display:flex;align-items:center;justify-content:center;gap:var(--s-3);flex-shrink:0;text-align:center}
+.adm-banner__slide span{white-space:nowrap}
+/* 4 slides: each visible for ~3.4s, transitions over ~0.6s */
+@keyframes admFlip{
+  0%,21%   {transform:translateY(0%)}
+  25%,46%  {transform:translateY(-100%)}
+  50%,71%  {transform:translateY(-200%)}
+  75%,96%  {transform:translateY(-300%)}
+  100%     {transform:translateY(-400%)}
+}
+.adm-banner__link{display:inline-block;color:var(--red);background:var(--white);padding:4px 12px;border-radius:var(--r-pill);text-decoration:none;font-weight:800;font-size:var(--text-xs);white-space:nowrap;transition:transform var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease);flex-shrink:0;margin-left:var(--s-3)}
 .adm-banner__link:hover,.adm-banner__link:focus{color:var(--red);background:var(--white);transform:translateY(-1px);box-shadow:var(--sh-sm)}
 @media (max-width:600px){
-  .adm-banner{font-size:var(--text-xs);padding:0 var(--s-3)}
-  .adm-banner__inner{gap:var(--s-1)}
-  .adm-banner__msg-full{display:none}
-  .adm-banner__msg-short{display:inline}
-  .adm-banner__link{padding:3px 10px;font-size:.7rem}
+  .adm-banner{font-size:var(--text-xs);padding:0 var(--s-2)}
+  .adm-banner__slide{gap:var(--s-2)}
+  .adm-banner__link{padding:3px 10px;font-size:.7rem;margin-left:var(--s-2)}
+  .adm-banner__msg-long{display:none}
 }
-@media (max-width:380px){
-  .adm-banner{font-size:.7rem;padding:0 var(--s-2)}
-  .adm-banner__link{padding:2px 8px}
+.adm-banner__msg-short{display:none}
+@media (max-width:600px){.adm-banner__msg-short{display:inline}}
+@media (prefers-reduced-motion:reduce){
+  .adm-banner__track{animation:none}
+  .adm-banner__slide:not(:first-child){display:none}
 }
 
 /* ── NAV ── */
