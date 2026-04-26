@@ -13,6 +13,8 @@
 .adm-banner__inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);height:100%}
 .adm-banner__msg{display:inline-flex;align-items:center;gap:var(--s-2);min-width:0;flex:1}
 .adm-banner__msg-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.adm-banner__link{color:#fff;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1.5px;font-weight:800;transition:opacity .15s}
+.adm-banner__link:hover,.adm-banner__link:focus{color:#fff;opacity:.85}
 .adm-banner__dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:admPulse 1.6s ease-in-out infinite;flex-shrink:0}
 @keyframes admPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.78)}}
 .adm-banner__actions{display:flex;align-items:center;gap:var(--s-2);flex-shrink:0}
