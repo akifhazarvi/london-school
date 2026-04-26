@@ -10,24 +10,26 @@
 ## Health Score (Setup-Only)
 
 ```
-Setup Health: 52/100 (Grade: D — fix blockers before scaling spend)
+Setup Health: 64/100 (Grade: C — fix TZ/currency + negatives before scaling)
 
 Conversion Tracking: 60/100  ██████░░░░  (25%)
-Wasted-Spend Guards: 35/100  ███░░░░░░░  (20%)  ← LOCATION TARGETING MISSING
+Wasted-Spend Guards: 65/100  ██████░░░░  (20%)
 Account Structure:   55/100  █████░░░░░  (15%)
 Keywords:            55/100  █████░░░░░  (15%)
 Ads:                 80/100  ████████░░  (15%)
-Settings:            40/100  ████░░░░░░  (10%)  ← MANUAL CPC + WRONG TZ
+Settings:            55/100  █████░░░░░  (10%)  ← MANUAL CPC + WRONG TZ
 ```
 
 ---
 
 ## 🚨 Blockers — Fix Before Spending Another Rupee
 
-### 1. NO LOCATION TARGETING — CRITICAL
-- **Finding:** Zero `LOCATION` criteria on the campaign. Default = "All countries and territories."
-- **Impact:** Your ads can serve in India, the UAE, the US, the UK — anywhere. With Phrase/Broad match on terms like "british school" or "international school," global accidental impressions are guaranteed. At Manual CPC \$0.18, this is slow but real waste.
-- **Fix:** Set positive geo targets to **Lahore + a 25–40 km radius**, not all of Pakistan. Confirm targeting setting is `Presence` (✅ already correct), not "Presence or interest."
+### 1. PROXIMITY RADIUS IS TIGHT + OFF-CENTER — MEDIUM
+- **Finding:** Targeting is **PROXIMITY 10km** centered at lat `31.4556`, lng `74.3022` (≈ Johar Town / Wapda Town). Presence-only ✅.
+- **Impact:** Two issues:
+  1. **Center is ~8km southwest of the actual campus** (Ali Road / Ideal Park ≈ 31.522, 74.357). The current circle barely covers Ideal Park at its NE edge.
+  2. **10km radius clips premium feeder areas** — DHA Phase 5+, Bahria Town, parts of Cantt, Askari, Raiwind Road. Cambridge-school parents often drive from these.
+- **Fix:** Re-center on the campus and widen to **15–20 km**. Or add a second proximity circle for DHA/Bahria if you want to cap the cost there separately.
 
 ### 2. TIME ZONE IS `America/Phoenix` — CRITICAL
 - **Finding:** Account TZ = America/Phoenix (UTC-7, no DST). School operates in Asia/Karachi (UTC+5).
@@ -69,7 +71,7 @@ Settings:            40/100  ████░░░░░░  (10%)  ← MANUAL C
 
 | Check | Status | Note |
 |---|---|---|
-| Location targeting | ❌ FAIL | See blocker #1. |
+| Location targeting | ⚠️ WARNING | PROXIMITY 10km, center 8km off campus, radius tight. See blocker #1. |
 | Negative keyword shared list | ✅ PASS | "Master Negatives — School" — 69 well-themed EXACT/PHRASE negatives (jobs, careers, competitors, other cities, "free", "salary", govt schools, hifz/madrasa). Solid foundation. |
 | Campaign-level negatives | ⚠️ WARNING | 31 present, all BROAD — over-blocking risk. See blocker #4. |
 | Negative coverage themes | ✅ PASS | Job-seeker ✓, Other-cities ✓, Free-intent ✓, Competitor schools ✓, Religious-only ✓ |
@@ -141,7 +143,7 @@ No copy currently mentions "swimming" or "Three Foreign Languages" — ✅ align
 | Network: Display | ✅ PASS | OFF (correct) |
 | Languages | ✅ PASS | English (1000) + Urdu (1041) — correct for Lahore. |
 | Devices | ℹ️ INFO | All 3 device types enabled (no negative bids). Default. Revisit after 30d of data. |
-| Locations | ❌ FAIL | NONE — see blocker #1 |
+| Locations | ⚠️ WARNING | PROXIMITY 10km @ Johar Town. Re-center on campus + widen — see blocker #1 |
 | Auto-tagging | ✅ PASS | Enabled |
 | Lead Form extension | ✅ PASS | Lead form asset attached at campaign level — direct in-Google lead capture (no website click required). Good. |
 | Sitelinks | ✅ PASS | 7 sitelinks attached (≥4 threshold met). One ("Academics Information") has no description — fill in. |
@@ -155,9 +157,9 @@ No copy currently mentions "swimming" or "Three Foreign Languages" — ✅ align
 
 ## Quick Wins (Do These Today, In Order)
 
-1. **🔴 ADD LOCATION TARGETING** — Lahore + 30km radius. Single biggest cost-protection in this list.
-2. **🔴 DECIDE: rebuild account in Asia/Karachi + PKR**, or commit to USD/Phoenix for the long haul. The earlier you decide, the cheaper. (Recommend rebuild.)
-3. **🔴 Convert 31 campaign-level negatives from BROAD → EXACT/PHRASE.** Mirror the shared list's pattern.
+1. **🔴 DECIDE: rebuild account in Asia/Karachi + PKR**, or commit to USD/Phoenix for the long haul. The earlier you decide, the cheaper. (Recommend rebuild.)
+2. **🔴 Convert 31 campaign-level negatives from BROAD → EXACT/PHRASE.** Mirror the shared list's pattern.
+3. **🟡 Re-center proximity** on campus (≈ 31.522, 74.357) and widen to 15–20km to capture DHA/Bahria feeders.
 4. **🟡 Turn OFF Search Partners.**
 5. **🟡 Add Path1/Path2** to the RSA: `/Admissions/Cambridge-Lahore`.
 6. **🟡 Add 4–6 more callouts.** Easy CTR lift.

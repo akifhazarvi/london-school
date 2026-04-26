@@ -6,39 +6,21 @@
    No blobs. No pseudo-elements. No randomness.
    ============================================================ */
 
-/* ── ADMISSIONS BANNER (sticky, top of every page) ── */
-:root{--banner-h:40px}
-@media(max-width:600px){:root{--banner-h:44px}}
-.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;background:linear-gradient(90deg,var(--red) 0%,#a82a31 100%);color:#fff;font-family:var(--font-heading);font-weight:700;font-size:.9rem;line-height:1.2;padding:0 var(--s-4);box-shadow:0 1px 8px rgba(0,0,0,.1);height:var(--banner-h)}
-.adm-banner__inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);height:100%}
-.adm-banner__msg{display:inline-flex;align-items:center;gap:var(--s-2);min-width:0;flex:1}
-.adm-banner__msg-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.adm-banner__link{color:#fff;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1.5px;font-weight:800;transition:opacity .15s}
-.adm-banner__link:hover,.adm-banner__link:focus{color:#fff;opacity:.85}
-.adm-banner__dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:admPulse 1.6s ease-in-out infinite;flex-shrink:0}
-@keyframes admPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.78)}}
-.adm-banner__actions{display:flex;align-items:center;gap:var(--s-2);flex-shrink:0}
-.adm-banner__cta{background:#fff;color:var(--red);padding:6px 14px;border-radius:9999px;font-weight:800;font-size:.82rem;white-space:nowrap;transition:transform .15s,box-shadow .15s;display:inline-flex;align-items:center;gap:6px}
-.adm-banner__cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.18);color:var(--red)}
-.adm-banner__icon{width:32px;height:32px;border-radius:50%;display:none;align-items:center;justify-content:center;flex-shrink:0;transition:transform .15s}
-.adm-banner__icon:hover,.adm-banner__icon:active{transform:scale(.94)}
-.adm-banner__icon--wa{background:#25D366;color:#fff}
-.adm-banner__icon--call{background:#fff;color:var(--red)}
-.adm-banner__icon svg{width:18px;height:18px}
-.adm-banner__msg-short{display:none}
-@media(max-width:760px){
-  .adm-banner{font-size:.82rem;padding:0 12px}
-  .adm-banner__cta{display:none}
-  .adm-banner__icon{display:inline-flex}
-  .adm-banner__msg-full{display:none}
-  .adm-banner__msg-short{display:inline}
-}
-@media(max-width:380px){
-  .adm-banner__msg-text{font-size:.76rem}
-}
+/* ── ADMISSIONS BANNER (sticky, top of every page) ───────────────
+   Single line, text only. Full message shown on every screen — fits
+   on one line via fluid font sizing. "Admissions Open" is an
+   underlined link to /enroll. Built with design system tokens. */
+.adm-banner{position:fixed;top:0;left:0;right:0;z-index:260;height:var(--banner-h);background:var(--red);color:var(--white);font-family:var(--font-heading);font-weight:700;font-size:clamp(.7rem, 1.6vw + .3rem, .95rem);line-height:1.2;padding:0 var(--s-4);box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:center}
+.adm-banner__inner{max-width:var(--container);width:100%;display:flex;align-items:center;justify-content:center;gap:var(--s-3);min-width:0}
+.adm-banner__dot{width:8px;height:8px;border-radius:var(--r-pill);background:var(--white);flex-shrink:0;animation:admPulse 3s ease-in-out infinite}
+@keyframes admPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
+.adm-banner__msg-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:-.005em}
+.adm-banner__link{color:var(--white);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;font-weight:800;transition:opacity var(--dur-fast) var(--ease)}
+.adm-banner__link:hover,.adm-banner__link:focus{color:var(--white);opacity:.82}
+@media (max-width:600px){.adm-banner__inner{gap:var(--s-2)}}
 
 /* ── NAV ── */
-.nav{position:fixed;top:var(--banner-h, 38px);left:0;right:0;z-index:250;padding:var(--s-4) 0;transition:all var(--dur) var(--ease)}
+.nav{position:fixed;top:var(--banner-h);left:0;right:0;z-index:250;padding:var(--s-4) 0;transition:all var(--dur) var(--ease)}
 .nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 1px 12px rgba(0,0,0,.04);padding:var(--s-3) 0}
 .nav__inner{display:flex;align-items:center;justify-content:space-between}
 .nav__logo{display:flex;align-items:center;gap:var(--s-3)}
@@ -54,16 +36,16 @@
 .nav__hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .nav__hamburger.open span:nth-child(2){opacity:0}
 .nav__hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:200;flex-direction:column;align-items:center;justify-content:flex-start;gap:var(--s-4);padding:calc(var(--banner-h, 38px) + 76px) var(--s-5) 120px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.mob-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:200;flex-direction:column;align-items:center;justify-content:flex-start;gap:var(--s-4);padding:calc(var(--banner-h) + var(--nav-h) + var(--s-4)) var(--s-5) var(--s-20);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .mob-menu.open{display:flex}
-.mob-menu a{font-family:var(--font-heading);font-size:1.4rem;font-weight:800;color:var(--text-dark);padding:var(--s-2) 0}
-.mob-menu a.btn{margin-top:var(--s-3);font-size:1rem;padding:var(--s-3) var(--s-6)}
-.mob-menu a:hover{color:var(--red)}
+.mob-menu a{font-family:var(--font-heading);font-size:var(--text-h4);font-weight:800;color:var(--text-dark);padding:var(--s-2) 0;transition:color var(--dur-fast) var(--ease)}
+.mob-menu a.btn{margin-top:var(--s-3);font-size:var(--text-base);padding:var(--s-3) var(--s-6)}
+.mob-menu a:hover,.mob-menu a:focus{color:var(--red)}
 body.menu-open{overflow:hidden}
 @media(max-width:1100px){.nav__links{display:none}.nav__right .btn{display:none}.nav__hamburger{display:flex}}
 
 /* ── HERO ── */
-.hero{position:relative;padding:calc(var(--banner-h, 38px) + 76px + var(--s-16)) 0 var(--s-8);overflow:hidden;background:var(--cream)}
+.hero{position:relative;padding:calc(var(--banner-h) + var(--nav-h) + var(--s-16)) 0 var(--s-8);overflow:hidden;background:var(--cream)}
 .hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-12);align-items:start;min-height:540px}
 .hero__text{position:relative;z-index:2}
 .hero__badge{display:inline-flex;align-items:center;gap:var(--s-2);padding:7px 16px;background:var(--white);border-radius:var(--r-pill);box-shadow:var(--sh-sm);font-family:var(--font-heading);font-size:var(--text-xs);font-weight:700;color:var(--text-muted);margin-bottom:var(--s-8)}
@@ -398,7 +380,7 @@ body.menu-open{overflow:hidden}
 @media(max-width:900px){.demo__grid,.demo__grid--full{grid-template-columns:1fr}}
 
 /* ── PROF MIR PAGE ── */
-.profmir-hero{padding:calc(var(--banner-h, 38px) + 76px + var(--s-12)) 0 var(--s-8);background:var(--cream)}
+.profmir-hero{padding:calc(var(--banner-h) + var(--nav-h) + var(--s-12)) 0 var(--s-8);background:var(--cream)}
 .profmir-hero__inner{display:grid;grid-template-columns:1fr 1.5fr;gap:var(--s-12);align-items:center}
 .profmir-hero__img{border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-lg)}
 .profmir-hero__img img{width:100%;aspect-ratio:3/4;object-fit:cover}

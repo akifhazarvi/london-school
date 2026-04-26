@@ -6,7 +6,7 @@
 /* ── PAGE HERO ── */
 .pg-hero {
   background: var(--cream);
-  padding: calc(var(--banner-h, 38px) + clamp(5rem, 8vw, 7rem)) 0 clamp(3rem, 5vw, 4rem);
+  padding: calc(var(--banner-h) + clamp(5rem, 8vw, 7rem)) 0 clamp(3rem, 5vw, 4rem);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -420,7 +420,7 @@
    ============================================================ */
 .adm-hero-ad {
   background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
-  padding: calc(var(--banner-h, 38px) + clamp(4.5rem, 6vw, 5.5rem)) 0 clamp(3rem, 5vw, 4rem);
+  padding: calc(var(--banner-h) + clamp(4.5rem, 6vw, 5.5rem)) 0 clamp(3rem, 5vw, 4rem);
   position: relative;
   overflow: hidden;
 }
@@ -721,7 +721,7 @@
    ============================================================ */
 .ty-hero {
   background: linear-gradient(180deg, var(--sage-50) 0%, var(--cream) 100%);
-  padding: calc(var(--banner-h, 38px) + clamp(5rem, 8vw, 7rem)) 0 clamp(3rem, 5vw, 4rem);
+  padding: calc(var(--banner-h) + clamp(5rem, 8vw, 7rem)) 0 clamp(3rem, 5vw, 4rem);
   position: relative;
   overflow: hidden;
 }
@@ -854,7 +854,7 @@
 
 /* ── HERO (2-column: text + photo w/ floating badges) ── */
 .ai-p-hero {
-  padding: calc(var(--banner-h, 38px) + clamp(5rem, 8vw, 6.5rem)) 0 clamp(2.5rem, 5vw, 4rem);
+  padding: calc(var(--banner-h) + clamp(5rem, 8vw, 6.5rem)) 0 clamp(2.5rem, 5vw, 4rem);
   background:
     radial-gradient(circle at 85% 10%, rgba(122,195,158,.18), transparent 55%),
     radial-gradient(circle at 15% 90%, rgba(242,213,197,.28), transparent 55%),
