@@ -22,7 +22,7 @@
   var ENDPOINT    = 'https://script.google.com/macros/s/AKfycbyEMq2spkrKlbWtMdbbwELf3f0sAw5QILIz_RSxTmIbQmMcOtMxDPgsvYdTYCcDahlb/exec';
   var ROTATION_MS = 5000;
   var FIRST_SHOW_MS = 1200;
-  var LOGO_SRC    = 'img/logo-icon.png';
+  var LOGO_SRC    = 'img/logo-icon.webp';
   /* Master kill-switch and auto-surface toggles.
      WIDGET_ENABLED=false removes the entire floating chat widget.
      AUTO_TEASER / AUTO_EXIT_INTENT control the two auto-appearing surfaces

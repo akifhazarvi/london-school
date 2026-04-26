@@ -74,11 +74,11 @@
   <link rel="icon" href="img/logo-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/logo-icon.png">
 
-  <link rel="stylesheet" href="css/design-system.css?v=1777219735">
-  <link rel="stylesheet" href="css/sections.css?v=1777219735">
+  <link rel="stylesheet" href="css/design-system.css?v=1777227285">
+  <link rel="stylesheet" href="css/sections.css?v=1777227285">
   <!-- Decorative shapes only — load non-blocking -->
-  <link rel="preload" as="style" href="css/blobs.css?v=1777219735" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/blobs.css?v=1777219735"></noscript>
+  <link rel="preload" as="style" href="css/blobs.css?v=1777227285" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blobs.css?v=1777227285"></noscript>
 <script type="application/ld+json">
 [
   {
@@ -226,7 +226,7 @@
 <nav class="nav" id="nav">
   <div class="container nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest" decoding="async" fetchpriority="high">
+      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest" width="48" height="48" decoding="async" fetchpriority="high">
       <div class="nav__name">London School<small>Prof. Waris Mir Campus</small></div>
     </a>
     <div class="nav__links">
@@ -277,12 +277,13 @@
           <div class="hero__trust-label"><strong>Cambridge Pathway Registered</strong> · 200+ students enrolled</div>
         </div>
       </div>
-      <div class="hero__visual rv">
+      <div class="hero__visual">
         <div class="hero__photo">
           <video
-            src="img/videos/hero-intro.mp4"
+            data-src="img/videos/hero-intro.mp4"
             poster="img/videos/hero-intro-poster.webp"
-            autoplay muted loop playsinline preload="metadata"
+            width="600" height="800"
+            muted loop playsinline preload="none"
             aria-label="London School students coding, building robots, and learning in class">
             <track kind="captions" src="img/videos/hero-intro.vtt" srclang="en" label="English">
           </video>
@@ -633,7 +634,7 @@
 <footer class="ft">
   <div class="container"><div class="ft__grid">
     <div class="ft__about">
-      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest" decoding="async" fetchpriority="high"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
+      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest" width="48" height="48" decoding="async" fetchpriority="high"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
       <p>A Cambridge Pathway Registered school in Lahore. We pair the Cambridge curriculum with an early-years AI &amp; robotics programme in a warm, nurturing environment named in honour of the late Prof. Waris Mir.</p>
       <div class="ft__socials">
         <a href="https://www.facebook.com/londonschoolwarismir/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -653,7 +654,7 @@
 
 <a href="https://wa.me/923010499777?text=%5BWeb%20%C2%B7%20Floating%20%C2%B7%20home%5D%20Hi%2C%20I%20have%20a%20question%20about%20London%20School." onclick="return gtag_report_conversion('https://wa.me/923010499777?text=%5BWeb%20%C2%B7%20Floating%20%C2%B7%20home%5D%20Hi%2C%20I%20have%20a%20question%20about%20London%20School.');" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-wa-source="home-floating"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
 
-<script defer src="js/main.js?v=1777219983"></script>
-<script defer src="js/widget.js?v=1777219983"></script>
+<script defer src="js/main.min.js?v=1777227285"></script>
+<script defer src="js/widget.min.js?v=1777227285"></script>
 </body>
 </html>

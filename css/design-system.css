@@ -104,3 +104,10 @@ h1{font-size:var(--text-h1)} h2{font-size:var(--text-h2)} h3{font-size:var(--tex
 .stg>*:nth-child(4){transition-delay:220ms}
 .stg>*:nth-child(5){transition-delay:290ms}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* Chat typing dots — moved out of JS to avoid runtime <style> injection on main thread */
+.tp span{animation:bk 1.4s infinite ease-in-out}
+.tp span:nth-child(1){animation-delay:0s}
+.tp span:nth-child(2){animation-delay:.2s}
+.tp span:nth-child(3){animation-delay:.4s}
+@keyframes bk{0%,60%,100%{opacity:.2}30%{opacity:1}}

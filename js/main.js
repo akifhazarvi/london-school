@@ -18,18 +18,54 @@
     }
   }, true);
 
-  /* Nav */
-  var nav=document.getElementById('nav');
-  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>40)},{passive:true});
+  /* Nav — guard against repeated DOM writes on every scroll frame */
+  var nav=document.getElementById('nav'),navScrolled=false;
+  window.addEventListener('scroll',function(){
+    var s=window.scrollY>40;
+    if(s!==navScrolled){navScrolled=s;nav.classList.toggle('scrolled',s)}
+  },{passive:true});
+
+  /* Lazy-load hero video only when it scrolls into view.
+     On mobile the video is below the fold (hero stacks vertically), so deferring
+     this until the user actually scrolls past the headline frees up network for LCP.
+     On desktop, IntersectionObserver fires immediately because the video IS in view. */
+  (function(){
+    var v=document.querySelector('.hero__photo video[data-src]');
+    if(!v)return;
+    function load(){
+      if(v.src)return;
+      v.src=v.getAttribute('data-src');
+      v.load();
+      var p=v.play();
+      if(p&&p.catch)p.catch(function(){});
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){if(e.isIntersecting){load();io.unobserve(e.target)}});
+      },{rootMargin:'200px 0px'});
+      io.observe(v);
+    }else{
+      window.addEventListener('load',function(){setTimeout(load,1500)},{once:true});
+    }
+  })();
 
   /* Mobile */
   var ham=document.getElementById('ham'),mob=document.getElementById('mob');
   ham.addEventListener('click',function(){ham.classList.toggle('open');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''});
   window.closeM=function(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''};
 
-  /* Smooth scroll */
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el){e.preventDefault();window.scrollTo({top:el.offsetTop-72,behavior:'smooth'})}})
+  /* Smooth scroll — single delegated listener, getBoundingClientRect avoids the
+     forced reflow PSI flagged from per-anchor offsetTop reads. */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(!a)return;
+    var id=a.getAttribute('href');
+    if(!id||id==='#')return;
+    var el=document.querySelector(id);
+    if(!el)return;
+    e.preventDefault();
+    var top=el.getBoundingClientRect().top+window.pageYOffset-72;
+    window.scrollTo({top:top,behavior:'smooth'});
   });
 
   /* Reveal */
@@ -344,10 +380,7 @@
     });
   });
 
-  /* Typing dots CSS */
-  var s=document.createElement('style');
-  s.textContent='.tp span{animation:bk 1.4s infinite ease-in-out}.tp span:nth-child(1){animation-delay:0s}.tp span:nth-child(2){animation-delay:.2s}.tp span:nth-child(3){animation-delay:.4s}@keyframes bk{0%,60%,100%{opacity:.2}30%{opacity:1}}';
-  document.head.appendChild(s);
+  /* Typing dots styles live in css/design-system.css (.tp) */
 })();
 
 /* ═══════════════════════════════════════════════════════════════
