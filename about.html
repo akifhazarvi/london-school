@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31"></script>
+  <!-- Google tag (gtag.js) — deferred for performance -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,6 +19,23 @@
       });
       return false;
     }
+    (function(){
+      var loaded = false;
+      function loadGtag(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31';
+        document.head.appendChild(s);
+      }
+      var triggers = ['scroll','click','keydown','touchstart','mousemove'];
+      triggers.forEach(function(t){ window.addEventListener(t, loadGtag, {once:true, passive:true}); });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGtag, 1500);
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadGtag, 1500); }, {once:true});
+      }
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | London School — Prof. Waris Mir Campus, Lahore</title>
@@ -160,7 +176,7 @@
     .leader-card { background: var(--white); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--sh-sm); text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
     .leader-card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
     .leader-card__photo { width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: var(--cream); display: flex; align-items: center; justify-content: center; }
-    .leader-card__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .leader-card__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
     .leader-card__photo svg { width: 80px; height: 80px; color: var(--gray-300); }
     .leader-card__body { padding: var(--s-5); }
     .leader-card__body h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: var(--s-1); }
@@ -281,7 +297,7 @@
         </p>
       </div>
       <div class="about-photo">
-        <img src="img/principal.jpg" alt="Mehr un Nisa Masood — Principal" loading="eager" fetchpriority="high">
+        <img src="img/principal.webp" alt="Mehr un Nisa Masood — Principal" loading="eager" fetchpriority="high">
       </div>
     </div>
   </div>
@@ -357,7 +373,7 @@
       <div class="leadership-grid stg">
         <div class="leader-card rv" itemscope itemtype="https://schema.org/Person" itemid="https://londoneducation.pk/about.html#huma-mir">
           <div class="leader-card__photo">
-            <img src="img/huma-mir.jpg" alt="Huma Mir — Director" loading="lazy" itemprop="image">
+            <img src="img/huma-mir.webp" alt="Huma Mir — Director" loading="lazy" itemprop="image">
           </div>
           <div class="leader-card__body">
             <h3 itemprop="name">Huma Mir</h3>
@@ -368,7 +384,7 @@
 
         <div class="leader-card leader-card--featured rv" itemscope itemtype="https://schema.org/Person">
           <div class="leader-card__photo">
-            <img src="img/naveela-choudhary.jpg" alt="Naveela Choudhary — Chief Executive Officer" loading="lazy" itemprop="image" style="object-position:center 28%">
+            <img src="img/naveela-choudhary.webp" alt="Naveela Choudhary — Chief Executive Officer" loading="lazy" itemprop="image" style="object-position:center 35%">
           </div>
           <div class="leader-card__body">
             <h3 itemprop="name">Naveela Choudhary</h3>
@@ -379,7 +395,7 @@
 
         <div class="leader-card rv" itemscope itemtype="https://schema.org/Person" itemid="https://londoneducation.pk/about.html#zoya-mir">
           <div class="leader-card__photo">
-            <img src="img/zoya-mir.jpg" alt="Zoya Mir — Director" loading="lazy" itemprop="image" style="object-position:35% 25%">
+            <img src="img/zoya-mir.webp" alt="Zoya Mir — Director" loading="lazy" itemprop="image" style="object-position:35% 25%">
           </div>
           <div class="leader-card__body">
             <h3 itemprop="name">Zoya Mir</h3>
@@ -407,7 +423,7 @@
 
         <div class="leader-card rv" itemscope itemtype="https://schema.org/Person" itemid="https://londoneducation.pk/about.html#principal">
           <div class="leader-card__photo">
-            <img src="img/principal.jpg" alt="Mehr un Nisa Masood — Principal" loading="lazy" itemprop="image">
+            <img src="img/principal.webp" alt="Mehr un Nisa Masood — Principal" loading="lazy" itemprop="image">
           </div>
           <div class="leader-card__body">
             <h3 itemprop="name">Mehr un Nisa Masood</h3>
@@ -425,7 +441,7 @@
 <section class="pg-section pg-section--cream">
   <div class="container">
     <div class="faculty-hero-photo rv">
-      <img src="img/school/faculty-staff-team.jpg" alt="London School full staff team gathered on the staircase">
+      <img src="img/school/faculty-staff-team.webp" alt="London School full staff team gathered on the staircase">
     </div>
 
     <div class="sec-center rv" style="margin-bottom:clamp(2rem,4vw,3rem)">
@@ -487,16 +503,16 @@
       </div>
       <div class="cpd-grid">
         <div class="cpd-photo rv">
-          <img src="img/school/faculty-training-2.jpg" alt="London School Academic Plan training session" loading="lazy">
+          <img src="img/school/faculty-training-2.webp" alt="London School Academic Plan training session" loading="lazy">
         </div>
         <div class="cpd-photo rv">
-          <img src="img/school/faculty-training-1.jpg" alt="Teacher being trained by presenter" loading="lazy">
+          <img src="img/school/faculty-training-1.webp" alt="Teacher being trained by presenter" loading="lazy">
         </div>
         <div class="cpd-photo rv">
-          <img src="img/school/faculty-training-3.jpg" alt="Full teacher training audience" loading="lazy">
+          <img src="img/school/faculty-training-3.webp" alt="Full teacher training audience" loading="lazy">
         </div>
         <div class="cpd-photo rv">
-          <img src="img/school/faculty-training-4.jpg" alt="Presenter at whiteboard in training session" loading="lazy">
+          <img src="img/school/faculty-training-4.webp" alt="Presenter at whiteboard in training session" loading="lazy">
         </div>
       </div>
     </div>

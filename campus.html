@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31"></script>
+  <!-- Google tag (gtag.js) — deferred for performance -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,6 +19,23 @@
       });
       return false;
     }
+    (function(){
+      var loaded = false;
+      function loadGtag(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31';
+        document.head.appendChild(s);
+      }
+      var triggers = ['scroll','click','keydown','touchstart','mousemove'];
+      triggers.forEach(function(t){ window.addEventListener(t, loadGtag, {once:true, passive:true}); });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGtag, 1500);
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadGtag, 1500); }, {once:true});
+      }
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Campus & School Life | London School — Prof. Waris Mir Campus, Lahore</title>
@@ -167,7 +183,7 @@
     <div class="facility-grid stg">
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/building-day.jpg" alt="London School main building" loading="eager">
+        <img class="facility-card__img" src="img/building-day.webp" alt="London School main building" loading="eager">
         <div class="facility-card__body">
           <div class="facility-card__tag">Main Building</div>
           <h3>Smart Classrooms</h3>
@@ -176,7 +192,7 @@
       </div>
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/school/campus-library-wide.jpg" alt="Library with mural and bookshelves" loading="lazy">
+        <img class="facility-card__img" src="img/school/campus-library-wide.webp" alt="Library with mural and bookshelves" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Library</div>
           <h3>The Knowledge Hub</h3>
@@ -185,7 +201,7 @@
       </div>
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/robotics-lab.jpg" alt="Robotics lab" loading="lazy">
+        <img class="facility-card__img" src="img/robotics-lab.webp" alt="Robotics lab" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Robotics Lab</div>
           <h3>Build. Break. Learn.</h3>
@@ -194,7 +210,7 @@
       </div>
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/computer-lab.jpg" alt="Computer lab with workstations" loading="lazy">
+        <img class="facility-card__img" src="img/computer-lab.webp" alt="Computer lab with workstations" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Computer Lab</div>
           <h3>AI & Coding Workstations</h3>
@@ -204,7 +220,7 @@
 
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/school/campus-play-area-indoor.jpg" alt="Indoor play area with slides and ball pit" loading="lazy">
+        <img class="facility-card__img" src="img/school/campus-play-area-indoor.webp" alt="Indoor play area with slides and ball pit" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Early Years</div>
           <h3>Indoor Play Area</h3>
@@ -213,7 +229,7 @@
       </div>
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/school/campus-assembly-hall.jpg" alt="Assembly hall with students in uniform" loading="lazy">
+        <img class="facility-card__img" src="img/school/campus-assembly-hall.webp" alt="Assembly hall with students in uniform" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Assembly Hall</div>
           <h3>Events & Gatherings</h3>
@@ -222,7 +238,7 @@
       </div>
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/school/life-music-class.jpg" alt="Music room with piano and students" loading="lazy">
+        <img class="facility-card__img" src="img/school/life-music-class.webp" alt="Music room with piano and students" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Music Room</div>
           <h3>Rhythm & Expression</h3>
@@ -231,7 +247,7 @@
       </div>
 
       <div class="facility-card rv">
-        <img class="facility-card__img" src="img/play-area.jpg" alt="Outdoor play area" loading="lazy">
+        <img class="facility-card__img" src="img/play-area.webp" alt="Outdoor play area" loading="lazy">
         <div class="facility-card__body">
           <div class="facility-card__tag">Sports & Play</div>
           <h3>25+ Sports Activities</h3>
@@ -319,57 +335,57 @@
     <div class="gallery-grid" id="galleryGrid">
 
       <div class="gallery-item rv" data-cat="events">
-        <img src="img/school/event-cultural-day-full.jpg" alt="Cultural Day — full school gathering in traditional dress" loading="lazy">
+        <img src="img/school/event-cultural-day-full.webp" alt="Cultural Day — full school gathering in traditional dress" loading="lazy">
         <div class="gallery-item__cap">Cultural Day — Full School</div>
       </div>
 
       <div class="gallery-item rv" data-cat="events">
-        <img src="img/school/event-cultural-day-nursery.jpg" alt="Nursery class in traditional dress for Cultural Day" loading="lazy">
+        <img src="img/school/event-cultural-day-nursery.webp" alt="Nursery class in traditional dress for Cultural Day" loading="lazy">
         <div class="gallery-item__cap">Cultural Day — Nursery</div>
       </div>
 
       <div class="gallery-item rv" data-cat="learning">
-        <img src="img/school/life-reading-corner.jpg" alt="Children reading in the library reading corner" loading="lazy">
+        <img src="img/school/life-reading-corner.webp" alt="Children reading in the library reading corner" loading="lazy">
         <div class="gallery-item__cap">Reading Corner</div>
       </div>
 
       <div class="gallery-item rv" data-cat="learning">
-        <img src="img/school/life-music-class.jpg" alt="Music and movement class with teacher and keyboard" loading="lazy">
+        <img src="img/school/life-music-class.webp" alt="Music and movement class with teacher and keyboard" loading="lazy">
         <div class="gallery-item__cap">Music & Movement Class</div>
       </div>
 
       <div class="gallery-item rv" data-cat="events">
-        <img src="img/school/event-student-podium.jpg" alt="Student giving a speech at the school podium" loading="lazy">
+        <img src="img/school/event-student-podium.webp" alt="Student giving a speech at the school podium" loading="lazy">
         <div class="gallery-item__cap">Student Assembly</div>
       </div>
 
       <div class="gallery-item rv" data-cat="nursery">
-        <img src="img/school/life-nursery-corridor.jpg" alt="Nursery children holding hands in a chain through the corridor" loading="lazy">
+        <img src="img/school/life-nursery-corridor.webp" alt="Nursery children holding hands in a chain through the corridor" loading="lazy">
         <div class="gallery-item__cap">Nursery Morning Activity</div>
       </div>
 
       <div class="gallery-item rv" data-cat="campus">
-        <img src="img/school/campus-library-wide.jpg" alt="Library with Newton to AI mural and students studying" loading="lazy">
+        <img src="img/school/campus-library-wide.webp" alt="Library with Newton to AI mural and students studying" loading="lazy">
         <div class="gallery-item__cap">The Library</div>
       </div>
 
       <div class="gallery-item rv" data-cat="campus">
-        <img src="img/school/campus-library-study.jpg" alt="Students studying together at a round table in the library" loading="lazy">
+        <img src="img/school/campus-library-study.webp" alt="Students studying together at a round table in the library" loading="lazy">
         <div class="gallery-item__cap">Group Study</div>
       </div>
 
       <div class="gallery-item rv" data-cat="campus">
-        <img src="img/school/campus-assembly-hall.jpg" alt="Students lined up in the assembly corridor in uniform" loading="lazy">
+        <img src="img/school/campus-assembly-hall.webp" alt="Students lined up in the assembly corridor in uniform" loading="lazy">
         <div class="gallery-item__cap">Morning Assembly</div>
       </div>
 
       <div class="gallery-item rv" data-cat="nursery">
-        <img src="img/school/campus-play-area-indoor.jpg" alt="Indoor play area with ball pit and slide" loading="lazy">
+        <img src="img/school/campus-play-area-indoor.webp" alt="Indoor play area with ball pit and slide" loading="lazy">
         <div class="gallery-item__cap">Indoor Play Area</div>
       </div>
 
       <div class="gallery-item rv" data-cat="campus">
-        <img src="img/school/campus-library-mural.jpg" alt="Library mural — From Newton's Laws to the Age of AI" loading="lazy">
+        <img src="img/school/campus-library-mural.webp" alt="Library mural — From Newton's Laws to the Age of AI" loading="lazy">
         <div class="gallery-item__cap">"Knowledge Moves the World" Mural</div>
       </div>
 
@@ -389,7 +405,7 @@
     <div class="video-grid stg">
 
       <div class="video-wrap rv">
-        <video controls preload="none" poster="img/building-day.jpg">
+        <video controls preload="none" poster="img/building-day.webp">
           <source src="img/videos/campus-tour.mp4" type="video/mp4">
         </video>
         <div class="video-wrap__label">
@@ -399,7 +415,7 @@
       </div>
 
       <div class="video-wrap rv">
-        <video controls preload="none" poster="img/school/campus-library-wide.jpg">
+        <video controls preload="none" poster="img/school/campus-library-wide.webp">
           <source src="img/videos/campus-facilities.mp4" type="video/mp4">
         </video>
         <div class="video-wrap__label">
@@ -409,7 +425,7 @@
       </div>
 
       <div class="video-wrap rv">
-        <video controls preload="none" poster="img/school/event-cultural-day-full.jpg">
+        <video controls preload="none" poster="img/school/event-cultural-day-full.webp">
           <source src="img/videos/school-life-3.mp4" type="video/mp4">
         </video>
         <div class="video-wrap__label">

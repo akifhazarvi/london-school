@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31"></script>
+  <!-- Google tag (gtag.js) — deferred for performance -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,6 +19,23 @@
       });
       return false;
     }
+    (function(){
+      var loaded = false;
+      function loadGtag(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31';
+        document.head.appendChild(s);
+      }
+      var triggers = ['scroll','click','keydown','touchstart','mousemove'];
+      triggers.forEach(function(t){ window.addEventListener(t, loadGtag, {once:true, passive:true}); });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGtag, 1500);
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadGtag, 1500); }, {once:true});
+      }
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI & Robotics School in Lahore — Cambridge Pathway | London School</title>
@@ -206,7 +222,7 @@
     <!-- RIGHT: visual -->
     <div class="ai-p-hero__visual">
       <div class="ai-p-hero__photo">
-        <img src="img/robotics-lab.jpg" alt="Students at London School's purpose-built Robotics Lab, with LEGO Mindstorms and Arduino equipment" loading="eager" width="720" height="560">
+        <img src="img/robotics-lab.webp" alt="Students at London School's purpose-built Robotics Lab, with LEGO Mindstorms and Arduino equipment" loading="eager" width="720" height="560">
       </div>
 
       <!-- Floating credential card (top-right) -->
@@ -304,7 +320,7 @@
         <p>This philosophy sits naturally alongside the vision of our founder's legacy, <strong>Prof. Waris Mir</strong> — that the purpose of education is "not to fill minds, but to open them." Our AI and robotics programme opens minds to what is possible, one developmentally appropriate stage at a time.</p>
       </div>
       <div class="ai-p-why__img rv">
-        <img src="img/computer-lab.jpg" alt="Young students at the London School AI lab, working with teachers on age-appropriate coding activities" loading="lazy" width="720" height="480">
+        <img src="img/computer-lab.webp" alt="Young students at the London School AI lab, working with teachers on age-appropriate coding activities" loading="lazy" width="720" height="480">
       </div>
     </div>
   </div>

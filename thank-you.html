@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -21,6 +20,23 @@
       return false;
     }
     gtag('event', 'conversion', {'send_to': 'AW-18119617331/Cg6ZCOqvwqIcELPWjcBD'});
+    (function(){
+      var loaded = false;
+      function loadGtag(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31';
+        document.head.appendChild(s);
+      }
+      var triggers = ['scroll','click','keydown','touchstart','mousemove'];
+      triggers.forEach(function(t){ window.addEventListener(t, loadGtag, {once:true, passive:true}); });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGtag, 1500);
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadGtag, 1500); }, {once:true});
+      }
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thanks — We'll Call You Soon | London School Lahore</title>

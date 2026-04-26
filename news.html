@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31"></script>
+  <!-- Google tag (gtag.js) — deferred for performance -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,6 +19,23 @@
       });
       return false;
     }
+    (function(){
+      var loaded = false;
+      function loadGtag(){
+        if (loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31';
+        document.head.appendChild(s);
+      }
+      var triggers = ['scroll','click','keydown','touchstart','mousemove'];
+      triggers.forEach(function(t){ window.addEventListener(t, loadGtag, {once:true, passive:true}); });
+      if (document.readyState === 'complete') {
+        setTimeout(loadGtag, 1500);
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadGtag, 1500); }, {once:true});
+      }
+    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News & Events | London School — Prof. Waris Mir Campus, Lahore</title>
@@ -223,7 +239,7 @@
 
       <!-- FEATURED: Hamid Mir Inauguration -->
       <div class="news-card news-card--featured rv" data-cat="event">
-        <img src="img/school/event-hamid-mir-inauguration.jpg" alt="Hamid Mir speaking at the London School — Prof. Waris Mir Campus inauguration" class="news-card__image" loading="lazy">
+        <img src="img/school/event-hamid-mir-inauguration.webp" alt="Hamid Mir speaking at the London School — Prof. Waris Mir Campus inauguration" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__featured-flag">Featured Story</div>
           <div class="news-card__date">
@@ -239,7 +255,7 @@
 
       <!-- Announcement: Admissions -->
       <div class="news-card rv" data-cat="announce">
-        <img src="img/prospectus-banner.jpg" alt="London School admissions prospectus" class="news-card__image" loading="lazy">
+        <img src="img/prospectus-banner.webp" alt="London School admissions prospectus" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
@@ -254,7 +270,7 @@
 
       <!-- Event: Cultural Day -->
       <div class="news-card rv" data-cat="event">
-        <img src="img/school/event-cultural-day-full.jpg" alt="Cultural Day celebration" class="news-card__image" loading="lazy">
+        <img src="img/school/event-cultural-day-full.webp" alt="Cultural Day celebration" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
@@ -269,7 +285,7 @@
 
       <!-- Announcement: Virtual Tour -->
       <div class="news-card rv" data-cat="announce">
-        <img src="img/hallway-london.jpg" alt="London School hallway — virtual tour" class="news-card__image" loading="lazy">
+        <img src="img/hallway-london.webp" alt="London School hallway — virtual tour" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
@@ -286,7 +302,7 @@
 
       <!-- Announcement: Robotics Lab -->
       <div class="news-card rv" data-cat="announce">
-        <img src="img/robotics-lab.jpg" alt="Robotics lab" class="news-card__image" loading="lazy">
+        <img src="img/robotics-lab.webp" alt="Robotics lab" class="news-card__image" loading="lazy">
         <div class="news-card__body">
           <div class="news-card__date">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5a3 3 0 00-3 3v14a3 3 0 003 3h14a3 3 0 003-3V6a3 3 0 00-3-3zm0 17H5V8h14v12z"/></svg>
