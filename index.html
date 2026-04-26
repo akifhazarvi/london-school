@@ -63,7 +63,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
-  <link rel="preload" as="image" href="img/videos/hero-intro-poster.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="img/videos/hero-intro-poster.webp" fetchpriority="high" type="image/webp">
 
   <!-- Theme & Icons -->
   <meta name="theme-color" content="#C1353D">
@@ -212,7 +212,7 @@
 <nav class="nav" id="nav">
   <div class="container nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest">
+      <img src="img/logo-icon.png" alt="London School crest" class="nav__crest" decoding="async" fetchpriority="high">
       <div class="nav__name">London School<small>Prof. Waris Mir Campus</small></div>
     </a>
     <div class="nav__links">
@@ -331,7 +331,7 @@
     <div class="prog-grid stg">
       <div class="prog prog--discover rv">
         <div class="prog__img prog__img--discover">
-          <img src="img/computer-lab.webp" alt="The London School computer lab with modern workstations and green-dot feature wall" class="prog__photo" loading="lazy" width="800" height="450">
+          <img src="img/computer-lab.webp" alt="The London School computer lab with modern workstations and green-dot feature wall" class="prog__photo" loading="lazy" width="800" height="450" decoding="async">
           <span class="prog__badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4L22 12l-7.6 2.6L12 22l-2.4-7.4L2 12l7.6-2.6L12 2z"/></svg>AI Lab</span>
         </div>
         <h3 class="prog__title">Discover</h3>
@@ -340,7 +340,7 @@
       </div>
       <div class="prog prog--create rv">
         <div class="prog__img prog__img--create">
-          <img src="img/robotics-lab.webp" alt="The London School Robotics Lab with tool wall, stools, and Robotics & AI mural" class="prog__photo" loading="lazy" width="800" height="450">
+          <img src="img/robotics-lab.webp" alt="The London School Robotics Lab with tool wall, stools, and Robotics & AI mural" class="prog__photo" loading="lazy" width="800" height="450" decoding="async">
           <span class="prog__badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zm8.5 4l-1.7-1.7V7l-3-1.5L14 3.5h-4L8.2 5.5 5.2 7v3.3L3.5 12l1.7 1.7V17l3 1.5 1.8 2h4l1.8-2 3-1.5v-3.3z"/></svg>Robotics</span>
         </div>
         <h3 class="prog__title">Create</h3>
@@ -349,7 +349,7 @@
       </div>
       <div class="prog prog--move rv">
         <div class="prog__img prog__img--move">
-          <img src="img/play-area.webp" alt="The London School indoor play area with slide, ride-ons, and 'Let's Play' wall mural" class="prog__photo" loading="lazy" width="800" height="450">
+          <img src="img/play-area.webp" alt="The London School indoor play area with slide, ride-ons, and 'Let's Play' wall mural" class="prog__photo" loading="lazy" width="800" height="450" decoding="async">
           <span class="prog__badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4.5 12.5h6L9 22l8.5-10.5h-6L13 2z"/></svg>Let's Play</span>
         </div>
         <h3 class="prog__title">Move</h3>
@@ -358,7 +358,7 @@
       </div>
       <div class="prog prog--grow rv">
         <div class="prog__img prog__img--grow">
-          <img src="img/hallway-london.webp" alt="The London School hallway with London skyline mural and Prof. Waris Mir Campus branding" class="prog__photo" loading="lazy" width="800" height="450">
+          <img src="img/hallway-london.webp" alt="The London School hallway with London skyline mural and Prof. Waris Mir Campus branding" class="prog__photo" loading="lazy" width="800" height="450" decoding="async">
           <span class="prog__badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 12.28l-4.5-2.46v3.13l4.5 2.45 4.5-2.45v-3.13L12 15.28z"/></svg>Cambridge</span>
         </div>
         <h3 class="prog__title">Grow</h3>
@@ -428,7 +428,7 @@
     <!-- FOUNDER & LEGACY -->
     <div class="about__founder rv" style="margin-bottom:clamp(3rem,8vw,6rem)">
       <div class="about__founder-grid">
-        <div class="about__founder-img"><img src="img/waris-mir.jpg" alt="Prof. Waris Mir" loading="lazy"></div>
+        <div class="about__founder-img"><img src="img/waris-mir.jpg" alt="Prof. Waris Mir" loading="lazy" decoding="async"></div>
         <div class="about__founder-text">
           <div class="sec-label"><i></i> Our Legacy</div>
           <h2>Founded on Prof. Waris Mir's Vision</h2>
@@ -447,21 +447,21 @@
       </div>
       <div class="leadership__grid">
         <figure class="leader-card">
-          <div class="leader-card__img"><img src="img/huma-mir.webp" alt="Huma Mir, Director" loading="lazy" style="object-position:center 22%"></div>
+          <div class="leader-card__img"><img src="img/huma-mir.webp" alt="Huma Mir, Director" loading="lazy" style="object-position:center 22%" decoding="async"></div>
           <figcaption>
             <strong>Huma Mir</strong>
             <span>Director</span>
           </figcaption>
         </figure>
         <figure class="leader-card leader-card--featured">
-          <div class="leader-card__img"><img src="img/naveela-choudhary.webp" alt="Naveela Choudhary, Chief Executive Officer" loading="lazy" style="object-position:center 38%"></div>
+          <div class="leader-card__img"><img src="img/naveela-choudhary.webp" alt="Naveela Choudhary, Chief Executive Officer" loading="lazy" style="object-position:center 38%" decoding="async"></div>
           <figcaption>
             <strong>Naveela Choudhary</strong>
             <span>Chief Executive Officer</span>
           </figcaption>
         </figure>
         <figure class="leader-card">
-          <div class="leader-card__img"><img src="img/zoya-mir.webp" alt="Zoya Mir, Director" loading="lazy"></div>
+          <div class="leader-card__img"><img src="img/zoya-mir.webp" alt="Zoya Mir, Director" loading="lazy" decoding="async"></div>
           <figcaption>
             <strong>Zoya Mir</strong>
             <span>Director</span>
@@ -482,10 +482,10 @@
       <p class="sec-desc">Purpose-built for learning, playing, and growing.</p>
     </div>
     <div class="mosaic stg">
-      <div class="tile rv"><img src="img/hallway-play.webp" alt="Corridor" loading="lazy"><div class="tile__cap"><strong>Main Building</strong><small>Smart classrooms with digital whiteboards</small></div></div>
-      <div class="tile rv"><img src="img/robotics-lab.webp" alt="Robotics" loading="lazy"><div class="tile__cap"><strong>Robotics Lab</strong><small>LEGO, Arduino & tool wall</small></div></div>
-      <div class="tile rv"><img src="img/computer-lab.webp" alt="Computers" loading="lazy"><div class="tile__cap"><strong>Computer Lab</strong><small>Coding & AI workstations</small></div></div>
-      <div class="tile rv"><img src="img/play-area.webp" alt="Play area" loading="lazy"><div class="tile__cap"><strong>Play Area</strong><small>Where creativity runs free</small></div></div>
+      <div class="tile rv"><img src="img/hallway-play.webp" alt="Corridor" loading="lazy" decoding="async"><div class="tile__cap"><strong>Main Building</strong><small>Smart classrooms with digital whiteboards</small></div></div>
+      <div class="tile rv"><img src="img/robotics-lab.webp" alt="Robotics" loading="lazy" decoding="async"><div class="tile__cap"><strong>Robotics Lab</strong><small>LEGO, Arduino & tool wall</small></div></div>
+      <div class="tile rv"><img src="img/computer-lab.webp" alt="Computers" loading="lazy" decoding="async"><div class="tile__cap"><strong>Computer Lab</strong><small>Coding & AI workstations</small></div></div>
+      <div class="tile rv"><img src="img/play-area.webp" alt="Play area" loading="lazy" decoding="async"><div class="tile__cap"><strong>Play Area</strong><small>Where creativity runs free</small></div></div>
     </div>
   </div>
 </section>
@@ -624,7 +624,7 @@
 <footer class="ft">
   <div class="container"><div class="ft__grid">
     <div class="ft__about">
-      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
+      <div class="nav__logo"><img src="img/logo-icon.png" alt="Crest" class="nav__crest" decoding="async" fetchpriority="high"><div class="nav__name" style="color:white">London School<small style="color:var(--sand-400)">Prof. Waris Mir Campus</small></div></div>
       <p>A Cambridge Pathway Registered school in Lahore, affiliated with LAPS. We pair the Cambridge curriculum with an early-years AI &amp; robotics programme in a warm, nurturing environment named in honour of the late Prof. Waris Mir.</p>
       <div class="ft__socials">
         <a href="https://www.facebook.com/londonschoolwarismir/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
