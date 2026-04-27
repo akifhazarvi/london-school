@@ -9,9 +9,16 @@
   'use strict';
 
   function track(name, props){
+    /* Send to Vercel Analytics */
     try {
       if (typeof window.va === 'function') {
         window.va('event', Object.assign({ name: name }, props || {}));
+      }
+    } catch(e) { /* silent */ }
+    /* Mirror to GA4 so the same event shows in both platforms */
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, props || {});
       }
     } catch(e) { /* silent */ }
   }
@@ -55,6 +62,18 @@
     if (!a) return;
     if (path.indexOf('enroll.html') !== -1) return; /* already on enroll, skip */
     track('enroll_cta_click', {
+      label: (a.textContent || '').trim().slice(0, 60),
+      page: path
+    });
+  }, true);
+
+  /* ── Book-a-spot clicks (in-page anchors to #leadForm on enroll.html) ──
+     These are the "Reserve Spot" / "Book Free Tour" / "Get My Fee Plan" buttons
+     that scroll to the form. We treat the click as primary lead intent. */
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest && ev.target.closest('a[href="#leadForm"]');
+    if (!a) return;
+    track('book_spot_click', {
       label: (a.textContent || '').trim().slice(0, 60),
       page: path
     });
