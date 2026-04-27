@@ -384,7 +384,7 @@
 })();
 
 /* ═══════════════════════════════════════════════════════════════
-   LEAD FORM HANDLER — UTM capture + Pixel Lead event + submit
+   LEAD FORM HANDLER — UTM capture + GA4 generate_lead + submit
    Runs only on pages with #leadForm. Backend-agnostic:
    posts form data as FormData to whatever URL is set in
    data-endpoint (Web3Forms, Google Apps Script, etc.)
@@ -404,18 +404,6 @@
     var lp = document.getElementById('landing_page');
     if (lp) lp.value = window.location.pathname + window.location.search;
   } catch(e){ /* silent */ }
-
-  /* ── WhatsApp click tracking (fires Contact event on any [data-wa-cta]) ── */
-  document.querySelectorAll('a[data-wa-cta]').forEach(function(a){
-    a.addEventListener('click', function(){
-      if (typeof fbq === 'function') {
-        fbq('track', 'Contact', {
-          source: 'whatsapp',
-          placement: a.getAttribute('data-wa-cta') || 'unknown'
-        });
-      }
-    });
-  });
 
   /* ── Lead form submit ── */
   var form = document.getElementById('leadForm');
@@ -463,16 +451,6 @@
     if (form.botcheck && form.botcheck.checked) {
       window.location.href = form.getAttribute('data-redirect') || 'thank-you.html';
       return;
-    }
-
-    /* Fire Meta Pixel Lead event immediately (before network call) */
-    if (typeof fbq === 'function') {
-      fbq('track', 'Lead', {
-        content_name: 'Admissions Form',
-        content_category: form.grade.value || 'unspecified',
-        value: 18000,
-        currency: 'PKR'
-      });
     }
 
     /* GA4 generate_lead — recommended event for lead-gen attribution */

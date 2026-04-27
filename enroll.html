@@ -61,32 +61,6 @@
   <link rel="icon" href="img/logo-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/logo-icon.png">
 
-  <!-- =========================================================
-    SETUP REQUIRED before running Meta ads:
-    1. Paste Meta Pixel ID into the PIXEL_ID variable below
-       (also paste the same ID into thank-you.html).
-    2. Form backend: Google Apps Script webhook already wired via
-       the <form data-endpoint="…"> attribute. Leads land in Sheet
-       and email info@londoneducation.pk.
-  ========================================================= -->
-
-  <!-- Meta Pixel — guarded so no events fire until a real ID is set. Paste the Pixel ID from Meta Business Manager into PIXEL_ID below (e.g. '1234567890123456') to activate. -->
-  <script>
-  (function(){
-    var PIXEL_ID = ''; /* paste Meta Pixel ID here to activate */
-    if (!PIXEL_ID) return;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', PIXEL_ID);
-    fbq('track','PageView');
-    fbq('track','ViewContent',{content_name:'Admissions Landing Page',content_category:'Enrollment'});
-    window.__LS_PIXEL_READY = true;
-  })();
-  </script>
-  <!-- /Meta Pixel -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">

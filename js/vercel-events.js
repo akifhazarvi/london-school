@@ -1,6 +1,6 @@
 /* Vercel Web Analytics — custom event tracking
-   Mirrors the GA/Meta Pixel events already wired in main.js so we get
-   a clean second-source funnel view in Vercel dashboard.
+   Mirrors the GA4 events already wired in main.js so we get a clean
+   second-source funnel view in Vercel dashboard.
 
    Vercel exposes window.va('event', { name, ...props }) once
    /_vercel/insights/script.js loads. We guard every call so this

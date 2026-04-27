@@ -7,7 +7,7 @@
    1. Rotating teaser bubble (page-specific messages, every 7s)
    2. Expanded panel: Book Visit / WhatsApp / Call + mini callback form
    3. Exit-intent modal (desktop mouseleave + mobile rapid scroll-up)
-   4. Pixel events: InitiateCheckout, Contact, Lead — with source tags
+   4. GA4 + Vercel events: widget_open, whatsapp_click, phone_click, book_spot_click, generate_lead
 
    Suppressed on:  enroll.html (own form), 404.html
    Minimal on:     thank-you.html (post-submit)
@@ -104,17 +104,7 @@
   if (oldWa) oldWa.remove();
 
   /* ── HELPERS ── */
-  /* fire() = Meta Pixel standard event. fireCustom() = Pixel custom event.
-     trackAll() mirrors to GA4 + Vercel Analytics so widget interactions are
-     visible in every analytics platform — previously they only hit Pixel. */
-  function fire(event, params) {
-    try { if (typeof fbq === 'function') fbq('track', event, params || {}); }
-    catch(e){ /* silent */ }
-  }
-  function fireCustom(event, params) {
-    try { if (typeof fbq === 'function') fbq('trackCustom', event, params || {}); }
-    catch(e){ /* silent */ }
-  }
+  /* trackAll() fires GA4 + Vercel Analytics events for any widget interaction. */
   function trackAll(name, props){
     var p = props || {};
     try { if (typeof window.gtag === 'function') window.gtag('event', name, p); } catch(e){}
@@ -338,8 +328,6 @@
     panel.setAttribute('aria-hidden', 'false');
     panelOpenedAt = Date.now();
     hideTeaser();
-    fire('InitiateCheckout', { source: 'widget', page: pageKey });
-    fireCustom('WidgetOpen', { page: pageKey });
     trackPanelOpen();
   }
   function closePanel(){
@@ -375,10 +363,6 @@
   panel.querySelectorAll('[data-w-cta]').forEach(function(a){
     a.addEventListener('click', function(){
       var cta = a.getAttribute('data-w-cta');
-      fireCustom('WidgetCTA', { cta: cta, page: pageKey });
-      if (cta === 'whatsapp') fire('Contact', { source: 'widget-wa', page: pageKey });
-      if (cta === 'call')     fire('Contact', { source: 'widget-call', page: pageKey });
-      /* Mirror to GA4 + Vercel using the same event names used elsewhere on the site */
       if (cta === 'whatsapp') trackAll('whatsapp_click', { source: 'widget-' + pageKey, cta: 'widget', page: path });
       else if (cta === 'call') trackAll('phone_click', { source: 'widget-' + pageKey, page: path });
       else if (cta === 'book') trackAll('book_spot_click', { source: 'widget-' + pageKey, page: path });
@@ -425,15 +409,8 @@
     formBtn.disabled = true;
     formBtn.innerHTML = '<span class="ls-w__spin"></span>';
 
-    /* Fire Pixel Lead */
-    fire('Lead', {
-      content_name: 'Widget Callback',
-      content_category: 'Widget',
-      source: 'widget',
-      value: 18000, currency: 'PKR'
-    });
-    /* Mirror as generate_lead to GA4 + Vercel — same event name as the
-       main enroll form so both surfaces feed the same Key Event in GA4 */
+    /* GA4 + Vercel generate_lead — same event name as the main enroll form
+       so both surfaces feed the same Key Event in GA4 */
     trackAll('generate_lead', {
       form_id: 'widget',
       source: 'widget-' + pageKey,
@@ -441,7 +418,6 @@
       value: 18000,
       currency: 'PKR'
     });
-    fireCustom('WidgetFormSubmit', { page: pageKey });
 
     postForm(form, 'widget', function(){
       form.hidden = true;
@@ -496,7 +472,7 @@
     eiRoot.classList.add('is-visible');
     eiRoot.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    fireCustom('ExitIntentShown', { trigger: trigger, page: pageKey });
+    trackAll('exit_intent_shown', { trigger: trigger, page: path });
   }
   function hideExitIntent(){
     eiRoot.classList.remove('is-visible');
@@ -557,11 +533,12 @@
     btn.disabled = true;
     btn.innerHTML = 'Sending…';
 
-    fire('Lead', {
-      content_name: 'Exit Intent',
-      content_category: 'ExitIntent',
-      source: 'exit_intent',
-      value: 18000, currency: 'PKR'
+    trackAll('generate_lead', {
+      form_id: 'exit_intent',
+      source: 'exit_intent-' + pageKey,
+      page: path,
+      value: 18000,
+      currency: 'PKR'
     });
 
     postForm(eiForm, 'exit_intent', function(){
