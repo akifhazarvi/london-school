@@ -104,6 +104,9 @@
   if (oldWa) oldWa.remove();
 
   /* ── HELPERS ── */
+  /* fire() = Meta Pixel standard event. fireCustom() = Pixel custom event.
+     trackAll() mirrors to GA4 + Vercel Analytics so widget interactions are
+     visible in every analytics platform — previously they only hit Pixel. */
   function fire(event, params) {
     try { if (typeof fbq === 'function') fbq('track', event, params || {}); }
     catch(e){ /* silent */ }
@@ -111,6 +114,11 @@
   function fireCustom(event, params) {
     try { if (typeof fbq === 'function') fbq('trackCustom', event, params || {}); }
     catch(e){ /* silent */ }
+  }
+  function trackAll(name, props){
+    var p = props || {};
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, p); } catch(e){}
+    try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: name }, p)); } catch(e){}
   }
   function esc(s){ return String(s || '').replace(/[<>&"']/g, function(c){
     return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c];
@@ -332,6 +340,7 @@
     hideTeaser();
     fire('InitiateCheckout', { source: 'widget', page: pageKey });
     fireCustom('WidgetOpen', { page: pageKey });
+    trackPanelOpen();
   }
   function closePanel(){
     wrapper.classList.remove('is-open');
@@ -369,8 +378,20 @@
       fireCustom('WidgetCTA', { cta: cta, page: pageKey });
       if (cta === 'whatsapp') fire('Contact', { source: 'widget-wa', page: pageKey });
       if (cta === 'call')     fire('Contact', { source: 'widget-call', page: pageKey });
+      /* Mirror to GA4 + Vercel using the same event names used elsewhere on the site */
+      if (cta === 'whatsapp') trackAll('whatsapp_click', { source: 'widget-' + pageKey, cta: 'widget', page: path });
+      else if (cta === 'call') trackAll('phone_click', { source: 'widget-' + pageKey, page: path });
+      else if (cta === 'book') trackAll('book_spot_click', { source: 'widget-' + pageKey, page: path });
+      else trackAll('widget_cta_click', { cta: cta, page: path });
     });
   });
+
+  /* Track when the widget panel opens (engagement signal) */
+  function trackPanelOpen(){
+    if (panel.dataset.tracked === '1') return;
+    panel.dataset.tracked = '1';
+    trackAll('widget_open', { page: path, source: pageKey });
+  }
 
   /* ── MINI FORM SUBMIT ── */
   phoneInput.addEventListener('input', function(){
@@ -410,6 +431,15 @@
       content_category: 'Widget',
       source: 'widget',
       value: 18000, currency: 'PKR'
+    });
+    /* Mirror as generate_lead to GA4 + Vercel — same event name as the
+       main enroll form so both surfaces feed the same Key Event in GA4 */
+    trackAll('generate_lead', {
+      form_id: 'widget',
+      source: 'widget-' + pageKey,
+      page: path,
+      value: 18000,
+      currency: 'PKR'
     });
     fireCustom('WidgetFormSubmit', { page: pageKey });
 

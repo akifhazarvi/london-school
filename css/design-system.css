@@ -54,7 +54,13 @@
   /* WhatsApp brand green (used only for the official WhatsApp icon) */
   --wa-green:#25D366;
 }
-@media (max-width:600px){:root{--banner-h:44px;--nav-h:64px}}
+@media (max-width:600px){
+  :root{--banner-h:44px;--nav-h:64px}
+  /* Hit iOS 44px / Android 48px tap-target minimum on mobile. Default
+     .btn--sm renders at ~36px tall — too small next to the burger menu. */
+  .btn{min-height:44px}
+  .btn--sm{min-height:44px;padding:10px 18px}
+}
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
