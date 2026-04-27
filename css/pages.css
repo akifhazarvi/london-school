@@ -703,8 +703,8 @@
 /* ── Tablet/Mobile ── */
 @media (max-width: 960px) {
   .adm-hero-ad__grid { grid-template-columns: 1fr; gap: var(--s-6); }
-  .lead-form-wrap { position: static; }
-  .adm-hero-ad__content { padding-top: 0; }
+  .lead-form-wrap { position: static; order: 1; }
+  .adm-hero-ad__content { padding-top: 0; order: 2; }
   .adm-hero-ad__h1 { font-size: clamp(1.8rem, 6vw, 2.4rem); }
 }
 @media (max-width: 600px) {
