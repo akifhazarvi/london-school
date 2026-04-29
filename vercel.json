@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/london-school", "destination": "/", "permanent": true },
+    { "source": "/london-school/", "destination": "/", "permanent": true },
+    { "source": "/london-school/index.html", "destination": "/", "permanent": true },
+    { "source": "/london-school/:path*", "destination": "/:path*", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
