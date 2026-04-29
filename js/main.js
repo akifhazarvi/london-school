@@ -413,6 +413,22 @@
   var originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
   var phoneInput = form.querySelector('#phone');
 
+  /* form_start — fires once when the user first interacts with any field.
+     Mirrors the widget's form_start so both surfaces feed the same Key Event
+     in GA4 and the same Vercel custom event. */
+  var formStartFired = false;
+  function fireFormStart(){
+    if (formStartFired) return;
+    formStartFired = true;
+    var props = { form_id: form.id || 'leadForm', source: 'enroll', page: location.pathname };
+    try { if (typeof gtag === 'function') gtag('event', 'form_start', props); } catch(e){}
+    try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: 'form_start' }, props)); } catch(e){}
+  }
+  Array.prototype.forEach.call(form.querySelectorAll('input, select, textarea'), function(el){
+    el.addEventListener('focus', fireFormStart, { once: true });
+    el.addEventListener('input', fireFormStart);
+  });
+
   /* Pakistan phone cleanup: strip non-digits except leading + */
   if (phoneInput) {
     phoneInput.addEventListener('input', function(){
@@ -453,16 +469,18 @@
       return;
     }
 
-    /* GA4 generate_lead — recommended event for lead-gen attribution */
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        form_id: form.id || 'leadForm',
-        grade: form.grade ? form.grade.value : 'unspecified',
-        value: 18000,
-        currency: 'PKR',
-        page_path: location.pathname
-      });
-    }
+    /* generate_lead — fires on GA4 (Key Event for Google Ads import) AND
+       Vercel (custom event for funnel reports) in lockstep. Single source of
+       truth, no duplicate handler in vercel-events.js. */
+    var leadProps = {
+      form_id: form.id || 'leadForm',
+      grade: form.grade ? form.grade.value : 'unspecified',
+      value: 18000,
+      currency: 'PKR',
+      page: location.pathname
+    };
+    try { if (typeof gtag === 'function') gtag('event', 'generate_lead', leadProps); } catch(e){}
+    try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: 'generate_lead' }, leadProps)); } catch(e){}
 
     if (submitBtn) {
       submitBtn.disabled = true;
