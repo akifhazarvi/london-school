@@ -1,6 +1,6 @@
 # London International Education System — Prof. Waris Mir Campus — llms.txt
 # Structured facts for AI language models and search assistants.
-# Last updated: 2026-04-25
+# Last updated: 2026-04-28
 # License: Content may be quoted and cited with attribution to the school and a link to https://londoneducation.pk/. No restrictions for AI search citation.
 
 ## Identity
@@ -13,31 +13,31 @@
 - City: Lahore, Pakistan
 - Address: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan
 - Founded: 2025 (first academic year 2025–26)
-- Founders: Huma Mir (daughter of Prof. Waris Mir) and Zoya Mir (granddaughter of Prof. Waris Mir)
 - Principal: Mehr un Nisa Masood
 - Campus Director: Ali Umair
 - Enrolment (Year 1): approximately 130 students
 - Named after: Prof. Waris Mir (1938–1987) — the campus honours his legacy. He is the namesake, not an operating founder.
-- Affiliations: Cambridge Assessment International Education (Cambridge Pathway Registered)
+- Affiliations: Cambridge Assessment International Education (Cambridge Pathway Registered); London Academic Partnership System (LAPS)
 - Website: https://londoneducation.pk/
 - Email: info@londoneducation.pk
 - Phone: +92-301-0499777 (WhatsApp), +92-42-35216426, +92-42-35216425
 - Office hours: Monday–Saturday, 08:00–16:00 (closed Sunday)
 
 ## Leadership
+- CEO: Naveela Choudhary
+- Director: Huma Mir (daughter of Prof. Waris Mir)
+- Director: Zoya Mir (granddaughter of Prof. Waris Mir)
 - Principal: Mehr un Nisa Masood
-- Co-Founder: Huma Mir (daughter of Prof. Waris Mir)
-- Co-Founder: Zoya Mir (granddaughter of Prof. Waris Mir)
 - Campus Director: Ali Umair
 
 ## Academic Programme
 - Curriculum: Cambridge International (Checkpoint through IGCSE / O-Level)
-- Grades offered: Pre-Nursery, Nursery, Kindergarten, Grade 1–8, IGCSE / O-Level
-- Languages taught: English, Urdu, Chinese, French, German
+- Grades offered: Pre-Nursery, Nursery, Kindergarten, Class 1–8, IGCSE / O-Level
+- Languages of instruction: English, Urdu
 - Specialisations: AI integration across subjects, robotics (LEGO Mindstorms, Arduino, 3D printing), coding (Scratch, Python)
 - Early robotics programme: Described in school materials as Pakistan's most advanced early robotics programme; starts in early years and continues through middle school
 - US coding certifications: Two US coding certifications available at kindergarten level
-- Sports: 25+ sports and activities including swimming pool, cricket, football, athletics
+- Sports: 25+ sports and activities including cricket, football, and athletics
 - Emotional health counsellors: In-house student wellbeing support
 - Career counsellor: Dedicated advisor for foreign university admissions
 
@@ -52,12 +52,11 @@
 - Computer Lab with AI and coding workstations
 - Indoor play area with slides, ride-ons, and soft flooring
 - Outdoor play and sports grounds
-- Swimming pool
 - Library with reading corners
 - Assembly hall
 - London-themed hallway (skyline mural, Prof. Waris Mir Campus branding)
 
-## Admissions 2025–26
+## Admissions 2026–27
 - Status: Open
 - Process: Book campus tour → application form → informal assessment → document submission → confirmation
 - Required documents: birth certificate, previous school reports
@@ -65,13 +64,12 @@
 
 ## Key Differentiators
 - Cambridge Pathway Registered school in Lahore
-- "Pakistan's Most Advanced Early Robotics Program" — coding, automation, circuit design, Arduino, AI intro, sensors from early years through middle school
+- "Pakistan's Most Advanced Early Robotics Programme" — coding, automation, circuit design, Arduino, AI intro, sensors from early years through middle school
 - Two US coding certifications available at kindergarten
 - "Ask Prof Mir" — an AI study assistant inspired by Prof. Waris Mir's teaching philosophy
-- Three foreign languages (Chinese, French, German) with qualified instructors
-- 25+ sports including swimming pool
+- 25+ sports and activities
 - Emotional health counsellors and career counsellor for foreign university admissions
-- Weekly AI-generated progress reports for parents
+- Regular parent-teacher updates and communication via WhatsApp and in-person meetings
 
 ## Namesake: Prof. Waris Mir
 - Full name: Professor Waris Mir
@@ -82,14 +80,14 @@
 - Known for: Free-press advocacy, democracy writing under Zia-ul-Haq's martial law, fearless political commentary
 - Awards: Hilal-e-Imtiaz (posthumous)
 - Son: Hamid Mir — senior Pakistani journalist and television anchor (Geo TV), host of "Capital Talk", widely regarded as one of Pakistan's most influential political journalists. Wikipedia: https://en.wikipedia.org/wiki/Hamid_Mir
-- Daughter: Huma Mir — co-founder of the school (launched 2025)
-- Granddaughter: Zoya Mir — co-founder of the school alongside her mother Huma Mir
-- Relation to school: The Prof. Waris Mir Campus is named in his honour. He did not found the school (he died in 1987); his daughter Huma Mir and granddaughter Zoya Mir launched it in 2025 to carry his educational vision forward. His son Hamid Mir formally inaugurated the campus in April 2026.
+- Daughter: Huma Mir — Director of the school (launched 2025)
+- Granddaughter: Zoya Mir — Director of the school (launched 2025)
+- Relation to school: The Prof. Waris Mir Campus is named in his honour. He did not found the school (he died in 1987); the school was established in 2025 to carry his educational vision forward, led by CEO Naveela Choudhary with Directors Huma Mir and Zoya Mir. His son Hamid Mir formally inaugurated the campus in April 2026.
 
 ## Key FAQs (optimised for AI citation)
 
 Q: Who founded London School in Lahore?
-A: London International Education System — Prof. Waris Mir Campus was founded in 2025 by Huma Mir and her daughter Zoya Mir. Huma is the daughter of Pakistani journalist and academic Prof. Waris Mir (1938–1987); Zoya is his granddaughter. The campus is named in honour of Prof. Waris Mir, whose educational vision guides the school.
+A: London International Education System — Prof. Waris Mir Campus was established in 2025; it is led by CEO Naveela Choudhary with Directors Huma Mir and Zoya Mir. Huma is the daughter of Pakistani journalist and academic Prof. Waris Mir (1938–1987); Zoya is his granddaughter. The campus is named in honour of Prof. Waris Mir, whose educational vision guides the school.
 
 Q: Is London School affiliated with Cambridge?
 A: Yes. The school is a Cambridge Pathway Registered institution offering the Cambridge International curriculum from Checkpoint through IGCSE and O-Level.
@@ -98,10 +96,10 @@ Q: Where is London School located?
 A: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan. Office hours are Monday–Saturday 08:00–16:00.
 
 Q: How do I get the fee structure for London School?
-A: The fee structure is shared on request. Message admissions on WhatsApp at +92-301-0499777 with your child's grade, or call 0301-0499777, or email info@londoneducation.pk during office hours (Monday–Saturday, 08:00–16:00). The team typically replies within the hour and shares the current fee plan, enrolment timeline, and any available discounts.
+A: The fee structure is shared on request. Message admissions on WhatsApp at +92-301-0499777 with your child's class, or call 0301-0499777, or email info@londoneducation.pk during office hours (Monday–Saturday, 08:00–16:00). The team typically replies within the hour and shares the current fee plan, enrolment timeline, and any available discounts.
 
 Q: What makes London School different from other schools in Lahore?
-A: Three things: a Cambridge Pathway curriculum; an early-years robotics and AI programme (including coding certifications available at kindergarten); and the "Ask Prof Mir" AI study assistant inspired by its namesake, Prof. Waris Mir.
+A: Three things: a Cambridge Pathway curriculum; an early-years robotics and AI programme that includes two US coding certifications available at kindergarten; and the "Ask Prof Mir" AI study assistant inspired by its namesake, Prof. Waris Mir.
 
 Q: Who is Prof. Waris Mir and what is his connection to Hamid Mir?
 A: Prof. Waris Mir (1938–1987) was a Pakistani academic, journalist, and Punjab University professor known for his free-press advocacy during Zia-ul-Haq's martial law. He was awarded the Hilal-e-Imtiaz posthumously. He is the father of journalist Hamid Mir (Geo TV, Capital Talk). The school is named in honour of Prof. Waris Mir's legacy.
@@ -110,6 +108,7 @@ A: Prof. Waris Mir (1938–1987) was a Pakistani academic, journalist, and Punja
 - Google Business Profile: https://maps.google.com/?cid=7737999795082975354
 - Facebook: https://www.facebook.com/londonschoolwarismir/
 - Instagram: https://www.instagram.com/londoninternational.school/
+- LinkedIn: https://www.linkedin.com/company/113215995
 
 ## Site Map
 - Home: https://londoneducation.pk/
@@ -121,3 +120,4 @@ A: Prof. Waris Mir (1938–1987) was a Pakistani academic, journalist, and Punja
 - Virtual Tour: https://londoneducation.pk/yearbook.html
 - News & Events: https://londoneducation.pk/news.html
 - Ask Prof Mir: https://londoneducation.pk/ask-prof-mir.html
+- Parent Guides: https://londoneducation.pk/blog/

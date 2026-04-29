@@ -1,280 +1,205 @@
 # London School — SEO Action Plan
 
-**Generated:** 2026-04-24
-**Overall Health:** 61/100
-**Source audit:** See `FULL-AUDIT-REPORT.md`
+**Generated:** 2026-04-28
+**Overall Health:** 73/100 (was 61 on 2026-04-24)
+**Source audit:** `FULL-AUDIT-REPORT.md` and seven specialist reports in `/reports/`
 
-Actions are ordered by priority. Complete Critical tier first — several Critical fixes unblock or resolve multiple lower-tier items simultaneously.
-
----
-
-## CRITICAL (fix immediately — blocks indexing or major ranking signals)
-
-### 1. Global domain find-and-replace: `akifhazarvi.github.io/london-school` → `londoneducation.pk`
-**Effort:** 10 minutes
-**Impact:** Resolves 8+ other findings in a single pass.
-**Scope:** 110 occurrences across 12 HTML files + llms.txt.
-
-Fixes:
-- Technical C1, C2, C3 (canonicals, OG tags, JSON-LD `@id`)
-- Technical H1 (llms.txt)
-- Technical H2 (thank-you.html canonical)
-- Technical M1 (footer absolute URLs)
-- Schema Critical #1
-- Local Critical (NAP canonical mismatch)
-
-Command (run from website root):
-```
-grep -rln "akifhazarvi.github.io/london-school" *.html llms.txt | \
-  xargs sed -i '' 's|akifhazarvi.github.io/london-school|londoneducation.pk|g'
-```
-Verify: `grep -c "akifhazarvi.github.io" *.html llms.txt` should return 0 for all files.
-
-After this, **remove the canonical tag entirely from thank-you.html** (noindexed; canonical is pointless).
-
-### 2. Claim and verify Google Business Profile
-**Effort:** 2–4 hours (incl. Google verification lag)
-**Impact:** #1 local ranking factor. Currently unused.
-
-Steps:
-- Create/claim GBP at business.google.com using exact NAP.
-- Category: "Private school" (verify available category in Pakistan).
-- Upload 10+ photos (campus, classrooms, robotics lab, principal).
-- Add GBP URL to `sameAs` array in index.html schema.
-- Add GBP URL to the site footer as a "Google" link.
-- Once verified, replace Maps iframe `q=...` text query with Place ID embed format.
-
-### 3. Resolve the three-name brand problem
-**Effort:** 2 hours
-**Impact:** Unlocks entity graph consolidation for Google Knowledge Panel + AI citations.
-
-Pick canonical names and use them exclusively:
-- **Legal / schema name:** `London International Education System — Prof. Waris Mir Campus`
-- **Display / short name:** `London School — Prof. Waris Mir Campus`
-- **alternateName:** `London School`
-
-Update in:
-- All JSON-LD `name`, `alternateName`, `legalName` fields
-- All `og:site_name` tags
-- llms.txt `Official name:` line
-- Footer copyright line
-- Nav logo text (keep as-is if it already uses display name)
-
-Remove "London School System" everywhere.
-
-### 4. Fix faculty credentials on faculty.html and about.html
-**Effort:** 3 hours (requires real data)
-**Impact:** Critical for YMYL (schools) E-E-A-T.
-
-For Principal Mehr un Nisa Masood and Campus Director Ali Umair, add:
-- Qualifications (degree, institution)
-- Years of experience
-- Prior schools/positions
-- A real headshot photo (replace icon SVG placeholders)
-
-Add `image` to Principal's `Person` schema on faculty.html. Add `Person` schema for Huma Mir, Zoya Mir, Naveela Choudhary on about.html with real photos.
+This plan is sequenced by **business risk first, ranking impact second, polish last.** The Critical block can ship in a single afternoon and removes the trust-and-compliance liabilities. Everything else compounds gradually.
 
 ---
 
-## HIGH (fix within 1 week — significantly impacts rankings)
+## CRITICAL — Ship today (compliance + trust)
 
-### 5. Add explicit AI crawler rules to robots.txt
-**Effort:** 10 minutes
-**Impact:** Removes ambiguity for GPT/Claude/Perplexity crawlers.
+These remove false claims that contradict what the school actually offers. Every day they stay live is a Helpful Content signal violation and a parent-trust risk.
 
-Add to `robots.txt`:
-```
-User-agent: GPTBot
-Allow: /
+### C1 — Remove "Three Foreign Languages" claims from HTML and schema *(20 min)*
 
-User-agent: ClaudeBot
-Allow: /
+| File | Line | Action |
+|---|---|---|
+| `index.html` | 384 | Replace `Cambridge curriculum plus Chinese, French, and German.` → `Cambridge IGCSE pathway with two US coding certifications by Kindergarten and a full robotics programme.` |
+| `index.html` | 337–338 | Replace proof-bar `3 / Foreign Languages` → `2 / US Coding Certifications` |
+| `index.html` | 385 | Replace pill `3 Languages` → `Coding Certifications` |
+| `about.html` | 359 | Replace `Cambridge curriculum, three foreign languages, AI and robotics, 25+ sports.` → `Cambridge curriculum, AI-integrated learning, robotics from the early years, and 25+ sports and activities.` |
+| `academics.html` | 58 | Rewrite Twitter description without "three foreign languages" |
+| `academics.html` | 75 | Rewrite schema CollectionPage description without "three foreign languages" |
+| `academics.html` | 153 | Delete the entire ListItem position 3 (Foreign Languages Course) |
 
-User-agent: OAI-SearchBot
-Allow: /
+### C2 — Remove "Swimming Pool" claims from HTML and schema *(5 min)*
 
-User-agent: PerplexityBot
-Allow: /
+| File | Line | Action |
+|---|---|---|
+| `campus.html` | 105 | Delete `LocationFeatureSpecification` `Swimming Pool: true` from `amenityFeature` array |
+| `thank-you.html` | 171 | Replace `swimming pool` → `computer lab` (or another real facility) |
 
-User-agent: Google-Extended
-Allow: /
+### C3 — Fix llms.txt: 10 false statements *(30 min)*
 
-User-agent: CCBot
-Allow: /
-```
-Place above the existing `User-agent: *` block.
+Apply the exact replacements documented in `reports/seo-geo-2026-04-28.md` Changes 1–5:
 
-### 6. Surface the Hamid Mir legacy in structured data
-**Effort:** 30 minutes
-**Impact:** Highest AI-citation unlock — connects school to an existing high-authority Pakistan entity.
+- Lines 16, 29–30, 85–86, 92 → leadership: drop "Founders" line; replace `Co-Founder` titles with `CEO: Naveela Choudhary` + `Director: Huma Mir` + `Director: Zoya Mir`; rewrite Q1 attribution.
+- Line 36 → `Languages of instruction: English, Urdu`
+- Line 71 → delete entirely
+- Line 40 → drop "swimming pool" from sports list
+- Line 55 → delete `- Swimming pool` line entirely
+- Line 72 → `25+ sports and activities`
+- Line 74 → replace "Weekly AI progress reports" with "Regular parent-teacher updates and communication via WhatsApp and in-person meetings"
+- Append `LinkedIn:` line under Social Media; append `LAPS:` affiliation under Identity
+- Bump `Last updated:` line 3 to `2026-04-28`
 
-- In `llms.txt` Waris Mir section, add a line: `Son: Hamid Mir — senior journalist and television anchor (Geo TV)`.
-- In `about.html` Person schema for Prof. Waris Mir, add:
-  ```json
-  "children": [{
-    "@type": "Person",
-    "name": "Hamid Mir",
-    "jobTitle": "Journalist",
-    "sameAs": "https://en.wikipedia.org/wiki/Hamid_Mir"
-  }]
-  ```
-- Keep the body-copy mention on about.html.
+### C4 — Update admissions cycle from 2025-26 *(15 min)*
 
-### 7. Fix news.html NewsArticle schema
-**Effort:** 20 minutes
-**Impact:** Unlocks NewsArticle rich results; currently zero will fire.
+Confirm with admissions whether the priority is `2026-27` or `Now Enrolling`, then update:
 
-Add required `author` to all 4 NewsArticle items:
+- `index.html` line 272 — hero badge
+- `enroll.html` lines 46, 55, 58 (3 meta description tags), 176, 312–313 (stat block)
+- `academics.html` line 758
+- `yearbook.html` line 173
+- `news.html` line 287
+
+---
+
+## HIGH — Ship this week (ranking impact)
+
+### H1 — Add "Lahore" to homepage `<title>` *(2 min)*
+
+`index.html` `<title>` currently:
+`London School — Pakistan's Most Advanced AI & Robotics School With Cambridge Pathway`
+
+Replace with:
+`London School Lahore — Cambridge AI & Robotics School | Prof. Waris Mir Campus`
+
+Single highest-leverage on-page change for "Cambridge school Lahore" / "AI school Lahore" rankings.
+
+### H2 — Schema fixes on `index.html` *(15 min)*
+
+In the organisation block:
 ```json
-"author": { "@id": "https://londoneducation.pk/#organization" }
+"sameAs": [
+  "https://www.facebook.com/londonschoolwarismir/",
+  "https://www.instagram.com/londoninternational.school/",
+  "https://maps.google.com/?cid=7737999795082975354",
+  "https://www.linkedin.com/company/113215995"
+],
+"priceRange": "PKR 15,000–22,000/month"
 ```
-Add `image` to items 3 and 4 (currently missing — will also need real images, not emoji placeholders per Content finding #6).
 
-### 8. Add `hasCourseInstance` to academics.html Course items
-**Effort:** 15 minutes
-**Impact:** Unlocks Course rich results.
+Remove the `potentialAction` (`SearchAction`) block from the WebSite schema entirely — site has no search.
 
-Template provided in schema audit findings — in-person mode, Lahore location.
+### H3 — Add `width` and `height` to all `<img>` tags *(2–3 hours)*
 
-### 9. Switch schema `@type` to include `School`
-**Effort:** 5 minutes
-**Impact:** More specific type for educational rich results.
+130 of 138 image tags lack intrinsic dimensions. Biggest CLS / Core Web Vitals fix on the site, especially for the Pakistani-mobile audience. Use a script to read each image's dimensions and add the attributes; verify visual layout afterwards.
 
-In index.html JSON-LD: `"@type": ["School", "EducationalOrganization", "LocalBusiness"]`.
+### H4 — Trim 6 meta descriptions to ≤155 chars *(20 min)*
 
-### 10. Add name the US Coding Certifications issuer
-**Effort:** 30 min (requires brochure verification)
-**Impact:** Survives Google QRG credentialing checks.
+`index.html` (164), `about.html` (177), `academics.html` (170), `ai-robotics.html` (192), `enroll.html` (183 — also drop "2025–26"), and re-check `campus.html` (157, borderline). Lead each description with the primary local query intent.
 
-The claim "Two US Coding Certifications at Kindergarten" appears on 4+ pages without naming the issuing body. Replace "recognised US coding authorities" (ai-robotics.html line 79) with the actual organization name. If the certification is Code.org, iD Tech, Common Sense Education, or similar — name it explicitly on each page + in FAQPage answers + in llms.txt.
+### H5 — Sitemap cleanup *(10 min)*
 
-### 11. Defer YouTube iframe API on yearbook.html
-**Effort:** 1 minute
-**Impact:** Fixes render-blocking on a video-heavy page.
+- Update all 14 `lastmod` to `2026-04-27`.
+- Drop `enroll.html` priority from 1.0 to 0.9.
+- Remove all `<priority>` and `<changefreq>` tags (Google ignores).
 
-`yearbook.html:786`: change `<script src="https://www.youtube.com/iframe_api"></script>` to `<script defer src="https://www.youtube.com/iframe_api"></script>`.
+### H6 — Fix generic alt text *(20 min)*
 
-### 12. Add meta description + theme-color to 404.html
-**Effort:** 2 minutes
-**Impact:** Consistency; minor.
+- Site-wide `alt="Crest"` → `alt="London School Prof. Waris Mir Campus crest"`.
+- 3 pages have `alt="Robotics lab"` mistakenly on the *nav crest* (`campus.html`, `news.html`, `yearbook.html`) — fix to crest alt.
+- `index.html` campus tile alts (`Corridor`, `Robotics`, `Computers`, `Play area`) — expand each with descriptive Lahore/Cambridge context (e.g. `Bright corridor inside London School's Lahore campus`).
 
-Add `<meta name="description" content="Page not found — return to the London School homepage.">` and `<meta name="theme-color" content="#C1353D">` in 404.html `<head>`.
+### H7 — Add postal code 54600 to footer NAP across all pages *(15 min)*
 
----
+Currently schema-only. Visible HTML is what directory aggregators scrape.
 
-## MEDIUM (fix within 1 month — optimization opportunities)
+### H8 — Add `BreadcrumbList` to `blog/index.html` *(5 min)*
 
-### 13. Create standalone /contact.html page
-**Effort:** 2 hours
-**Impact:** Captures "London School Lahore contact" queries; currently only an anchor.
-
-Include: NAP, hours, map embed, neighborhood paragraph ("Located opposite Ideal Park in Township, Lahore, easily accessible from Johar Town, Model Town, and Gulberg"), WhatsApp CTA, `LocalBusiness` schema.
-
-### 14. Verify and increase geo-coordinate precision
-**Effort:** 15 minutes
-**Impact:** Accurate local pack pin.
-
-Current coordinates (`31.4697, 74.2728`) may land in Johar Town, not Township. Verify against Google Maps satellite view of actual address. Update to 5 decimal places minimum in index.html schema.
-
-### 15. Add FAQPage schema to ask-prof-mir.html
-**Effort:** 45 minutes
-**Impact:** AI citation readiness on the brand-differentiator page.
-
-Questions: "Who was Prof. Waris Mir?", "What is Ask Prof Mir?", "Is London School Cambridge affiliated?", "Who founded London School?", "Where is London School located?". Each answer 60–130 words, self-contained.
-
-### 16. Standardize phone format
-**Effort:** 30 minutes
-**Impact:** NAP consistency for citation matching.
-
-Schema / structured data: `+92-301-0499777`. Visible plain text buttons: `0301-0499777` acceptable. WhatsApp link: `923010499777` (format required). Never mix within a single source type.
-
-### 17. Replace testimonials with real, attributed reviews
-**Effort:** 2 weeks (requires real parent consent)
-**Impact:** Removes duplicate content + fabricated-content signal.
-
-Options: solicit Google reviews from existing 130 families via WhatsApp; embed 2–3 real reviews with photo + grade + date attribution; add `aggregateRating` once 5+ genuine reviews exist.
-
-### 18. Fix or remove the Early Bird scarcity counter
-**Effort:** 15 minutes
-**Impact:** Trust.
-
-Either wire the "47" counter to a real number updated weekly (as the HTML comment specifies), or remove the "limited spots" urgency language until a live counter exists.
-
-### 19. Replace emoji placeholders on news.html with real event photos
-**Effort:** Variable (requires photos)
-**Impact:** Trust / authenticity signal for Year-1 school.
-
-Only the Hamid Mir inauguration card has a real image. Sports Day, Robotics Lab Expansion, AI Panel cards use coloured divs + emoji. Either replace with real photos or remove the card entirely.
-
-### 20. Add LAPS affiliation mention to HTML
-**Effort:** 30 minutes
-**Impact:** Second-strongest credential after Cambridge; currently absent.
-
-Add LAPS (London Academic Partnership System) affiliation text to about.html, academics.html, and footer. If LAPS has a registration number or directory listing URL, link it in `accreditedBy` schema alongside Cambridge.
-
-### 21. Replace Google Maps legacy embed with Embed API
-**Effort:** 20 minutes (after GBP verification)
-**Impact:** Deprecation-proof; ties to verified Place ID.
-
-Get Maps Embed API key, use `https://www.google.com/maps/embed/v1/place?key=...&q=place_id:ChIJ...` format.
-
-### 22. Add hreflang self-reference
-**Effort:** 10 minutes
-**Impact:** Clarifies site language for Pakistan-targeting Urdu queries.
-
-On every page: `<link rel="alternate" hreflang="en" href="https://londoneducation.pk/[page].html">` and `<link rel="alternate" hreflang="x-default" href="...">`.
-
-### 23. Link faculty.html from main nav
-**Effort:** 5 minutes
-**Impact:** Orphan page fix; feeds E-E-A-T.
-
-Add "Faculty" link to primary nav on all pages, or place it prominently in the about.html body + footer.
-
-### 24. Submit to Pakistan-specific directories
-**Effort:** 2 hours
-**Impact:** Local citation tier-1.
-
-Submit to: Mera School (meraschool.com), ilmkidunya, Facebook Business Page (ensure it's a Business Page not personal). Add each URL to `sameAs` in schema.
+Snippet in `reports/seo-schema-2026-04-28.md` Fix H3.
 
 ---
 
-## LOW (backlog — nice to have)
+## MEDIUM — Ship this month (compounding gains)
 
-### 25. Add local-keyword integration to index.html hero
-Consider "Cambridge School in Lahore" variant above the fold.
+### M1 — Add FAQPage schema to `index.html` *(45 min)*
 
-### 26. Add neighborhood name to Contact section H2
-"Visit Our Campus in Lahore" → "Visit Our Campus in Township, Lahore".
+5–7 Q/As on the homepage covering: fee range, age range, admissions process, Cambridge accreditation, location, sports/activities, AI Study Buddy. Boosts AI Overviews / Perplexity / ChatGPT-Search citation likelihood — homepage is the highest-authority page.
 
-### 27. Add IndexNow key file
-For Bing/Yandex index-freshness acceleration.
+### M2 — Switch 5 blog `<img>` references from JPG to existing WebP siblings *(10 min)*
 
-### 28. Add PWA manifest
-For "Add to Home Screen" engagement on mobile WhatsApp traffic.
+`building-day`, `event-cultural-day-full`, `campus-library-study`, `life-nursery-corridor`. Saves 40–60% bytes with no new assets. Also flip blog hero `loading="lazy"` → `fetchpriority="high"` since heroes are LCP elements.
 
-### 29. Remove `YOUR_META_PIXEL_ID` placeholder from enroll.html
-Currently visible in page source (line 37). Either wire in a real Pixel ID or remove the block entirely.
+### M3 — Create 4 dedicated 1200×630 OG images for blog posts *(1–2 hours)*
 
-### 30. Add `SearchAction` to index.html WebSite schema
-Minor enhancement for Sitelinks Search Box eligibility.
+`og-blog-cambridge.jpg`, `og-blog-igcse.jpg`, `og-blog-4-year-old.jpg`, `og-blog-holidays.jpg`. Update each blog post's `og:image` and `twitter:image` meta tags. nanobanana-mcp not detected in this environment — generate manually or via another tool.
 
-### 31. Wrap `openingHoursSpecification` in an array
-Per schema validator preference.
+### M4 — Author attribution on blog `BlogPosting` schema *(20 min)*
 
-### 32. Add `apple-touch-icon` to 404.html
-Consistency; minor.
+Add an `author` `Person` object on each of the 5 blog posts (Principal Mehr un Nisa Masood or named Admissions Director). E-E-A-T improvement for a Year-1 school.
 
-### 33. Attribute or remove Waris Mir quotes
-Quotes on about.html and ask-prof-mir.html put words in a deceased historical figure's mouth without citation. Add source (e.g., "paraphrased from his 1981 Jang column") or remove.
+### M5 — Hamid Mir inauguration news article with Article schema *(2 hours)*
+
+Strongest available external-entity citation chain. Article schema with `datePublished`, `author` (the school), and `sameAs` linking to Hamid Mir's Wikipedia entry. Place under `news.html` or as a standalone post.
+
+### M6 — Add Google Maps iframe to `campus.html` *(5 min)*
+
+Copy the iframe from `index.html` contact section. `campus.html` already has `hasMap` in schema — pair it with the visible map.
+
+### M7 — Pad lead paragraphs to ~150 words *(30 min)*
+
+`academics.html`, `ai-robotics.html`, `campus.html` lead paragraphs are 20–40 words. Expand to ~150 words with definitive "X is Y" sentences for AI passage extraction.
+
+### M8 — Pakistan-specific citations *(1–2 hours)*
+
+- Claim Bing Places (transfers GBP data — 30 min).
+- Submit to Zameen.com schools listing.
+- Submit to Ilmkidunya.com.
+- Verify Cambridge International "Find a School" directory listing; if missing, contact Cambridge to enable.
+
+### M9 — Add neighbourhood line to footer or contact section *(5 min)*
+
+One sentence: `Serving families across Township, Johar Town, and Iqbal Town, Lahore.` Improves geo-relevance for adjacent-catchment queries without creating duplicate pages.
+
+### M10 — `Organization.logo` schema upgrade *(15 min)*
+
+Re-encode `/img/logo.jpg` (currently 545×616) as `logo-512.webp` or PNG at ≥600×600. Also add a 180×180 `apple-touch-icon` and a basic `site.webmanifest` with 192/512 icons.
 
 ---
 
-## Estimated Impact
+## LOW — Backlog
 
-If Critical tier + HIGH tier items 5–12 are completed:
-- Overall score rises from 61 → ~80
-- Local SEO rises from 54 → ~75 (GBP claim + Place ID + schema)
-- GEO rises from 61 → ~78 (name consistency + Hamid Mir + robots rules)
-- Technical rises from 58 → ~85 (domain fix resolves most criticals)
+- Add `Cross-Origin-Resource-Policy: same-origin` header in vercel.json.
+- Remove the stale `Disallow: /editor.html` line from robots.txt.
+- Standardise phone format between schema and footer (or accept the discrepancy — low impact).
+- Add `aggregateRating` schema once 5+ Google reviews exist.
+- Add a post-enrolment review-request prompt (WhatsApp message or thank-you page).
+- Create a YouTube channel with at least one campus walkthrough video (highest correlation with AI citation, ~0.737).
+- Image sitemap entries for `/img/og/` and high-value campus photos.
 
-The single highest-ROI sequence is: **#1 (domain F&R) → #5 (robots.txt) → #6 (Hamid Mir schema) → #3 (name consolidation)** — roughly 3 hours of work for a projected 10-point score lift.
+---
+
+## Suggested Implementation Order
+
+**Day 1 (afternoon, ~2 hours)**
+- All Critical items (C1–C4) — false claims removed, llms.txt fixed, admissions year updated.
+- Quick Wins H1, H2, H5 — title fix, schema sameAs/priceRange/SearchAction, sitemap cleanup.
+
+**Day 2 (~3 hours)**
+- H3 — width/height attributes on all images.
+- H4, H6, H7 — meta descriptions trimmed, alt text fixed, postal code in footers.
+- H8 — blog/index breadcrumb.
+
+**Week 2**
+- M1, M4, M6, M7, M9, M10 — homepage FAQ schema, blog authors, campus map, lead paragraphs, neighbourhood line, logo upgrade.
+- M2 — blog WebP swap.
+
+**Month 1**
+- M3 — blog OG images.
+- M5 — Hamid Mir inauguration article (timed with the actual event).
+- M8 — Pakistan-specific citations.
+
+**Re-audit:** run `/seo-audit` again on 2026-05-26 (4 weeks) with Google API credentials configured (`python /Users/akif.hazarvi/.claude/skills/seo/scripts/google_auth.py --setup`) to enrich with CrUX field data, GSC indexation, and GA4 organic trends.
+
+---
+
+## What this plan deliberately does NOT include
+
+- **Multi-city or multi-location pages.** Single Lahore campus only.
+- **Re-adding swimming pool, foreign-language, or "Weekly AI progress report" claims.** Already removed; do not regress.
+- **Named parent testimonials.** Anonymous-only convention is intentional.
+- **GitHub Pages migration.** Site is on Vercel; that move is done.

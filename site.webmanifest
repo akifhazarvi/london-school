@@ -1,0 +1,25 @@
+{
+  "name": "London International Education System — Prof. Waris Mir Campus",
+  "short_name": "London School",
+  "description": "Cambridge AI & Robotics school in Lahore. Pre-Nursery through IGCSE / O-Level.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFAF3",
+  "theme_color": "#C1353D",
+  "lang": "en-PK",
+  "icons": [
+    {
+      "src": "/img/logo-icon.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/img/logo.jpg",
+      "sizes": "545x616",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

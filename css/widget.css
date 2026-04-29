@@ -182,7 +182,10 @@
   display: flex;
   flex-direction: column;
   height: auto;
-  max-height: 600px;
+  /* Desktop cap is the smaller of 600px or "viewport minus nav+bubble"
+     so a short window never lets the panel overlap the navbar. The
+     mobile media query overrides this with a tighter cap. */
+  max-height: min(600px, calc(100vh - 200px));
   background: var(--white, #fff);
   border-radius: 18px;
   overflow: hidden;
@@ -610,8 +613,12 @@
     max-width: 380px;
     right: -12px;
     bottom: 78px;
-    /* Strict pixel cap on mobile too — leaves room for nav + bubble. */
-    max-height: 540px;
+    /* Strict cap that always clears the fixed banner (~44px) + nav (~64px)
+       plus the bubble (~78px) and a 16px cushion. Whichever of the pixel
+       cap or viewport-derived cap is smaller wins, so on short phones the
+       panel never reaches the navbar — even in chat mode where the body
+       flexes to fill the available height. */
+    max-height: min(540px, calc(100vh - 210px));
   }
   .ls-w__teaser {
     max-width: calc(100vw - 112px);
