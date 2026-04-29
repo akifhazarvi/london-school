@@ -524,6 +524,88 @@
   position: sticky;
   top: 100px;
 }
+
+/* WhatsApp escape strip — sits above the form to give parents a
+   low-friction alternative. Soft green so it reads as a friendly
+   alternative, not a competing CTA. */
+.wa-escape {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, rgba(37,211,102,0.08), rgba(122,195,158,0.10));
+  border: 1.5px solid rgba(37,211,102,0.30);
+  border-radius: var(--r-xl);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+}
+.wa-escape:hover {
+  border-color: #25D366;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.18);
+  transform: translateY(-1px);
+}
+.wa-escape__ico {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.wa-escape__body { flex: 1; min-width: 0; }
+.wa-escape__title {
+  display: block;
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--navy, #2F5581);
+  line-height: 1.25;
+}
+.wa-escape__sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted, #6B6760);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+.wa-escape__arrow {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #25D366;
+  transition: transform 0.2s;
+}
+.wa-escape:hover .wa-escape__arrow { transform: translateX(3px); }
+.wa-escape__or {
+  display: flex;
+  align-items: center;
+  margin: 6px 0 14px;
+  color: var(--sand-400, #A09B8F);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.wa-escape__or::before,
+.wa-escape__or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--sand-100, #EFEDE8);
+}
+.wa-escape__or span { padding: 0 12px; }
+
+@media (max-width: 600px) {
+  .wa-escape { padding: 12px 14px; gap: 10px; }
+  .wa-escape__ico { width: 40px; height: 40px; }
+  .wa-escape__title { font-size: 0.92rem; }
+  .wa-escape__sub { font-size: 0.76rem; }
+}
 .lead-form {
   background: var(--white);
   border-radius: var(--r-2xl);

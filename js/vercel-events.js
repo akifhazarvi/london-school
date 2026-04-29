@@ -25,7 +25,10 @@
 
   var path = window.location.pathname;
 
-  /* ── WhatsApp clicks (any wa.me link, delegated) ── */
+  /* ── WhatsApp clicks (any wa.me link, delegated) ──
+     Fires GA4 + Vercel + Google Ads conversion. Existing inline onclicks on
+     individual CTAs already call gtag_report_conversion, so the extra call
+     here is a safety net for any link without an inline handler. */
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href*="wa.me"]');
     if (!a) return;
@@ -34,16 +37,24 @@
       cta: a.getAttribute('data-wa-cta') || 'unspecified',
       page: path
     });
+    /* Skip duplicate AW conversion if the inline onclick already fires it. */
+    if (!a.hasAttribute('data-conv-fired')) {
+      try { if (typeof window.gtag_report_conversion === 'function') window.gtag_report_conversion(); } catch(e){}
+    }
   }, true);
 
-  /* ── Phone clicks (tel: links) ── */
+  /* ── Phone clicks (tel: links) ──
+     A call is a strong intent signal — fire the AW conversion so Google Ads
+     counts it, same as WA clicks and form submits. */
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href^="tel:"]');
     if (!a) return;
     track('phone_click', {
       number: (a.getAttribute('href') || '').replace('tel:', ''),
+      source: a.getAttribute('data-phone-source') || 'unspecified',
       page: path
     });
+    try { if (typeof window.gtag_report_conversion === 'function') window.gtag_report_conversion(); } catch(e){}
   }, true);
 
   /* ── Email clicks ── */
@@ -79,23 +90,9 @@
     });
   }, true);
 
-  /* ── Lead form submit (mirrors GA generate_lead) ── */
-  var form = document.getElementById('leadForm');
-  if (form) {
-    form.addEventListener('submit', function(){
-      if (!form.checkValidity()) return;
-      if (form.botcheck && form.botcheck.checked) return;
-      track('lead_submit', {
-        grade: form.grade ? form.grade.value : 'unspecified',
-        form_id: form.id || 'leadForm'
-      });
-    });
-  }
-
-  /* ── Thank-you page view = confirmed lead ── */
-  if (path.indexOf('thank-you') !== -1) {
-    track('lead_confirmed', { page: path });
-  }
+  /* Lead form: generate_lead is now fired by main.js's submit handler with
+     both gtag() and va() side-by-side. No listener here — having two
+     handlers caused the duplicate counts that confused the audit funnel. */
 
   /* ── Ask Prof Mir chatbot first message ── */
   var chatGo = document.getElementById('chatGo');

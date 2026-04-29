@@ -84,6 +84,26 @@
   .ls-w__dot    { animation: none; }
 }
 
+/* Attention nudge — applied periodically by JS to draw eye to the bubble.
+   Uses a soft wiggle (no harsh shake) so it feels playful, not aggressive. */
+.ls-w__bubble.is-wiggle {
+  animation: ls-w-wiggle 1.2s cubic-bezier(.36,.07,.19,.97) 1;
+}
+@keyframes ls-w-wiggle {
+  0%, 100% { transform: rotate(0); }
+  10%, 30%, 50% { transform: rotate(-8deg); }
+  20%, 40%, 60% { transform: rotate(8deg); }
+  70% { transform: rotate(-3deg); }
+  80% { transform: rotate(3deg); }
+  90% { transform: rotate(0); }
+}
+.ls-w__bubble.is-glow {
+  box-shadow: 0 8px 24px rgba(193,53,61,0.40), 0 0 0 4px rgba(193,53,61,0.10);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ls-w__bubble.is-wiggle { animation: none; }
+}
+
 /* Open state: swap logo → close icon */
 .ls-w.is-open .ls-w__logo { opacity: 0; }
 .ls-w.is-open .ls-w__close-icon { opacity: 1; transform: scale(1) rotate(0); }
@@ -154,6 +174,15 @@
   right: 0;
   width: 360px;
   max-width: calc(100vw - 32px);
+  /* Strict cap so the panel never reaches the navbar.
+     - height: auto = panel hugs content when content is short
+     - max-height enforces the cap when content is long
+     - flex column lets header stay fixed and body shrink/scroll
+     Both desktop and mobile use the same pattern with different clearances. */
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  max-height: 600px;
   background: var(--white, #fff);
   border-radius: 18px;
   overflow: hidden;
@@ -181,6 +210,9 @@
   background: linear-gradient(135deg, var(--navy, #2F5581), var(--navy-dark, #243F62));
   color: white;
   position: relative;
+  /* Header is fixed — never shrinks. The body below it takes the
+     remaining height of the panel and scrolls if its content is too long. */
+  flex-shrink: 0;
 }
 .ls-w__header::after {
   content: '';
@@ -229,9 +261,33 @@
 /* Body */
 .ls-w__body {
   padding: 16px;
-  max-height: calc(100vh - 200px);
+  /* Default (entry/form/success routes): hug content. flex:0 1 auto means
+     the body uses content height and can shrink. min-height:0 lets it
+     actually shrink below content size, enabling internal scroll if needed. */
+  flex: 0 1 auto;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
+/* Chat route: body grows to fill the panel cap so the long Q&A list scrolls
+   internally rather than spilling out the bottom of the panel. */
+.ls-w__panel.is-chat .ls-w__body { flex: 1 1 auto; }
+.ls-w__body::-webkit-scrollbar { width: 6px; }
+.ls-w__body::-webkit-scrollbar-track { background: transparent; }
+.ls-w__body::-webkit-scrollbar-thumb {
+  background: rgba(30,29,27,0.15);
+  border-radius: 3px;
+}
+.ls-w__body::-webkit-scrollbar-thumb:hover { background: rgba(30,29,27,0.25); }
+/* Hide the scrollbar track entirely on WebKit when there's nothing to scroll;
+   the browser still allows scrolling if content does exceed bounds. */
+.ls-w__body::-webkit-scrollbar { width: 6px; }
+.ls-w__body::-webkit-scrollbar-track { background: transparent; }
+.ls-w__body::-webkit-scrollbar-thumb {
+  background: rgba(30,29,27,0.15);
+  border-radius: 3px;
+}
+.ls-w__body::-webkit-scrollbar-thumb:hover { background: rgba(30,29,27,0.25); }
 .ls-w__greet {
   background: var(--cream, #FAFAF8);
   border-radius: 12px;
@@ -548,18 +604,20 @@
 }
 
 /* ── MOBILE ── */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .ls-w__panel {
     width: calc(100vw - 24px);
-    max-width: 360px;
+    max-width: 380px;
     right: -12px;
     bottom: 78px;
+    /* Strict pixel cap on mobile too — leaves room for nav + bubble. */
+    max-height: 540px;
   }
   .ls-w__teaser {
     max-width: calc(100vw - 112px);
     font-size: 0.8rem;
   }
-  .ls-w__body { max-height: calc(100vh - 180px); }
+  .ls-w__header { padding: 14px 16px; }
   .ls-ei__card { padding: 28px 20px 20px; }
   .ls-ei__card h3 { font-size: 1.25rem; }
   .ls-ei__card p { font-size: 0.88rem; }
@@ -567,3 +625,227 @@
 
 /* Hide the old static .wa button if widget loads */
 body:has(#ls-widget) .wa { display: none !important; }
+
+/* Header back button — only visible when user is in chat or form route */
+.ls-w__h-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.12);
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  padding: 0;
+  margin-right: 4px;
+}
+.ls-w__h-back:hover { background: rgba(255,255,255,0.22); }
+.ls-w__h-back:active { transform: scale(0.92); }
+
+/* ═══════════════════════════════════════════════════════════════
+   CHATBOT — entry router, Q&A tree, fee-deflect
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Entry route greeting + 3 buttons (Chat / WhatsApp / Form) */
+.ls-w__greet-loc,
+.ls-w__greet-urg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+.ls-w__greet-loc { color: var(--navy, #2F5581); }
+.ls-w__greet-urg { color: var(--red, #C1353D); margin-top: 4px; }
+.ls-w__greet-loc svg,
+.ls-w__greet-urg svg {
+  flex-shrink: 0;
+}
+.ls-w__greet-cta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted, #6B6760);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 8px 0 10px;
+}
+.ls-w__entry-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ls-w__entry-btn {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 2px 12px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--sand-100, #EFEDE8);
+  border-radius: 12px;
+  background: var(--white, #fff);
+  box-shadow: 0 1px 2px rgba(30,29,27,0.03);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  font-family: inherit;
+}
+.ls-w__entry-btn:hover {
+  border-color: var(--red, #C1353D);
+  box-shadow: 0 6px 16px rgba(193,53,61,0.10);
+  transform: translateY(-1px);
+}
+.ls-w__entry-btn:active { transform: translateY(0); }
+.ls-w__entry-btn--chat:hover { border-color: var(--navy, #2F5581); box-shadow: 0 6px 16px rgba(47,85,129,0.12); }
+.ls-w__entry-btn--wa:hover   { border-color: #25D366; box-shadow: 0 6px 16px rgba(37,211,102,0.18); }
+.ls-w__entry-btn--form:hover { border-color: var(--red, #C1353D); }
+.ls-w__entry-ico {
+  grid-row: 1 / 3;
+  grid-column: 1;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: var(--cream, #FAFAF8);
+  border-radius: 10px;
+}
+.ls-w__entry-btn--chat .ls-w__entry-ico { background: rgba(47,85,129,0.10); }
+.ls-w__entry-btn--wa   .ls-w__entry-ico { background: rgba(37,211,102,0.12); }
+.ls-w__entry-btn--form .ls-w__entry-ico { background: rgba(193,53,61,0.10); }
+.ls-w__entry-label {
+  grid-row: 1; grid-column: 2;
+  font-family: var(--font-heading, 'Nunito', sans-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy, #2F5581);
+  line-height: 1.2;
+}
+.ls-w__entry-sub {
+  grid-row: 2; grid-column: 2;
+  font-size: 0.77rem;
+  color: var(--text-muted, #8A857C);
+  line-height: 1.35;
+}
+
+/* Chat stream */
+.ls-w__chat {
+  display: flex;
+  flex-direction: column;
+}
+/* Belt-and-braces: HTML "hidden" attribute should always force display:none,
+   even when the element has display:flex from a class. Some browsers/specificity
+   chains can override this. Make it explicit. */
+.ls-w [hidden] { display: none !important; }
+.ls-w__chat-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 6px;
+}
+.ls-w__chat-back {
+  align-self: flex-start;
+  margin-top: 10px;
+  background: transparent;
+  border: 0;
+  color: var(--text-muted, #8A857C);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 0;
+}
+.ls-w__chat-back:hover { color: var(--red, #C1353D); }
+
+/* Bubbles */
+.ls-w__msg {
+  max-width: 86%;
+  padding: 10px 13px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  animation: ls-w-msg-in 0.25s ease-out;
+}
+.ls-w__msg--bot {
+  align-self: flex-start;
+  background: var(--cream, #FAFAF8);
+  color: var(--text-dark, #1E1D1B);
+  border-bottom-left-radius: 4px;
+}
+.ls-w__msg--bot strong { color: var(--navy, #2F5581); }
+.ls-w__msg--user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--red, #C1353D), #A42D34);
+  color: #fff;
+  font-weight: 600;
+  border-bottom-right-radius: 4px;
+}
+@keyframes ls-w-msg-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Option chips (the buttons under each bot message) */
+.ls-w__chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-self: flex-start;
+  width: 100%;
+  animation: ls-w-msg-in 0.3s ease-out;
+}
+.ls-w__chip-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  background: var(--white, #fff);
+  border: 1.5px solid var(--sand-100, #EFEDE8);
+  border-radius: 22px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--navy, #2F5581);
+  transition: all 0.18s ease;
+}
+.ls-w__chip-btn:hover {
+  background: var(--cream, #FAFAF8);
+  border-color: var(--red, #C1353D);
+  color: var(--red, #C1353D);
+  transform: translateX(2px);
+}
+.ls-w__chip-ico {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Form-route prompt (revealed on form route or fee-deflect) */
+.ls-w__form-prompt {
+  background: linear-gradient(135deg, rgba(122,195,158,0.10), rgba(47,85,129,0.06));
+  border: 1px solid rgba(122,195,158,0.25);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-dark, #1E1D1B);
+  margin-bottom: 12px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .ls-w__entry-btn { padding: 11px 12px; }
+  .ls-w__entry-label { font-size: 0.92rem; }
+  .ls-w__entry-sub { font-size: 0.74rem; }
+  .ls-w__msg { font-size: 0.88rem; padding: 9px 12px; }
+  .ls-w__chip-btn { font-size: 0.84rem; padding: 9px 13px; }
+}
