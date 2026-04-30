@@ -606,28 +606,88 @@
   color: var(--text-muted, #8A857C);
 }
 
-/* ── MOBILE ── */
+/* ── MOBILE ──
+   Bottom-sheet pattern: panel docks to viewport edges, leaves a clear
+   gap under the navbar, and the body scrolls internally. Designed so that
+   on a 667px iPhone SE the panel still feels roomy without intruding. */
 @media (max-width: 768px) {
+  .ls-w {
+    /* Pin container to viewport edges so the panel can fill the width.
+       Bubble itself is repositioned via its own rule below. */
+    bottom: max(14px, env(safe-area-inset-bottom));
+    right: 14px;
+    left: 14px;
+  }
+  .ls-w__bubble {
+    /* Container is now full-width — push bubble back to the right corner */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 58px;
+    height: 58px;
+  }
+  .ls-w__bubble .ls-w__logo { width: 38px; height: 38px; }
   .ls-w__panel {
-    width: calc(100vw - 24px);
-    max-width: 380px;
-    right: -12px;
-    bottom: 78px;
-    /* Strict cap that always clears the fixed banner (~44px) + nav (~64px)
-       plus the bubble (~78px) and a 16px cushion. Whichever of the pixel
-       cap or viewport-derived cap is smaller wins, so on short phones the
-       panel never reaches the navbar — even in chat mode where the body
-       flexes to fill the available height. */
-    max-height: min(540px, calc(100vh - 210px));
+    /* Bottom sheet: docks to both edges, sits above the bubble. */
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(72px + env(safe-area-inset-bottom));
+    width: auto;
+    max-width: none;
+    /* Cap height so the navbar (~64px) and the bubble (~72px) always
+       remain visible — short phones (568–667px) get a usable panel,
+       tall phones don't grow into a wall of options. */
+    max-height: min(70vh, calc(100vh - 160px - env(safe-area-inset-bottom)));
+    border-radius: 18px;
+    transform-origin: bottom center;
   }
   .ls-w__teaser {
-    max-width: calc(100vw - 112px);
+    /* Anchor the teaser to the bubble (which now sits at right:0 of the
+       full-width container). max-width respects the same gutter. */
+    right: 70px;
+    bottom: 8px;
+    max-width: calc(100vw - 96px);
     font-size: 0.8rem;
+    padding: 9px 30px 9px 12px;
   }
-  .ls-w__header { padding: 14px 16px; }
+  .ls-w__header { padding: 13px 14px; gap: 10px; }
+  .ls-w__h-logo { width: 34px; height: 34px; }
+  .ls-w__h-title { font-size: 0.95rem; }
+  .ls-w__h-sub { font-size: 0.72rem; }
+  .ls-w__body { padding: 12px; }
+  .ls-w__greet {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+  }
+  .ls-w__greet-cta { font-size: 0.74rem; margin: 6px 0 8px; }
+  .ls-w__entry-grid { gap: 7px; }
+  .ls-w__entry-btn {
+    grid-template-columns: 32px 1fr;
+    gap: 1px 10px;
+    padding: 10px 12px;
+  }
+  .ls-w__entry-ico { width: 32px; height: 32px; border-radius: 8px; }
+  .ls-w__entry-ico svg { width: 18px; height: 18px; }
+  .ls-w__entry-label { font-size: 0.9rem; }
+  .ls-w__entry-sub { font-size: 0.72rem; }
   .ls-ei__card { padding: 28px 20px 20px; }
   .ls-ei__card h3 { font-size: 1.25rem; }
   .ls-ei__card p { font-size: 0.88rem; }
+}
+
+/* Very small phones (≤380px) — drop another notch */
+@media (max-width: 380px) {
+  .ls-w__bubble { width: 54px; height: 54px; }
+  .ls-w__bubble .ls-w__logo { width: 34px; height: 34px; }
+  .ls-w__panel {
+    bottom: calc(66px + env(safe-area-inset-bottom));
+    max-height: min(72vh, calc(100vh - 150px - env(safe-area-inset-bottom)));
+  }
+  .ls-w__greet { font-size: 0.82rem; }
+  .ls-w__entry-label { font-size: 0.86rem; }
+  .ls-w__entry-sub { font-size: 0.7rem; }
 }
 
 /* Hide the old static .wa button if widget loads */

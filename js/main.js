@@ -25,28 +25,45 @@
     if(s!==navScrolled){navScrolled=s;nav.classList.toggle('scrolled',s)}
   },{passive:true});
 
-  /* Lazy-load hero video only when it scrolls into view.
-     On mobile the video is below the fold (hero stacks vertically), so deferring
-     this until the user actually scrolls past the headline frees up network for LCP.
-     On desktop, IntersectionObserver fires immediately because the video IS in view. */
+  /* Lazy-load any <video data-src=…> that scrolls into view. Mobile-aware:
+       - On phones we only autoplay ONE video per section (the first), showing
+         the others as posters. Decoding 3 streams in parallel on a mid-tier
+         Android is what was causing the lag the owner reported.
+       - On data-saver / 2g / slow-2g connections, no auto-load at all — the
+         poster stays put.
+       - rootMargin is tighter on mobile (50px) so we don't kick off downloads
+         the user may never reach. */
   (function(){
-    var v=document.querySelector('.hero__photo video[data-src]');
-    if(!v)return;
-    function load(){
-      if(v.src)return;
-      v.src=v.getAttribute('data-src');
-      v.load();
-      var p=v.play();
-      if(p&&p.catch)p.catch(function(){});
-    }
-    if('IntersectionObserver' in window){
-      var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){if(e.isIntersecting){load();io.unobserve(e.target)}});
-      },{rootMargin:'200px 0px'});
-      io.observe(v);
-    }else{
-      window.addEventListener('load',function(){setTimeout(load,1500)},{once:true});
-    }
+    if (!('IntersectionObserver' in window)) return;
+    var isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    var saveData = !!(conn && (conn.saveData || /^(2g|slow-2g)$/.test(conn.effectiveType||'')));
+    if (saveData) return; /* posters stay; user can tap controls if any */
+
+    var rootMargin = isMobile ? '50px 0px' : '200px 0px';
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var v = e.target;
+        if (!v.src && v.getAttribute('data-src')) {
+          v.src = v.getAttribute('data-src');
+          v.load();
+          var p = v.play();
+          if (p && p.catch) p.catch(function(){});
+        }
+        io.unobserve(v);
+      });
+    }, { rootMargin: rootMargin });
+
+    /* On mobile, in any "hero videos" group only kick off the first one. */
+    document.querySelectorAll('.pg-hero__videos').forEach(function(group){
+      var vids = group.querySelectorAll('video[data-src]');
+      if (isMobile) {
+        for (var i = 1; i < vids.length; i++) vids[i].removeAttribute('data-src');
+      }
+    });
+
+    document.querySelectorAll('video[data-src]').forEach(function(v){ io.observe(v); });
   })();
 
   /* Mobile */

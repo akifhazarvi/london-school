@@ -20,9 +20,12 @@
   var CALL_NUMBER = '+923010499777';
   var CALL_LABEL  = '0301-0499777';                          // displayed text
   var ENDPOINT    = 'https://script.google.com/macros/s/AKfycbyEMq2spkrKlbWtMdbbwELf3f0sAw5QILIz_RSxTmIbQmMcOtMxDPgsvYdTYCcDahlb/exec';
-  var ROTATION_MS = 5000;
-  var FIRST_SHOW_MS = 1200;
+  var ROTATION_MS = 6000;
   var LOGO_SRC    = 'img/logo-icon.webp';
+  /* Mobile-aware first-show timing — give the user time to read the hero
+     before any widget surface appears. Desktop keeps the original snappy feel. */
+  var IS_MOBILE = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+  var FIRST_SHOW_MS = IS_MOBILE ? 8000 : 1500;
   /* Master kill-switch and auto-surface toggles.
      WIDGET_ENABLED=false removes the entire floating chat widget.
      AUTO_TEASER / AUTO_EXIT_INTENT control the two auto-appearing surfaces
@@ -30,10 +33,11 @@
   var WIDGET_ENABLED    = true;
   var AUTO_TEASER       = true;
   var AUTO_EXIT_INTENT  = false;
-  /* Auto-open the full panel on mobile home page first visit (data-backed:
-     WhatsApp converts ~6× higher than form; widget panel was under-opened). */
-  var AUTO_OPEN_MOBILE_HOME = true;
-  var AUTO_OPEN_DELAY_MS    = 4000;
+  /* Auto-open the full panel: desktop only. On mobile the panel covers the
+     viewport and intrudes on first read — let the user reach for the bubble
+     themselves, or be prompted by the gentler teaser bubble. */
+  var AUTO_OPEN_MOBILE_HOME = false;
+  var AUTO_OPEN_DELAY_MS    = 6000;
   if (!WIDGET_ENABLED) return;
 
   /* ── PAGE DETECTION ── */
@@ -734,13 +738,13 @@
     trackAll('widget_open', { page: path, source: autoSource || pageKey });
   }
 
-  /* ── NUDGE: pull eye to the bubble at key moments ── */
-  /* Triggers a one-shot wiggle + glow at:
-       - 25s after page load (curiosity window closing)
-       - First scroll past 30% (engaged but not yet clicked)
-       - 60s of inactivity (lost attention, gentle reminder)
-     Each trigger fires only once per page load. Re-shows the teaser
-     bubble too if it was dismissed earlier so the message lands. */
+  /* ── NUDGE: pull eye to the bubble at key moments ──
+     Mobile is intentionally quieter than desktop. On a phone the bubble
+     already takes ~14% of the viewport — wiggling it while the user is
+     reading the hero feels intrusive. So:
+       - Mobile: only one nudge, after 75% scroll (clear engagement signal)
+       - Desktop: 45s timer + 60% scroll + 90s idle (reduced from 25/30/60s)
+     Re-shows the teaser bubble if it was dismissed so the message lands. */
   function nudgeBubble(reason){
     if (wrapper.classList.contains('is-open')) return;
     bubble.classList.remove('is-wiggle');
@@ -754,28 +758,39 @@
     showTeaser();
     trackAll('widget_nudge', { reason: reason, page: path });
   }
-  /* 25s timed nudge */
-  var nudge25 = setTimeout(function(){ nudgeBubble('time-25s'); }, 25000);
-  /* 30% scroll nudge (one-shot) */
-  var scrollNudgeFired = false;
-  window.addEventListener('scroll', function(){
-    if (scrollNudgeFired) return;
-    var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-    if (scrolled > 0.3) {
-      scrollNudgeFired = true;
-      nudgeBubble('scroll-30');
+  if (IS_MOBILE) {
+    /* Mobile: one calm nudge, only after the user is clearly engaged */
+    var mobileNudgeFired = false;
+    window.addEventListener('scroll', function(){
+      if (mobileNudgeFired) return;
+      var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrolled > 0.75) {
+        mobileNudgeFired = true;
+        nudgeBubble('mobile-scroll-75');
+      }
+    }, { passive: true });
+  } else {
+    /* Desktop: gentler than before — 45s timer, 60% scroll, 90s idle */
+    setTimeout(function(){ nudgeBubble('time-45s'); }, 45000);
+    var scrollNudgeFired = false;
+    window.addEventListener('scroll', function(){
+      if (scrollNudgeFired) return;
+      var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrolled > 0.6) {
+        scrollNudgeFired = true;
+        nudgeBubble('scroll-60');
+      }
+    }, { passive: true });
+    var idleTimer;
+    function resetIdle(){
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(function(){ nudgeBubble('idle-90s'); }, 90000);
     }
-  }, { passive: true });
-  /* 60s idle nudge (resets on any user activity) */
-  var idleTimer;
-  function resetIdle(){
-    clearTimeout(idleTimer);
-    idleTimer = setTimeout(function(){ nudgeBubble('idle-60s'); }, 60000);
+    ['mousemove','scroll','keydown','click'].forEach(function(ev){
+      window.addEventListener(ev, resetIdle, { passive: true });
+    });
+    resetIdle();
   }
-  ['mousemove','scroll','keydown','touchstart','click'].forEach(function(ev){
-    window.addEventListener(ev, resetIdle, { passive: true });
-  });
-  resetIdle();
 
   /* ── AUTO-OPEN — once per device, 7-day cooldown, kill on dismissal ──
      Behaviour:
