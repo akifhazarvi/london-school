@@ -2,22 +2,6 @@
 (function(){
   'use strict';
 
-  /* WhatsApp click tracking — fires GA4 event with source attribution.
-     Captures every wa.me click on the site and labels it by its data-wa-source
-     attribute (set per CTA, e.g. "home-hero", "enroll-final", "ai-floating").
-     Uses event delegation so it works for floating buttons rendered later too. */
-  document.addEventListener('click', function(ev){
-    var a = ev.target.closest && ev.target.closest('a[href*="wa.me"]');
-    if (!a) return;
-    var source = a.getAttribute('data-wa-source') || 'unspecified';
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'whatsapp_click', {
-        wa_source: source,
-        page_path: window.location.pathname
-      });
-    }
-  }, true);
-
   /* Nav — guard against repeated DOM writes on every scroll frame */
   var nav=document.getElementById('nav'),navScrolled=false;
   window.addEventListener('scroll',function(){
@@ -438,7 +422,7 @@
     if (formStartFired) return;
     formStartFired = true;
     var props = { form_id: form.id || 'leadForm', source: 'enroll', page: location.pathname };
-    try { if (typeof gtag === 'function') gtag('event', 'form_start', props); } catch(e){}
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: 'form_start' }, props)); } catch(e){}
     try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: 'form_start' }, props)); } catch(e){}
   }
   Array.prototype.forEach.call(form.querySelectorAll('input, select, textarea'), function(el){
@@ -496,7 +480,7 @@
       currency: 'PKR',
       page: location.pathname
     };
-    try { if (typeof gtag === 'function') gtag('event', 'generate_lead', leadProps); } catch(e){}
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: 'generate_lead' }, leadProps)); } catch(e){}
     try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: 'generate_lead' }, leadProps)); } catch(e){}
 
     if (submitBtn) {
@@ -556,25 +540,9 @@
       });
   });
 
-  /* GA4 events — delegated. Fires whatsapp_click and phone_click on link activation. */
-  document.addEventListener('click', function(e){
-    var a = e.target.closest && e.target.closest('a[href]');
-    if (!a) return;
-    var href = a.getAttribute('href') || '';
-    if (typeof gtag !== 'function') return;
-    if (/^https?:\/\/(api\.)?wa\.me\//i.test(href) || /^https?:\/\/(www\.)?whatsapp\.com\//i.test(href)) {
-      gtag('event', 'whatsapp_click', {
-        link_url: href,
-        link_text: (a.textContent || '').trim().slice(0, 80) || a.getAttribute('aria-label') || '',
-        cta_id: a.getAttribute('data-wa-cta') || a.id || '',
-        page_path: location.pathname
-      });
-    } else if (/^tel:/i.test(href)) {
-      gtag('event', 'phone_click', {
-        link_url: href,
-        link_text: (a.textContent || '').trim().slice(0, 80),
-        page_path: location.pathname
-      });
-    }
-  }, true);
+  /* WhatsApp + phone click tracking is now handled by GTM (container
+     GTM-5MJGPGFQ) via its Click — WhatsApp / Click — Phone triggers
+     plus mirroring through js/vercel-events.js, so the previous
+     delegated handler here was removed on 2026-05-01 to avoid triple-
+     counting events. */
 })();

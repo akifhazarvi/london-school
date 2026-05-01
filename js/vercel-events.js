@@ -15,11 +15,12 @@
         window.va('event', Object.assign({ name: name }, props || {}));
       }
     } catch(e) { /* silent */ }
-    /* Mirror to GA4 so the same event shows in both platforms */
+    /* Push to dataLayer so GTM (container GTM-5MJGPGFQ) can route the event
+       to GA4 + Meta Pixel + Google Ads via tags. Replaced direct gtag() call
+       on 2026-05-01 when inline gtag was removed in favour of GTM. */
     try {
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', name, props || {});
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: name }, props || {}));
     } catch(e) { /* silent */ }
   }
 

@@ -112,10 +112,16 @@
   if (oldWa) oldWa.remove();
 
   /* ── HELPERS ── */
-  /* trackAll() fires GA4 + Vercel Analytics events for any widget interaction. */
+  /* trackAll() fires events into the GTM dataLayer (which routes to GA4 +
+     Meta Pixel + Google Ads) and into Vercel Analytics. Switched from
+     direct gtag() to dataLayer.push on 2026-05-01 when inline gtag was
+     removed in favour of GTM container GTM-5MJGPGFQ. */
   function trackAll(name, props){
     var p = props || {};
-    try { if (typeof window.gtag === 'function') window.gtag('event', name, p); } catch(e){}
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: name }, p));
+    } catch(e){}
     try { if (typeof window.va === 'function') window.va('event', Object.assign({ name: name }, p)); } catch(e){}
   }
   function esc(s){ return String(s || '').replace(/[<>&"']/g, function(c){

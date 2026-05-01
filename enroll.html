@@ -9,43 +9,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5MJGPGFQ');</script>
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) — deferred for performance -->
   <script>
+    /* GTM owns GA4 + Google Ads init now (container GTM-5MJGPGFQ).
+       gtag_report_conversion() is kept as a shim because ~50 onclick
+       handlers across the site call it. It pushes a 'ads_conversion'
+       custom event into the dataLayer so GTM's Google Ads conversion
+       tags can fire, then navigates after a short delay so the beacon
+       has time to send. */
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-S3PMR30G31', {
-      cookie_domain: 'auto',
-      cookie_expires: 63072000
-    });
-    gtag('config', 'AW-18119617331');
     function gtag_report_conversion(url) {
-      var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } };
-      gtag('event', 'conversion', {
-        'send_to': 'AW-18119617331/vHvUCO2vwqIcELPWjcBD',
-        'value': 1.0,
-        'currency': 'USD',
-        'event_callback': callback
+      window.dataLayer.push({
+        event: 'ads_conversion',
+        send_to: 'AW-18119617331/vHvUCO2vwqIcELPWjcBD',
+        value: 1.0,
+        currency: 'USD'
       });
+      if (typeof url !== 'undefined') {
+        setTimeout(function () { window.location = url; }, 250);
+      }
       return false;
     }
-    (function(){
-      var loaded = false;
-      function loadGtag(){
-        if (loaded) return; loaded = true;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3PMR30G31';
-        document.head.appendChild(s);
-      }
-      var triggers = ['scroll','click','keydown','touchstart','mousemove'];
-      triggers.forEach(function(t){ window.addEventListener(t, loadGtag, {once:true, passive:true}); });
-      if (document.readyState === 'complete') {
-        setTimeout(loadGtag, 1500);
-      } else {
-        window.addEventListener('load', function(){ setTimeout(loadGtag, 1500); }, {once:true});
-      }
-    })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admissions | Cambridge School Lahore — London School</title>
@@ -72,11 +55,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
-  <link rel="stylesheet" href="css/design-system.css?v=1777672465">
-  <link rel="stylesheet" href="css/sections.css?v=1777672465">
-  <link rel="stylesheet" href="css/pages.css?v=1777672465">
-  <link rel="preload" as="style" href="css/blobs.css?v=1777672465" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/blobs.css?v=1777672465"></noscript>
+  <link rel="stylesheet" href="css/design-system.css?v=1777676719">
+  <link rel="stylesheet" href="css/sections.css?v=1777676719">
+  <link rel="stylesheet" href="css/pages.css?v=1777676719">
+  <link rel="preload" as="style" href="css/blobs.css?v=1777676719" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blobs.css?v=1777676719"></noscript>
   <script type="application/ld+json">
 [
   {
@@ -111,7 +94,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script defer src="/_vercel/insights/script.js"></script>
   <!-- Vercel Speed Insights -->
   <script defer src="/_vercel/speed-insights/script.js"></script>
-  <script defer src="js/pixel.js?v=1777672465"></script>
 </head>
 <body><!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MJGPGFQ"
@@ -513,8 +495,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="https://wa.me/923010499777?text=%5BWeb%20%C2%B7%20Floating%20%C2%B7%20enroll%5D%20Hi%2C%20I%20have%20a%20question%20about%20London%20School." onclick="return gtag_report_conversion('https://wa.me/923010499777?text=%5BWeb%20%C2%B7%20Floating%20%C2%B7%20enroll%5D%20Hi%2C%20I%20have%20a%20question%20about%20London%20School.');" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-wa-cta="floating" data-wa-source="enroll-floating"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
 
-<script defer src="js/main.js?v=1777672465"></script>
-<script defer src="js/vercel-events.js?v=1777672465"></script>
-<script defer src="js/widget.js?v=1777672465"></script>
+<script defer src="js/main.js?v=1777676719"></script>
+<script defer src="js/vercel-events.js?v=1777676719"></script>
+<script defer src="js/widget.js?v=1777676719"></script>
 </body>
 </html>
