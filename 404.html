@@ -45,44 +45,104 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
-  <link rel="stylesheet" href="css/design-system.css?v=1777671330">
+  <link rel="stylesheet" href="css/design-system.css?v=1777672465">
   <link rel="icon" href="img/logo-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/logo-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <style>
     .e404 {
-      min-height: 100vh;
+      min-height: calc(100vh - var(--banner-h, 44px));
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: var(--s-8);
+      padding: clamp(3rem, 8vw, 5rem) var(--s-6);
       background: var(--cream);
     }
     .e404__code {
       font-family: var(--font-heading);
       font-size: clamp(5rem, 15vw, 10rem);
       font-weight: 900;
-      color: var(--red-100);
+      color: var(--red-100, #f5d0d3);
       line-height: 1;
+      letter-spacing: -0.04em;
     }
     .e404__title {
-      font-size: var(--text-h2);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--navy);
       margin: var(--s-4) 0 var(--s-3);
+      font-family: var(--font-heading);
+      font-weight: 800;
     }
     .e404__desc {
-      font-size: var(--text-lg);
-      color: var(--text-muted);
-      max-width: 440px;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--gray-600);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: var(--s-3);
+    }
+    .e404__sug {
+      font-size: 0.92rem;
+      color: var(--gray-700);
+      background: var(--white);
+      border: 1px solid var(--cream-300, #efece4);
+      border-radius: var(--r-lg);
+      padding: var(--s-3) var(--s-5);
+      margin: 0 0 var(--s-6);
+      display: none;
+    }
+    .e404__sug a {
+      color: var(--red);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .e404__sug a:hover { text-decoration: underline; }
+    .e404__primary {
+      display: flex;
+      gap: var(--s-3);
+      flex-wrap: wrap;
+      justify-content: center;
       margin-bottom: var(--s-8);
     }
+    .e404__h3 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin: 0 0 var(--s-3);
+    }
+    .e404__quick {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--s-3);
+      max-width: 720px;
+      width: 100%;
+    }
+    .e404__qcard {
+      background: var(--white);
+      border: 1px solid var(--cream-300, #efece4);
+      border-radius: var(--r-lg);
+      padding: var(--s-4) var(--s-5);
+      text-decoration: none;
+      color: var(--navy);
+      text-align: left;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+    .e404__qcard:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--sh-md);
+      border-color: var(--red);
+    }
+    .e404__qcard strong { display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
+    .e404__qcard span { display: block; font-size: 0.82rem; color: var(--gray-600); }
   </style>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
   <!-- Vercel Speed Insights -->
   <script defer src="/_vercel/speed-insights/script.js"></script>
-  <script defer src="js/pixel.js?v=1777671330"></script>
+  <script defer src="js/pixel.js?v=1777672465"></script>
 </head>
 <body><!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MJGPGFQ"
@@ -104,10 +164,82 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
   <div class="e404">
     <div class="e404__code">404</div>
-    <h1 class="e404__title">Oops! Page not found</h1>
-    <p class="e404__desc">Looks like this page wandered off. Let's get you back to where the learning happens.</p>
-    <a href="index.html" class="btn btn--red btn--lg">Back to Home</a>
+    <h1 class="e404__title">This page wandered off</h1>
+    <p class="e404__desc">The link you followed may be old, or the page has been moved. Don't worry — everything you need is just below.</p>
+
+    <div class="e404__sug" id="e404-sug" hidden>
+      <span>Were you looking for </span><a id="e404-sug-link" href="/">our homepage</a><span>?</span>
+    </div>
+
+    <div class="e404__primary">
+      <a href="/" class="btn btn--red btn--lg">Back to Home</a>
+      <a href="enroll.html" class="btn btn--outline btn--lg">Book a Visit</a>
+    </div>
+
+    <p class="e404__h3">Or jump straight to</p>
+    <div class="e404__quick">
+      <a href="academics.html" class="e404__qcard"><strong>Academics</strong><span>Cambridge curriculum and AI integration</span></a>
+      <a href="ai-robotics.html" class="e404__qcard"><strong>AI &amp; Robotics</strong><span>Our flagship programme from age 3</span></a>
+      <a href="campus.html" class="e404__qcard"><strong>Campus</strong><span>Tour our classrooms and labs</span></a>
+      <a href="enroll.html" class="e404__qcard"><strong>Admissions</strong><span>Book a tour and join 2026-27</span></a>
+      <a href="blog/" class="e404__qcard"><strong>Parent Guides</strong><span>Honest answers for Lahore parents</span></a>
+      <a href="https://wa.me/923010499777" class="e404__qcard" target="_blank" rel="noopener" data-wa-source="404-quick"><strong>WhatsApp Us</strong><span>0301-0499777 · we usually reply within minutes</span></a>
+    </div>
   </div>
-<script defer src="/js/vercel-events.js?v=1777671330"></script>
+
+  <script>
+  /* Smart suggestion — guess the closest real page from the bad URL.
+     Maps the most common WordPress-era and typo'd patterns to live pages,
+     then surfaces a single inline suggestion. Also fires a GA4/GTM event
+     so we can track which legacy URLs people are still hitting. */
+  (function(){
+    var path = (location.pathname || '').toLowerCase().replace(/^\/+|\/+$/g,'');
+    var slug = path.split('/').pop() || '';
+
+    /* Pattern → suggested live URL + display label */
+    var rules = [
+      [/admiss?ion|enrol|apply|fee|tuition|book/, '/enroll.html', 'our admissions page'],
+      [/academic|curriculum|igcse|cambridge|o-?level|subject/, '/academics.html', 'our academics page'],
+      [/ai|robot|coding|stem|tech/, '/ai-robotics.html', 'our AI & Robotics page'],
+      [/campus|facilit|building|library|lab/, '/campus.html', 'our campus page'],
+      [/tour|gallery|photo|yearbook|virtual/, '/yearbook.html', 'our virtual tour'],
+      [/news|event|blog|article/, '/news.html', 'our news page'],
+      [/contact|address|locat|reach|phone/, '/index.html#contact', 'our contact details'],
+      [/about|story|history|mission|vision|principal|leader|teacher|faculty|team|staff/, '/about.html', 'our about page'],
+      [/ask|prof|chat|tutor|help/, '/ask-prof-mir.html', 'Ask Prof Mir']
+    ];
+    var match = null;
+    for (var i = 0; i < rules.length; i++) {
+      if (rules[i][0].test(path) || rules[i][0].test(slug)) { match = rules[i]; break; }
+    }
+    if (match) {
+      var sug = document.getElementById('e404-sug');
+      var link = document.getElementById('e404-sug-link');
+      link.href = match[1];
+      link.textContent = match[2];
+      sug.hidden = false;
+      sug.style.display = 'block';
+    }
+
+    /* Track 404 with the offending path so we can add more redirects later
+       if a particular URL keeps showing up. Fires via dataLayer (GTM-aware)
+       and falls back to direct gtag if GTM hasn't loaded. */
+    var payload = {
+      event: 'page_not_found',
+      missing_path: location.pathname + location.search,
+      referrer: document.referrer || '(direct)'
+    };
+    try { (window.dataLayer = window.dataLayer || []).push(payload); } catch(e){}
+    try {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'page_not_found', {
+          missing_path: payload.missing_path,
+          referrer: payload.referrer
+        });
+      }
+    } catch(e){}
+  })();
+  </script>
+<script defer src="/js/vercel-events.js?v=1777672465"></script>
 </body>
 </html>
