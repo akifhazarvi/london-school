@@ -21,7 +21,20 @@
   var CALL_LABEL  = '0301-0499777';                          // displayed text
   var ENDPOINT    = 'https://script.google.com/macros/s/AKfycbyEMq2spkrKlbWtMdbbwELf3f0sAw5QILIz_RSxTmIbQmMcOtMxDPgsvYdTYCcDahlb/exec';
   var ROTATION_MS = 6000;
-  var LOGO_SRC    = 'img/logo-icon.webp';
+  /* Derive site root from this script's own src so the widget works from
+     subdirectory pages (e.g. blog/*.html) where 'css/...' resolves wrong. */
+  var BASE = (function(){
+    var s = document.currentScript;
+    if (!s) {
+      var all = document.getElementsByTagName('script');
+      for (var i = all.length - 1; i >= 0; i--) {
+        if (all[i].src && all[i].src.indexOf('widget.js') > -1) { s = all[i]; break; }
+      }
+    }
+    if (!s || !s.src) return '';
+    return s.src.replace(/[^/]*$/, '').replace(/js\/$/, '');
+  })();
+  var LOGO_SRC    = BASE + 'img/logo-icon.webp';
   /* Mobile-aware first-show timing — give the user time to read the hero
      before any widget surface appears. Desktop keeps the original snappy feel. */
   var IS_MOBILE = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
@@ -103,7 +116,7 @@
   if (!document.querySelector('link[href*="widget.css"]')) {
     var css = document.createElement('link');
     css.rel = 'stylesheet';
-    css.href = 'css/widget.css';
+    css.href = BASE + 'css/widget.css';
     document.head.appendChild(css);
   }
 
