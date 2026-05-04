@@ -116,7 +116,34 @@
 
     { "source": "/wp-admin", "destination": "/", "permanent": true },
     { "source": "/wp-admin/", "destination": "/", "permanent": true },
-    { "source": "/wp-login.php", "destination": "/", "permanent": true }
+    { "source": "/wp-login.php", "destination": "/", "permanent": true },
+
+    { "source": "/courses/:path*", "destination": "/academics.html", "permanent": true },
+    { "source": "/courses", "destination": "/academics.html", "permanent": true },
+    { "source": "/courses/", "destination": "/academics.html", "permanent": true },
+    { "source": "/community", "destination": "/campus.html", "permanent": true },
+    { "source": "/community/", "destination": "/campus.html", "permanent": true },
+    { "source": "/campus-life-2", "destination": "/campus.html", "permanent": true },
+    { "source": "/campus-life-2/", "destination": "/campus.html", "permanent": true },
+    { "source": "/campus-life", "destination": "/campus.html", "permanent": true },
+    { "source": "/campus-life/", "destination": "/campus.html", "permanent": true },
+    { "source": "/faqs", "destination": "/ask-prof-mir.html", "permanent": true },
+    { "source": "/faqs/", "destination": "/ask-prof-mir.html", "permanent": true },
+    { "source": "/faq", "destination": "/ask-prof-mir.html", "permanent": true },
+    { "source": "/faq/", "destination": "/ask-prof-mir.html", "permanent": true },
+    { "source": "/user-login", "destination": "/", "permanent": true },
+    { "source": "/user-login/", "destination": "/", "permanent": true },
+    { "source": "/login", "destination": "/", "permanent": true },
+    { "source": "/login/", "destination": "/", "permanent": true },
+    { "source": "/type/:path*", "destination": "/", "permanent": true },
+    { "source": "/events/:path*", "destination": "/news.html", "permanent": true },
+
+    { "source": "/legacy", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
+    { "source": "/legacy/", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
+    { "source": "/waris-mir", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
+    { "source": "/waris-mir/", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
+    { "source": "/prof-waris-mir", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
+    { "source": "/professor-waris-mir", "destination": "/legacy/prof-waris-mir.html", "permanent": true }
   ],
   "headers": [
     {
