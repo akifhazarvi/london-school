@@ -466,7 +466,7 @@
 
     /* Honeypot: if bot filled the hidden checkbox, pretend success and bail */
     if (form.botcheck && form.botcheck.checked) {
-      window.location.href = form.getAttribute('data-redirect') || 'thank-you.html';
+      window.location.href = form.getAttribute('data-redirect') || '/thank-you';
       return;
     }
 
@@ -489,7 +489,7 @@
     }
 
     var endpoint = form.getAttribute('data-endpoint');
-    var redirectTo = form.getAttribute('data-redirect') || 'thank-you.html';
+    var redirectTo = form.getAttribute('data-redirect') || '/thank-you';
     var fd = new FormData(form);
 
     /* Append a timestamp + source tag for downstream admissions team */

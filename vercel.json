@@ -1,173 +1,643 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
-    { "source": "/london-school", "destination": "/", "permanent": true },
-    { "source": "/london-school/", "destination": "/", "permanent": true },
-    { "source": "/london-school/index.html", "destination": "/", "permanent": true },
-    { "source": "/london-school/:path*", "destination": "/:path*", "permanent": true },
-
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/home/", "destination": "/", "permanent": true },
-
-    { "source": "/about", "destination": "/about.html", "permanent": true },
-    { "source": "/about/", "destination": "/about.html", "permanent": true },
-    { "source": "/about-us", "destination": "/about.html", "permanent": true },
-    { "source": "/about-us/", "destination": "/about.html", "permanent": true },
-    { "source": "/our-story", "destination": "/about.html", "permanent": true },
-    { "source": "/our-story/", "destination": "/about.html", "permanent": true },
-
-    { "source": "/academics", "destination": "/academics.html", "permanent": true },
-    { "source": "/academics/", "destination": "/academics.html", "permanent": true },
-    { "source": "/academic", "destination": "/academics.html", "permanent": true },
-    { "source": "/academic/", "destination": "/academics.html", "permanent": true },
-    { "source": "/academics-detail", "destination": "/academics.html", "permanent": true },
-    { "source": "/academics-detail/", "destination": "/academics.html", "permanent": true },
-    { "source": "/curriculum", "destination": "/academics.html", "permanent": true },
-    { "source": "/curriculum/", "destination": "/academics.html", "permanent": true },
-    { "source": "/cambridge", "destination": "/academics.html", "permanent": true },
-    { "source": "/igcse", "destination": "/blog/what-is-igcse.html", "permanent": true },
-    { "source": "/o-level", "destination": "/blog/what-is-igcse.html", "permanent": true },
-
-    { "source": "/ai-robotics", "destination": "/ai-robotics.html", "permanent": true },
-    { "source": "/ai-robotics/", "destination": "/ai-robotics.html", "permanent": true },
-    { "source": "/robotics", "destination": "/ai-robotics.html", "permanent": true },
-    { "source": "/robotics/", "destination": "/ai-robotics.html", "permanent": true },
-    { "source": "/ai", "destination": "/ai-robotics.html", "permanent": true },
-
-    { "source": "/campus", "destination": "/campus.html", "permanent": true },
-    { "source": "/campus/", "destination": "/campus.html", "permanent": true },
-    { "source": "/our-campus", "destination": "/campus.html", "permanent": true },
-    { "source": "/our-campus/", "destination": "/campus.html", "permanent": true },
-    { "source": "/facilities", "destination": "/campus.html", "permanent": true },
-    { "source": "/facilities/", "destination": "/campus.html", "permanent": true },
-
-    { "source": "/yearbook", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/yearbook/", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/virtual-tour", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/virtual-tour/", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/gallery", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/gallery/", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/photos", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/photos/", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/tour", "destination": "/yearbook.html", "permanent": true },
-    { "source": "/tour/", "destination": "/yearbook.html", "permanent": true },
-
-    { "source": "/news", "destination": "/news.html", "permanent": true },
-    { "source": "/news/", "destination": "/news.html", "permanent": true },
-    { "source": "/events", "destination": "/news.html", "permanent": true },
-    { "source": "/events/", "destination": "/news.html", "permanent": true },
-
-    { "source": "/enroll", "destination": "/enroll.html", "permanent": true },
-    { "source": "/enroll/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/enrol", "destination": "/enroll.html", "permanent": true },
-    { "source": "/enrolment", "destination": "/enroll.html", "permanent": true },
-    { "source": "/enrolment/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/admission", "destination": "/enroll.html", "permanent": true },
-    { "source": "/admission/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/admissions", "destination": "/enroll.html", "permanent": true },
-    { "source": "/admissions/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/admission-2", "destination": "/enroll.html", "permanent": true },
-    { "source": "/admission-2/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/apply", "destination": "/enroll.html", "permanent": true },
-    { "source": "/apply/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/book-a-tour", "destination": "/enroll.html", "permanent": true },
-    { "source": "/book-a-tour/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/book-a-visit", "destination": "/enroll.html", "permanent": true },
-    { "source": "/book-a-visit/", "destination": "/enroll.html", "permanent": true },
-
-    { "source": "/ask-prof-mir", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/ask-prof-mir/", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/prof-mir", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/prof-mir/", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/chatbot", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/ai-tutor", "destination": "/ask-prof-mir.html", "permanent": true },
-
-    { "source": "/faculty", "destination": "/about.html#team", "permanent": true },
-    { "source": "/faculty/", "destination": "/about.html#team", "permanent": true },
-    { "source": "/our-faculty", "destination": "/about.html#team", "permanent": true },
-    { "source": "/our-faculty/", "destination": "/about.html#team", "permanent": true },
-    { "source": "/teachers", "destination": "/about.html#team", "permanent": true },
-    { "source": "/teachers/", "destination": "/about.html#team", "permanent": true },
-    { "source": "/team", "destination": "/about.html#team", "permanent": true },
-    { "source": "/faculty-detail", "destination": "/about.html#team", "permanent": true },
-    { "source": "/faculty-detail/", "destination": "/about.html#team", "permanent": true },
-    { "source": "/principal", "destination": "/about.html#principal", "permanent": true },
-
-    { "source": "/contact", "destination": "/index.html#contact", "permanent": true },
-    { "source": "/contact/", "destination": "/index.html#contact", "permanent": true },
-    { "source": "/contact-us", "destination": "/index.html#contact", "permanent": true },
-    { "source": "/contact-us/", "destination": "/index.html#contact", "permanent": true },
-    { "source": "/get-in-touch", "destination": "/index.html#contact", "permanent": true },
-
-    { "source": "/fees", "destination": "/enroll.html", "permanent": true },
-    { "source": "/fees/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/fee", "destination": "/enroll.html", "permanent": true },
-    { "source": "/fee-structure", "destination": "/enroll.html", "permanent": true },
-    { "source": "/fee-structure/", "destination": "/enroll.html", "permanent": true },
-    { "source": "/tuition", "destination": "/enroll.html", "permanent": true },
-    { "source": "/tuition/", "destination": "/enroll.html", "permanent": true },
-
-    { "source": "/parent-guides", "destination": "/blog/", "permanent": true },
-    { "source": "/parent-guides/", "destination": "/blog/", "permanent": true },
-    { "source": "/guides", "destination": "/blog/", "permanent": true },
-    { "source": "/guides/", "destination": "/blog/", "permanent": true },
-    { "source": "/articles", "destination": "/blog/", "permanent": true },
-    { "source": "/articles/", "destination": "/blog/", "permanent": true },
-
-    { "source": "/wp-admin", "destination": "/", "permanent": true },
-    { "source": "/wp-admin/", "destination": "/", "permanent": true },
-    { "source": "/wp-login.php", "destination": "/", "permanent": true },
-
-    { "source": "/courses/:path*", "destination": "/academics.html", "permanent": true },
-    { "source": "/courses", "destination": "/academics.html", "permanent": true },
-    { "source": "/courses/", "destination": "/academics.html", "permanent": true },
-    { "source": "/community", "destination": "/campus.html", "permanent": true },
-    { "source": "/community/", "destination": "/campus.html", "permanent": true },
-    { "source": "/campus-life-2", "destination": "/campus.html", "permanent": true },
-    { "source": "/campus-life-2/", "destination": "/campus.html", "permanent": true },
-    { "source": "/campus-life", "destination": "/campus.html", "permanent": true },
-    { "source": "/campus-life/", "destination": "/campus.html", "permanent": true },
-    { "source": "/faqs", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/faqs/", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/faq", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/faq/", "destination": "/ask-prof-mir.html", "permanent": true },
-    { "source": "/user-login", "destination": "/", "permanent": true },
-    { "source": "/user-login/", "destination": "/", "permanent": true },
-    { "source": "/login", "destination": "/", "permanent": true },
-    { "source": "/login/", "destination": "/", "permanent": true },
-    { "source": "/type/:path*", "destination": "/", "permanent": true },
-    { "source": "/events/:path*", "destination": "/news.html", "permanent": true },
-
-    { "source": "/legacy", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
-    { "source": "/legacy/", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
-    { "source": "/waris-mir", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
-    { "source": "/waris-mir/", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
-    { "source": "/prof-waris-mir", "destination": "/legacy/prof-waris-mir.html", "permanent": true },
-    { "source": "/professor-waris-mir", "destination": "/legacy/prof-waris-mir.html", "permanent": true }
+    {
+      "source": "/london-school",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/london-school/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/london-school/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/london-school/:path*/",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/london-school/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/our-story",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/our-story/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/academic",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/academic/",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/academics-detail",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/academics-detail/",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/curriculum/",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/cambridge",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/igcse",
+      "destination": "/blog/what-is-igcse",
+      "permanent": true
+    },
+    {
+      "source": "/o-level",
+      "destination": "/blog/what-is-igcse",
+      "permanent": true
+    },
+    {
+      "source": "/robotics",
+      "destination": "/ai-robotics",
+      "permanent": true
+    },
+    {
+      "source": "/robotics/",
+      "destination": "/ai-robotics",
+      "permanent": true
+    },
+    {
+      "source": "/ai",
+      "destination": "/ai-robotics",
+      "permanent": true
+    },
+    {
+      "source": "/our-campus",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/our-campus/",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/facilities",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/facilities/",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/virtual-tour",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/virtual-tour/",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/gallery",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/gallery/",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/photos",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/photos/",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/tour",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/tour/",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/events",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/events/",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/enrol",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/enrolment",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/enrolment/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/admission",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/admission/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/admissions",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/admissions/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/admission-2",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/admission-2/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/apply",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/apply/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-tour",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-tour/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-visit",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-visit/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/prof-mir",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/prof-mir/",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/chatbot",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/ai-tutor",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/faculty",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/faculty.html",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/faculty/",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/our-faculty",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/our-faculty/",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/teachers",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/teachers/",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/team",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/faculty-detail",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/faculty-detail/",
+      "destination": "/about#team",
+      "permanent": true
+    },
+    {
+      "source": "/principal",
+      "destination": "/about#principal",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us/",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/get-in-touch",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/fees",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/fees/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/fee",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/fee-structure",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/fee-structure/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/tuition",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/tuition/",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/parent-guides",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/parent-guides/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/guides",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/articles",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/:path*/",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/courses/:path*",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/courses",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/courses/",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/community",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/community/",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/campus-life-2",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/campus-life-2/",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/campus-life",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/campus-life/",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/faqs",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/faqs/",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/user-login",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/user-login/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/login",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/login/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/type/:path*/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/type/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/events/:path*/",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/events/:path*",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/legacy",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    },
+    {
+      "source": "/legacy/",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    },
+    {
+      "source": "/waris-mir",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    },
+    {
+      "source": "/waris-mir/",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    },
+    {
+      "source": "/prof-waris-mir",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    },
+    {
+      "source": "/professor-waris-mir",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://*.google.com https://maps.googleapis.com https://tagmanager.google.com https://connect.facebook.net https://*.facebook.net; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://*.google.com https://maps.googleapis.com https://tagmanager.google.com https://connect.facebook.net https://*.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com https://www.googletagmanager.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://maps.googleapis.com https://*.facebook.com https://*.facebook.net; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://script.google.com https://script.googleusercontent.com https://*.google.com https://maps.googleapis.com https://*.facebook.com https://*.facebook.net https://connect.facebook.net; frame-src 'self' https://*.google.com https://td.doubleclick.net https://www.googleadservices.com https://www.youtube.com https://www.youtube-nocookie.com https://*.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://script.google.com https://www.facebook.com https://*.facebook.com" }
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://*.google.com https://maps.googleapis.com https://tagmanager.google.com https://connect.facebook.net https://*.facebook.net; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://www.google.com https://*.google.com https://maps.googleapis.com https://tagmanager.google.com https://connect.facebook.net https://*.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com https://www.googletagmanager.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagmanager.google.com https://www.googletagmanager.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.google.com https://*.googleusercontent.com https://*.gstatic.com https://maps.googleapis.com https://*.facebook.com https://*.facebook.net; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://ssl.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://script.google.com https://script.googleusercontent.com https://*.google.com https://maps.googleapis.com https://*.facebook.com https://*.facebook.net https://connect.facebook.net; frame-src 'self' https://*.google.com https://td.doubleclick.net https://www.googleadservices.com https://www.youtube.com https://www.youtube-nocookie.com https://*.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://script.google.com https://www.facebook.com https://*.facebook.com"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(jpg|jpeg|png|webp|avif|svg|ico|woff2|woff|ttf|mp4|webm)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(css|js)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=604800, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, must-revalidate"
+        }
       ]
     }
   ]

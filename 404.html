@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap">
-  <link rel="stylesheet" href="css/design-system.css?v=1777925657">
+  <link rel="stylesheet" href="css/design-system.css?v=1778013593">
   <link rel="icon" href="img/logo-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="img/logo-icon.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -153,7 +153,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="adm-banner__slide"><span class="adm-banner__msg-long">Built on the Legacy of Prof. Waris Mir</span><span class="adm-banner__msg-short">Prof. Waris Mir Campus</span></div>
     </div>
   </div>
-  <a href="enroll.html" class="adm-banner__link" data-wa-cta="banner-text" data-wa-source="web-banner-text">Admissions Open</a>
+  <a href="/enroll" class="adm-banner__link" data-wa-cta="banner-text" data-wa-source="web-banner-text">Admissions Open</a>
 </div>
   <div class="e404">
     <div class="e404__code">404</div>
@@ -166,16 +166,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="e404__primary">
       <a href="/" class="btn btn--red btn--lg">Back to Home</a>
-      <a href="enroll.html" class="btn btn--outline btn--lg">Book a Visit</a>
+      <a href="/enroll" class="btn btn--outline btn--lg">Book a Visit</a>
     </div>
 
     <p class="e404__h3">Or jump straight to</p>
     <div class="e404__quick">
-      <a href="academics.html" class="e404__qcard"><strong>Academics</strong><span>Cambridge curriculum and AI integration</span></a>
-      <a href="ai-robotics.html" class="e404__qcard"><strong>AI &amp; Robotics</strong><span>Our flagship programme from age 3</span></a>
-      <a href="campus.html" class="e404__qcard"><strong>Campus</strong><span>Tour our classrooms and labs</span></a>
-      <a href="enroll.html" class="e404__qcard"><strong>Admissions</strong><span>Book a tour and join 2026-27</span></a>
-      <a href="blog/" class="e404__qcard"><strong>Parent Guides</strong><span>Honest answers for Lahore parents</span></a>
+      <a href="/academics" class="e404__qcard"><strong>Academics</strong><span>Cambridge curriculum and AI integration</span></a>
+      <a href="/ai-robotics" class="e404__qcard"><strong>AI &amp; Robotics</strong><span>Our flagship programme from age 3</span></a>
+      <a href="/campus" class="e404__qcard"><strong>Campus</strong><span>Tour our classrooms and labs</span></a>
+      <a href="/enroll" class="e404__qcard"><strong>Admissions</strong><span>Book a tour and join 2026-27</span></a>
+      <a href="/blog/" class="e404__qcard"><strong>Parent Guides</strong><span>Honest answers for Lahore parents</span></a>
       <a href="https://wa.me/923010499777" class="e404__qcard" target="_blank" rel="noopener" data-wa-source="404-quick"><strong>WhatsApp Us</strong><span>0301-0499777 · we usually reply within minutes</span></a>
     </div>
   </div>
@@ -191,15 +191,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     /* Pattern → suggested live URL + display label */
     var rules = [
-      [/admiss?ion|enrol|apply|fee|tuition|book/, '/enroll.html', 'our admissions page'],
-      [/academic|curriculum|igcse|cambridge|o-?level|subject/, '/academics.html', 'our academics page'],
-      [/ai|robot|coding|stem|tech/, '/ai-robotics.html', 'our AI & Robotics page'],
-      [/campus|facilit|building|library|lab/, '/campus.html', 'our campus page'],
-      [/tour|gallery|photo|yearbook|virtual/, '/yearbook.html', 'our virtual tour'],
-      [/news|event|blog|article/, '/news.html', 'our news page'],
-      [/contact|address|locat|reach|phone/, '/index.html#contact', 'our contact details'],
-      [/about|story|history|mission|vision|principal|leader|teacher|faculty|team|staff/, '/about.html', 'our about page'],
-      [/ask|prof|chat|tutor|help/, '/ask-prof-mir.html', 'Ask Prof Mir']
+      [/admiss?ion|enrol|apply|fee|tuition|book/, '/enroll', 'our admissions page'],
+      [/academic|curriculum|igcse|cambridge|o-?level|subject/, '/academics', 'our academics page'],
+      [/ai|robot|coding|stem|tech/, '/ai-robotics', 'our AI & Robotics page'],
+      [/campus|facilit|building|library|lab/, '/campus', 'our campus page'],
+      [/tour|gallery|photo|yearbook|virtual/, '/yearbook', 'our virtual tour'],
+      [/news|event|blog|article/, '/news', 'our news page'],
+      [/contact|address|locat|reach|phone/, '/#contact', 'our contact details'],
+      [/about|story|history|mission|vision|principal|leader|teacher|faculty|team|staff/, '/about', 'our about page'],
+      [/ask|prof|chat|tutor|help/, '/ask-prof-mir', 'Ask Prof Mir']
     ];
     var match = null;
     for (var i = 0; i < rules.length; i++) {
@@ -233,6 +233,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     } catch(e){}
   })();
   </script>
-<script defer src="/js/vercel-events.js?v=1777925657"></script>
+<script defer src="/js/vercel-events.js?v=1778013593"></script>
 </body>
 </html>

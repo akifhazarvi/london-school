@@ -248,7 +248,7 @@
         /* Legacy options block — kept for the "Drop your number" entry route
            (the form lives below) and as a fallback if chat is exited. */
         '<div class="ls-w__legacy" id="ls-w-legacy" hidden>',
-        '<a href="enroll.html" class="ls-w__opt ls-w__opt--primary" data-w-cta="book-visit">',
+        '<a href="/enroll" class="ls-w__opt ls-w__opt--primary" data-w-cta="book-visit">',
           '<span class="ls-w__opt-ico" style="background:rgba(193,53,61,.1);color:var(--red)">',
             '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>',
           '</span>',
@@ -629,7 +629,7 @@
           { key: 'tour', label: 'Reserve a campus visit', ico: ICON.cal },
           { key: 'wa',   label: 'Chat on WhatsApp',       ico: ICON.wa },
         ], function(o){
-          if (o.key === 'tour') { trackAll('book_spot_click', { source: 'chatbot', page: path }); window.location.href = 'enroll.html'; }
+          if (o.key === 'tour') { trackAll('book_spot_click', { source: 'chatbot', page: path }); window.location.href = '/enroll'; }
           else goToWA('Assalamu Alaikum, I\'d love to come and visit the campus.', 'book-tour');
         });
       } else if (it._q.cta === 'maps') {

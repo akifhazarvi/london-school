@@ -38,6 +38,5 @@ Allow: /
 Disallow: /editor.html
 Disallow: /server.py
 Disallow: /content.json
-Disallow: /faculty.html
 
 Sitemap: https://londoneducation.pk/sitemap.xml
