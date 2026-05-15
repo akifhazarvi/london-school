@@ -586,6 +586,91 @@
       "source": "/professor-waris-mir",
       "destination": "/legacy/prof-waris-mir",
       "permanent": true
+    },
+    {
+      "source": "/enroll.html",
+      "destination": "/enroll",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/academics.html",
+      "destination": "/academics",
+      "permanent": true
+    },
+    {
+      "source": "/yearbook.html",
+      "destination": "/yearbook",
+      "permanent": true
+    },
+    {
+      "source": "/ai-robotics.html",
+      "destination": "/ai-robotics",
+      "permanent": true
+    },
+    {
+      "source": "/ask-prof-mir.html",
+      "destination": "/ask-prof-mir",
+      "permanent": true
+    },
+    {
+      "source": "/news.html",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/campus.html",
+      "destination": "/campus",
+      "permanent": true
+    },
+    {
+      "source": "/thank-you.html",
+      "destination": "/thank-you",
+      "permanent": true
+    },
+    {
+      "source": "/legacy/prof-waris-mir.html",
+      "destination": "/legacy/prof-waris-mir",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cambridge-vs-matric-vs-federal-board-lahore.html",
+      "destination": "/blog/cambridge-vs-matric-vs-federal-board-lahore",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cambridge-vs-montessori-lahore.html",
+      "destination": "/blog/cambridge-vs-montessori-lahore",
+      "permanent": true
+    },
+    {
+      "source": "/blog/choosing-cambridge-school-lahore.html",
+      "destination": "/blog/choosing-cambridge-school-lahore",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-school-for-4-year-old.html",
+      "destination": "/blog/how-to-choose-school-for-4-year-old",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lahore-school-holidays-2026.html",
+      "destination": "/blog/lahore-school-holidays-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/what-is-igcse.html",
+      "destination": "/blog/what-is-igcse",
+      "permanent": true
     }
   ],
   "headers": [
