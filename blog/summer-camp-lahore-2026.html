@@ -150,13 +150,13 @@
     .post-hero { padding: calc(var(--banner-h) + clamp(4rem, 7vw, 5.5rem)) 0 clamp(2rem, 4vw, 3rem); background: var(--cream); position: relative; z-index: 2; }
     .post-hero h1 { font-family: var(--font-head); color: var(--navy); font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; max-width: 820px; margin: var(--s-3) 0 var(--s-4); }
     .post-meta { color: var(--gray-600); font-size: 0.95rem; display: flex; gap: var(--s-4); flex-wrap: wrap; }
-    .post-feature-img { display: block; width: 100%; max-width: 1100px; margin: 0 auto; border-radius: var(--r-2xl); object-fit: cover; box-shadow: var(--sh-md); aspect-ratio: 16/7; }
+    .post-feature-img { display: block; width: auto; max-width: 100%; max-height: 70vh; margin: 0 auto; border-radius: var(--r-2xl); box-shadow: var(--sh-md); height: auto; }
     .post-feature-wrap { background: var(--cream); padding: 0 clamp(1rem, 4vw, 2rem) clamp(2rem, 4vw, 3rem); position: relative; z-index: 2; }
     .post-body { padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem); background: var(--white); position: relative; z-index: 2; }
     .post-body .container { max-width: 760px; }
-    /* Inline images break out of the narrow article column on tablet+ so they don't look squashed */
-    .post-body .camp-img { max-width: 980px; width: calc(100% + clamp(0px, 8vw, 220px)); margin-left: calc(-1 * clamp(0px, 4vw, 110px)); aspect-ratio: 16/9; object-fit: cover; }
-    @media (max-width: 760px) { .post-body .camp-img { width: 100%; margin-left: 0; aspect-ratio: 4/3; } }
+    /* Inline images: portrait source (3:4), render at natural ratio, centred with a max height so they don't dominate */
+    .post-body .camp-img { display: block; width: auto; max-width: 100%; max-height: 560px; height: auto; margin: var(--s-6) auto; border-radius: var(--r-xl); box-shadow: var(--sh-md); }
+    @media (max-width: 600px) { .post-body .camp-img { max-height: 480px; } }
     .post-body h2 { font-family: var(--font-head); color: var(--navy); font-size: clamp(1.5rem, 2.8vw, 2rem); margin: clamp(2rem, 4vw, 3rem) 0 var(--s-4); line-height: 1.25; }
     .post-body h3 { font-family: var(--font-head); color: var(--navy); font-size: 1.25rem; margin: var(--s-6) 0 var(--s-3); }
     .post-body p { color: var(--gray-700); font-size: 1.05rem; line-height: 1.75; margin: 0 0 var(--s-4); }
