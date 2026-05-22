@@ -147,12 +147,12 @@
   ]
   </script>
   <style>
-    .post-hero { padding: calc(var(--banner-h) + clamp(4rem, 7vw, 5.5rem)) 0 clamp(2rem, 4vw, 3rem); background: var(--cream); }
+    .post-hero { padding: calc(var(--banner-h) + clamp(4rem, 7vw, 5.5rem)) 0 clamp(2rem, 4vw, 3rem); background: var(--cream); position: relative; z-index: 2; }
     .post-hero h1 { font-family: var(--font-head); color: var(--navy); font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; max-width: 820px; margin: var(--s-3) 0 var(--s-4); }
     .post-meta { color: var(--gray-600); font-size: 0.95rem; display: flex; gap: var(--s-4); flex-wrap: wrap; }
-    .post-feature-img { display: block; width: 100%; max-width: 800px; margin: 0 auto; border-radius: var(--r-xl); object-fit: cover; box-shadow: var(--sh-md); }
-    .post-feature-wrap { background: var(--cream); padding: 0 clamp(1rem, 4vw, 2rem) clamp(2rem, 4vw, 3rem); }
-    .post-body { padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem); background: var(--white); }
+    .post-feature-img { display: block; width: 100%; max-width: 1100px; margin: 0 auto; border-radius: var(--r-2xl); object-fit: cover; box-shadow: var(--sh-md); aspect-ratio: 16/7; }
+    .post-feature-wrap { background: var(--cream); padding: 0 clamp(1rem, 4vw, 2rem) clamp(2rem, 4vw, 3rem); position: relative; z-index: 2; }
+    .post-body { padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem); background: var(--white); position: relative; z-index: 2; }
     .post-body .container { max-width: 760px; }
     .post-body h2 { font-family: var(--font-head); color: var(--navy); font-size: clamp(1.5rem, 2.8vw, 2rem); margin: clamp(2rem, 4vw, 3rem) 0 var(--s-4); line-height: 1.25; }
     .post-body h3 { font-family: var(--font-head); color: var(--navy); font-size: 1.25rem; margin: var(--s-6) 0 var(--s-3); }
@@ -163,33 +163,74 @@
     .post-body strong { color: var(--navy); }
     .post-body blockquote { border-left: 4px solid var(--sage); background: var(--sage-50, #f1f9f4); margin: var(--s-6) 0; padding: var(--s-4) var(--s-5); border-radius: var(--r-md); color: var(--navy); font-style: italic; }
     .camp-img { display: block; width: 100%; border-radius: var(--r-xl); box-shadow: var(--sh-md); margin: var(--s-6) 0; }
-    .camp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5); margin: var(--s-6) 0; }
-    @media (max-width: 600px) { .camp-grid { grid-template-columns: 1fr; } }
-    .camp-grid img { width: 100%; border-radius: var(--r-xl); box-shadow: var(--sh-md); }
-    .activity-card { background: var(--cream); border-radius: var(--r-lg); padding: var(--s-4) var(--s-5); margin-bottom: var(--s-4); border-left: 4px solid var(--sage); }
-    .activity-card h4 { font-family: var(--font-head); color: var(--navy); margin: 0 0 var(--s-2); font-size: 1.1rem; }
-    .activity-card p { margin: 0; color: var(--gray-700); font-size: 0.97rem; line-height: 1.6; }
-    .activity-card .price { display: inline-block; margin-top: var(--s-2); background: var(--navy); color: #fff; border-radius: var(--r-pill); padding: 2px 12px; font-size: 0.85rem; font-weight: 700; }
-    .activity-card--red { border-left-color: var(--red); }
-    .post-cta { background: var(--cream); border-radius: var(--r-xl); padding: clamp(1.5rem, 3vw, 2.25rem); margin: clamp(2rem, 4vw, 3rem) 0; text-align: center; }
-    .post-cta h3 { color: var(--navy); margin: 0 0 var(--s-3); font-family: var(--font-head); }
+
+    /* "At a glance" — six-tile fact grid replaces the run-on paragraph */
+    .glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-3); margin: var(--s-4) 0 var(--s-8); }
+    .glance__tile { background: var(--cream); border-radius: var(--r-lg); padding: var(--s-4); display: flex; gap: var(--s-3); align-items: flex-start; }
+    .glance__ico { flex-shrink: 0; width: 36px; height: 36px; border-radius: var(--r-md); display: grid; place-items: center; font-size: 18px; }
+    .glance__tile:nth-child(1) .glance__ico { background: var(--red-50); }
+    .glance__tile:nth-child(2) .glance__ico { background: var(--sage-50); }
+    .glance__tile:nth-child(3) .glance__ico { background: var(--peach-50); }
+    .glance__tile:nth-child(4) .glance__ico { background: var(--navy-50); }
+    .glance__tile:nth-child(5) .glance__ico { background: var(--red-50); }
+    .glance__tile:nth-child(6) .glance__ico { background: var(--sage-50); }
+    .glance__label { display: block; font-family: var(--font-head); font-size: 0.78rem; font-weight: 800; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+    .glance__value { display: block; font-family: var(--font-head); color: var(--navy); font-weight: 700; font-size: 0.98rem; line-height: 1.3; }
+    @media (max-width: 720px) { .glance { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px) { .glance { grid-template-columns: 1fr; } }
+
+    /* Track header — promotes age badges to real section markers */
+    .track { margin: clamp(2.5rem, 5vw, 4rem) 0 var(--s-6); padding: var(--s-5) var(--s-6); border-radius: var(--r-xl); display: flex; align-items: center; gap: var(--s-4); }
+    .track--young { background: var(--peach-50); }
+    .track--older { background: var(--navy-50); }
+    .track__age { font-family: var(--font-head); font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 900; line-height: 1; padding: var(--s-3) var(--s-4); border-radius: var(--r-lg); flex-shrink: 0; }
+    .track--young .track__age { background: var(--peach); color: var(--navy); }
+    .track--older .track__age { background: var(--navy); color: #fff; }
+    .track__heading { margin: 0; font-family: var(--font-head); color: var(--navy); font-size: clamp(1.15rem, 2.2vw, 1.35rem); line-height: 1.3; }
+    .track__heading small { display: block; font-family: var(--font-body); font-weight: 500; color: var(--gray-700); font-size: 0.92rem; margin-top: 4px; }
+
+    /* Activity grid — replaces the 13-card vertical wall */
+    .act-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-5); margin: var(--s-6) 0; }
+    @media (max-width: 640px) { .act-grid { grid-template-columns: 1fr; gap: var(--s-4); } }
+    .act { border-radius: var(--r-xl); padding: var(--s-5) var(--s-5) var(--s-4); position: relative; display: flex; flex-direction: column; transition: transform .3s var(--ease, ease), box-shadow .3s ease; }
+    .act:hover { transform: translateY(-4px); box-shadow: 0 18px 32px -14px rgba(47,85,129,.18); }
+    .act--red { background: var(--red-50); }
+    .act--sage { background: var(--sage-50); }
+    .act--peach { background: var(--peach-50); }
+    .act--navy { background: var(--navy-50); }
+    .act__head { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-3); }
+    .act__ico { width: 44px; height: 44px; border-radius: var(--r-md); background: rgba(255,255,255,.85); display: grid; place-items: center; font-size: 22px; flex-shrink: 0; }
+    .act__title { font-family: var(--font-head); color: var(--navy); margin: 0; font-size: 1.05rem; font-weight: 800; line-height: 1.25; }
+    .act__desc { color: var(--gray-700); font-size: 0.95rem; line-height: 1.6; margin: 0 0 var(--s-4); flex: 1; }
+    .act__price { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: #fff; color: var(--navy); border-radius: var(--r-pill); padding: 5px 14px; font-size: 0.88rem; font-weight: 800; font-family: var(--font-head); box-shadow: 0 1px 3px rgba(47,85,129,.08); }
+    .act__price::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+
+    /* Sticky in-page jump nav */
+    .post-jump { position: sticky; top: calc(var(--banner-h) + 64px); z-index: 10; background: var(--white); padding: var(--s-3) 0; border-bottom: 1px solid var(--gray-100, #f0f0ee); margin: 0 0 var(--s-4); }
+    .post-jump__inner { display: flex; gap: var(--s-3); flex-wrap: wrap; justify-content: center; }
+    .post-jump a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--r-pill); background: var(--cream); color: var(--navy); font-family: var(--font-head); font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: background .2s ease, transform .2s ease; }
+    .post-jump a:hover { background: var(--peach-50); transform: translateY(-1px); }
+
+    .post-cta { background: linear-gradient(135deg, var(--red-50) 0%, var(--peach-50) 100%); border-radius: var(--r-2xl); padding: clamp(1.75rem, 3.5vw, 2.5rem); margin: clamp(2rem, 4vw, 3rem) 0; text-align: center; border: 1px solid rgba(193,53,61,.08); }
+    .post-cta h3 { color: var(--navy); margin: 0 0 var(--s-3); font-family: var(--font-head); font-size: clamp(1.2rem, 2.4vw, 1.5rem); }
     .post-cta p { color: var(--gray-700); margin: 0 0 var(--s-5); }
+
     .post-faq { margin-top: clamp(2rem, 4vw, 3rem); }
-    .post-faq details { background: var(--cream); border-radius: var(--r-md); padding: var(--s-4) var(--s-5); margin-bottom: var(--s-3); }
-    .post-faq summary { font-family: var(--font-head); font-weight: 700; color: var(--navy); cursor: pointer; font-size: 1.05rem; }
+    .post-faq details { background: var(--cream); border-radius: var(--r-lg); padding: var(--s-4) var(--s-5); margin-bottom: var(--s-3); transition: background .25s ease; }
+    .post-faq details[open] { background: var(--peach-50); }
+    .post-faq summary { font-family: var(--font-head); font-weight: 700; color: var(--navy); cursor: pointer; font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: var(--s-3); }
+    .post-faq summary::-webkit-details-marker { display: none; }
+    .post-faq summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--red); font-weight: 700; transition: transform .25s ease; flex-shrink: 0; }
+    .post-faq details[open] summary::after { transform: rotate(45deg); }
     .post-faq details[open] summary { margin-bottom: var(--s-3); }
-    .post-related { background: var(--cream); padding: clamp(3rem, 6vw, 5rem) 0; }
+
+    .post-related { background: var(--cream); padding: clamp(3rem, 6vw, 5rem) 0; position: relative; z-index: 2; }
     .post-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s-5); margin-top: var(--s-6); }
     .post-related-card { background: var(--white); border-radius: var(--r-lg); padding: var(--s-5); box-shadow: var(--sh-sm); transition: transform 0.2s; }
     .post-related-card:hover { transform: translateY(-3px); }
     .post-related-card h4 { font-family: var(--font-head); color: var(--navy); margin: 0 0 var(--s-2); font-size: 1.1rem; }
     .post-related-card p { color: var(--gray-600); font-size: 0.92rem; margin: 0 0 var(--s-3); line-height: 1.55; }
     .post-related-card a { color: var(--red); font-weight: 700; text-decoration: none; }
-    .post-callout { background: #fdf3ec; border-left: 4px solid var(--red); padding: var(--s-4) var(--s-5); border-radius: var(--r-md); margin: 0 0 var(--s-5); }
-    .post-callout p { margin: 0; color: var(--gray-700); font-size: 0.97rem; line-height: 1.65; }
-    .post-callout p:first-child { color: var(--navy); font-weight: 700; margin-bottom: var(--s-2); }
-    .age-badge { display: inline-block; background: var(--navy); color: #fff; border-radius: var(--r-pill); padding: 4px 16px; font-size: 0.9rem; font-weight: 700; margin-bottom: var(--s-4); font-family: var(--font-head); }
-    .age-badge--red { background: var(--red); }
   </style>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
@@ -204,6 +245,16 @@
 </head>
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MJGPGFQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="shapes" aria-hidden="true">
+  <div class="shape shape--peach shape-lg" style="top:240px;left:-440px"></div>
+  <div class="shape shape--sage shape-md" style="top:1040px;right:-280px"></div>
+  <div class="shape shape--red shape-sm" style="top:1840px;left:-120px"></div>
+  <div class="shape shape--navy shape-md" style="top:2640px;right:-280px"></div>
+  <div class="shape shape--peach shape-sm" style="top:3440px;left:-120px"></div>
+  <div class="shape shape--sage shape-lg" style="top:4240px;right:-440px"></div>
+  <div class="shape shape--red shape-md" style="top:5040px;left:-280px"></div>
+</div>
 
 <div class="adm-banner" role="region" aria-label="Admissions announcement">
   <div class="adm-banner__rotator">
@@ -279,10 +330,24 @@
 
     <p>At London School in Township, Lahore, we asked that same question before designing our Summer Camp for 2026. The answer is 13 distinct activity programmes, two age tracks, and a four-day-a-week schedule that keeps mornings purposeful while leaving families free in the afternoons.</p>
 
-    <div class="post-callout">
-      <p>At a glance</p>
-      <p><strong>Dates:</strong> Summer 2026 &middot; <strong>Days:</strong> 4 days a week &middot; <strong>Time:</strong> 10:30 AM – 12:30 PM &middot; <strong>Ages:</strong> 3–14 &middot; <strong>Location:</strong> Township, Lahore &middot; <strong>Fees:</strong> Rs. 5,000 – Rs. 8,000 per programme &middot; <strong>Register:</strong> WhatsApp 0301-0499777</p>
+    <div class="glance" role="list" aria-label="Summer camp at a glance">
+      <div class="glance__tile" role="listitem"><div class="glance__ico" aria-hidden="true">📅</div><div><span class="glance__label">Dates</span><span class="glance__value">Summer 2026</span></div></div>
+      <div class="glance__tile" role="listitem"><div class="glance__ico" aria-hidden="true">⏰</div><div><span class="glance__label">Time</span><span class="glance__value">10:30 AM – 12:30 PM</span></div></div>
+      <div class="glance__tile" role="listitem"><div class="glance__ico" aria-hidden="true">🗓️</div><div><span class="glance__label">Days</span><span class="glance__value">4 days a week</span></div></div>
+      <div class="glance__tile" role="listitem"><div class="glance__ico" aria-hidden="true">👶</div><div><span class="glance__label">Ages</span><span class="glance__value">3–14 years</span></div></div>
+      <div class="glance__tile" role="listitem"><div class="glance__ico" aria-hidden="true">💰</div><div><span class="glance__label">Fees</span><span class="glance__value">Rs. 5,000 – 8,000</span></div></div>
+      <div class="glance__tile" role="listitem"><div class="glance__ico" aria-hidden="true">📍</div><div><span class="glance__label">Location</span><span class="glance__value">Township, Lahore</span></div></div>
     </div>
+
+    <nav class="post-jump" aria-label="Jump to section">
+      <div class="post-jump__inner">
+        <a href="#ages-3-7">Ages 3–7</a>
+        <a href="#ages-7-14">Ages 7–14</a>
+        <a href="#how-different">Why us</a>
+        <a href="#register">Register</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
 
     <h2>Why summer learning matters — and why it doesn't have to be boring</h2>
 
@@ -298,97 +363,107 @@
 
     <img src="../img/summer-camp-ages-3-7.jpg" alt="London School Summer Camp activities for ages 3 to 7 — Township Lahore" class="camp-img" decoding="async" loading="lazy">
 
-    <span class="age-badge">Ages 3–7</span>
-
-    <p>Our foundational track is built for Pre-Nursery, Nursery, KG and early primary children. Activities at this age focus on sensory exploration, early numeracy, vocabulary, creative expression, and the kind of structured play that builds concentration without pressure.</p>
-
-    <div class="activity-card">
-      <h4>Colour Craze Studio</h4>
-      <p>Paint, craft and DIY projects that develop fine motor skills, colour recognition and creative confidence. Children work with a range of materials — watercolours, clay, fabric and collage — guided by structured projects that still leave room for individual expression.</p>
-      <span class="price">Rs. 6,000</span>
+    <div class="track track--young" id="ages-3-7">
+      <div class="track__age">3–7</div>
+      <h3 class="track__heading">Foundational Track<small>Pre-Nursery, Nursery, KG and early primary. Sensory, playful and structured.</small></h3>
     </div>
 
-    <div class="activity-card">
-      <h4>Brain Buzz Math Lab</h4>
-      <p>Games and puzzles designed specifically for young minds — not worksheets. Tangrams, pattern blocks, number stories, and competitive team challenges make early numeracy feel like play. Children leave with stronger number sense and genuine enthusiasm for maths.</p>
-      <span class="price">Rs. 6,000</span>
-    </div>
+    <p>Activities at this age focus on sensory exploration, early numeracy, vocabulary, creative expression, and the kind of structured play that builds concentration without pressure.</p>
 
-    <div class="activity-card">
-      <h4>Beat Bounce Club</h4>
-      <p>Music, movement, dance and fitness combined into one energetic session. Rhythm exercises build listening skills and coordination. Dance sequences build physical confidence. This is one of our most popular activities for ages 3–7 because it gives young children an outlet for the energy they have in abundance.</p>
-      <span class="price">Rs. 5,000</span>
-    </div>
+    <div class="act-grid">
+      <article class="act act--red">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🎨</div><h4 class="act__title">Colour Craze Studio</h4></div>
+        <p class="act__desc">Paint, craft and DIY projects that develop fine motor skills, colour recognition and creative confidence. Children work with watercolours, clay, fabric and collage — guided projects that still leave room for individual expression.</p>
+        <span class="act__price">Rs. 6,000</span>
+      </article>
 
-    <div class="activity-card">
-      <h4>Story Sparks Club</h4>
-      <p>Reading adventures built to expand vocabulary, comprehension and the love of books. Sessions combine read-alouds, storytelling activities, role play and creative writing starters. Children who leave reluctant readers often leave Story Sparks with a book under their arm.</p>
-      <span class="price">Rs. 6,000</span>
-    </div>
+      <article class="act act--sage">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🧩</div><h4 class="act__title">Brain Buzz Math Lab</h4></div>
+        <p class="act__desc">Games and puzzles designed for young minds — not worksheets. Tangrams, pattern blocks, number stories, and team challenges make early numeracy feel like play and build genuine enthusiasm for maths.</p>
+        <span class="act__price">Rs. 6,000</span>
+      </article>
 
-    <div class="activity-card">
-      <h4>Coder Kids</h4>
-      <p>An introduction to coding, robotics and technology activities for beginners. Children at this age learn through visual programming (think Scratch Jr.) and simple robotics kits. The goal is not to produce programmers at age six — it is to build computational thinking: sequencing, pattern recognition and problem-solving logic that serves every subject they will ever study.</p>
-      <span class="price">Rs. 8,000</span>
+      <article class="act act--peach">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🎵</div><h4 class="act__title">Beat Bounce Club</h4></div>
+        <p class="act__desc">Music, movement, dance and fitness in one energetic session. Rhythm exercises build listening skills and coordination; dance sequences build physical confidence. One of our most popular activities for ages 3–7.</p>
+        <span class="act__price">Rs. 5,000</span>
+      </article>
+
+      <article class="act act--navy">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">📚</div><h4 class="act__title">Story Sparks Club</h4></div>
+        <p class="act__desc">Reading adventures built to expand vocabulary, comprehension and the love of books. Sessions combine read-alouds, storytelling, role play and creative writing starters. Reluctant readers leave with a book under their arm.</p>
+        <span class="act__price">Rs. 6,000</span>
+      </article>
+
+      <article class="act act--red">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">💻</div><h4 class="act__title">Coder Kids</h4></div>
+        <p class="act__desc">An introduction to coding, robotics and technology for beginners. Visual programming (Scratch Jr.) and simple robotics kits build computational thinking — sequencing, pattern recognition and problem-solving logic that serves every subject they will ever study.</p>
+        <span class="act__price">Rs. 8,000</span>
+      </article>
     </div>
 
     <img src="../img/summer-camp-ages-7-14-ai.jpg" alt="London School Summer Camp AI and Robotics programme for ages 7 to 14 — Township Lahore" class="camp-img" decoding="async" loading="lazy">
 
-    <span class="age-badge age-badge--red">Ages 7–14</span>
-
-    <p>Our advanced track is for Class 1 through Class 7 students. Activities at this age go deeper — real AI concepts, hands-on robotics engineering, a foreign language, physical discipline through martial arts, and structured leadership development. Fees are slightly higher to reflect the specialist instructors and materials involved.</p>
-
-    <div class="activity-card activity-card--red">
-      <h4>AI Innovators</h4>
-      <p>Children learn to code with AI tools, understand how machine learning works at a conceptual level, and build simple AI-assisted projects. This is the programme most directly connected to London School's year-round AI and Robotics curriculum — and gives our own students a head start for September.</p>
-      <span class="price">Rs. 8,000</span>
+    <div class="track track--older" id="ages-7-14">
+      <div class="track__age">7–14</div>
+      <h3 class="track__heading">Advanced Track<small>Class 1 through Class 7. Real AI, hands-on robotics, leadership and physical discipline.</small></h3>
     </div>
 
-    <div class="activity-card activity-card--red">
-      <h4>Inventors' Club</h4>
-      <p>Build your own robots. Children work with LEGO Mindstorms and Arduino-based kits to design, build and programme functional robots. The programme moves from basic assembly to challenge-based engineering — by the end, children are solving real engineering problems in small teams.</p>
-      <span class="price">Rs. 8,000</span>
-    </div>
+    <p>Activities at this age go deeper — real AI concepts, hands-on robotics engineering, a foreign language, physical discipline through martial arts, and structured leadership development. Fees reflect the specialist instructors and materials involved.</p>
 
-    <div class="activity-card activity-card--red">
-      <h4>Mandarin Explorers</h4>
-      <p>An introduction to Mandarin Chinese — one of the world's most widely spoken languages and increasingly valuable for children entering a globally connected economy. Sessions focus on conversational basics, tones, pinyin and Chinese culture. No prior knowledge needed.</p>
-      <span class="price">Rs. 8,000</span>
-    </div>
+    <div class="act-grid">
+      <article class="act act--red">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🤖</div><h4 class="act__title">AI Innovators</h4></div>
+        <p class="act__desc">Children learn to code with AI tools, understand how machine learning works at a conceptual level, and build simple AI-assisted projects. Directly connected to London School's year-round AI and Robotics curriculum.</p>
+        <span class="act__price">Rs. 8,000</span>
+      </article>
 
-    <div class="activity-card activity-card--red">
-      <h4>Young Leaders Club</h4>
-      <p>Structured public speaking and leadership development for children aged 7–14. Sessions cover confident communication, debate, team leadership, and presentation skills. Based on research showing that communication skills are the single biggest predictor of career success, regardless of field.</p>
-      <span class="price">Rs. 6,000</span>
+      <article class="act act--navy">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🔧</div><h4 class="act__title">Inventors' Club</h4></div>
+        <p class="act__desc">Build your own robots with LEGO Mindstorms and Arduino-based kits. The programme moves from basic assembly to challenge-based engineering — by the end, children solve real engineering problems in small teams.</p>
+        <span class="act__price">Rs. 8,000</span>
+      </article>
+
+      <article class="act act--sage">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🌏</div><h4 class="act__title">Mandarin Explorers</h4></div>
+        <p class="act__desc">An introduction to Mandarin Chinese — increasingly valuable for children entering a globally connected economy. Sessions focus on conversational basics, tones, pinyin and Chinese culture. No prior knowledge needed.</p>
+        <span class="act__price">Rs. 8,000</span>
+      </article>
+
+      <article class="act act--peach">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🎤</div><h4 class="act__title">Young Leaders Club</h4></div>
+        <p class="act__desc">Structured public speaking and leadership development. Confident communication, debate, team leadership and presentation skills — based on research showing communication is the biggest predictor of career success.</p>
+        <span class="act__price">Rs. 6,000</span>
+      </article>
+
+      <article class="act act--red">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🥋</div><h4 class="act__title">Warriors' Circle</h4></div>
+        <p class="act__desc">Martial arts training built around discipline, focus and physical confidence. Structured around core principles — respect, self-control, persistence — as much as technique. Suitable for beginners and improvers alike.</p>
+        <span class="act__price">Rs. 8,000</span>
+      </article>
+
+      <article class="act act--sage">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">💃</div><h4 class="act__title">Dance Fitness Club</h4></div>
+        <p class="act__desc">A workout disguised as fun. Dance routines, fitness challenges and movement games build cardiovascular health and coordination. Children reluctant about traditional sports often thrive in Dance Fitness.</p>
+        <span class="act__price">Rs. 7,000</span>
+      </article>
+
+      <article class="act act--peach">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">✂️</div><h4 class="act__title">Crafty Crew</h4></div>
+        <p class="act__desc">Advanced DIY and craft. Origami, engineering challenges with everyday materials, textile work and product design. Develops patience, spatial thinking and the satisfaction of creating something from nothing.</p>
+        <span class="act__price">Rs. 6,000</span>
+      </article>
+
+      <article class="act act--navy">
+        <div class="act__head"><div class="act__ico" aria-hidden="true">🖌️</div><h4 class="act__title">Imagination Station</h4></div>
+        <p class="act__desc">Creative expression through visual art — painting, drawing, mixed media and digital design concepts. Children learn formal techniques alongside free exploration. Space for ideas that do not fit neatly into academic subjects.</p>
+        <span class="act__price">Rs. 6,000</span>
+      </article>
     </div>
 
     <img src="../img/summer-camp-ages-7-14-sports.jpg" alt="London School Summer Camp sports and arts activities for ages 7 to 14 — Lahore" class="camp-img" decoding="async" loading="lazy">
 
-    <div class="activity-card activity-card--red">
-      <h4>Warriors' Circle</h4>
-      <p>Martial arts training that builds discipline, focus and physical confidence. Structured around core martial arts principles — respect, self-control, persistence — as much as technique. Suitable for beginners and children with some prior experience.</p>
-      <span class="price">Rs. 8,000</span>
-    </div>
-
-    <div class="activity-card activity-card--red">
-      <h4>Dance Fitness Club</h4>
-      <p>A workout disguised as fun. Dance routines, fitness challenges and movement games that build cardiovascular health, coordination and physical confidence. Children who are reluctant about traditional sports often thrive in Dance Fitness.</p>
-      <span class="price">Rs. 7,000</span>
-    </div>
-
-    <div class="activity-card activity-card--red">
-      <h4>Crafty Crew</h4>
-      <p>Advanced DIY and craft for children who love making things. Projects include origami, engineering challenges with everyday materials, textile work and product design. Crafty Crew develops patience, spatial thinking and the satisfaction of creating something from nothing.</p>
-      <span class="price">Rs. 6,000</span>
-    </div>
-
-    <div class="activity-card activity-card--red">
-      <h4>Imagination Station</h4>
-      <p>Creative expression through visual art — painting, drawing, mixed media and digital design concepts. Children learn formal techniques alongside free exploration. Imagination Station is for children who need space to express ideas that do not fit neatly into academic subjects.</p>
-      <span class="price">Rs. 6,000</span>
-    </div>
-
-    <h2>What makes London School's summer camp different</h2>
+    <h2 id="how-different">What makes London School's summer camp different</h2>
 
     <p>There are several summer programmes available to Lahore parents every year. Here is what is different about ours.</p>
 
@@ -400,7 +475,7 @@
 
     <p><strong>The campus is in Township.</strong> For families in Township, Model Town, Johar Town and Garden Town, the commute is short. No long drives across the city. Children arrive fresh and leave without an hour in the car on either side.</p>
 
-    <h2>How to register</h2>
+    <h2 id="register">How to register</h2>
 
     <p>Seats at each activity are limited. We deliberately keep group sizes small so that instructors can give every child individual attention.</p>
 
@@ -422,7 +497,7 @@
 
     <img src="../img/summer-camp-register.jpg" alt="Register for London School Summer Camp 2026 — Township, Lahore — 0301-0499777" class="camp-img" decoding="async" loading="lazy">
 
-    <h2>Frequently asked questions about summer camp in Lahore</h2>
+    <h2 id="faq">Frequently asked questions about summer camp in Lahore</h2>
 
     <div class="post-faq">
 
