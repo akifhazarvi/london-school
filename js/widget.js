@@ -34,7 +34,7 @@
     if (!s || !s.src) return '';
     return s.src.replace(/[^/]*$/, '').replace(/js\/$/, '');
   })();
-  var LOGO_SRC    = BASE + 'img/logo-icon.webp';
+  var LOGO_SRC    = BASE + 'img/logo-icon.png';
   /* Mobile-aware first-show timing — give the user time to read the hero
      before any widget surface appears. Desktop keeps the original snappy feel. */
   var IS_MOBILE = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
