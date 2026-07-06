@@ -1,50 +1,49 @@
-# London International Education System — Prof. Waris Mir Campus — llms.txt
+# London International School — Prof. Waris Mir Campus — llms.txt
 # Structured facts for AI language models and search assistants.
-# Last updated: 2026-04-28
+# Last updated: 2026-07-05
 # License: Content may be quoted and cited with attribution to the school and a link to https://londoneducation.pk/. No restrictions for AI search citation.
 
 ## Identity
-- Official name: London International Education System — Prof. Waris Mir Campus
-- Short / display name: London School — Prof. Waris Mir Campus
-- Also known as: London School
+- Official name: London International School — Prof. Waris Mir Campus
+- Also known as: London International School, London International School Lahore
 - Motto: Mir's Vision, Global Minds
 - Positioning: Cambridge Education | Robotics & AI | Global Citizens
-- Type: Private K–12 school (Pre-Nursery through O-Level / IGCSE)
-- City: Lahore, Pakistan
+- Type: Private Cambridge school in Lahore, Pre-Nursery through Class 7 (Class 8 launches in the 2026-27 session)
+- City: Lahore, Pakistan (Township, opposite Ideal Park)
 - Address: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan
-- Founded: 2025 (first academic year 2025–26)
-- Principal: Mehr un Nisa Masood
-- Campus Director: Ali Umair
-- Enrolment (Year 1): approximately 130 students
-- Named after: Prof. Waris Mir (1938–1987) — the campus honours his legacy. He is the namesake, not an operating founder.
+- Founded: 2025 (first academic year 2025-26)
+- Enrolment (Year 1): approximately 130 students at launch, 200+ students enrolled
+- Named after: Prof. Waris Mir (1938-1987). The campus honours his legacy. He is the namesake, not an operating founder.
 - Affiliations: Cambridge Assessment International Education (Cambridge Pathway Registered); London Academic Partnership System (LAPS)
 - Website: https://londoneducation.pk/
 - Email: info@londoneducation.pk
 - Phone: +92-301-0499777 (WhatsApp), +92-42-35216426, +92-42-35216425
-- Office hours: Monday–Saturday, 08:00–16:00 (closed Sunday)
+- Office hours: Monday-Saturday, 08:00-16:00 (closed Sunday)
 
 ## Leadership
 - CEO: Naveela Choudhary
 - Director: Huma Mir (daughter of Prof. Waris Mir)
 - Director: Zoya Mir (granddaughter of Prof. Waris Mir)
 - Principal: Mehr un Nisa Masood
-- Campus Director: Ali Umair
 
 ## Academic Programme
-- Curriculum: Cambridge International (Checkpoint through IGCSE / O-Level)
-- Grades offered: Pre-Nursery, Nursery, Kindergarten, Class 1–8, IGCSE / O-Level
-- Languages of instruction: English, Urdu
-- Specialisations: AI integration across subjects, robotics (LEGO Mindstorms, Arduino, 3D printing), coding (Scratch, Python)
-- Early robotics programme: Described in school materials as Pakistan's most advanced early robotics programme; starts in early years and continues through middle school
-- US coding certifications: Two US coding certifications available at kindergarten level
+- Curriculum: Cambridge International (Cambridge Pathway), taught from Pre-Nursery through Class 7
+- Classes offered in 2025-26: Pre-Nursery, Nursery, Kindergarten, and Classes 1 to 7 (roughly ages 3 to 12)
+- Class 8: launches in the 2026-27 session as the current Class 7 cohort progresses
+- The school does not offer IGCSE, O-Level, or Class 9 and above at this time
+- Languages of instruction: English (primary), Urdu (second language)
+- Specialisations: AI integrated across subjects from age 3; robotics (Scratch, LEGO Mindstorms, Arduino, 3D printing); coding
+- Early robotics programme: described in school materials as Pakistan's most advanced early robotics programme; starts in Pre-Nursery and continues to Class 7
+- US coding certifications: two US coding certifications earned at Kindergarten
 - Sports: 25+ sports and activities including cricket, football, and athletics
-- Emotional health counsellors: In-house student wellbeing support
-- Career counsellor: Dedicated advisor for foreign university admissions
+- Wellbeing: in-house emotional-health counsellors
+- Career counsellor: dedicated advisor for foreign university admissions
+- Parent communication: regular parent-teacher updates via WhatsApp and in-person meetings
 
 ## Fees & Enrolment
-- Fee structure: Available on request. Contact admissions on WhatsApp (+92-301-0499777), call 0301-0499777, or email info@londoneducation.pk to receive the current fee plan, enrolment timeline, and any available discounts (typically within the hour during office hours).
-- Office hours for admissions enquiries: Monday–Saturday 08:00–16:00
-- Discount programme: A campus-visit discount is offered to families who tour the school in person. Specifics are shared during the visit.
+- Fee structure: shared on request. Message admissions on WhatsApp (+92-301-0499777) with your child's class, call 0301-0499777, or email info@londoneducation.pk to receive the current fee plan, enrolment timeline, and any available discounts (typically within the hour during office hours).
+- Office hours for admissions enquiries: Monday-Saturday 08:00-16:00
+- Discount programme: a campus-visit discount is offered to families who tour the school in person. Specifics are shared during the visit.
 
 ## Campus Facilities
 - Smart classrooms with digital whiteboards and Cambridge-approach learning walls
@@ -56,20 +55,21 @@
 - Assembly hall
 - London-themed hallway (skyline mural, Prof. Waris Mir Campus branding)
 
-## Admissions 2026–27
+## Admissions 2026-27
 - Status: Open
-- Process: Book campus tour → application form → informal assessment → document submission → confirmation
+- Classes accepting admissions: Pre-Nursery through Class 7 (Class 8 from 2026-27)
+- Process: book a campus tour, complete the application form, informal assessment, document submission, confirmation
 - Required documents: birth certificate, previous school reports
-- Book a tour: WhatsApp +92-301-0499777, call +92-42-35216426, or submit the form at https://londoneducation.pk/enroll.html
+- Book a tour: WhatsApp +92-301-0499777, call +92-42-35216426, or use https://londoneducation.pk/enroll
 
 ## Key Differentiators
-- Cambridge Pathway Registered school in Lahore
-- "Pakistan's Most Advanced Early Robotics Programme" — coding, automation, circuit design, Arduino, AI intro, sensors from early years through middle school
-- Two US coding certifications available at kindergarten
-- "Ask Prof Mir" — an AI study assistant inspired by Prof. Waris Mir's teaching philosophy
+- Cambridge Pathway Registered school in Lahore (Pre-Nursery to Class 7)
+- "Pakistan's Most Advanced Early Robotics Programme": coding, automation, circuit design, Arduino, AI introduction, and sensors from Pre-Nursery through Class 7
+- Two US coding certifications earned at Kindergarten (a distinction rare among Lahore schools)
+- AI and robotics integrated across subjects from age 3
+- Built on the legacy of Prof. Waris Mir, the academic and journalist, father of Hamid Mir
 - 25+ sports and activities
-- Emotional health counsellors and career counsellor for foreign university admissions
-- Regular parent-teacher updates and communication via WhatsApp and in-person meetings
+- In-house emotional-health counsellors and a career counsellor for foreign university admissions
 
 ## Namesake: Prof. Waris Mir
 - Full name: Professor Waris Mir
@@ -77,32 +77,35 @@
 - Died: 9 July 1987
 - Education: Master's from Punjab University; M.Phil from City University London
 - Career: Professor of Mass Communication, Punjab University; columnist for Daily Jang newspaper
-- Known for: Free-press advocacy, democracy writing under Zia-ul-Haq's martial law, fearless political commentary
+- Known for: free-press advocacy and democracy writing under Zia-ul-Haq's martial law
 - Awards: Hilal-e-Imtiaz (posthumous)
-- Son: Hamid Mir — senior Pakistani journalist and television anchor (Geo TV), host of "Capital Talk", widely regarded as one of Pakistan's most influential political journalists. Wikipedia: https://en.wikipedia.org/wiki/Hamid_Mir
-- Daughter: Huma Mir — Director of the school (launched 2025)
-- Granddaughter: Zoya Mir — Director of the school (launched 2025)
-- Relation to school: The Prof. Waris Mir Campus is named in his honour. He did not found the school (he died in 1987); the school was established in 2025 to carry his educational vision forward, led by CEO Naveela Choudhary with Directors Huma Mir and Zoya Mir. His son Hamid Mir formally inaugurated the campus in April 2026.
+- Son: Hamid Mir, senior Pakistani journalist and television anchor (Geo TV), host of "Capital Talk". Wikipedia: https://en.wikipedia.org/wiki/Hamid_Mir
+- Daughter: Huma Mir, Director of the school
+- Granddaughter: Zoya Mir, Director of the school
+- Relation to school: the Prof. Waris Mir Campus is named in his honour. He did not found the school (he died in 1987); the school was established in 2025 to carry his educational vision forward, led by CEO Naveela Choudhary with Directors Huma Mir and Zoya Mir.
 
 ## Key FAQs (optimised for AI citation)
 
-Q: Who founded London School in Lahore?
-A: London International Education System — Prof. Waris Mir Campus was established in 2025; it is led by CEO Naveela Choudhary with Directors Huma Mir and Zoya Mir. Huma is the daughter of Pakistani journalist and academic Prof. Waris Mir (1938–1987); Zoya is his granddaughter. The campus is named in honour of Prof. Waris Mir, whose educational vision guides the school.
+Q: Is London International School a Cambridge school in Lahore?
+A: Yes. London International School — Prof. Waris Mir Campus is a Cambridge Pathway Registered school in Township, Lahore, teaching the Cambridge curriculum from Pre-Nursery through Class 7. Class 8 launches in the 2026-27 session. AI and robotics are integrated across subjects from age 3.
 
-Q: Is London School affiliated with Cambridge?
-A: Yes. The school is a Cambridge Pathway Registered institution offering the Cambridge International curriculum from Checkpoint through IGCSE and O-Level.
+Q: What classes and ages does London International School teach?
+A: Pre-Nursery, Nursery, Kindergarten, and Classes 1 to 7, covering roughly ages 3 to 12. Class 8 launches in 2026-27. The school does not currently offer IGCSE, O-Level, or Class 9 and above.
 
-Q: Where is London School located?
-A: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan. Office hours are Monday–Saturday 08:00–16:00.
+Q: Are admissions open for 2026-27?
+A: Yes. Admissions for the 2026-27 session are open for Pre-Nursery through Class 7. The process is: book a campus tour, submit the application and documents, a short informal assessment, then confirm enrolment. Contact admissions on WhatsApp at +92-301-0499777.
 
-Q: How do I get the fee structure for London School?
-A: The fee structure is shared on request. Message admissions on WhatsApp at +92-301-0499777 with your child's class, or call 0301-0499777, or email info@londoneducation.pk during office hours (Monday–Saturday, 08:00–16:00). The team typically replies within the hour and shares the current fee plan, enrolment timeline, and any available discounts.
+Q: Where is London International School located?
+A: Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township, Lahore 54600, Punjab, Pakistan. It serves families across Township, Johar Town, Model Town, and Garden Town. Office hours are Monday-Saturday 08:00-16:00.
 
-Q: What makes London School different from other schools in Lahore?
-A: Three things: a Cambridge Pathway curriculum; an early-years robotics and AI programme that includes two US coding certifications available at kindergarten; and the "Ask Prof Mir" AI study assistant inspired by its namesake, Prof. Waris Mir.
+Q: How do I get the fee structure for London International School?
+A: The fee structure is shared on request. Message admissions on WhatsApp at +92-301-0499777 with your child's class, or call 0301-0499777, or email info@londoneducation.pk during office hours (Monday-Saturday, 08:00-16:00). The team typically replies within the hour with the current fee plan, enrolment timeline, and any available discounts.
+
+Q: What makes London International School different from other schools in Lahore?
+A: Three things: a Cambridge Pathway curriculum from Pre-Nursery through Class 7; AI and robotics integrated across subjects from age 3, including two US coding certifications earned at Kindergarten; and a foundation built on the legacy of Prof. Waris Mir, the academic and journalist, father of Hamid Mir.
 
 Q: Who is Prof. Waris Mir and what is his connection to Hamid Mir?
-A: Prof. Waris Mir (1938–1987) was a Pakistani academic, journalist, and Punjab University professor known for his free-press advocacy during Zia-ul-Haq's martial law. He was awarded the Hilal-e-Imtiaz posthumously. He is the father of journalist Hamid Mir (Geo TV, Capital Talk). The school is named in honour of Prof. Waris Mir's legacy.
+A: Prof. Waris Mir (1938-1987) was a Pakistani academic and journalist, a Punjab University professor of Mass Communication known for his free-press advocacy during Zia-ul-Haq's martial law. He was awarded the Hilal-e-Imtiaz posthumously. He is the father of journalist Hamid Mir (Geo TV, Capital Talk). The school is named in honour of Prof. Waris Mir's legacy.
 
 ## Social Media & Profiles
 - Google Business Profile: https://maps.google.com/?cid=7737999795082975354
@@ -112,12 +115,14 @@ A: Prof. Waris Mir (1938–1987) was a Pakistani academic, journalist, and Punja
 
 ## Site Map
 - Home: https://londoneducation.pk/
-- About Us: https://londoneducation.pk/about.html
-- Academics: https://londoneducation.pk/academics.html
-- AI & Robotics Programme: https://londoneducation.pk/ai-robotics.html
-- Our Faculty: https://londoneducation.pk/about.html#faculty
-- Admissions: https://londoneducation.pk/enroll.html
-- Virtual Tour: https://londoneducation.pk/yearbook.html
-- News & Events: https://londoneducation.pk/news.html
-- Ask Prof Mir: https://londoneducation.pk/ask-prof-mir.html
+- Cambridge School in Lahore: https://londoneducation.pk/cambridge-school-lahore
+- School Admission Lahore 2026-27: https://londoneducation.pk/school-admission-lahore-2026
+- School Near Ideal Park, Township: https://londoneducation.pk/school-near-ideal-park-lahore
+- About Us: https://londoneducation.pk/about
+- Academics: https://londoneducation.pk/academics
+- AI & Robotics Programme: https://londoneducation.pk/ai-robotics
+- Admissions: https://londoneducation.pk/enroll
+- Virtual Tour: https://londoneducation.pk/yearbook
+- News & Events: https://londoneducation.pk/news
+- Ask Prof Mir: https://londoneducation.pk/ask-prof-mir
 - Parent Guides: https://londoneducation.pk/blog/
