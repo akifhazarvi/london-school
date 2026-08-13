@@ -49,11 +49,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap"></noscript>
-  <link rel="stylesheet" href="css/design-system.css?v=1783297024">
-  <link rel="stylesheet" href="css/sections.css?v=1783297024">
-  <link rel="stylesheet" href="css/pages.css?v=1783297024">
-  <link rel="preload" as="style" href="css/blobs.css?v=1783297024" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/blobs.css?v=1783297024"></noscript>
+  <link rel="stylesheet" href="css/design-system.css?v=1786592638">
+  <link rel="stylesheet" href="css/sections.css?v=1786592638">
+  <link rel="stylesheet" href="css/pages.css?v=1786592638">
+  <link rel="preload" as="style" href="css/blobs.css?v=1786592638" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blobs.css?v=1786592638"></noscript>
   <script type="application/ld+json">
 [
   {
@@ -83,6 +83,35 @@
     ]
   }
 ]
+  </script>
+  <!-- Open house Event schema. Kept in a separate block with an id so
+       js/event-schedule.js can rewrite the dates to whichever campaign
+       day is currently showing, and delete it once the run has ended. -->
+  <script type="application/ld+json" id="evt-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationEvent",
+  "name": "Future Robotics Day: Open House at London International School",
+  "description": "A full day on campus built around our Robotics Lab. Children get hands on with real robots, try their first lines of code, and take on age-appropriate robotics challenges. Parents tour the classrooms and meet the academic team.",
+  "startDate": "2026-08-13T09:00:00+05:00",
+  "endDate": "2026-08-13T15:00:00+05:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "url": "https://londoneducation.pk/enroll#open-house",
+  "image": "https://londoneducation.pk/img/og/og-cultural-day.jpg",
+  "organizer": { "@id": "https://londoneducation.pk/#organization" },
+  "location": {
+    "@type": "Place",
+    "name": "London International School — Prof. Waris Mir Campus",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot #8, Sector B-2, Block 1, Ali Road, Opposite Ideal Park Township",
+      "addressLocality": "Lahore",
+      "postalCode": "54600",
+      "addressCountry": "PK"
+    }
+  }
+}
   </script>
   <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
@@ -157,6 +186,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/">Home</a>
       <span>›</span>
       <span>Admissions</span>
+    </div>
+
+    <!-- OPEN HOUSE RIBBON
+         Scent match for the dated "10 Days of the Future" ad creative: a
+         parent who just clicked "FUTURE ROBOTICS DAY, Thursday 13th August"
+         needs that date confirmed above the fold. Lives INSIDE the hero
+         because .adm-banner and .nav are both position:fixed — an in-flow
+         block above the hero would sit underneath them. The hero's
+         padding-top already clears that chrome. Content is patched by
+         js/event-schedule.js, which also removes this block once the last
+         campaign date has passed so no stale date is ever left live. -->
+    <div class="evt-ribbon" data-evt-root role="region" aria-label="Open house announcement">
+      <div class="evt-ribbon__inner">
+        <span class="evt-ribbon__tag" data-evt-rel-wrap><i aria-hidden="true"></i><span data-evt="rel">Tomorrow</span></span>
+        <p class="evt-ribbon__txt">
+          <strong data-evt="title">Future Robotics Day</strong> ·
+          <span data-evt="when">Thursday, 13 August 2026</span> ·
+          <span data-evt="time">9:00 AM to 3:00 PM</span>
+        </p>
+        <a href="#open-house" class="evt-ribbon__cta">Reserve your child's place →</a>
+      </div>
     </div>
   </div>
   <div class="container adm-hero-ad__grid">
@@ -287,6 +337,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- OPEN HOUSE EVENT SECTION
+     Mirrors the ad's "Today's Experience" list one-for-one so the parent
+     recognises the page as the same offer. Phone leads the CTA rail
+     because the phone number is the ONLY call to action on the creative;
+     WhatsApp sits beside it as the higher-converting path. -->
+<section class="pg-section evt-sec" id="open-house" data-evt-root>
+  <div class="container">
+    <div class="evt-card rv">
+      <div class="evt-card__head">
+        <span class="evt-card__day" data-evt="day">Day 3 of 10</span>
+        <span class="evt-card__rel" data-evt-rel-wrap><span data-evt="rel">Tomorrow</span></span>
+      </div>
+
+      <h2 class="evt-card__title" data-evt="title">Future Robotics Day</h2>
+      <p class="evt-card__hook">Will your child create technology, or only consume it?</p>
+      <p class="evt-card__blurb" data-evt="blurb">A full day on campus built around our Robotics Lab. Children get hands on with real robots, try their first lines of code, and take on age-appropriate robotics challenges. Parents tour the classrooms and meet the academic team.</p>
+
+      <div class="evt-meta">
+        <div class="evt-meta__item">
+          <span class="evt-meta__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+          <span><span class="evt-meta__lbl">Date</span><span class="evt-meta__val" data-evt="when">Thursday, 13 August 2026</span></span>
+        </div>
+        <div class="evt-meta__item">
+          <span class="evt-meta__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span><span class="evt-meta__lbl">Time</span><span class="evt-meta__val" data-evt="time">9:00 AM to 3:00 PM</span></span>
+        </div>
+        <div class="evt-meta__item">
+          <span class="evt-meta__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><span class="evt-meta__lbl">Venue</span><span class="evt-meta__val">Prof. Waris Mir Campus, Township, Lahore</span></span>
+        </div>
+      </div>
+
+      <div class="evt-body">
+        <div>
+          <h3 class="evt-list-h">What happens on the day</h3>
+          <ul class="evt-list" data-evt="bullets">
+            <li>Live robotics demonstrations</li>
+            <li>Discover how robots work</li>
+            <li>Introduction to coding</li>
+            <li>Robotics challenges for children</li>
+            <li>AI and problem-solving activities</li>
+            <li>Campus and classroom tour</li>
+            <li>Meet our academic team</li>
+            <li>Free placement assessment</li>
+          </ul>
+        </div>
+
+        <div class="evt-actions">
+          <span class="evt-actions__free">Free campus tour · Free placement assessment</span>
+          <h3 class="evt-actions__h">Reserve your child's place</h3>
+          <p class="evt-actions__sub">Walk-ins are welcome, but reserving means we hold a slot with the academic team so you are not waiting.</p>
+
+          <a href="tel:+923010499777" class="evt-phone" onclick="return gtag_report_conversion('tel:+923010499777');" data-phone-source="enroll-open-house">0301-0499777</a>
+
+          <div class="evt-actions__btns">
+            <a href="tel:+923010499777" class="btn btn--red btn--lg" onclick="return gtag_report_conversion('tel:+923010499777');" data-phone-source="enroll-open-house-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              Call to reserve
+            </a>
+            <a href="https://wa.me/923010499777?text=Assalamu%20Alaikum%2C%20I%20saw%20your%20Future%20Robotics%20Day%20post.%20I%20would%20like%20to%20reserve%20a%20place%20for%20my%20child."
+               onclick="return gtag_report_conversion('https://wa.me/923010499777?text=Assalamu%20Alaikum%2C%20I%20saw%20your%20Future%20Robotics%20Day%20post.%20I%20would%20like%20to%20reserve%20a%20place%20for%20my%20child.');"
+               class="btn btn--sage btn--lg" target="_blank" rel="noopener"
+               data-evt-wa data-wa-cta="open-house" data-wa-source="enroll-open-house">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+              Reserve on WhatsApp
+            </a>
+          </div>
+
+          <p class="evt-actions__note">Mon to Sat, 8:00 AM to 4:00 PM · Replies within the hour on WhatsApp</p>
+        </div>
+      </div>
+
+      <!-- Upcoming days. Populated by js/event-schedule.js (hidden until
+           it has rows) so a parent who cannot make the featured day books
+           a later one instead of bouncing. Each row deep-links to
+           WhatsApp with that specific day already written in. -->
+      <div class="evt-upcoming" data-evt-upcoming hidden>
+        <h3 class="evt-upcoming__h">Can't make that day? Come to one of these</h3>
+        <ul class="evt-upcoming__list" data-evt-upcoming-list></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="js/event-schedule.js?v=1786592638"></script>
+
 <!-- PROOF STRIP under hero (kept as trust reinforcement) -->
 <section class="pg-section" style="padding-top:clamp(2rem,4vw,3rem);padding-bottom:clamp(2rem,4vw,3rem)">
   <div class="container">
@@ -334,8 +469,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="step rv">
         <div class="step__num">3</div>
         <div class="step__body">
-          <h3>Informal Assessment</h3>
-          <p>A friendly, low-pressure session where we get to know your child. Not a test, just a conversation. Helps us place them in the right class and set them up for success from day one.</p>
+          <h3>Free Placement Assessment</h3>
+          <p>A friendly, low-pressure session where we get to know your child. Not a test, just a conversation. Helps us place them in the right class and set them up for success from day one. It costs nothing, and you can have it done on the spot during an open house day.</p>
         </div>
       </div>
       <div class="step rv">
@@ -493,8 +628,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="https://wa.me/923010499777?text=%5BWeb%20%C2%B7%20Floating%20%C2%B7%20enroll%5D%20Hi%2C%20I%20have%20a%20question%20about%20London%20School." onclick="return gtag_report_conversion('https://wa.me/923010499777?text=%5BWeb%20%C2%B7%20Floating%20%C2%B7%20enroll%5D%20Hi%2C%20I%20have%20a%20question%20about%20London%20School.');" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp" data-wa-cta="floating" data-wa-source="enroll-floating"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.025.504 3.934 1.393 5.608L0 24l6.574-1.346A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.86 0-3.632-.494-5.188-1.42l-.372-.22-3.856.79.82-3.756-.242-.385A9.686 9.686 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg></a>
 
-<script defer src="js/main.js?v=1783297024"></script>
-<script defer src="js/vercel-events.js?v=1783297024"></script>
-<script defer src="js/widget.js?v=1783297024"></script>
+<script defer src="js/main.js?v=1786592638"></script>
+<script defer src="js/vercel-events.js?v=1786592638"></script>
+<script defer src="js/widget.js?v=1786592638"></script>
 </body>
 </html>
