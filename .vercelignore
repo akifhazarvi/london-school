@@ -1,0 +1,26 @@
+# ------------------------------------------------------------------
+# Files that must never reach the public site.
+#
+# Found 2026-08-16: 24 internal markdown documents were being served
+# live at https://londoneducation.pk/<name>.md with HTTP 200. Among
+# them, docs/marketing-playbook.md exposed the internal-only monthly
+# fee structure — which site policy keeps off every public surface —
+# and the audit/report files exposed ad spend, CPL, competitor
+# analysis, and growth strategy.
+#
+# Vercel never uploads anything matched here, so these stay in git for
+# the team while being absent from the deployment entirely. This is a
+# stronger guarantee than robots.txt, which only asks crawlers not to
+# index; the files were still readable by anyone with the URL.
+#
+# The blog is pure HTML and nothing at runtime reads markdown, so
+# excluding *.md is safe. Keep docs/*.pdf deployable — the franchise
+# application form is meant to be downloaded.
+# ------------------------------------------------------------------
+
+*.md
+reports/
+audit-2026-04-25/
+
+# Dev-only content API server. The Vercel site is fully static.
+server.py
