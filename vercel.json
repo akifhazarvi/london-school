@@ -671,6 +671,26 @@
       "source": "/blog/what-is-igcse.html",
       "destination": "/blog/what-is-igcse",
       "permanent": true
+    },
+    {
+      "source": "/franchise-opportunity",
+      "destination": "/franchise",
+      "permanent": true
+    },
+    {
+      "source": "/become-a-franchisee",
+      "destination": "/franchise",
+      "permanent": true
+    },
+    {
+      "source": "/franchise-application",
+      "destination": "/franchise",
+      "permanent": true
+    },
+    {
+      "source": "/partner-with-us",
+      "destination": "/franchise",
+      "permanent": true
     }
   ],
   "headers": [

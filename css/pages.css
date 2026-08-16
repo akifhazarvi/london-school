@@ -2335,3 +2335,320 @@
   font-weight: 600;
   white-space: nowrap;
 }
+
+/* ==================================================================
+   FRANCHISE PAGE (franchise.html)
+   Investor-facing, so it borrows the admissions hero/form shell but
+   adds its own cards, campus-type grid, and FAQ disclosure list.
+   ================================================================== */
+
+/* ── Why partner cards ── */
+.fr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+.fr-card {
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--r-xl);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: var(--sh-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.fr-card:hover { transform: translateY(-3px); box-shadow: var(--sh-md); }
+.fr-card__ico {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--r-lg);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--s-4);
+}
+.fr-card__ico svg { width: 26px; height: 26px; }
+.fr-card__ico--red   { background: var(--red-50);   color: var(--red); }
+.fr-card__ico--navy  { background: var(--navy-50);  color: var(--navy); }
+.fr-card__ico--sage  { background: var(--sage-50);  color: var(--sage-dark); }
+.fr-card__ico--peach { background: var(--peach-50); color: var(--red-dark); }
+.fr-card h3 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: var(--navy-dark);
+  font-size: 1.12rem;
+  margin: 0 0 var(--s-2);
+}
+.fr-card p {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Campus type options ── */
+.fr-opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.fr-opt {
+  background: var(--white);
+  border: 2px solid var(--navy-100);
+  border-radius: var(--r-lg);
+  padding: clamp(1.25rem, 2.5vw, 1.6rem);
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.fr-opt:hover { border-color: var(--sage); transform: translateY(-3px); }
+.fr-opt__tag {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--s-3);
+}
+.fr-opt__range {
+  color: var(--navy-dark);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  margin-bottom: var(--s-2);
+}
+.fr-opt__count {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Compliance note under the campus grid — visually quiet but present. */
+.fr-note {
+  max-width: 780px;
+  margin: clamp(1.75rem, 4vw, 2.5rem) auto 0;
+  background: var(--peach-50);
+  border-left: 3px solid var(--peach-dark);
+  border-radius: var(--r-md);
+  padding: var(--s-4) var(--s-5);
+  color: var(--text-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.fr-note strong { color: var(--navy-dark); }
+
+/* ── Two-column split (partners / property) ── */
+.fr-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.fr-check { list-style: none; margin: 0; padding: 0; }
+.fr-check li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: var(--s-3);
+  color: var(--text-body);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+.fr-check li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--sage-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235FAF86' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center / 12px 12px no-repeat;
+}
+
+/* ── Application form download band ── */
+.fr-dl {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  background: var(--navy-50);
+  border: 1px solid var(--navy-100);
+  border-radius: var(--r-xl);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+.fr-dl__body h2 { margin-top: 0; }
+.fr-dl__body p {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin: 0;
+}
+.fr-dl__actions { display: grid; gap: var(--s-3); }
+.fr-dl__actions .btn { width: 100%; }
+
+/* ── FAQ disclosure list ── */
+.fr-faq {
+  max-width: 820px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--s-3);
+}
+.fr-faq__item {
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--r-lg);
+  padding: var(--s-4) var(--s-5);
+}
+.fr-faq__item summary {
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--navy-dark);
+  font-size: 1rem;
+  line-height: 1.45;
+  list-style: none;
+  position: relative;
+  padding-right: 32px;
+}
+.fr-faq__item summary::-webkit-details-marker { display: none; }
+.fr-faq__item summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.fr-faq__item[open] summary::after { content: '−'; }
+.fr-faq__item p {
+  margin: var(--s-3) 0 0;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .fr-split { grid-template-columns: 1fr; }
+  .fr-dl { grid-template-columns: 1fr; }
+}
+
+/* ── Full franchise application form (submits to WhatsApp) ── */
+.fr-app {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-md);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+.fr-app__set {
+  border: 0;
+  padding: 0;
+  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+}
+.fr-app__set:last-of-type { margin-bottom: var(--s-5); }
+.fr-app__legend {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: var(--navy-dark);
+  font-size: 1.05rem;
+  padding: 0 0 var(--s-3);
+  margin-bottom: var(--s-4);
+  border-bottom: 1px solid var(--sand-200);
+  width: 100%;
+}
+.fr-app__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--s-4) var(--s-5);
+}
+.fr-app__opt { color: var(--text-muted); font-weight: 400; font-size: 0.85em; }
+
+/* Utilities checkbox row */
+.fr-app__checks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+  margin-top: var(--s-4);
+}
+.fr-app__checks-lbl {
+  width: 100%;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy-dark);
+  margin-bottom: var(--s-1);
+}
+.fr-app__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--sand-50);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--r-pill);
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  min-height: 40px;
+}
+.fr-app__check:hover { border-color: var(--sage); }
+.fr-app__check input { accent-color: var(--sage-dark); width: 16px; height: 16px; margin: 0; }
+.fr-app__check:has(input:checked) {
+  background: var(--sage-50);
+  border-color: var(--sage);
+  font-weight: 600;
+}
+
+.fr-app__submit { text-align: center; }
+/* WhatsApp green rather than brand red — the button IS the WhatsApp
+   handoff, so it should look like one. */
+.fr-app__btn {
+  background: var(--wa-green);
+  color: var(--white);
+  border: 0;
+  width: 100%;
+  max-width: 420px;
+  justify-content: center;
+}
+.fr-app__btn:hover { background: #1EBE5A; color: var(--white); }
+.fr-app__note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: var(--s-3) auto 0;
+  max-width: 480px;
+}
+
+/* PDF fallback strip */
+.fr-pdf {
+  max-width: 900px;
+  margin: clamp(1.25rem, 3vw, 1.75rem) auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-5);
+  background: var(--sand-50);
+  border: 1px dashed var(--sand-200);
+  border-radius: var(--r-lg);
+  padding: var(--s-4) var(--s-5);
+}
+.fr-pdf strong { display: block; color: var(--navy-dark); font-size: 0.95rem; margin-bottom: 2px; }
+.fr-pdf span { color: var(--text-muted); font-size: 0.88rem; line-height: 1.55; }
+.fr-pdf__actions { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+
+@media (max-width: 600px) {
+  .fr-app__grid { grid-template-columns: 1fr; }
+  .fr-pdf { flex-direction: column; align-items: flex-start; }
+  .fr-pdf__actions { width: 100%; }
+  .fr-pdf__actions .btn { flex: 1; }
+}
