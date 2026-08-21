@@ -633,6 +633,11 @@
       "permanent": true
     },
     {
+      "source": "/admissions-video.html",
+      "destination": "/admissions-video",
+      "permanent": true
+    },
+    {
       "source": "/legacy/prof-waris-mir.html",
       "destination": "/legacy/prof-waris-mir",
       "permanent": true
