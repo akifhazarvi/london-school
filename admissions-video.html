@@ -37,9 +37,9 @@
   <meta property="og:type" content="video.other">
   <meta property="og:site_name" content="London International School — Prof. Waris Mir Campus">
   <meta property="og:url" content="https://londoneducation.pk/admissions-video">
-  <meta property="og:video" content="https://londoneducation.pk/video/admissions-tour-2026.mp4">
-  <meta property="og:video:secure_url" content="https://londoneducation.pk/video/admissions-tour-2026.mp4">
-  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video" content="https://www.youtube.com/embed/TDyjIqEEKLc">
+  <meta property="og:video:secure_url" content="https://www.youtube.com/embed/TDyjIqEEKLc">
+  <meta property="og:video:type" content="text/html">
   <meta property="og:video:width" content="1080">
   <meta property="og:video:height" content="1440">
   <link rel="canonical" href="https://londoneducation.pk/admissions-video">
@@ -66,6 +66,9 @@
     .vid-hero{background:linear-gradient(180deg,var(--sage-50) 0%,var(--cream) 100%);
       padding:calc(var(--banner-h) + clamp(5rem,8vw,7rem)) 0 clamp(3rem,5vw,4rem)}
     .vid-wrap{max-width:26rem;margin:0 auto}
+    .vid-frame{position:relative;aspect-ratio:3/4;border-radius:var(--r-lg,16px);
+      overflow:hidden;box-shadow:0 18px 45px rgb(0 0 0 / 18%);background:#000}
+    .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
     .vid-wrap video{width:100%;height:auto;display:block;border-radius:var(--r-lg,16px);
       box-shadow:0 18px 45px rgb(0 0 0 / 18%);background:#000}
     .vid-actions{display:flex;flex-wrap:wrap;gap:var(--s-3,12px);justify-content:center;
@@ -78,7 +81,8 @@
     "name": "London International School — Open House &amp; AI Programme",
     "description": "A 46-second look at London International School — Prof. Waris Mir Campus in Township, Lahore. Open House all through August, AI and robotics from age 3, Cambridge pathway, and sports clubs. Special fee offers for the first 100 admissions.",
     "thumbnailUrl": "https://londoneducation.pk/img/og/og-admissions-video.jpg",
-    "contentUrl": "https://londoneducation.pk/video/admissions-tour-2026.mp4",
+    "contentUrl": "https://www.youtube.com/watch?v=TDyjIqEEKLc",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/TDyjIqEEKLc",
     "duration": "PT46S",
     "publisher": {
       "@type": "Organization",
@@ -158,13 +162,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="vid-wrap">
-      <video controls playsinline preload="metadata"
-             poster="img/admissions-video-poster.jpg"
-             width="1080" height="1440">
-        <source src="video/admissions-tour-2026.mp4" type="video/mp4">
-        Your browser can&#39;t play this video.
-        <a href="video/admissions-tour-2026.mp4">Download it instead</a>.
-      </video>
+      <!-- YouTube rather than the self-hosted mp4: the same video is what the
+           admissions desk sends on WhatsApp, and it has to be one canonical
+           copy so a re-cut never leaves the two out of step. nocookie keeps
+           this page free of YouTube ad cookies. -->
+      <div class="vid-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/TDyjIqEEKLc?rel=0"
+                title="London International School — Admissions 2026-27"
+                loading="lazy" allowfullscreen
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
     </div>
 
     <div class="vid-actions">
