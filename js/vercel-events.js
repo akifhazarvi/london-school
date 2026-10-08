@@ -26,6 +26,28 @@
 
   var path = window.location.pathname;
 
+  /* ── FRANCHISE FUNNEL GUARD ──────────────────────────────────────
+     /franchise sells campuses to investors. It is NOT the admissions
+     funnel, and the two must never share a conversion or an event name:
+
+       · gtag_report_conversion() fires the Google Ads conversion
+         AW-18119617331/vHvUCO2vwqIcELPWjcBD, which Google Ads imports
+         as an admissions lead. Franchise clicks flowing into it would
+         inflate conversion counts and wreck the CPL the account is
+         optimised against.
+       · Sharing `whatsapp_click` / `phone_click` / `email_click` would
+         blend investor traffic into every admissions funnel report.
+
+     So on the franchise page we suppress the AW conversion entirely and
+     emit franchise_-prefixed events instead. Everywhere else behaves
+     exactly as before. */
+  var IS_FRANCHISE = /(^|\/)franchise(\.html)?$/.test(path);
+  function ev_name(base) { return IS_FRANCHISE ? 'franchise_' + base : base; }
+  function fireAdsConversion() {
+    if (IS_FRANCHISE) return;
+    try { if (typeof window.gtag_report_conversion === 'function') window.gtag_report_conversion(); } catch(e){}
+  }
+
   /* ── WhatsApp clicks (any wa.me link, delegated) ──
      Fires GA4 + Vercel + Google Ads conversion. Existing inline onclicks on
      individual CTAs already call gtag_report_conversion, so the extra call
@@ -33,36 +55,38 @@
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href*="wa.me"]');
     if (!a) return;
-    track('whatsapp_click', {
+    track(ev_name('whatsapp_click'), {
       source: a.getAttribute('data-wa-source') || 'unspecified',
       cta: a.getAttribute('data-wa-cta') || 'unspecified',
       page: path
     });
     /* Skip duplicate AW conversion if the inline onclick already fires it. */
     if (!a.hasAttribute('data-conv-fired')) {
-      try { if (typeof window.gtag_report_conversion === 'function') window.gtag_report_conversion(); } catch(e){}
+      fireAdsConversion();
     }
   }, true);
 
   /* ── Phone clicks (tel: links) ──
      A call is a strong intent signal — fire the AW conversion so Google Ads
-     counts it, same as WA clicks and form submits. */
+     counts it, same as WA clicks and form submits. Suppressed on the
+     franchise page: an investor ringing about a campus is not an
+     admissions conversion. */
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href^="tel:"]');
     if (!a) return;
-    track('phone_click', {
+    track(ev_name('phone_click'), {
       number: (a.getAttribute('href') || '').replace('tel:', ''),
       source: a.getAttribute('data-phone-source') || 'unspecified',
       page: path
     });
-    try { if (typeof window.gtag_report_conversion === 'function') window.gtag_report_conversion(); } catch(e){}
+    fireAdsConversion();
   }, true);
 
   /* ── Email clicks ── */
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href^="mailto:"]');
     if (!a) return;
-    track('email_click', {
+    track(ev_name('email_click'), {
       address: (a.getAttribute('href') || '').replace('mailto:', '').split('?')[0],
       page: path
     });
@@ -81,12 +105,31 @@
 
   /* ── Book-a-spot clicks (in-page anchors to #leadForm on enroll.html) ──
      These are the "Reserve Spot" / "Book Free Tour" / "Get My Fee Plan" buttons
-     that scroll to the form. We treat the click as primary lead intent. */
+     that scroll to the form. We treat the click as primary lead intent.
+     Franchise pages anchor to #franchiseForm instead, so they never land
+     here and never count as admissions intent. */
   document.addEventListener('click', function(ev){
     var a = ev.target.closest && ev.target.closest('a[href="#leadForm"]');
     if (!a) return;
     track('book_spot_click', {
       label: (a.textContent || '').trim().slice(0, 60),
+      page: path
+    });
+  }, true);
+
+  /* ── Franchise funnel entry ──
+     Top of the investor funnel: clicks on any internal link to /franchise
+     (navbar, mobile menu, footer, homepage band, blog CTA), plus the
+     in-page jumps to the enquiry and application forms. Separate event
+     name so this never mixes with enroll_cta_click / book_spot_click. */
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest &&
+            ev.target.closest('a[href$="franchise"], a[href*="franchise#"], a[href="#franchiseForm"], a[href="#apply"]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    track('franchise_cta_click', {
+      label: (a.textContent || '').trim().slice(0, 60),
+      target: href.charAt(0) === '#' ? 'in-page' : 'to-franchise-page',
       page: path
     });
   }, true);
@@ -114,7 +157,7 @@
     var pct = (window.scrollY + window.innerHeight) / d.scrollHeight;
     if (pct >= 0.75) {
       scrolled75 = true;
-      track('scroll_75', { page: path });
+      track(ev_name('scroll_75'), { page: path });
     }
   }, { passive: true });
 

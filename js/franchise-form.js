@@ -23,6 +23,29 @@
   var WA_NUMBER = '923010499777';
 
   /* ================================================================
+     FRANCHISE LEAD ENDPOINT  ← CHANGE THIS ONE LINE
+     ================================================================
+     Points at the FRANCHISE Apps Script and its own Google Sheet,
+     deliberately NOT the admissions endpoint. Investor enquiries are a
+     separate funnel, chased by a different person, and must never land
+     in the admissions sheet or inflate the admissions lead count.
+
+     Deployed 2026-08-16. To rotate it, follow
+     docs/franchise-leads-apps-script.md and replace the URL below.
+     Both the short enquiry form and the full application read this
+     single constant, so this is the only line that changes.
+     ================================================================ */
+  var FRANCHISE_ENDPOINT =
+    'https://script.google.com/macros/s/AKfycbzeX-KTehoBwIzi-uKI_7eJydp9WxwmoCcB14RgtcKF1DdGHr_rQA8tpImpPFQJlEOcVg/exec';
+
+  /* Point every franchise form at it, overriding the markup's
+     data-endpoint so there is exactly one source of truth. */
+  Array.prototype.forEach.call(
+    document.querySelectorAll('#franchiseForm, #franchiseApplication'),
+    function (f) { f.setAttribute('data-endpoint', FRANCHISE_ENDPOINT); }
+  );
+
+  /* ================================================================
      FULL APPLICATION → WHATSAPP
      ================================================================
      Replaces "print the PDF, fill it in, email it back" with a form
