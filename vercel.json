@@ -339,7 +339,7 @@
     },
     {
       "source": "/principal",
-      "destination": "/about#principal",
+      "destination": "/about",
       "permanent": true
     },
     {

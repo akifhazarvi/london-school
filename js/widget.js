@@ -544,7 +544,7 @@
         { id: 'founded', q: 'How did the school start?',
           a: 'We opened our doors in 2025 in honour of <strong>Prof. Waris Mir</strong> (1938–1987) — a beloved academic, journalist, and father of journalist <strong>Hamid Mir</strong>. His values of curiosity, integrity, and care for every child shape everything we do.' },
         { id: 'leadership', q: 'Who runs the school?',
-          a: 'A small, hands-on team. Naveela Choudhary leads as CEO. Huma and Zoya Mir (Prof. Waris Mir\'s family) are our Directors. Mehr un Nisa Masood is our Principal — and the kids adore her.' },
+          a: 'A small, hands-on team. Naveela Choudhary leads as CEO. Huma and Zoya Mir (Prof. Waris Mir\'s family) are our Directors.' },
         { id: 'location', q: 'Where is the campus?',
           a: 'We\'re on Ali Road, Township — opposite Ideal Park. Easy to find, plenty of parking, and a quiet pocket of the city. Want directions?', cta: 'maps' },
         { id: 'hours', q: 'What are school hours?',
